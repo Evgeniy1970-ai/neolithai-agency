@@ -1,0 +1,10 @@
+{
+  "name": "NeolithAI Agency",
+  "short_name": "NeolithAI",
+  "icons": [
+    { "src": "/favicon-96x96.png", "sizes": "96x96", "type": "image/png" }
+  ],
+  "theme_color": "#1a6fc4",
+  "background_color": "#f4f7fb",
+  "display": "standalone"
+}

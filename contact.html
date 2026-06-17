@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — NeolithAI Agency</title>
+<meta name="description" content="Book a free 30-min consultation with NeolithAI Agency. Let's find out what's slowing your business down."/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#1a6fc4"/>
+<link rel="stylesheet" href="neolithai-shared.css"/>
+<style>
+/* CONTACT PAGE */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+
+/* BOOKING BLOCK */
+.book-block{
+  background:linear-gradient(135deg,#e8f1fb 0%,#eaf5f0 100%);
+  border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:2.5rem;margin-bottom:2rem;
+}
+.book-block-title{font-size:1.25rem;font-weight:700;color:var(--text);margin-bottom:.5rem;}
+.book-block-sub{font-size:14px;color:var(--text2);margin-bottom:1.5rem;line-height:1.6;}
+.book-features{display:flex;flex-direction:column;gap:10px;margin-bottom:1.75rem;}
+.book-feature{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text2);}
+.book-feature-check{color:var(--accent2);font-weight:700;flex-shrink:0;font-size:16px;}
+
+/* CONTACT INFO */
+.contact-info-block{display:flex;flex-direction:column;gap:1.5rem;}
+.contact-channel{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem 1.5rem;
+  display:flex;align-items:center;gap:1rem;
+  transition:border-color .2s,transform .2s;text-decoration:none;
+}
+.contact-channel:hover{border-color:var(--accent);transform:translateX(4px);}
+.contact-channel-icon{
+  width:44px;height:44px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.contact-channel-info{}
+.contact-channel-label{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text2);margin-bottom:2px;}
+.contact-channel-value{font-size:14px;font-weight:600;color:var(--text);}
+
+/* FORM */
+.contact-form-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;}
+.contact-form-title{font-size:1.25rem;font-weight:700;color:var(--text);margin-bottom:.5rem;}
+.contact-form-sub{font-size:14px;color:var(--text2);margin-bottom:2rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:1rem;}
+.form-label{font-size:13px;font-weight:600;color:var(--text2);}
+.form-label span{color:#e53e3e;margin-left:2px;}
+.form-input,.form-select,.form-textarea{
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:8px;padding:12px 14px;color:var(--text);
+  font-size:15px;font-family:inherit;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{
+  border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,111,196,0.1);
+}
+.form-textarea{resize:vertical;min-height:120px;}
+.form-select{cursor:pointer;}
+.form-submit{
+  width:100%;background:var(--accent);color:#fff;border:none;
+  padding:14px;border-radius:8px;font-size:15px;font-weight:600;
+  cursor:pointer;transition:all .2s;font-family:inherit;margin-top:.5rem;
+}
+.form-submit:hover{background:#155da0;transform:translateY(-1px);box-shadow:0 4px 16px rgba(26,111,196,0.3);}
+.form-success{
+  display:none;background:linear-gradient(135deg,#eaf5f0,#e8f1fb);
+  border:1px solid var(--accent2);border-radius:var(--radius);
+  padding:1.5rem;text-align:center;
+}
+.form-success-icon{font-size:2rem;margin-bottom:.5rem;}
+.form-success-title{font-size:1rem;font-weight:700;color:var(--accent2);margin-bottom:.25rem;}
+.form-success-text{font-size:14px;color:var(--text2);}
+
+/* MAP / LOCATION BLOCK */
+.location-block{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.5rem;
+  display:flex;align-items:center;gap:1.25rem;margin-top:1.5rem;
+}
+.location-icon{font-size:2rem;flex-shrink:0;}
+.location-title{font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:4px;}
+.location-desc{font-size:13px;color:var(--text2);line-height:1.6;}
+
+@media(max-width:900px){
+  .contact-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a class="logo-wrap" href="index.html">
+      <svg width="36" height="36" viewBox="0 0 38 38" fill="none"><rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/><rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/><rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/><circle cx="37" cy="5" r="4" fill="#0e9e7a"/><circle cx="37" cy="5" r="2" fill="white"/></svg>
+      <div class="logo-text"><span class="logo-name">Neolith<span class="ai">AI</span></span><span class="logo-sub">Agency</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="services.html" data-nav="services">Services</a></li>
+      <li><a href="cases.html" data-nav="cases">Cases</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="blog.html" data-nav="blog">Blog</a></li>
+      <li><a href="contact.html" data-nav="contact" class="active">Contact</a></li>
+      <li><a href="contact.html#book" class="nav-cta" data-nav="book">Book a Call</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang-btn="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang-btn="ru" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn" data-lang-btn="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang-btn="uk" onclick="setLang('uk')">UA</button>
+      </div>
+      <button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="cases.html" onclick="toggleMenu()">Cases</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <div class="mobile-cta-wrap"><a href="#book" class="btn-primary" style="display:block;text-align:center;" onclick="toggleMenu()">Book a Free Call</a></div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <span class="section-label"><span data-lang="en" class="active">Let's talk</span><span data-lang="ru">Давайте поговорим</span><span data-lang="es">Hablemos</span><span data-lang="uk">Давайте поговоримо</span></span>
+    <h1 class="reveal"><span data-lang="en" class="active">Start a <span class="accent">conversation</span></span><span data-lang="ru">Начните <span class="accent">разговор</span></span><span data-lang="es">Inicie una <span class="accent">conversación</span></span><span data-lang="uk">Почніть <span class="accent">розмову</span></span></h1>
+    <p class="reveal"><span data-lang="en" class="active">The first 30 minutes are always free. We'll map your biggest bottleneck together — no pitch, no pressure.</span><span data-lang="ru">Первые 30 минут всегда бесплатно. Вместе найдём ваш главный узкий момент — без питча и давления.</span><span data-lang="es">Los primeros 30 minutos son siempre gratuitos. Mapearemos juntos su mayor cuello de botella — sin pitch, sin presión.</span><span data-lang="uk">Перші 30 хвилин завжди безкоштовно. Разом знайдемо ваш головний вузький момент — без пітчу та тиску.</span></p>
+  </div>
+</div>
+
+<!-- MAIN CONTACT SECTION -->
+<section id="book">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT: BOOKING + INFO -->
+      <div>
+        <!-- FREE CONSULTATION BLOCK -->
+        <div class="book-block reveal">
+          <div class="book-block-title">🎯 <span data-lang="en" class="active">Free 30-min Consultation</span><span data-lang="ru">Бесплатная 30-минутная консультация</span><span data-lang="es">Consulta gratuita de 30 min</span><span data-lang="uk">Безкоштовна 30-хвилинна консультація</span></div>
+          <div class="book-block-sub"><span data-lang="en" class="active">Not sure if AI automation is right for your business? Let's find out together. No commitment, no sales pitch.</span><span data-lang="ru">Не уверены, подходит ли ИИ-автоматизация вашему бизнесу? Давайте выясним вместе. Без обязательств и питча.</span><span data-lang="es">¿No está seguro de si la automatización IA es adecuada para su negocio? Averigüémoslo juntos. Sin compromisos.</span><span data-lang="uk">Не впевнені, чи підходить ІІ-автоматизація вашому бізнесу? Давайте з'ясуємо разом. Без зобов'язань.</span></div>
+          <div class="book-features">
+            <div class="book-feature"><span class="book-feature-check">✓</span><span data-lang="en" class="active">We map your workflow and identify the biggest time-wasters</span><span data-lang="ru">Картируем ваш воркфлоу и определяем главные пожиратели времени</span><span data-lang="es">Mapeamos su flujo de trabajo e identificamos los mayores desperdiciadores de tiempo</span><span data-lang="uk">Картуємо ваш воркфлоу та визначаємо головних пожирачів часу</span></div>
+            <div class="book-feature"><span class="book-feature-check">✓</span><span data-lang="en" class="active">We tell you honestly if automation can help — and if it can't</span><span data-lang="ru">Честно скажем, может ли автоматизация помочь — и может ли нет</span><span data-lang="es">Le decimos honestamente si la automatización puede ayudar — y si no puede</span><span data-lang="uk">Чесно скажемо, чи може автоматизація допомогти — і чи не може</span></div>
+            <div class="book-feature"><span class="book-feature-check">✓</span><span data-lang="en" class="active">You leave with a clear picture of what's possible and what it costs</span><span data-lang="ru">Вы уходите с чётким пониманием что возможно и что стоит</span><span data-lang="es">Sale con una imagen clara de lo que es posible y lo que cuesta</span><span data-lang="uk">Ви йдете з чітким розумінням що можливо і що коштує</span></div>
+            <div class="book-feature"><span class="book-feature-check">✓</span><span data-lang="en" class="active">Typically responds within 24 hours</span><span data-lang="ru">Обычно отвечаем в течение 24 часов</span><span data-lang="es">Normalmente responde en 24 horas</span><span data-lang="uk">Зазвичай відповідаємо протягом 24 годин</span></div>
+          </div>
+          <a href="mailto:neolith2018ai@gmail.com?subject=Free%20Consultation%20Request" class="btn-primary" style="display:block;text-align:center;">
+            <span data-lang="en" class="active">📧 Request a free consultation</span>
+            <span data-lang="ru">📧 Запросить бесплатную консультацию</span>
+            <span data-lang="es">📧 Solicitar consulta gratuita</span>
+            <span data-lang="uk">📧 Запросити безкоштовну консультацію</span>
+          </a>
+        </div>
+
+        <!-- CONTACT CHANNELS -->
+        <div class="contact-info-block reveal reveal-delay-1">
+          <a href="mailto:neolith2018ai@gmail.com" class="contact-channel">
+            <div class="contact-channel-icon" style="background:#fef3c7;">📧</div>
+            <div class="contact-channel-info">
+              <div class="contact-channel-label">Email</div>
+              <div class="contact-channel-value">neolith2018ai@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener" class="contact-channel">
+            <div class="contact-channel-icon" style="background:#dbeafe;">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="#0077b5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div class="contact-channel-info">
+              <div class="contact-channel-label">LinkedIn</div>
+              <div class="contact-channel-value">Yevhenii Nohin</div>
+            </div>
+          </a>
+          <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener" class="contact-channel">
+            <div class="contact-channel-icon" style="background:#dcfce7;">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="#6fda44"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg>
+            </div>
+            <div class="contact-channel-info">
+              <div class="contact-channel-label">Upwork</div>
+              <div class="contact-channel-value">NeolithAI — AI Automation</div>
+            </div>
+          </a>
+          <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener" class="contact-channel">
+            <div class="contact-channel-icon" style="background:#f3f4f6;">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="#1a2e42"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </div>
+            <div class="contact-channel-info">
+              <div class="contact-channel-label">GitHub</div>
+              <div class="contact-channel-value">Evgeniy1970-ai</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- LOCATION -->
+        <div class="location-block reveal reveal-delay-2">
+          <div class="location-icon">🌍</div>
+          <div>
+            <div class="location-title"><span data-lang="en" class="active">Serving clients across Europe & UK</span><span data-lang="ru">Работаем с клиентами по всей Европе и Великобритании</span><span data-lang="es">Atendemos clientes en toda Europa y Reino Unido</span><span data-lang="uk">Працюємо з клієнтами по всій Європі та Великобританії</span></div>
+            <div class="location-desc"><span data-lang="en" class="active">Remote-first. All meetings held online via Google Meet or Zoom. Languages: English, Russian, Ukrainian, Polish, Spanish.</span><span data-lang="ru">Полностью удалённо. Все встречи онлайн через Google Meet или Zoom. Языки: английский, русский, украинский, польский, испанский.</span><span data-lang="es">Totalmente remoto. Todas las reuniones en línea via Google Meet o Zoom. Idiomas: inglés, ruso, ucraniano, polaco, español.</span><span data-lang="uk">Повністю дистанційно. Всі зустрічі онлайн через Google Meet або Zoom. Мови: англійська, російська, українська, польська, іспанська.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: CONTACT FORM -->
+      <div class="contact-form-block reveal reveal-delay-1">
+        <div class="contact-form-title"><span data-lang="en" class="active">Send us a message</span><span data-lang="ru">Напишите нам</span><span data-lang="es">Envíenos un mensaje</span><span data-lang="uk">Напишіть нам</span></div>
+        <div class="contact-form-sub"><span data-lang="en" class="active">Tell us about your project or question. We'll get back to you within 24 hours.</span><span data-lang="ru">Расскажите о вашем проекте или вопросе. Ответим в течение 24 часов.</span><span data-lang="es">Cuéntenos sobre su proyecto o pregunta. Le responderemos en 24 horas.</span><span data-lang="uk">Розкажіть про ваш проект або питання. Відповімо протягом 24 годин.</span></div>
+        <form id="contactForm" name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact"/>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label"><span data-lang="en" class="active">Your name</span><span data-lang="ru">Ваше имя</span><span data-lang="es">Su nombre</span><span data-lang="uk">Ваше ім'я</span> <span>*</span></label>
+              <input class="form-input" type="text" name="name" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email <span>*</span></label>
+              <input class="form-input" type="email" name="email" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label"><span data-lang="en" class="active">Company / Business</span><span data-lang="ru">Компания / Бизнес</span><span data-lang="es">Empresa / Negocio</span><span data-lang="uk">Компанія / Бізнес</span></label>
+            <input class="form-input" type="text" name="company"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label"><span data-lang="en" class="active">I'm interested in</span><span data-lang="ru">Меня интересует</span><span data-lang="es">Me interesa</span><span data-lang="uk">Мене цікавить</span></label>
+            <select class="form-select" name="interest">
+              <option value=""><span data-lang="en" class="active">Select...</span></option>
+              <option value="free-consultation">🎯 Free 30-min consultation</option>
+              <option value="starter">Starter package (from €800)</option>
+              <option value="professional">Professional package (from €2,000)</option>
+              <option value="advanced">Advanced package (from €5,000)</option>
+              <option value="retainer">Monthly Care retainer</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label"><span data-lang="en" class="active">Tell us about your project</span><span data-lang="ru">Расскажите о вашем проекте</span><span data-lang="es">Cuéntenos sobre su proyecto</span><span data-lang="uk">Розкажіть про ваш проект</span> <span>*</span></label>
+            <textarea class="form-textarea" name="message" required placeholder="What's the main bottleneck in your business? What would you like to automate?"></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <span data-lang="en" class="active">Send message →</span>
+            <span data-lang="ru">Отправить →</span>
+            <span data-lang="es">Enviar mensaje →</span>
+            <span data-lang="uk">Надіслати →</span>
+          </button>
+        </form>
+        <div class="form-success" id="contactSuccess">
+          <div class="form-success-icon">✅</div>
+          <div class="form-success-title"><span data-lang="en" class="active">Message sent!</span><span data-lang="ru">Сообщение отправлено!</span><span data-lang="es">¡Mensaje enviado!</span><span data-lang="uk">Повідомлення надіслано!</span></div>
+          <div class="form-success-text"><span data-lang="en" class="active">We'll get back to you within 24 hours. Check your email inbox.</span><span data-lang="ru">Ответим в течение 24 часов. Проверьте входящие.</span><span data-lang="es">Le responderemos en 24 horas. Revise su bandeja de entrada.</span><span data-lang="uk">Відповімо протягом 24 годин. Перевірте вхідні.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo-wrap" href="index.html" style="margin-bottom:12px;display:inline-flex;"><svg width="32" height="32" viewBox="0 0 38 38" fill="none"><rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/><rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/><rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/><circle cx="37" cy="5" r="4" fill="#0e9e7a"/><circle cx="37" cy="5" r="2" fill="white"/></svg><div class="logo-text" style="margin-left:8px;"><span class="logo-name">Neolith<span class="ai">AI</span></span><span class="logo-sub">Agency</span></div></a>
+        <p class="footer-tagline"><span data-lang="en" class="active">AI automation for small businesses across EU & UK.</span><span data-lang="ru">ИИ-автоматизация для малого бизнеса в ЕС и UK.</span><span data-lang="es">Automatización IA para pequeñas empresas en UE y UK.</span><span data-lang="uk">ІІ-автоматизація для малого бізнесу в ЄС та UK.</span></p>
+      </div>
+      <div class="footer-col"><h4><span data-lang="en" class="active">Services</span><span data-lang="ru">Услуги</span><span data-lang="es">Servicios</span><span data-lang="uk">Послуги</span></h4><a href="services.html"><span data-lang="en" class="active">AI Agent Design</span><span data-lang="ru">Проектирование агентов</span><span data-lang="es">Diseño de agentes</span><span data-lang="uk">Проектування агентів</span></a><a href="services.html#pricing"><span data-lang="en" class="active">Pricing</span><span data-lang="ru">Цены</span><span data-lang="es">Precios</span><span data-lang="uk">Ціни</span></a></div>
+      <div class="footer-col"><h4><span data-lang="en" class="active">Company</span><span data-lang="ru">Компания</span><span data-lang="es">Empresa</span><span data-lang="uk">Компанія</span></h4><a href="about.html"><span data-lang="en" class="active">About us</span><span data-lang="ru">О нас</span><span data-lang="es">Sobre nosotros</span><span data-lang="uk">Про нас</span></a><a href="cases.html"><span data-lang="en" class="active">Cases</span><span data-lang="ru">Кейсы</span><span data-lang="es">Casos</span><span data-lang="uk">Кейси</span></a><a href="blog.html">Blog</a></div>
+      <div class="footer-col"><h4><span data-lang="en" class="active">Connect</span><span data-lang="ru">Связаться</span><span data-lang="es">Conectar</span><span data-lang="uk">Зв'язатись</span></h4><a href="mailto:neolith2018ai@gmail.com">neolith2018ai@gmail.com</a><a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener">GitHub</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 NeolithAI Agency. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+        <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener" aria-label="Upwork"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- AI CHAT WIDGET -->
+<button class="ai-widget-btn" onclick="toggleChat()" aria-label="Chat with Nео"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span class="ai-widget-pulse"></span></button>
+<div class="ai-chat-panel" id="aiChatPanel">
+  <div class="ai-chat-header"><div class="ai-chat-avatar">🤖</div><div class="ai-chat-header-info"><div class="ai-chat-name">Nео · NeolithAI Assistant</div><div class="ai-chat-status"><span data-lang="en" class="active">Online · replies instantly</span><span data-lang="ru">Онлайн</span><span data-lang="es">En línea</span><span data-lang="uk">Онлайн</span></div></div><button class="ai-chat-close" onclick="closeChat()">✕</button></div>
+  <div class="ai-chat-messages" id="aiChatMessages"></div>
+  <div class="ai-chat-suggestions" id="aiSuggestions">
+    <button class="ai-suggestion" onclick="sendSuggestion('I want to book a free consultation')">Book a call</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('What information do you need from me to get started?')">Get started</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('How quickly can you start on a project?')">Timeline</button>
+  </div>
+  <div class="ai-chat-input-row">
+    <textarea class="ai-chat-input" id="aiChatInput" rows="1" placeholder="Ask me anything..." onkeydown="handleChatKey(event)"></textarea>
+    <button class="ai-chat-send" onclick="var i=document.getElementById('aiChatInput');sendMessage(i.value.trim())"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+  </div>
+</div>
+<form name="chat-booking" netlify style="display:none"><input name="conversation"/></form>
+<script src="neolithai-shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — NeolithAI Agency</title>
+<meta name="description" content="NeolithAI Agency — from Archaeology PhD to AI Automation Engineer. Meet Yevhenii Nohin, the founder behind the automation systems."/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#1a6fc4"/>
+<link rel="stylesheet" href="neolithai-shared.css"/>
+<style>
+/* FOUNDER SECTION */
+.founder-grid{display:grid;grid-template-columns:320px 1fr;gap:4rem;align-items:start;}
+.founder-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);overflow:hidden;position:sticky;top:88px;
+}
+.founder-avatar{
+  width:100%;aspect-ratio:1;background:linear-gradient(135deg,#e8f1fb 0%,#eaf5f0 100%);
+  display:flex;align-items:center;justify-content:center;font-size:80px;
+  border-bottom:1px solid var(--border);
+}
+.founder-info{padding:1.5rem;}
+.founder-name{font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:4px;}
+.founder-title{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:1rem;}
+.founder-meta{display:flex;flex-direction:column;gap:8px;margin-bottom:1.25rem;}
+.founder-meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text2);}
+.founder-meta-icon{font-size:15px;flex-shrink:0;}
+.founder-socials{display:flex;gap:8px;}
+.founder-social-btn{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:6px;
+  border:1px solid var(--border);border-radius:8px;padding:8px;
+  font-size:12px;font-weight:600;color:var(--text2);text-decoration:none;
+  transition:all .2s;
+}
+.founder-social-btn:hover{border-color:var(--accent);color:var(--accent);background:#e8f1fb;}
+.founder-social-btn svg{width:14px;height:14px;fill:currentColor;}
+
+/* STORY TIMELINE */
+.story-timeline{display:flex;flex-direction:column;gap:0;}
+.timeline-item{
+  display:grid;grid-template-columns:100px 1fr;gap:1.5rem;
+  padding-bottom:2.5rem;position:relative;
+}
+.timeline-item::before{
+  content:'';position:absolute;left:48px;top:28px;bottom:0;
+  width:2px;background:var(--border);
+}
+.timeline-item:last-child::before{display:none;}
+.timeline-year{
+  font-size:13px;font-weight:700;color:var(--accent2);
+  padding-top:6px;text-align:right;flex-shrink:0;
+}
+.timeline-dot{
+  position:absolute;left:42px;top:8px;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--accent);border:3px solid var(--surface);
+  box-shadow:0 0 0 2px var(--accent);
+}
+.timeline-content{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;}
+.timeline-title{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.5rem;}
+.timeline-desc{font-size:14px;color:var(--text2);line-height:1.7;}
+
+/* VALUES */
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.value-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.75rem;text-align:center;
+  transition:border-color .2s,transform .25s;
+}
+.value-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+.value-icon{font-size:2.5rem;margin-bottom:1rem;}
+.value-title{font-size:1rem;font-weight:700;margin-bottom:.5rem;}
+.value-desc{font-size:14px;color:var(--text2);line-height:1.6;}
+
+/* STACK */
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.stack-item{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;text-align:center;
+  transition:border-color .2s,transform .2s;
+}
+.stack-item:hover{border-color:var(--accent);transform:translateY(-2px);}
+.stack-item-icon{font-size:1.75rem;margin-bottom:.5rem;}
+.stack-item-name{font-size:13px;font-weight:700;color:var(--text);}
+.stack-item-role{font-size:11px;color:var(--text2);margin-top:2px;}
+
+@media(max-width:900px){
+  .founder-grid{grid-template-columns:1fr;}
+  .founder-card{position:static;}
+  .values-grid{grid-template-columns:1fr 1fr;}
+  .stack-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  .values-grid{grid-template-columns:1fr;}
+  .stack-grid{grid-template-columns:repeat(2,1fr);}
+  .timeline-item{grid-template-columns:70px 1fr;gap:1rem;}
+  .timeline-item::before{left:34px;}
+  .timeline-dot{left:28px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a class="logo-wrap" href="index.html">
+      <svg width="36" height="36" viewBox="0 0 38 38" fill="none">
+        <rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/>
+        <rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/>
+        <rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/>
+        <circle cx="37" cy="5" r="4" fill="#0e9e7a"/>
+        <circle cx="37" cy="5" r="2" fill="white"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-name">Neolith<span class="ai">AI</span></span>
+        <span class="logo-sub">Agency</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="services.html" data-nav="services">Services</a></li>
+      <li><a href="cases.html" data-nav="cases">Cases</a></li>
+      <li><a href="about.html" data-nav="about" class="active">About</a></li>
+      <li><a href="blog.html" data-nav="blog">Blog</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+      <li><a href="contact.html#book" class="nav-cta" data-nav="book">Book a Call</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang-btn="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang-btn="ru" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn" data-lang-btn="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang-btn="uk" onclick="setLang('uk')">UA</button>
+      </div>
+      <button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="cases.html" onclick="toggleMenu()">Cases</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <div class="mobile-cta-wrap"><a href="contact.html#book" class="btn-primary" style="display:block;text-align:center;" onclick="toggleMenu()">Book a Free Call</a></div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <span class="section-label"><span data-lang="en" class="active">Our story</span><span data-lang="ru">Наша история</span><span data-lang="es">Nuestra historia</span><span data-lang="uk">Наша історія</span></span>
+    <h1 class="reveal"><span data-lang="en" class="active">From <span class="accent">Archaeology</span> to AI Automation</span><span data-lang="ru">Из <span class="accent">Археологии</span> в ИИ-автоматизацию</span><span data-lang="es">De la <span class="accent">Arqueología</span> a la IA</span><span data-lang="uk">З <span class="accent">Археології</span> до ІІ-автоматизації</span></h1>
+    <p class="reveal"><span data-lang="en" class="active">The same analytical discipline that uncovers hidden systems in ancient sites now builds AI systems for modern businesses.</span><span data-lang="ru">Та же аналитическая дисциплина, которая раскрывает скрытые системы на древних памятниках, теперь строит ИИ-системы для современного бизнеса.</span><span data-lang="es">La misma disciplina analítica que descubre sistemas ocultos en sitios antiguos ahora construye sistemas IA para negocios modernos.</span><span data-lang="uk">Та ж аналітична дисципліна, що розкриває приховані системи на стародавніх пам'ятках, тепер будує ІІ-системи для сучасного бізнесу.</span></p>
+  </div>
+</div>
+
+<!-- FOUNDER -->
+<section>
+  <div class="container">
+    <div class="founder-grid">
+      <div class="founder-card reveal">
+        <div class="founder-avatar">🏺</div>
+        <div class="founder-info">
+          <div class="founder-name">Yevhenii Nohin</div>
+          <div class="founder-title">Founder & AI Automation Engineer</div>
+          <div class="founder-meta">
+            <div class="founder-meta-item"><span class="founder-meta-icon">🎓</span><span>PhD in Archaeology</span></div>
+            <div class="founder-meta-item"><span class="founder-meta-icon">🗺️</span><span>Europe (EU & UK focus)</span></div>
+            <div class="founder-meta-item"><span class="founder-meta-icon">🌐</span><span>EN · RU · UA · PL · ES</span></div>
+            <div class="founder-meta-item"><span class="founder-meta-icon">⚡</span><span>n8n Verified Creator</span></div>
+            <div class="founder-meta-item"><span class="founder-meta-icon">📦</span><span>5 production AI systems built</span></div>
+          </div>
+          <div class="founder-socials">
+            <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener" class="founder-social-btn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener" class="founder-social-btn">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- TIMELINE -->
+        <span class="section-label reveal"><span data-lang="en" class="active">Career timeline</span><span data-lang="ru">Карьерный путь</span><span data-lang="es">Trayectoria</span><span data-lang="uk">Кар'єрний шлях</span></span>
+        <div class="story-timeline" style="margin-top:1.5rem;">
+
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2000–<br>2023</div>
+            <div style="position:relative;">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-title">🏺 <span data-lang="en" class="active">PhD Archaeologist · 23 years in the field</span><span data-lang="ru">PhD-археолог · 23 года в полевых исследованиях</span><span data-lang="es">Arqueólogo PhD · 23 años en el campo</span><span data-lang="uk">PhD-археолог · 23 роки в польових дослідженнях</span></div>
+                <div class="timeline-desc"><span data-lang="en" class="active">Led excavations, managed large datasets of artifacts and stratigraphic data, wrote academic reports and coordinated international research teams. Developed a deep analytical discipline: map complexity, find patterns, reconstruct hidden systems from fragments.</span><span data-lang="ru">Руководил раскопками, управлял большими массивами данных об артефактах, писал научные отчёты и координировал международные исследовательские группы. Развил глубокую аналитическую дисциплину.</span><span data-lang="es">Dirigió excavaciones, gestionó grandes conjuntos de datos de artefactos, escribió informes académicos y coordinó equipos de investigación internacionales.</span><span data-lang="uk">Керував розкопками, управляв великими масивами даних про артефакти, писав наукові звіти та координував міжнародні дослідницькі групи.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2024</div>
+            <div style="position:relative;">
+              <div class="timeline-dot" style="background:var(--accent2);box-shadow:0 0 0 2px var(--accent2);"></div>
+              <div class="timeline-content">
+                <div class="timeline-title">⚡ <span data-lang="en" class="active">The pivot — AI Automation Engineer</span><span data-lang="ru">Переход — Инженер по ИИ-автоматизации</span><span data-lang="es">El giro — Ingeniero de IA</span><span data-lang="uk">Перехід — Інженер з ІІ-автоматизації</span></div>
+                <div class="timeline-desc"><span data-lang="en" class="active">Retrained intensively in n8n, OpenAI API, and workflow automation. Built first production systems: AI Content Master and AI Lead Generation Agent. Published on GitHub and n8n Creator Hub. The analytical mindset from archaeology proved to be a perfect fit for designing automation architectures.</span><span data-lang="ru">Интенсивное переобучение по n8n, OpenAI API и автоматизации. Созданы первые production-системы: AI Content Master и AI Lead Generation Agent. Аналитический склад ума оказался идеально подходящим для проектирования архитектур автоматизации.</span><span data-lang="es">Reentrenamiento intensivo en n8n, OpenAI API y automatización. Construyó los primeros sistemas de producción. La mentalidad analítica de la arqueología resultó perfecta para diseñar arquitecturas de automatización.</span><span data-lang="uk">Інтенсивне перенавчання з n8n, OpenAI API та автоматизації. Побудовані перші production-системи. Аналітичне мислення з археології виявилось ідеальним для проектування архітектур автоматизації.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2025</div>
+            <div style="position:relative;">
+              <div class="timeline-dot" style="background:var(--accent2);box-shadow:0 0 0 2px var(--accent2);"></div>
+              <div class="timeline-content">
+                <div class="timeline-title">🚀 <span data-lang="en" class="active">Portfolio expansion — 5 production systems</span><span data-lang="ru">Расширение портфолио — 5 production-систем</span><span data-lang="es">Expansión del portafolio — 5 sistemas de producción</span><span data-lang="uk">Розширення портфоліо — 5 production-систем</span></div>
+                <div class="timeline-desc"><span data-lang="en" class="active">Built and deployed Restaurant AI Suite (5 agents), CV Screening Agent (3 workflows), and BFS Suite (multi-agent RAG platform). Achieved n8n Verified Creator status with 5 published templates. Launched on Upwork, LinkedIn, and Skool communities.</span><span data-lang="ru">Построены и развёрнуты Restaurant AI Suite (5 агентов), CV Screening Agent (3 воркфлоу) и BFS Suite (мультиагентная RAG-платформа). Получен статус Verified Creator на n8n с 5 опубликованными шаблонами.</span><span data-lang="es">Construyó y desplegó Restaurant AI Suite (5 agentes), CV Screening Agent (3 flujos) y BFS Suite. Obtuvo el estado de Verified Creator en n8n con 5 plantillas publicadas.</span><span data-lang="uk">Побудовані та розгорнуті Restaurant AI Suite (5 агентів), CV Screening Agent (3 воркфлоу) та BFS Suite. Отримано статус Verified Creator на n8n з 5 опублікованими шаблонами.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2026</div>
+            <div style="position:relative;">
+              <div class="timeline-dot" style="background:#f59e0b;box-shadow:0 0 0 2px #f59e0b;"></div>
+              <div class="timeline-content">
+                <div class="timeline-title">🏢 <span data-lang="en" class="active">NeolithAI Agency — boutique AI automation for EU & UK</span><span data-lang="ru">NeolithAI Agency — boutique ИИ-автоматизация для ЕС и UK</span><span data-lang="es">NeolithAI Agency — automatización IA boutique para UE y UK</span><span data-lang="uk">NeolithAI Agency — boutique ІІ-автоматизація для ЄС та UK</span></div>
+                <div class="timeline-desc"><span data-lang="en" class="active">Launched NeolithAI Agency — a boutique AI automation agency serving small businesses across Europe and the UK. Transparent pricing, production-ready delivery, and a unique perspective shaped by 23 years of complex analytical work.</span><span data-lang="ru">Запуск NeolithAI Agency — boutique агентства ИИ-автоматизации для малого бизнеса в Европе и Великобритании. Прозрачные цены, production-ready результат и уникальный взгляд, сформированный 23 годами аналитической работы.</span><span data-lang="es">Lanzó NeolithAI Agency — una agencia boutique de automatización IA para pequeñas empresas en Europa y Reino Unido.</span><span data-lang="uk">Запуск NeolithAI Agency — boutique агентства ІІ-автоматизації для малого бізнесу в Європі та Великобританії.</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <span class="section-label reveal"><span data-lang="en" class="active">How we work</span><span data-lang="ru">Как мы работаем</span><span data-lang="es">Cómo trabajamos</span><span data-lang="uk">Як ми працюємо</span></span>
+    <h2 class="section-title reveal"><span data-lang="en" class="active">Our principles</span><span data-lang="ru">Наши принципы</span><span data-lang="es">Nuestros principios</span><span data-lang="uk">Наші принципи</span></h2>
+    <div class="values-grid">
+      <div class="value-card reveal reveal-delay-1">
+        <div class="value-icon">🎯</div>
+        <div class="value-title"><span data-lang="en" class="active">Problem first, tool second</span><span data-lang="ru">Сначала проблема, потом инструмент</span><span data-lang="es">Primero el problema, luego la herramienta</span><span data-lang="uk">Спочатку проблема, потім інструмент</span></div>
+        <div class="value-desc"><span data-lang="en" class="active">We never recommend automation for the sake of it. Every system we build targets a specific, measurable business pain — and we define success criteria before writing a single node.</span><span data-lang="ru">Мы никогда не рекомендуем автоматизацию ради неё. Каждая система нацелена на конкретную, измеримую боль бизнеса.</span><span data-lang="es">Nunca recomendamos automatización por el bien de ella. Cada sistema apunta a un dolor de negocio específico y medible.</span><span data-lang="uk">Ми ніколи не рекомендуємо автоматизацію заради неї. Кожна система спрямована на конкретний, вимірюваний біль бізнесу.</span></div>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <div class="value-icon">🧩</div>
+        <div class="value-title"><span data-lang="en" class="active">Modular by design</span><span data-lang="ru">Модульность по дизайну</span><span data-lang="es">Modular por diseño</span><span data-lang="uk">Модульність за дизайном</span></div>
+        <div class="value-desc"><span data-lang="en" class="active">Every agent works independently and can be added or removed without breaking the system. Start small, scale when ready — no expensive rebuilds.</span><span data-lang="ru">Каждый агент работает независимо и может быть добавлен или удалён без поломки системы. Начните маленько, масштабируйтесь когда готовы.</span><span data-lang="es">Cada agente funciona independientemente. Empiece pequeño, escale cuando esté listo — sin reconstrucciones costosas.</span><span data-lang="uk">Кожен агент працює незалежно. Починайте маленько, масштабуйтесь коли готові — без дорогих перебудов.</span></div>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <div class="value-icon">🔩</div>
+        <div class="value-title"><span data-lang="en" class="active">Production-ready, not demo-ready</span><span data-lang="ru">Production-ready, не demo-ready</span><span data-lang="es">Listo para producción, no para demo</span><span data-lang="uk">Production-ready, не demo-ready</span></div>
+        <div class="value-desc"><span data-lang="en" class="active">Every delivery includes error handling, logging, monitoring, and documentation. If something breaks at 2am, the system alerts you — and you know exactly how to fix it.</span><span data-lang="ru">Каждая поставка включает обработку ошибок, логирование, мониторинг и документацию. Если что-то сломается в 2 ночи — система вас оповестит.</span><span data-lang="es">Cada entrega incluye manejo de errores, registro, monitoreo y documentación. Si algo falla a las 2am, el sistema le alerta.</span><span data-lang="uk">Кожна поставка включає обробку помилок, логування, моніторинг та документацію. Якщо щось зламається о 2 ночі — система вас сповістить.</span></div>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <div class="value-icon">📖</div>
+        <div class="value-title"><span data-lang="en" class="active">You own it completely</span><span data-lang="ru">Вы владеете этим полностью</span><span data-lang="es">Usted lo posee completamente</span><span data-lang="uk">Ви повністю ним володієте</span></div>
+        <div class="value-desc"><span data-lang="en" class="active">Every project is delivered with full documentation, SOPs, and training. Your team can operate the system independently — no lock-in, no dependency on us to keep the lights on.</span><span data-lang="ru">Каждый проект сдаётся с полной документацией, SOPs и обучением. Ваша команда может работать с системой самостоятельно — никакой зависимости от нас.</span><span data-lang="es">Cada proyecto se entrega con documentación completa, SOPs y formación. Su equipo puede operar el sistema de forma independiente.</span><span data-lang="uk">Кожен проект здається з повною документацією, SOPs та навчанням. Ваша команда може працювати з системою самостійно.</span></div>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <div class="value-icon">🤝</div>
+        <div class="value-title"><span data-lang="en" class="active">Direct access, always</span><span data-lang="ru">Прямой доступ, всегда</span><span data-lang="es">Acceso directo, siempre</span><span data-lang="uk">Прямий доступ, завжди</span></div>
+        <div class="value-desc"><span data-lang="en" class="active">You work directly with the founder — not a project manager, not a junior developer. The person who scoped your project is the person who builds it.</span><span data-lang="ru">Вы работаете напрямую с основателем — не с проджект-менеджером, не с джуниором. Тот, кто обсуждал ваш проект — тот и строит его.</span><span data-lang="es">Trabaja directamente con el fundador — no con un gerente de proyecto, no con un desarrollador junior.</span><span data-lang="uk">Ви працюєте безпосередньо з засновником — не з менеджером проекту, не з джуніором.</span></div>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <div class="value-icon">🔍</div>
+        <div class="value-title"><span data-lang="en" class="active">Transparent pricing</span><span data-lang="ru">Прозрачные цены</span><span data-lang="es">Precios transparentes</span><span data-lang="uk">Прозорі ціни</span></div>
+        <div class="value-desc"><span data-lang="en" class="active">No hidden fees, no surprise invoices. We publish our pricing ranges openly and provide a detailed cost breakdown — including third-party tool costs — before any project starts.</span><span data-lang="ru">Никаких скрытых платежей, никаких сюрпризов. Мы публикуем диапазоны цен открыто и предоставляем детальную смету до начала проекта.</span><span data-lang="es">Sin tarifas ocultas, sin facturas sorpresa. Publicamos nuestros rangos de precios abiertamente y proporcionamos un desglose detallado de costes.</span><span data-lang="uk">Жодних прихованих платежів, жодних сюрпризів. Ми публікуємо діапазони цін відкрито та надаємо детальний кошторис до початку проекту.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section>
+  <div class="container">
+    <span class="section-label reveal"><span data-lang="en" class="active">Technology</span><span data-lang="ru">Технологии</span><span data-lang="es">Tecnología</span><span data-lang="uk">Технології</span></span>
+    <h2 class="section-title reveal"><span data-lang="en" class="active">Our stack</span><span data-lang="ru">Наш стек</span><span data-lang="es">Nuestro stack</span><span data-lang="uk">Наш стек</span></h2>
+    <div class="stack-grid">
+      <div class="stack-item reveal reveal-delay-1"><div class="stack-item-icon">⚙️</div><div class="stack-item-name">n8n</div><div class="stack-item-role"><span data-lang="en" class="active">Orchestration</span><span data-lang="ru">Оркестрация</span><span data-lang="es">Orquestación</span><span data-lang="uk">Оркестрація</span></div></div>
+      <div class="stack-item reveal reveal-delay-2"><div class="stack-item-icon">🧠</div><div class="stack-item-name">Claude API</div><div class="stack-item-role"><span data-lang="en" class="active">AI reasoning</span><span data-lang="ru">ИИ-рассуждение</span><span data-lang="es">Razonamiento IA</span><span data-lang="uk">ІІ-міркування</span></div></div>
+      <div class="stack-item reveal reveal-delay-3"><div class="stack-item-icon">🤖</div><div class="stack-item-name">GPT-4o</div><div class="stack-item-role"><span data-lang="en" class="active">AI generation</span><span data-lang="ru">ИИ-генерация</span><span data-lang="es">Generación IA</span><span data-lang="uk">ІІ-генерація</span></div></div>
+      <div class="stack-item reveal reveal-delay-4"><div class="stack-item-icon">🗄️</div><div class="stack-item-name">Supabase</div><div class="stack-item-role"><span data-lang="en" class="active">Database + pgvector</span><span data-lang="ru">БД + pgvector</span><span data-lang="es">BD + pgvector</span><span data-lang="uk">БД + pgvector</span></div></div>
+      <div class="stack-item reveal reveal-delay-1"><div class="stack-item-icon">✈️</div><div class="stack-item-name">Telegram API</div><div class="stack-item-role"><span data-lang="en" class="active">Notifications & bots</span><span data-lang="ru">Уведомления и боты</span><span data-lang="es">Notificaciones y bots</span><span data-lang="uk">Сповіщення та боти</span></div></div>
+      <div class="stack-item reveal reveal-delay-2"><div class="stack-item-icon">🌐</div><div class="stack-item-name">Netlify</div><div class="stack-item-role"><span data-lang="en" class="active">Deployment & forms</span><span data-lang="ru">Деплой и формы</span><span data-lang="es">Despliegue y formularios</span><span data-lang="uk">Деплой та форми</span></div></div>
+      <div class="stack-item reveal reveal-delay-3"><div class="stack-item-icon">🎨</div><div class="stack-item-name">DALL-E 3</div><div class="stack-item-role"><span data-lang="en" class="active">Image generation</span><span data-lang="ru">Генерация изображений</span><span data-lang="es">Generación de imágenes</span><span data-lang="uk">Генерація зображень</span></div></div>
+      <div class="stack-item reveal reveal-delay-4"><div class="stack-item-icon">📊</div><div class="stack-item-name">Google Sheets</div><div class="stack-item-role"><span data-lang="en" class="active">CRM & reporting</span><span data-lang="ru">CRM и отчётность</span><span data-lang="es">CRM e informes</span><span data-lang="uk">CRM та звітність</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="newsletter-strip">
+  <div class="container" style="text-align:center;">
+    <h2 class="reveal"><span data-lang="en" class="active">Ready to work together?</span><span data-lang="ru">Готовы работать вместе?</span><span data-lang="es">¿Listo para trabajar juntos?</span><span data-lang="uk">Готові працювати разом?</span></h2>
+    <p class="reveal" style="margin-bottom:2rem;"><span data-lang="en" class="active">The first 30 minutes are free. Let's find out what's slowing your business down.</span><span data-lang="ru">Первые 30 минут бесплатно. Давайте выясним, что тормозит ваш бизнес.</span><span data-lang="es">Los primeros 30 minutos son gratuitos. Descubramos qué está frenando su negocio.</span><span data-lang="uk">Перші 30 хвилин безкоштовно. Давайте з'ясуємо, що гальмує ваш бізнес.</span></p>
+    <div class="btn-group reveal" style="justify-content:center;">
+      <a href="contact.html#book" class="btn-primary"><span data-lang="en" class="active">Book a free call →</span><span data-lang="ru">Записаться бесплатно →</span><span data-lang="es">Reservar llamada gratuita →</span><span data-lang="uk">Записатись безкоштовно →</span></a>
+      <a href="cases.html" class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);"><span data-lang="en" class="active">View our work →</span><span data-lang="ru">Наши работы →</span><span data-lang="es">Ver nuestro trabajo →</span><span data-lang="uk">Наші роботи →</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo-wrap" href="index.html" style="margin-bottom:12px;display:inline-flex;">
+          <svg width="32" height="32" viewBox="0 0 38 38" fill="none"><rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/><rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/><rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/><circle cx="37" cy="5" r="4" fill="#0e9e7a"/><circle cx="37" cy="5" r="2" fill="white"/></svg>
+          <div class="logo-text" style="margin-left:8px;"><span class="logo-name">Neolith<span class="ai">AI</span></span><span class="logo-sub">Agency</span></div>
+        </a>
+        <p class="footer-tagline"><span data-lang="en" class="active">AI automation for small businesses across EU & UK.</span><span data-lang="ru">ИИ-автоматизация для малого бизнеса в ЕС и UK.</span><span data-lang="es">Automatización IA para pequeñas empresas en UE y UK.</span><span data-lang="uk">ІІ-автоматизація для малого бізнесу в ЄС та UK.</span></p>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Services</span><span data-lang="ru">Услуги</span><span data-lang="es">Servicios</span><span data-lang="uk">Послуги</span></h4>
+        <a href="services.html"><span data-lang="en" class="active">AI Agent Design</span><span data-lang="ru">Проектирование агентов</span><span data-lang="es">Diseño de agentes</span><span data-lang="uk">Проектування агентів</span></a>
+        <a href="services.html"><span data-lang="en" class="active">Workflow Automation</span><span data-lang="ru">Автоматизация</span><span data-lang="es">Automatización</span><span data-lang="uk">Автоматизація</span></a>
+        <a href="services.html#pricing"><span data-lang="en" class="active">Pricing</span><span data-lang="ru">Цены</span><span data-lang="es">Precios</span><span data-lang="uk">Ціни</span></a>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Company</span><span data-lang="ru">Компания</span><span data-lang="es">Empresa</span><span data-lang="uk">Компанія</span></h4>
+        <a href="about.html"><span data-lang="en" class="active">About us</span><span data-lang="ru">О нас</span><span data-lang="es">Sobre nosotros</span><span data-lang="uk">Про нас</span></a>
+        <a href="cases.html"><span data-lang="en" class="active">Case studies</span><span data-lang="ru">Кейсы</span><span data-lang="es">Casos</span><span data-lang="uk">Кейси</span></a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html"><span data-lang="en" class="active">Contact</span><span data-lang="ru">Контакты</span><span data-lang="es">Contacto</span><span data-lang="uk">Контакти</span></a>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Connect</span><span data-lang="ru">Связаться</span><span data-lang="es">Conectar</span><span data-lang="uk">Зв'язатись</span></h4>
+        <a href="mailto:neolith2018ai@gmail.com">neolith2018ai@gmail.com</a>
+        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener">Upwork</a>
+        <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 NeolithAI Agency. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+        <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener" aria-label="Upwork"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- AI CHAT WIDGET -->
+<button class="ai-widget-btn" onclick="toggleChat()" aria-label="Chat with Nео"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span class="ai-widget-pulse"></span></button>
+<div class="ai-chat-panel" id="aiChatPanel">
+  <div class="ai-chat-header"><div class="ai-chat-avatar">🤖</div><div class="ai-chat-header-info"><div class="ai-chat-name">Nео · NeolithAI Assistant</div><div class="ai-chat-status"><span data-lang="en" class="active">Online · replies instantly</span><span data-lang="ru">Онлайн</span><span data-lang="es">En línea</span><span data-lang="uk">Онлайн</span></div></div><button class="ai-chat-close" onclick="closeChat()">✕</button></div>
+  <div class="ai-chat-messages" id="aiChatMessages"></div>
+  <div class="ai-chat-suggestions" id="aiSuggestions">
+    <button class="ai-suggestion" onclick="sendSuggestion('Tell me more about Yevhenii\'s background')">About the founder</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('What makes NeolithAI different from other agencies?')">Why NeolithAI?</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('I want to book a free consultation')">Book a call</button>
+  </div>
+  <div class="ai-chat-input-row">
+    <textarea class="ai-chat-input" id="aiChatInput" rows="1" placeholder="Ask me anything..." onkeydown="handleChatKey(event)"></textarea>
+    <button class="ai-chat-send" onclick="var i=document.getElementById('aiChatInput');sendMessage(i.value.trim())"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+  </div>
+</div>
+<form name="chat-booking" netlify style="display:none"><input name="conversation"/></form>
+<script src="neolithai-shared.js"></script>
+</body>
+</html>

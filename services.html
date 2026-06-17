@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services & Pricing — NeolithAI Agency</title>
+<meta name="description" content="AI automation services for small businesses. Custom AI agents, workflow automation, RAG systems. Transparent pricing from €800."/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#1a6fc4"/>
+<link rel="stylesheet" href="neolithai-shared.css"/>
+<style>
+/* ── SERVICES PAGE STYLES ── */
+
+/* FREE CONSULTATION BANNER */
+.free-consult-banner{
+  background:linear-gradient(135deg,#0e9e7a,#0b8a6a);
+  padding:1.25rem 2rem;text-align:center;
+}
+.free-consult-banner p{
+  color:#fff;font-size:15px;font-weight:500;margin:0;
+}
+.free-consult-banner a{
+  color:#fff;font-weight:700;text-decoration:underline;
+  text-underline-offset:3px;transition:opacity .2s;
+}
+.free-consult-banner a:hover{opacity:.8;}
+
+/* SERVICES DETAIL GRID */
+.services-detail-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+}
+.service-detail-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:2rem;
+  transition:border-color .2s,transform .25s,box-shadow .25s;
+  display:flex;flex-direction:column;
+}
+.service-detail-card:hover{
+  border-color:var(--accent);transform:translateY(-4px);
+  box-shadow:0 8px 28px rgba(26,111,196,0.12);
+}
+.svc-d-icon{font-size:2.5rem;margin-bottom:1.25rem;}
+.svc-d-title{font-size:1.1rem;font-weight:700;margin-bottom:.75rem;color:var(--text);}
+.svc-d-desc{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:1.25rem;flex:1;}
+.svc-d-features{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem;}
+.svc-d-features li{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:13px;color:var(--text2);line-height:1.5;
+}
+.svc-d-features li::before{
+  content:'→';color:var(--accent2);font-weight:700;
+  flex-shrink:0;margin-top:1px;
+}
+
+/* PRICING SECTION */
+#pricing{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+
+.pricing-toggle{
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;margin-bottom:3rem;
+}
+.pricing-toggle span{font-size:14px;font-weight:600;color:var(--text2);}
+.pricing-toggle span.active{color:var(--accent);}
+.toggle-switch{
+  position:relative;width:52px;height:28px;
+  background:var(--border);border-radius:14px;cursor:pointer;
+  transition:background .2s;border:none;outline:none;
+}
+.toggle-switch.on{background:var(--accent);}
+.toggle-knob{
+  position:absolute;top:3px;left:3px;
+  width:22px;height:22px;border-radius:50%;
+  background:#fff;transition:transform .2s;
+  box-shadow:0 1px 4px rgba(0,0,0,0.2);
+}
+.toggle-switch.on .toggle-knob{transform:translateX(24px);}
+
+.pricing-section-title{
+  font-size:1.1rem;font-weight:700;color:var(--text);
+  margin-bottom:1.5rem;display:flex;align-items:center;gap:10px;
+}
+.pricing-section-title::after{
+  content:'';flex:1;height:1px;background:var(--border);
+}
+
+/* PROJECT PACKAGES */
+.pricing-packages{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+  margin-bottom:3rem;
+}
+.pricing-card{
+  background:var(--surface);border:2px solid var(--border);
+  border-radius:var(--radius-lg);padding:2rem;
+  transition:all .25s;position:relative;display:flex;flex-direction:column;
+}
+.pricing-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 32px rgba(26,111,196,0.12);}
+.pricing-card.featured{
+  border-color:var(--accent);
+  background:linear-gradient(180deg,#f0f6ff 0%,#fff 100%);
+}
+.pricing-badge-popular{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:4px 16px;border-radius:20px;white-space:nowrap;
+}
+.pricing-name{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.25rem;}
+.pricing-tagline{font-size:13px;color:var(--text2);margin-bottom:1.5rem;}
+.pricing-price{margin-bottom:1.5rem;}
+.pricing-from{font-size:12px;color:var(--text2);font-weight:500;}
+.pricing-amount{font-size:2.5rem;font-weight:800;color:var(--accent);line-height:1;}
+.pricing-period{font-size:14px;color:var(--text2);margin-left:4px;}
+.pricing-features{list-style:none;flex:1;margin-bottom:1.75rem;}
+.pricing-features li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;color:var(--text2);padding:7px 0;
+  border-bottom:1px solid var(--border);line-height:1.5;
+}
+.pricing-features li:last-child{border-bottom:none;}
+.pricing-features li .check{color:var(--accent2);font-weight:700;flex-shrink:0;margin-top:1px;}
+.pricing-features li .dash{color:var(--border);font-weight:700;flex-shrink:0;}
+.pricing-cta{
+  background:var(--bg);border:1.5px solid var(--accent);color:var(--accent);
+  border-radius:8px;padding:12px;text-align:center;font-size:14px;
+  font-weight:600;cursor:pointer;text-decoration:none;display:block;
+  transition:all .2s;
+}
+.pricing-cta:hover{background:var(--accent);color:#fff;}
+.pricing-card.featured .pricing-cta{background:var(--accent);color:#fff;}
+.pricing-card.featured .pricing-cta:hover{background:#155da0;}
+
+/* RETAINER PACKAGES */
+.retainer-packages{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;
+  max-width:780px;margin:0 auto;
+}
+.retainer-card{
+  background:var(--surface);border:2px solid var(--border);
+  border-radius:var(--radius-lg);padding:2rem;
+  transition:all .25s;display:flex;flex-direction:column;
+}
+.retainer-card:hover{border-color:var(--accent2);transform:translateY(-4px);box-shadow:0 12px 32px rgba(14,158,122,0.1);}
+.retainer-card.featured{border-color:var(--accent2);}
+.retainer-badge{
+  display:inline-block;background:var(--accent2);color:#fff;
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:3px 10px;border-radius:20px;margin-bottom:1rem;
+}
+.retainer-price .pricing-amount{color:var(--accent2);}
+.retainer-cta{
+  background:var(--bg);border:1.5px solid var(--accent2);color:var(--accent2);
+  border-radius:8px;padding:12px;text-align:center;font-size:14px;
+  font-weight:600;cursor:pointer;text-decoration:none;display:block;
+  transition:all .2s;margin-top:auto;
+}
+.retainer-cta:hover{background:var(--accent2);color:#fff;}
+.retainer-card.featured .retainer-cta{background:var(--accent2);color:#fff;}
+
+/* PRICING NOTE */
+.pricing-note{
+  text-align:center;margin-top:2.5rem;
+  font-size:14px;color:var(--text2);font-style:italic;
+  padding:1rem;border:1px solid var(--border);border-radius:var(--radius);
+  background:var(--surface);max-width:700px;margin:2.5rem auto 0;
+}
+.pricing-note strong{color:var(--text);font-style:normal;}
+
+/* FAQ */
+#faq{border-top:1px solid var(--border);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.faq-item{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+}
+.faq-question{
+  width:100%;background:none;border:none;text-align:left;
+  padding:1.25rem 1.5rem;cursor:pointer;display:flex;
+  align-items:center;justify-content:space-between;gap:1rem;
+  font-size:15px;font-weight:600;color:var(--text);
+  font-family:inherit;transition:background .2s;
+}
+.faq-question:hover{background:var(--bg);}
+.faq-question.open{color:var(--accent);}
+.faq-chevron{
+  font-size:18px;color:var(--text2);transition:transform .3s;flex-shrink:0;
+}
+.faq-question.open .faq-chevron{transform:rotate(180deg);color:var(--accent);}
+.faq-answer{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s ease,padding .3s ease;
+  padding:0 1.5rem;font-size:14px;color:var(--text2);line-height:1.75;
+}
+.faq-answer.open{max-height:400px;padding:0 1.5rem 1.25rem;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .services-detail-grid{grid-template-columns:repeat(2,1fr);}
+  .pricing-packages{grid-template-columns:1fr;}
+  .retainer-packages{grid-template-columns:1fr;max-width:100%;}
+  .faq-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .services-detail-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- FREE CONSULT BANNER -->
+<div class="free-consult-banner">
+  <p>
+    <span data-lang="en" class="active">🎯 Not sure where to start? <a href="contact.html#book">Book a free 30-min consultation</a> — no strings attached.</span>
+    <span data-lang="ru">🎯 Не знаете с чего начать? <a href="contact.html#book">Запишитесь на бесплатную 30-минутную консультацию</a> — без обязательств.</span>
+    <span data-lang="es">🎯 ¿No sabe por dónde empezar? <a href="contact.html#book">Reserve una consulta gratuita de 30 min</a> — sin compromiso.</span>
+    <span data-lang="uk">🎯 Не знаєте з чого почати? <a href="contact.html#book">Запишіться на безкоштовну 30-хвилинну консультацію</a> — без зобов'язань.</span>
+  </p>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a class="logo-wrap" href="index.html">
+      <svg width="36" height="36" viewBox="0 0 38 38" fill="none">
+        <rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/>
+        <rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/>
+        <rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/>
+        <circle cx="37" cy="5" r="4" fill="#0e9e7a"/>
+        <circle cx="37" cy="5" r="2" fill="white"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-name">Neolith<span class="ai">AI</span></span>
+        <span class="logo-sub">Agency</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="services.html" data-nav="services" class="active">Services</a></li>
+      <li><a href="cases.html" data-nav="cases">Cases</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="blog.html" data-nav="blog">Blog</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+      <li><a href="contact.html#book" class="nav-cta" data-nav="book">Book a Call</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang-btn="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang-btn="ru" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn" data-lang-btn="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang-btn="uk" onclick="setLang('uk')">UA</button>
+      </div>
+      <button class="burger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="cases.html" onclick="toggleMenu()">Cases</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <div class="mobile-cta-wrap">
+    <a href="contact.html#book" class="btn-primary" style="display:block;text-align:center;" onclick="toggleMenu()">Book a Free Call</a>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <span class="section-label">
+      <span data-lang="en" class="active">What we offer</span>
+      <span data-lang="ru">Что мы предлагаем</span>
+      <span data-lang="es">Lo que ofrecemos</span>
+      <span data-lang="uk">Що ми пропонуємо</span>
+    </span>
+    <h1 class="reveal">
+      <span data-lang="en" class="active">Services & <span class="accent">Pricing</span></span>
+      <span data-lang="ru">Услуги и <span class="accent">Цены</span></span>
+      <span data-lang="es">Servicios y <span class="accent">Precios</span></span>
+      <span data-lang="uk">Послуги та <span class="accent">Ціни</span></span>
+    </h1>
+    <p class="reveal">
+      <span data-lang="en" class="active">Custom AI automation for small businesses — transparent pricing, production-ready delivery, no black boxes.</span>
+      <span data-lang="ru">Кастомная ИИ-автоматизация для малого бизнеса — прозрачные цены, production-ready результат, никаких чёрных ящиков.</span>
+      <span data-lang="es">Automatización IA para pequeñas empresas — precios transparentes, entrega lista para producción, sin cajas negras.</span>
+      <span data-lang="uk">Кастомна ІІ-автоматизація для малого бізнесу — прозорі ціни, production-ready результат, жодних чорних скриньок.</span>
+    </p>
+  </div>
+</div>
+
+<!-- SERVICES DETAIL -->
+<section id="services">
+  <div class="container">
+    <span class="section-label reveal">
+      <span data-lang="en" class="active">Core services</span>
+      <span data-lang="ru">Основные услуги</span>
+      <span data-lang="es">Servicios principales</span>
+      <span data-lang="uk">Основні послуги</span>
+    </span>
+    <h2 class="section-title reveal">
+      <span data-lang="en" class="active">What we build</span>
+      <span data-lang="ru">Что мы строим</span>
+      <span data-lang="es">Lo que construimos</span>
+      <span data-lang="uk">Що ми будуємо</span>
+    </h2>
+    <div class="services-detail-grid">
+
+      <div class="service-detail-card reveal reveal-delay-1">
+        <div class="svc-d-icon">🧠</div>
+        <div class="svc-d-title"><span data-lang="en" class="active">AI Agent Design</span><span data-lang="ru">Проектирование ИИ-агентов</span><span data-lang="es">Diseño de agentes IA</span><span data-lang="uk">Проектування ІІ-агентів</span></div>
+        <div class="svc-d-desc"><span data-lang="en" class="active">Autonomous agents that handle complex multi-step tasks without human intervention — from data intake to final output.</span><span data-lang="ru">Автономные агенты для сложных многоэтапных задач без участия человека — от ввода данных до финального результата.</span><span data-lang="es">Agentes autónomos para tareas complejas sin intervención humana — desde la entrada de datos hasta el resultado final.</span><span data-lang="uk">Автономні агенти для складних завдань без участі людини — від введення даних до фінального результату.</span></div>
+        <ul class="svc-d-features">
+          <li><span data-lang="en" class="active">LLM-powered reasoning and decision making</span><span data-lang="ru">Принятие решений на базе LLM</span><span data-lang="es">Razonamiento y toma de decisiones con LLM</span><span data-lang="uk">Прийняття рішень на базі LLM</span></li>
+          <li><span data-lang="en" class="active">Tool use — APIs, databases, email, Telegram</span><span data-lang="ru">Использование инструментов — API, БД, email, Telegram</span><span data-lang="es">Uso de herramientas — APIs, bases de datos, email</span><span data-lang="uk">Використання інструментів — API, БД, email, Telegram</span></li>
+          <li><span data-lang="en" class="active">Human-in-the-loop approval flows</span><span data-lang="ru">Потоки с подтверждением человека</span><span data-lang="es">Flujos de aprobación humana</span><span data-lang="uk">Потоки з підтвердженням людини</span></li>
+          <li><span data-lang="en" class="active">Error handling, logging, monitoring</span><span data-lang="ru">Обработка ошибок, логирование, мониторинг</span><span data-lang="es">Manejo de errores, registro, monitoreo</span><span data-lang="uk">Обробка помилок, логування, моніторинг</span></li>
+        </ul>
+      </div>
+
+      <div class="service-detail-card reveal reveal-delay-2">
+        <div class="svc-d-icon">⚙️</div>
+        <div class="svc-d-title"><span data-lang="en" class="active">Workflow Automation</span><span data-lang="ru">Автоматизация воркфлоу</span><span data-lang="es">Automatización de flujos</span><span data-lang="uk">Автоматизація воркфлоу</span></div>
+        <div class="svc-d-desc"><span data-lang="en" class="active">End-to-end automated pipelines using n8n — connecting your existing tools and eliminating manual steps between them.</span><span data-lang="ru">Сквозные автоматизированные пайплайны на n8n — соединяем ваши инструменты и убираем ручные шаги между ними.</span><span data-lang="es">Pipelines automatizados con n8n — conectando sus herramientas existentes y eliminando pasos manuales.</span><span data-lang="uk">Наскрізні пайплайни на n8n — з'єднуємо ваші інструменти та прибираємо ручні кроки між ними.</span></div>
+        <ul class="svc-d-features">
+          <li><span data-lang="en" class="active">CRM, email, calendar, spreadsheet integrations</span><span data-lang="ru">Интеграции CRM, email, календаря, таблиц</span><span data-lang="es">Integraciones CRM, email, calendario, hojas</span><span data-lang="uk">Інтеграції CRM, email, календаря, таблиць</span></li>
+          <li><span data-lang="en" class="active">Scheduled and event-triggered automations</span><span data-lang="ru">Автоматизации по расписанию и событиям</span><span data-lang="es">Automatizaciones programadas y por eventos</span><span data-lang="uk">Автоматизації за розкладом та подіями</span></li>
+          <li><span data-lang="en" class="active">Multi-step pipelines with conditional logic</span><span data-lang="ru">Многошаговые пайплайны с условной логикой</span><span data-lang="es">Pipelines de múltiples pasos con lógica condicional</span><span data-lang="uk">Багатокрокові пайплайни з умовною логікою</span></li>
+          <li><span data-lang="en" class="active">Notifications via Telegram, email, Slack</span><span data-lang="ru">Уведомления через Telegram, email, Slack</span><span data-lang="es">Notificaciones vía Telegram, email, Slack</span><span data-lang="uk">Сповіщення через Telegram, email, Slack</span></li>
+        </ul>
+      </div>
+
+      <div class="service-detail-card reveal reveal-delay-3">
+        <div class="svc-d-icon">🔍</div>
+        <div class="svc-d-title"><span data-lang="en" class="active">RAG & Knowledge Bases</span><span data-lang="ru">RAG и базы знаний</span><span data-lang="es">RAG y bases de conocimiento</span><span data-lang="uk">RAG та бази знань</span></div>
+        <div class="svc-d-desc"><span data-lang="en" class="active">Retrieval-augmented generation systems that let AI work accurately with your proprietary data — documents, policies, manuals.</span><span data-lang="ru">RAG-системы, позволяющие ИИ точно работать с вашими корпоративными данными — документами, политиками, инструкциями.</span><span data-lang="es">Sistemas RAG que permiten a la IA trabajar con sus datos propietarios — documentos, políticas, manuales.</span><span data-lang="uk">RAG-системи, що дозволяють ІІ точно працювати з вашими даними — документами, політиками, інструкціями.</span></div>
+        <ul class="svc-d-features">
+          <li><span data-lang="en" class="active">Vector search with Supabase pgvector</span><span data-lang="ru">Векторный поиск с Supabase pgvector</span><span data-lang="es">Búsqueda vectorial con Supabase pgvector</span><span data-lang="uk">Векторний пошук з Supabase pgvector</span></li>
+          <li><span data-lang="en" class="active">Intelligent document chunking & embedding</span><span data-lang="ru">Умная нарезка и эмбеддинг документов</span><span data-lang="es">Fragmentación inteligente e incrustación de documentos</span><span data-lang="uk">Розумна нарізка та ембеддинг документів</span></li>
+          <li><span data-lang="en" class="active">Knowledge gap detection & escalation</span><span data-lang="ru">Обнаружение пробелов в знаниях и эскалация</span><span data-lang="es">Detección de brechas de conocimiento y escalada</span><span data-lang="uk">Виявлення прогалин у знаннях та ескалація</span></li>
+          <li><span data-lang="en" class="active">Claude API & GPT-4o powered responses</span><span data-lang="ru">Ответы на базе Claude API и GPT-4o</span><span data-lang="es">Respuestas con Claude API y GPT-4o</span><span data-lang="uk">Відповіді на базі Claude API та GPT-4o</span></li>
+        </ul>
+      </div>
+
+      <div class="service-detail-card reveal reveal-delay-1">
+        <div class="svc-d-icon">💬</div>
+        <div class="svc-d-title"><span data-lang="en" class="active">AI Chatbots & Assistants</span><span data-lang="ru">ИИ-чатботы и ассистенты</span><span data-lang="es">Chatbots y asistentes IA</span><span data-lang="uk">ІІ-чатботи та асистенти</span></div>
+        <div class="svc-d-desc"><span data-lang="en" class="active">Custom LLM-powered chatbots for customer support, internal Q&A, or lead qualification — deployed on your website or Telegram.</span><span data-lang="ru">Кастомные чатботы на базе LLM для поддержки клиентов, внутреннего Q&A или квалификации лидов — на сайте или в Telegram.</span><span data-lang="es">Chatbots personalizados para soporte al cliente, Q&A interno o calificación de leads — en su web o Telegram.</span><span data-lang="uk">Кастомні чатботи для підтримки клієнтів, внутрішнього Q&A або кваліфікації лідів — на сайті або в Telegram.</span></div>
+        <ul class="svc-d-features">
+          <li><span data-lang="en" class="active">Context-aware multi-turn conversations</span><span data-lang="ru">Контекстные многоходовые диалоги</span><span data-lang="es">Conversaciones contextuales de múltiples turnos</span><span data-lang="uk">Контекстні багатоходові діалоги</span></li>
+          <li><span data-lang="en" class="active">Booking, lead capture, FAQ automation</span><span data-lang="ru">Бронирование, захват лидов, автоматизация FAQ</span><span data-lang="es">Reservas, captura de leads, automatización de FAQ</span><span data-lang="uk">Бронювання, захоплення лідів, автоматизація FAQ</span></li>
+          <li><span data-lang="en" class="active">Handoff to human agent when needed</span><span data-lang="ru">Передача живому оператору при необходимости</span><span data-lang="es">Transferencia a agente humano cuando sea necesario</span><span data-lang="uk">Передача живому оператору за потреби</span></li>
+          <li><span data-lang="en" class="active">Multilingual — EN, PL, ES, UK and more</span><span data-lang="ru">Многоязычный — EN, PL, ES, UK и другие</span><span data-lang="es">Multilingüe — EN, PL, ES, UK y más</span><span data-lang="uk">Багатомовний — EN, PL, ES, UK та інші</span></li>
+        </ul>
+      </div>
+
+      <div class="service-detail-card reveal reveal-delay-2">
+        <div class="svc-d-icon">📊</div>
+        <div class="svc-d-title"><span data-lang="en" class="active">Process Audit & Consulting</span><span data-lang="ru">Аудит и консалтинг процессов</span><span data-lang="es">Auditoría y consultoría</span><span data-lang="uk">Аудит та консалтинг процесів</span></div>
+        <div class="svc-d-desc"><span data-lang="en" class="active">We map your business processes, identify the 3-5 highest-impact bottlenecks, and build a practical automation roadmap — before writing a single line of code.</span><span data-lang="ru">Картируем ваши бизнес-процессы, выявляем 3-5 наиболее значимых узких мест и создаём практический роадмэп — до написания первой строки кода.</span><span data-lang="es">Mapeamos sus procesos, identificamos los 3-5 cuellos de botella más impactantes y construimos un roadmap práctico — antes de escribir una línea de código.</span><span data-lang="uk">Картуємо ваші бізнес-процеси, виявляємо 3-5 найважливіших вузьких місць та будуємо практичний роадмеп — до написання першого рядка коду.</span></div>
+        <ul class="svc-d-features">
+          <li><span data-lang="en" class="active">60-min deep-dive interview with your team</span><span data-lang="ru">60-минутное интервью с вашей командой</span><span data-lang="es">Entrevista de 60 min con su equipo</span><span data-lang="uk">60-хвилинне інтерв'ю з вашою командою</span></li>
+          <li><span data-lang="en" class="active">Workflow map & bottleneck analysis</span><span data-lang="ru">Карта воркфлоу и анализ узких мест</span><span data-lang="es">Mapa de flujo y análisis de cuellos de botella</span><span data-lang="uk">Карта воркфлоу та аналіз вузьких місць</span></li>
+          <li><span data-lang="en" class="active">ROI estimate for each automation opportunity</span><span data-lang="ru">Оценка ROI для каждой возможности автоматизации</span><span data-lang="es">Estimación de ROI para cada oportunidad</span><span data-lang="uk">Оцінка ROI для кожної можливості автоматизації</span></li>
+          <li><span data-lang="en" class="active">Prioritised implementation roadmap</span><span data-lang="ru">Приоритизированный план реализации</span><span data-lang="es">Hoja de ruta de implementación priorizada</span><span data-lang="uk">Пріоритизований план реалізації</span></li>
+        </ul>
+      </div>
+
+      <div class="service-detail-card reveal reveal-delay-3">
+        <div class="svc-d-icon">🚀</div>
+        <div class="svc-d-title"><span data-lang="en" class="active">API & Systems Integration</span><span data-lang="ru">Интеграция API и систем</span><span data-lang="es">Integración de APIs y sistemas</span><span data-lang="uk">Інтеграція API та систем</span></div>
+        <div class="svc-d-desc"><span data-lang="en" class="active">Connecting your existing stack with AI tools and third-party services — CRMs, ERPs, databases, communication platforms, payment systems.</span><span data-lang="ru">Подключение вашего стека к ИИ-инструментам и сторонним сервисам — CRM, ERP, базы данных, коммуникационные платформы, платёжные системы.</span><span data-lang="es">Conectar su stack con herramientas IA y servicios de terceros — CRMs, ERPs, bases de datos, plataformas de comunicación.</span><span data-lang="uk">Підключення вашого стеку до ІІ-інструментів та сторонніх сервісів — CRM, ERP, бази даних, комунікаційні платформи.</span></div>
+        <ul class="svc-d-features">
+          <li><span data-lang="en" class="active">REST & GraphQL API integrations</span><span data-lang="ru">Интеграции REST и GraphQL API</span><span data-lang="es">Integraciones REST y GraphQL API</span><span data-lang="uk">Інтеграції REST та GraphQL API</span></li>
+          <li><span data-lang="en" class="active">Google Workspace, Notion, Airtable, HubSpot</span><span data-lang="ru">Google Workspace, Notion, Airtable, HubSpot</span><span data-lang="es">Google Workspace, Notion, Airtable, HubSpot</span><span data-lang="uk">Google Workspace, Notion, Airtable, HubSpot</span></li>
+          <li><span data-lang="en" class="active">Custom webhook flows & event pipelines</span><span data-lang="ru">Кастомные webhook-потоки и event-пайплайны</span><span data-lang="es">Flujos webhook personalizados y pipelines de eventos</span><span data-lang="uk">Кастомні webhook-потоки та event-пайплайни</span></li>
+          <li><span data-lang="en" class="active">Data transformation & normalisation</span><span data-lang="ru">Трансформация и нормализация данных</span><span data-lang="es">Transformación y normalización de datos</span><span data-lang="uk">Трансформація та нормалізація даних</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <span class="section-label reveal">
+      <span data-lang="en" class="active">Transparent pricing</span>
+      <span data-lang="ru">Прозрачные цены</span>
+      <span data-lang="es">Precios transparentes</span>
+      <span data-lang="uk">Прозорі ціни</span>
+    </span>
+    <h2 class="section-title reveal">
+      <span data-lang="en" class="active">Choose your engagement model</span>
+      <span data-lang="ru">Выберите модель сотрудничества</span>
+      <span data-lang="es">Elija su modelo de colaboración</span>
+      <span data-lang="uk">Оберіть модель співпраці</span>
+    </h2>
+
+    <!-- PROJECT PACKAGES -->
+    <div class="pricing-section-title reveal">
+      <span data-lang="en" class="active">🏗️ Project Packages — one-time delivery</span>
+      <span data-lang="ru">🏗️ Пакеты проектов — разовая реализация</span>
+      <span data-lang="es">🏗️ Paquetes de proyecto — entrega única</span>
+      <span data-lang="uk">🏗️ Пакети проектів — одноразова реалізація</span>
+    </div>
+    <div class="pricing-packages">
+
+      <div class="pricing-card reveal reveal-delay-1">
+        <div class="pricing-name">Starter</div>
+        <div class="pricing-tagline">
+          <span data-lang="en" class="active">Ready-made solution, configured for you</span>
+          <span data-lang="ru">Готовое решение, настроенное под вас</span>
+          <span data-lang="es">Solución lista, configurada para usted</span>
+          <span data-lang="uk">Готове рішення, налаштоване для вас</span>
+        </div>
+        <div class="pricing-price">
+          <div class="pricing-from">from</div>
+          <span class="pricing-amount">€800</span>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span><span data-lang="en" class="active">1 ready-made AI product (Restaurant Suite or BFS)</span><span data-lang="ru">1 готовый AI-продукт (Restaurant Suite или BFS)</span><span data-lang="es">1 producto IA listo (Restaurant Suite o BFS)</span><span data-lang="uk">1 готовий AI-продукт (Restaurant Suite або BFS)</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">Setup, configuration & deployment</span><span data-lang="ru">Установка, настройка и деплой</span><span data-lang="es">Configuración y despliegue</span><span data-lang="uk">Налаштування та деплой</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">Basic documentation</span><span data-lang="ru">Базовая документация</span><span data-lang="es">Documentación básica</span><span data-lang="uk">Базова документація</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">2 weeks post-launch support</span><span data-lang="ru">2 недели поддержки после запуска</span><span data-lang="es">2 semanas de soporte post-lanzamiento</span><span data-lang="uk">2 тижні підтримки після запуску</span></li>
+          <li><span class="dash">–</span><span data-lang="en" class="active">Custom development</span><span data-lang="ru">Кастомная разработка</span><span data-lang="es">Desarrollo personalizado</span><span data-lang="uk">Кастомна розробка</span></li>
+          <li><span class="dash">–</span><span data-lang="en" class="active">Training sessions</span><span data-lang="ru">Обучающие сессии</span><span data-lang="es">Sesiones de formación</span><span data-lang="uk">Навчальні сесії</span></li>
+        </ul>
+        <a href="contact.html#book" class="pricing-cta">
+          <span data-lang="en" class="active">Get started →</span>
+          <span data-lang="ru">Начать →</span>
+          <span data-lang="es">Comenzar →</span>
+          <span data-lang="uk">Почати →</span>
+        </a>
+      </div>
+
+      <div class="pricing-card featured reveal reveal-delay-2">
+        <div class="pricing-badge-popular">Most Popular</div>
+        <div class="pricing-name">Professional</div>
+        <div class="pricing-tagline">
+          <span data-lang="en" class="active">Custom AI agent built for your exact needs</span>
+          <span data-lang="ru">Кастомный ИИ-агент под ваши задачи</span>
+          <span data-lang="es">Agente IA personalizado para sus necesidades</span>
+          <span data-lang="uk">Кастомний ІІ-агент під ваші задачі</span>
+        </div>
+        <div class="pricing-price">
+          <div class="pricing-from">from</div>
+          <span class="pricing-amount">€2,000</span>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span><span data-lang="en" class="active">Custom AI agent — 1-2 workflows</span><span data-lang="ru">Кастомный ИИ-агент — 1-2 воркфлоу</span><span data-lang="es">Agente IA personalizado — 1-2 flujos</span><span data-lang="uk">Кастомний ІІ-агент — 1-2 воркфлоу</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">Full documentation & SOP</span><span data-lang="ru">Полная документация и SOP</span><span data-lang="es">Documentación completa y SOP</span><span data-lang="uk">Повна документація та SOP</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">1 training session (60 min)</span><span data-lang="ru">1 обучающая сессия (60 мин)</span><span data-lang="es">1 sesión de formación (60 min)</span><span data-lang="uk">1 навчальна сесія (60 хв)</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">1 month post-launch support</span><span data-lang="ru">1 месяц поддержки после запуска</span><span data-lang="es">1 mes de soporte post-lanzamiento</span><span data-lang="uk">1 місяць підтримки після запуску</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">Error handling & monitoring setup</span><span data-lang="ru">Настройка обработки ошибок и мониторинга</span><span data-lang="es">Configuración de manejo de errores y monitoreo</span><span data-lang="uk">Налаштування обробки помилок та моніторингу</span></li>
+          <li><span class="dash">–</span><span data-lang="en" class="active">Multi-agent architecture</span><span data-lang="ru">Многоагентная архитектура</span><span data-lang="es">Arquitectura multiagente</span><span data-lang="uk">Багатоагентна архітектура</span></li>
+        </ul>
+        <a href="contact.html#book" class="pricing-cta">
+          <span data-lang="en" class="active">Book a free call →</span>
+          <span data-lang="ru">Записаться бесплатно →</span>
+          <span data-lang="es">Reservar llamada gratuita →</span>
+          <span data-lang="uk">Записатись безкоштовно →</span>
+        </a>
+      </div>
+
+      <div class="pricing-card reveal reveal-delay-3">
+        <div class="pricing-name">Advanced</div>
+        <div class="pricing-tagline">
+          <span data-lang="en" class="active">Multi-agent system with dashboard & full docs</span>
+          <span data-lang="ru">Многоагентная система с дашбордом и документацией</span>
+          <span data-lang="es">Sistema multiagente con dashboard y documentación completa</span>
+          <span data-lang="uk">Багатоагентна система з дашбордом та документацією</span>
+        </div>
+        <div class="pricing-price">
+          <div class="pricing-from">from</div>
+          <span class="pricing-amount">€5,000</span>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span><span data-lang="en" class="active">3+ AI agents, custom architecture</span><span data-lang="ru">3+ ИИ-агентов, кастомная архитектура</span><span data-lang="es">3+ agentes IA, arquitectura personalizada</span><span data-lang="uk">3+ ІІ-агентів, кастомна архітектура</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">Analytics dashboard (Netlify/web)</span><span data-lang="ru">Аналитический дашборд (Netlify/web)</span><span data-lang="es">Dashboard de analítica (Netlify/web)</span><span data-lang="uk">Аналітичний дашборд (Netlify/web)</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">Full documentation & SOPs</span><span data-lang="ru">Полная документация и SOPs</span><span data-lang="es">Documentación completa y SOPs</span><span data-lang="uk">Повна документація та SOPs</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">2-3 training sessions</span><span data-lang="ru">2-3 обучающих сессии</span><span data-lang="es">2-3 sesiones de formación</span><span data-lang="uk">2-3 навчальні сесії</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">2 months post-launch support</span><span data-lang="ru">2 месяца поддержки после запуска</span><span data-lang="es">2 meses de soporte post-lanzamiento</span><span data-lang="uk">2 місяці підтримки після запуску</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">RAG knowledge base integration</span><span data-lang="ru">Интеграция RAG базы знаний</span><span data-lang="es">Integración de base de conocimiento RAG</span><span data-lang="uk">Інтеграція RAG бази знань</span></li>
+        </ul>
+        <a href="contact.html#book" class="pricing-cta">
+          <span data-lang="en" class="active">Discuss your project →</span>
+          <span data-lang="ru">Обсудить проект →</span>
+          <span data-lang="es">Hablar sobre su proyecto →</span>
+          <span data-lang="uk">Обговорити проект →</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- RETAINER PACKAGES -->
+    <div class="pricing-section-title reveal" style="margin-top:1rem;">
+      <span data-lang="en" class="active">🔄 Monthly Care — ongoing support & growth</span>
+      <span data-lang="ru">🔄 Ежемесячное сопровождение — поддержка и развитие</span>
+      <span data-lang="es">🔄 Cuidado mensual — soporte continuo y crecimiento</span>
+      <span data-lang="uk">🔄 Щомісячний супровід — підтримка та розвиток</span>
+    </div>
+    <div class="retainer-packages">
+
+      <div class="retainer-card reveal reveal-delay-1">
+        <div class="pricing-name">Basic Care</div>
+        <div class="pricing-tagline">
+          <span data-lang="en" class="active">Keep your system running smoothly</span>
+          <span data-lang="ru">Держите систему в рабочем состоянии</span>
+          <span data-lang="es">Mantenga su sistema funcionando sin problemas</span>
+          <span data-lang="uk">Тримайте систему в робочому стані</span>
+        </div>
+        <div class="pricing-price retainer-price">
+          <div class="pricing-from">from</div>
+          <span class="pricing-amount">€200</span>
+          <span class="pricing-period">/month</span>
+        </div>
+        <ul class="pricing-features" style="margin:1.25rem 0;">
+          <li><span class="check">✓</span><span data-lang="en" class="active">System monitoring & uptime checks</span><span data-lang="ru">Мониторинг системы и проверка работоспособности</span><span data-lang="es">Monitoreo del sistema y verificación de disponibilidad</span><span data-lang="uk">Моніторинг системи та перевірка працездатності</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">Bug fixes & minor adjustments</span><span data-lang="ru">Исправление ошибок и мелкие правки</span><span data-lang="es">Corrección de errores y ajustes menores</span><span data-lang="uk">Виправлення помилок та дрібні правки</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">2 hours of support per month</span><span data-lang="ru">2 часа поддержки в месяц</span><span data-lang="es">2 horas de soporte al mes</span><span data-lang="uk">2 години підтримки на місяць</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">Monthly status report</span><span data-lang="ru">Ежемесячный отчёт о состоянии</span><span data-lang="es">Informe mensual de estado</span><span data-lang="uk">Щомісячний звіт про стан</span></li>
+          <li><span class="dash">–</span><span data-lang="en" class="active">New agent development</span><span data-lang="ru">Разработка новых агентов</span><span data-lang="es">Desarrollo de nuevos agentes</span><span data-lang="uk">Розробка нових агентів</span></li>
+        </ul>
+        <a href="contact.html#book" class="retainer-cta">
+          <span data-lang="en" class="active">Get Basic Care →</span>
+          <span data-lang="ru">Подключить Basic →</span>
+          <span data-lang="es">Obtener Basic Care →</span>
+          <span data-lang="uk">Підключити Basic →</span>
+        </a>
+      </div>
+
+      <div class="retainer-card featured reveal reveal-delay-2">
+        <div class="retainer-badge">Recommended</div>
+        <div class="pricing-name">Pro Care</div>
+        <div class="pricing-tagline">
+          <span data-lang="en" class="active">Continuous improvement & new capabilities</span>
+          <span data-lang="ru">Постоянное улучшение и новые возможности</span>
+          <span data-lang="es">Mejora continua y nuevas capacidades</span>
+          <span data-lang="uk">Постійне покращення та нові можливості</span>
+        </div>
+        <div class="pricing-price retainer-price">
+          <div class="pricing-from">from</div>
+          <span class="pricing-amount">€500</span>
+          <span class="pricing-period">/month</span>
+        </div>
+        <ul class="pricing-features" style="margin:1.25rem 0;">
+          <li><span class="check">✓</span><span data-lang="en" class="active">Everything in Basic Care</span><span data-lang="ru">Всё из Basic Care</span><span data-lang="es">Todo lo de Basic Care</span><span data-lang="uk">Все з Basic Care</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">6 hours of development per month</span><span data-lang="ru">6 часов разработки в месяц</span><span data-lang="es">6 horas de desarrollo al mes</span><span data-lang="uk">6 годин розробки на місяць</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">New agent development & improvements</span><span data-lang="ru">Разработка новых агентов и улучшения</span><span data-lang="es">Desarrollo de nuevos agentes y mejoras</span><span data-lang="uk">Розробка нових агентів та покращення</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">Priority response within 4 hours</span><span data-lang="ru">Приоритетный ответ в течение 4 часов</span><span data-lang="es">Respuesta prioritaria en 4 horas</span><span data-lang="uk">Пріоритетна відповідь протягом 4 годин</span></li>
+          <li><span class="check">✓</span><span data-lang="en" class="active">Monthly strategy call (30 min)</span><span data-lang="ru">Ежемесячный стратегический звонок (30 мин)</span><span data-lang="es">Llamada estratégica mensual (30 min)</span><span data-lang="uk">Щомісячний стратегічний дзвінок (30 хв)</span></li>
+        </ul>
+        <a href="contact.html#book" class="retainer-cta">
+          <span data-lang="en" class="active">Get Pro Care →</span>
+          <span data-lang="ru">Подключить Pro →</span>
+          <span data-lang="es">Obtener Pro Care →</span>
+          <span data-lang="uk">Підключити Pro →</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="pricing-note reveal">
+      <strong><span data-lang="en" class="active">All prices are starting points.</span><span data-lang="ru">Все цены — отправная точка.</span><span data-lang="es">Todos los precios son puntos de partida.</span><span data-lang="uk">Всі ціни — відправна точка.</span></strong>
+      <span data-lang="en" class="active"> Every business is different. Final price depends on scope, complexity, and integrations required. Software usage fees (API costs, hosting) are not included. Let's talk about yours — the first 30 minutes are free.</span>
+      <span data-lang="ru"> Каждый бизнес уникален. Финальная цена зависит от объёма, сложности и необходимых интеграций. Стоимость программного обеспечения (API, хостинг) не включена. Давайте обсудим ваш проект — первые 30 минут бесплатно.</span>
+      <span data-lang="es"> Cada negocio es diferente. El precio final depende del alcance, la complejidad y las integraciones requeridas. Las tarifas de software (API, hosting) no están incluidas. Hablemos — los primeros 30 minutos son gratuitos.</span>
+      <span data-lang="uk"> Кожен бізнес унікальний. Фінальна ціна залежить від обсягу, складності та необхідних інтеграцій. Вартість програмного забезпечення (API, хостинг) не включена. Давайте обговоримо ваш проект — перші 30 хвилин безкоштовно.</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <span class="section-label reveal">
+      <span data-lang="en" class="active">Common questions</span>
+      <span data-lang="ru">Частые вопросы</span>
+      <span data-lang="es">Preguntas frecuentes</span>
+      <span data-lang="uk">Часті запитання</span>
+    </span>
+    <h2 class="section-title reveal">FAQ</h2>
+    <div class="faq-grid">
+
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span data-lang="en" class="active">How long does a typical project take?</span>
+          <span data-lang="ru">Сколько времени занимает типичный проект?</span>
+          <span data-lang="es">¿Cuánto tiempo lleva un proyecto típico?</span>
+          <span data-lang="uk">Скільки часу займає типовий проект?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <span data-lang="en" class="active">Starter packages (ready-made products): 3-7 days. Professional (custom agent): 2-3 weeks. Advanced (multi-agent system): 4-6 weeks. Timeline depends on scope, number of integrations, and how quickly you can provide feedback and access.</span>
+          <span data-lang="ru">Starter (готовые продукты): 3-7 дней. Professional (кастомный агент): 2-3 недели. Advanced (многоагентная система): 4-6 недель. Сроки зависят от объёма, количества интеграций и скорости обратной связи.</span>
+          <span data-lang="es">Starter (productos listos): 3-7 días. Professional (agente personalizado): 2-3 semanas. Advanced (sistema multiagente): 4-6 semanas. El tiempo depende del alcance y la velocidad de retroalimentación.</span>
+          <span data-lang="uk">Starter (готові продукти): 3-7 днів. Professional (кастомний агент): 2-3 тижні. Advanced (багатоагентна система): 4-6 тижнів. Терміни залежать від обсягу та швидкості зворотного зв'язку.</span>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span data-lang="en" class="active">Do I need technical knowledge to work with you?</span>
+          <span data-lang="ru">Нужны ли технические знания для работы с вами?</span>
+          <span data-lang="es">¿Necesito conocimientos técnicos para trabajar con usted?</span>
+          <span data-lang="uk">Чи потрібні технічні знання для роботи з вами?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <span data-lang="en" class="active">No. We handle all the technical complexity. You only need to understand your own business processes — we translate them into automation. Every delivery includes documentation and training so your team can operate the system independently.</span>
+          <span data-lang="ru">Нет. Мы берём на себя всю техническую сложность. Вам нужно только понимать свои бизнес-процессы — мы переводим их в автоматизацию. Каждая поставка включает документацию и обучение.</span>
+          <span data-lang="es">No. Nos encargamos de toda la complejidad técnica. Solo necesita entender sus propios procesos de negocio — nosotros los traducimos en automatización. Cada entrega incluye documentación y formación.</span>
+          <span data-lang="uk">Ні. Ми беремо на себе всю технічну складність. Вам потрібно лише розуміти свої бізнес-процеси — ми перекладаємо їх в автоматизацію. Кожна поставка включає документацію та навчання.</span>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span data-lang="en" class="active">What are the ongoing costs after delivery?</span>
+          <span data-lang="ru">Какие текущие расходы после сдачи проекта?</span>
+          <span data-lang="es">¿Cuáles son los costes continuos después de la entrega?</span>
+          <span data-lang="uk">Які поточні витрати після здачі проекту?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <span data-lang="en" class="active">Our pricing covers development only. After delivery, you'll have direct costs for the tools we use: OpenAI/Claude API (pay-per-use, typically €10-50/month for SMBs), n8n (free self-hosted or ~€20/month cloud), and any third-party APIs. We provide a full cost breakdown before starting.</span>
+          <span data-lang="ru">Наши цены покрывают только разработку. После сдачи у вас будут прямые расходы на инструменты: OpenAI/Claude API (оплата по факту, обычно €10-50/мес для SMB), n8n (бесплатный self-hosted или ~€20/мес облако) и сторонние API. Предоставляем полную смету до начала работ.</span>
+          <span data-lang="es">Nuestros precios cubren solo el desarrollo. Después, tendrá costes directos por las herramientas: OpenAI/Claude API (pago por uso, típicamente €10-50/mes para PYMEs), n8n (~€20/mes cloud) y APIs de terceros. Proporcionamos un desglose completo de costes antes de empezar.</span>
+          <span data-lang="uk">Наші ціни покривають лише розробку. Після здачі у вас будуть прямі витрати на інструменти: OpenAI/Claude API (оплата за фактом, зазвичай €10-50/міс для SMB), n8n (безкоштовний self-hosted або ~€20/міс хмара) та сторонні API. Надаємо повний кошторис до початку робіт.</span>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span data-lang="en" class="active">Can I start with a small project and scale later?</span>
+          <span data-lang="ru">Можно ли начать с небольшого проекта и масштабировать позже?</span>
+          <span data-lang="es">¿Puedo empezar con un proyecto pequeño y escalar después?</span>
+          <span data-lang="uk">Чи можна почати з невеликого проекту та масштабуватись пізніше?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <span data-lang="en" class="active">Absolutely — this is our recommended approach. Start with a Starter or Professional package to solve one specific problem, see the results, then expand. We build modular systems specifically so new agents can be added without rebuilding everything from scratch.</span>
+          <span data-lang="ru">Конечно — это наш рекомендуемый подход. Начните с Starter или Professional для решения одной конкретной проблемы, посмотрите на результаты, затем расширяйте. Мы специально строим модульные системы, чтобы новые агенты можно было добавлять без переделки всего с нуля.</span>
+          <span data-lang="es">Por supuesto — este es nuestro enfoque recomendado. Empiece con Starter o Professional para resolver un problema específico, vea los resultados y luego expanda. Construimos sistemas modulares precisamente para que se puedan añadir nuevos agentes sin reconstruir todo.</span>
+          <span data-lang="uk">Звичайно — це наш рекомендований підхід. Почніть зі Starter або Professional для вирішення однієї конкретної проблеми, подивіться на результати, потім розширюйтесь. Ми будуємо модульні системи, щоб нові агенти можна було додавати без перебудови всього з нуля.</span>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span data-lang="en" class="active">Is my data secure?</span>
+          <span data-lang="ru">Безопасны ли мои данные?</span>
+          <span data-lang="es">¿Están seguros mis datos?</span>
+          <span data-lang="uk">Чи захищені мої дані?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <span data-lang="en" class="active">Yes. We use self-hosted n8n where possible, keeping your data within your own infrastructure. For cloud deployments, we use Supabase (EU-hosted) and follow GDPR best practices. We never store client data on our own systems and sign NDAs for all projects.</span>
+          <span data-lang="ru">Да. Мы используем self-hosted n8n где возможно, сохраняя данные в вашей инфраструктуре. Для облачных деплоев используем Supabase (хостинг в ЕС) и следуем лучшим практикам GDPR. Мы никогда не храним данные клиентов в своих системах и подписываем NDA для всех проектов.</span>
+          <span data-lang="es">Sí. Usamos n8n auto-alojado donde es posible, manteniendo sus datos en su propia infraestructura. Para despliegues en la nube, usamos Supabase (alojado en UE) y seguimos las mejores prácticas GDPR. Nunca almacenamos datos de clientes en nuestros sistemas y firmamos NDAs para todos los proyectos.</span>
+          <span data-lang="uk">Так. Ми використовуємо self-hosted n8n де можливо, зберігаючи дані у вашій інфраструктурі. Для хмарних деплоїв використовуємо Supabase (хостинг в ЄС) та дотримуємось кращих практик GDPR. Ми ніколи не зберігаємо дані клієнтів у своїх системах та підписуємо NDA для всіх проектів.</span>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span data-lang="en" class="active">What if the automation doesn't work as expected?</span>
+          <span data-lang="ru">Что если автоматизация работает не так, как ожидалось?</span>
+          <span data-lang="es">¿Qué pasa si la automatización no funciona como se esperaba?</span>
+          <span data-lang="uk">Що якщо автоматизація не працює як очікувалось?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <span data-lang="en" class="active">Every project includes a testing phase and a post-launch support period (2 weeks minimum). During this time, we fix any issues at no extra cost. We define clear success criteria before starting, so there's no ambiguity about what "working as expected" means.</span>
+          <span data-lang="ru">Каждый проект включает фазу тестирования и период поддержки после запуска (минимум 2 недели). В это время мы исправляем любые проблемы без дополнительной оплаты. Мы определяем чёткие критерии успеха до начала работ, чтобы не было неоднозначности.</span>
+          <span data-lang="es">Cada proyecto incluye una fase de pruebas y un período de soporte post-lanzamiento (mínimo 2 semanas). Durante este tiempo, solucionamos cualquier problema sin coste adicional. Definimos criterios de éxito claros antes de empezar.</span>
+          <span data-lang="uk">Кожен проект включає фазу тестування та період підтримки після запуску (мінімум 2 тижні). Протягом цього часу ми виправляємо будь-які проблеми без додаткової оплати. Ми визначаємо чіткі критерії успіху до початку робіт.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-strip">
+  <div class="container">
+    <h2 class="reveal"><span data-lang="en" class="active">Stay ahead of AI automation</span><span data-lang="ru">Будьте в курсе AI-автоматизации</span><span data-lang="es">Manténgase al día con la IA</span><span data-lang="uk">Будьте в курсі ІІ-автоматизації</span></h2>
+    <p class="reveal"><span data-lang="en" class="active">Practical insights, workflow tips, and industry news — once a week, no spam.</span><span data-lang="ru">Практические инсайты, советы и новости — раз в неделю, без спама.</span><span data-lang="es">Insights prácticos, tips y noticias — una vez a la semana, sin spam.</span><span data-lang="uk">Практичні інсайти, поради та новини — раз на тиждень, без спаму.</span></p>
+    <form class="newsletter-form reveal" id="newsletterForm" name="newsletter" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="newsletter"/>
+      <input class="newsletter-input" type="email" name="email" placeholder="your@email.com" required/>
+      <button type="submit" class="newsletter-btn"><span data-lang="en" class="active">Subscribe</span><span data-lang="ru">Подписаться</span><span data-lang="es">Suscribirse</span><span data-lang="uk">Підписатись</span></button>
+    </form>
+    <div class="newsletter-success" id="newsletterSuccess">✅ <span data-lang="en" class="active">You're in! First issue coming soon.</span><span data-lang="ru">Вы подписаны!</span><span data-lang="es">¡Suscrito!</span><span data-lang="uk">Ви підписані!</span></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo-wrap" href="index.html" style="margin-bottom:12px;display:inline-flex;">
+          <svg width="32" height="32" viewBox="0 0 38 38" fill="none">
+            <rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/>
+            <rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/>
+            <rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/>
+            <circle cx="37" cy="5" r="4" fill="#0e9e7a"/>
+            <circle cx="37" cy="5" r="2" fill="white"/>
+          </svg>
+          <div class="logo-text" style="margin-left:8px;">
+            <span class="logo-name">Neolith<span class="ai">AI</span></span>
+            <span class="logo-sub">Agency</span>
+          </div>
+        </a>
+        <p class="footer-tagline"><span data-lang="en" class="active">AI automation for small businesses across EU & UK.</span><span data-lang="ru">ИИ-автоматизация для малого бизнеса в ЕС и Великобритании.</span><span data-lang="es">Automatización IA para pequeñas empresas en UE y UK.</span><span data-lang="uk">ІІ-автоматизація для малого бізнесу в ЄС та Великобританії.</span></p>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Services</span><span data-lang="ru">Услуги</span><span data-lang="es">Servicios</span><span data-lang="uk">Послуги</span></h4>
+        <a href="services.html"><span data-lang="en" class="active">AI Agent Design</span><span data-lang="ru">Проектирование агентов</span><span data-lang="es">Diseño de agentes</span><span data-lang="uk">Проектування агентів</span></a>
+        <a href="services.html"><span data-lang="en" class="active">Workflow Automation</span><span data-lang="ru">Автоматизация воркфлоу</span><span data-lang="es">Automatización</span><span data-lang="uk">Автоматизація</span></a>
+        <a href="services.html"><span data-lang="en" class="active">RAG & Knowledge Bases</span><span data-lang="ru">RAG и базы знаний</span><span data-lang="es">RAG y bases</span><span data-lang="uk">RAG та бази знань</span></a>
+        <a href="services.html#pricing"><span data-lang="en" class="active">Pricing</span><span data-lang="ru">Цены</span><span data-lang="es">Precios</span><span data-lang="uk">Ціни</span></a>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Company</span><span data-lang="ru">Компания</span><span data-lang="es">Empresa</span><span data-lang="uk">Компанія</span></h4>
+        <a href="about.html"><span data-lang="en" class="active">About us</span><span data-lang="ru">О нас</span><span data-lang="es">Sobre nosotros</span><span data-lang="uk">Про нас</span></a>
+        <a href="cases.html"><span data-lang="en" class="active">Case studies</span><span data-lang="ru">Кейсы</span><span data-lang="es">Casos</span><span data-lang="uk">Кейси</span></a>
+        <a href="blog.html"><span data-lang="en" class="active">Blog</span><span data-lang="ru">Блог</span><span data-lang="es">Blog</span><span data-lang="uk">Блог</span></a>
+        <a href="contact.html"><span data-lang="en" class="active">Contact</span><span data-lang="ru">Контакты</span><span data-lang="es">Contacto</span><span data-lang="uk">Контакти</span></a>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Connect</span><span data-lang="ru">Связаться</span><span data-lang="es">Conectar</span><span data-lang="uk">Зв'язатись</span></h4>
+        <a href="mailto:neolith2018ai@gmail.com">neolith2018ai@gmail.com</a>
+        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener">Upwork</a>
+        <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 NeolithAI Agency. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+        <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener" aria-label="Upwork"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- AI CHAT WIDGET -->
+<button class="ai-widget-btn" onclick="toggleChat()" aria-label="Chat with Nео">
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+  <span class="ai-widget-pulse"></span>
+</button>
+<div class="ai-chat-panel" id="aiChatPanel">
+  <div class="ai-chat-header">
+    <div class="ai-chat-avatar">🤖</div>
+    <div class="ai-chat-header-info">
+      <div class="ai-chat-name">Nео · NeolithAI Assistant</div>
+      <div class="ai-chat-status"><span data-lang="en" class="active">Online · replies instantly</span><span data-lang="ru">Онлайн · отвечает мгновенно</span><span data-lang="es">En línea · responde al instante</span><span data-lang="uk">Онлайн · відповідає миттєво</span></div>
+    </div>
+    <button class="ai-chat-close" onclick="closeChat()">✕</button>
+  </div>
+  <div class="ai-chat-messages" id="aiChatMessages"></div>
+  <div class="ai-chat-suggestions" id="aiSuggestions">
+    <button class="ai-suggestion" onclick="sendSuggestion('Which package is right for me?')">Which package?</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('What is included in Pro Care retainer?')">Pro Care details</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('I want to book a free consultation')">Book a call</button>
+  </div>
+  <div class="ai-chat-input-row">
+    <textarea class="ai-chat-input" id="aiChatInput" rows="1" placeholder="Ask me anything..." onkeydown="handleChatKey(event)"></textarea>
+    <button class="ai-chat-send" onclick="var i=document.getElementById('aiChatInput');sendMessage(i.value.trim())">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+<form name="chat-booking" netlify style="display:none"><input name="conversation"/></form>
+
+<script src="neolithai-shared.js"></script>
+<script>
+function toggleFaq(btn) {
+  var answer = btn.nextElementSibling;
+  var isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-question.open').forEach(function(b) {
+    b.classList.remove('open');
+    b.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) {
+    btn.classList.add('open');
+    answer.classList.add('open');
+  }
+}
+</script>
+</body>
+</html>

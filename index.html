@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NeolithAI Agency — AI Automation for Small Business</title>
+<meta name="description" content="NeolithAI Agency builds AI agents that automate the repetitive work — so you can focus on growing your business. Serving EU & UK small businesses."/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#1a6fc4"/>
+<link rel="stylesheet" href="neolithai-shared.css"/>
+<style>
+/* ── INDEX-SPECIFIC STYLES ── */
+
+/* HERO */
+#hero{
+  padding:5rem 2rem 5rem;
+  background:linear-gradient(135deg,#e8f1fb 0%,#f4f7fb 50%,#eaf5f0 100%);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;position:relative;
+}
+.hero-layout{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 480px;gap:4rem;align-items:center;
+}
+.hero-content{position:relative;z-index:2;}
+.hero-title{margin-bottom:1rem;}
+.hero-sub{font-size:1.05rem;max-width:520px;margin-bottom:1.25rem;}
+.hero-philosophy{
+  font-size:.95rem;color:var(--text2);max-width:520px;margin-bottom:2rem;
+  padding:12px 18px;border-left:3px solid var(--accent2);
+  background:rgba(14,158,122,0.06);border-radius:0 8px 8px 0;font-style:italic;
+}
+.hero-stats{display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;}
+.stat{border-left:3px solid var(--accent);padding-left:1rem;}
+.stat-num{font-size:1.75rem;font-weight:700;color:var(--accent);}
+.stat-label{font-size:13px;color:var(--text2);}
+
+/* HERO ANIMATION */
+.hero-visual{position:relative;width:100%;height:420px;flex-shrink:0;}
+#heroCanvas{width:100%;height:100%;border-radius:var(--radius-lg);}
+
+/* SERVICES PREVIEW */
+.services-grid-preview{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+}
+.service-card-preview{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.75rem;
+  transition:border-color .2s,transform .25s,box-shadow .25s;
+}
+.service-card-preview:hover{
+  border-color:var(--accent);transform:translateY(-4px);
+  box-shadow:0 8px 24px rgba(26,111,196,0.1);
+}
+.svc-icon{font-size:2rem;margin-bottom:1rem;}
+.svc-title{font-size:1rem;font-weight:600;margin-bottom:.5rem;}
+.svc-desc{font-size:14px;color:var(--text2);line-height:1.6;}
+.svc-link{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:13px;color:var(--accent);font-weight:600;
+  text-decoration:none;margin-top:1rem;transition:gap .2s;
+}
+.svc-link:hover{gap:8px;}
+
+/* CASES PREVIEW */
+.cases-preview-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+}
+.cases-preview-bottom{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1.5rem;max-width:67%;margin:1.5rem auto 0;
+}
+.case-preview-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+  transition:border-color .2s,transform .25s,box-shadow .25s;
+}
+.case-preview-card:hover{
+  border-color:var(--accent2);transform:translateY(-4px);
+  box-shadow:0 8px 24px rgba(14,158,122,0.1);
+}
+.case-preview-header{
+  padding:1.25rem 1.5rem 1rem;border-bottom:1px solid var(--border);
+  background:var(--bg);
+}
+.case-tag{
+  font-size:11px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;color:var(--accent2);margin-bottom:.4rem;
+}
+.case-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  background:var(--accent2);color:#fff;font-size:10px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  padding:3px 8px;border-radius:4px;float:right;margin-top:-2px;
+}
+.case-name{font-size:.95rem;font-weight:600;color:var(--text);}
+.case-preview-body{padding:1rem 1.5rem 1.5rem;}
+.case-num{font-size:1.75rem;font-weight:700;color:var(--accent);}
+.case-desc-short{font-size:13px;color:var(--text2);line-height:1.6;margin-top:.4rem;}
+.case-stack{display:flex;flex-wrap:wrap;gap:5px;margin-top:.75rem;}
+.stack-tag{
+  font-size:11px;background:var(--bg2);border:1px solid var(--border);
+  border-radius:10px;padding:2px 9px;color:var(--text2);
+}
+.case-view-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;color:var(--accent);text-decoration:none;
+  border:1px solid var(--accent);border-radius:6px;
+  padding:5px 12px;margin-top:1rem;transition:all .2s;font-weight:500;
+}
+.case-view-link:hover{background:var(--accent);color:#fff;}
+
+/* ABOUT PREVIEW */
+#about-preview{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.about-preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.about-quote-block{
+  background:linear-gradient(135deg,#e8f1fb,#eaf5f0);
+  border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:2.5rem;position:relative;overflow:hidden;
+}
+.about-quote-block::after{
+  content:'"';position:absolute;top:-8px;right:20px;
+  font-size:120px;line-height:1;color:var(--accent);opacity:.06;
+  font-family:Georgia,serif;pointer-events:none;
+}
+.about-quote-text{font-size:1.05rem;line-height:1.75;color:var(--text);font-style:italic;}
+.about-quote-text strong{color:var(--accent);font-style:normal;}
+.about-tags-wrap{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:8px;}
+.about-tag{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:5px 14px;font-size:13px;
+  font-weight:500;color:var(--accent);
+}
+
+/* TESTIMONIALS */
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.t-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.75rem;
+  transition:transform .25s,box-shadow .25s;
+}
+.t-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.t-stars{color:#f59e0b;font-size:14px;margin-bottom:.75rem;letter-spacing:2px;}
+.t-quote{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:1.25rem;font-style:italic;}
+.t-author{display:flex;align-items:center;gap:12px;}
+.t-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,#e8f1fb,#eaf5f0);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;color:var(--accent);
+  border:1.5px solid var(--border);flex-shrink:0;
+}
+.t-name{font-size:14px;font-weight:600;color:var(--text);}
+.t-role{font-size:12px;color:var(--text2);}
+
+/* PROCESS BLOCK */
+#process{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.process-flow{
+  display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:0;align-items:center;margin-top:1rem;
+}
+.process-step{
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  padding:2rem 1.5rem;text-align:center;
+  border:1px solid var(--border);border-radius:var(--radius);
+  background:var(--bg);transition:transform .3s,box-shadow .3s;
+}
+.process-step:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.process-icon{font-size:2.2rem;}
+.process-layer{
+  border-radius:6px;padding:7px 22px;
+  display:flex;align-items:center;justify-content:center;min-width:140px;
+}
+.process-layer-label{font-size:10px;font-weight:700;letter-spacing:2px;color:white;}
+.process-step-title{font-size:.95rem;font-weight:600;color:var(--text);}
+.process-step-desc{font-size:13px;color:var(--text2);line-height:1.6;max-width:200px;}
+.process-arrow{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:0 .5rem;
+}
+.process-arrow-line{
+  width:40px;height:2px;
+  background:linear-gradient(to right,#1a6fc4,#0e9e7a);
+  border-radius:2px;
+}
+.process-arrow-head{font-size:1.4rem;color:#0e9e7a;margin-top:-6px;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-layout{grid-template-columns:1fr;}
+  .hero-visual{height:300px;}
+  .services-grid-preview{grid-template-columns:repeat(2,1fr);}
+  .cases-preview-grid{grid-template-columns:repeat(2,1fr);}
+  .cases-preview-bottom{max-width:100%;grid-template-columns:1fr;}
+  .about-preview-grid{grid-template-columns:1fr;}
+  .t-grid{grid-template-columns:1fr;}
+  .process-flow{grid-template-columns:1fr;gap:1rem;}
+  .process-arrow{flex-direction:row;transform:rotate(90deg);margin:-.5rem auto;}
+}
+@media(max-width:600px){
+  .services-grid-preview{grid-template-columns:1fr;}
+  .cases-preview-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a class="logo-wrap" href="index.html">
+      <svg width="36" height="36" viewBox="0 0 38 38" fill="none">
+        <rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/>
+        <rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/>
+        <rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/>
+        <circle cx="37" cy="5" r="4" fill="#0e9e7a"/>
+        <circle cx="37" cy="5" r="2" fill="white"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-name">Neolith<span class="ai">AI</span></span>
+        <span class="logo-sub">Agency</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="services.html" data-nav="services">Services</a></li>
+      <li><a href="cases.html" data-nav="cases">Cases</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="blog.html" data-nav="blog">Blog</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+      <li><a href="contact.html#book" class="nav-cta" data-nav="book">Book a Call</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang-btn="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang-btn="ru" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn" data-lang-btn="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang-btn="uk" onclick="setLang('uk')">UA</button>
+      </div>
+      <button class="burger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="cases.html" onclick="toggleMenu()">Cases</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <div class="mobile-cta-wrap">
+    <a href="contact.html#book" class="btn-primary" style="display:block;text-align:center;" onclick="toggleMenu()">Book a Free Call</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-layout">
+    <div class="hero-content reveal">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span data-lang="en" class="active">Open for new projects · EU & UK</span>
+        <span data-lang="ru">Открыты для новых проектов · ЕС и Великобритания</span>
+        <span data-lang="es">Abiertos para nuevos proyectos · UE y Reino Unido</span>
+        <span data-lang="uk">Відкриті для нових проектів · ЄС та Великобританія</span>
+      </div>
+      <h1 class="hero-title">
+        <span data-lang="en" class="active">We automate what's<br><span class="accent">slowing you down.</span></span>
+        <span data-lang="ru">Автоматизируем то,<br><span class="accent">что тормозит ваш бизнес.</span></span>
+        <span data-lang="es">Automatizamos lo que<br><span class="accent">frena tu negocio.</span></span>
+        <span data-lang="uk">Автоматизуємо те,<br><span class="accent">що гальмує ваш бізнес.</span></span>
+      </h1>
+      <p class="hero-sub">
+        <span data-lang="en" class="active">We build AI agents that handle the repetitive work — so you can focus on growing your business.</span>
+        <span data-lang="ru">Мы создаём ИИ-агентов, которые берут на себя рутину — чтобы вы могли сосредоточиться на росте бизнеса.</span>
+        <span data-lang="es">Construimos agentes IA que manejan el trabajo repetitivo — para que puedas enfocarte en hacer crecer tu negocio.</span>
+        <span data-lang="uk">Ми створюємо ІІ-агентів, які беруть на себе рутину — щоб ви могли зосередитися на зростанні бізнесу.</span>
+      </p>
+      <p class="hero-philosophy">
+        <span data-lang="en" class="active">We don't automate for the sake of automation. We automate exactly what's holding your business back.</span>
+        <span data-lang="ru">Мы не автоматизируем ради автоматизации. Мы автоматизируем именно то, что тормозит ваш бизнес.</span>
+        <span data-lang="es">No automatizamos por automatizar. Automatizamos exactamente lo que está frenando tu negocio.</span>
+        <span data-lang="uk">Ми не автоматизуємо заради автоматизації. Ми автоматизуємо саме те, що гальмує ваш бізнес.</span>
+      </p>
+      <div class="btn-group">
+        <a href="contact.html#book" class="btn-primary">
+          <span data-lang="en" class="active">Book a free call</span>
+          <span data-lang="ru">Записаться на консультацию</span>
+          <span data-lang="es">Reservar llamada gratuita</span>
+          <span data-lang="uk">Записатись на консультацію</span>
+        </a>
+        <a href="cases.html" class="btn-outline">
+          <span data-lang="en" class="active">View our work</span>
+          <span data-lang="ru">Наши работы</span>
+          <span data-lang="es">Ver nuestro trabajo</span>
+          <span data-lang="uk">Наші роботи</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num" data-count="5" data-suffix="+">5+</div>
+          <div class="stat-label">
+            <span data-lang="en" class="active">AI projects live</span>
+            <span data-lang="ru">Живых проектов</span>
+            <span data-lang="es">Proyectos activos</span>
+            <span data-lang="uk">Живих проектів</span>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="60" data-suffix="%">60%</div>
+          <div class="stat-label">
+            <span data-lang="en" class="active">Avg. time saved</span>
+            <span data-lang="ru">Экономия времени</span>
+            <span data-lang="es">Tiempo ahorrado</span>
+            <span data-lang="uk">Економія часу</span>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="3" data-suffix=" langs">3 langs</div>
+          <div class="stat-label">
+            <span data-lang="en" class="active">EU markets served</span>
+            <span data-lang="ru">Рынка ЕС</span>
+            <span data-lang="es">Mercados UE</span>
+            <span data-lang="uk">Ринки ЄС</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO ANIMATION -->
+    <div class="hero-visual reveal reveal-delay-2">
+      <canvas id="heroCanvas"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY STRIP -->
+<div class="philosophy-strip">
+  <div class="philosophy-grid">
+    <div class="phil-item reveal">
+      <span class="phil-num">01</span>
+      <span class="phil-text">
+        <span data-lang="en" class="active">We build AI agents that handle the repetitive work — so you can focus on growing your business.</span>
+        <span data-lang="ru">Мы создаём ИИ-агентов, которые берут рутину на себя — чтобы вы росли.</span>
+        <span data-lang="es">Construimos agentes IA que manejan el trabajo repetitivo — para que crezcas.</span>
+        <span data-lang="uk">Будуємо ІІ-агентів, які беруть рутину на себе — щоб ви росли.</span>
+      </span>
+    </div>
+    <div class="phil-item reveal reveal-delay-1">
+      <span class="phil-num">02</span>
+      <span class="phil-text">
+        <span data-lang="en" class="active">We don't automate for the sake of automation. We automate what's slowing you down.</span>
+        <span data-lang="ru">Мы не автоматизируем ради автоматизации. Устраняем именно то, что тормозит вас.</span>
+        <span data-lang="es">No automatizamos por automatizar. Eliminamos exactamente lo que te frena.</span>
+        <span data-lang="uk">Ми не автоматизуємо заради автоматизації. Усуваємо саме те, що вас гальмує.</span>
+      </span>
+    </div>
+    <div class="phil-item reveal reveal-delay-2">
+      <span class="phil-num">03</span>
+      <span class="phil-text">
+        <span data-lang="en" class="active">Custom AI automation for small businesses — from customer service to internal operations.</span>
+        <span data-lang="ru">Кастомная ИИ-автоматизация для малого бизнеса — от клиентского сервиса до внутренних процессов.</span>
+        <span data-lang="es">Automatización IA para pequeñas empresas — del servicio al cliente a las operaciones internas.</span>
+        <span data-lang="uk">Кастомна ІІ-автоматизація для малого бізнесу — від клієнтського сервісу до внутрішніх процесів.</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <span class="section-label reveal">
+      <span data-lang="en" class="active">How it works</span>
+      <span data-lang="ru">Как мы работаем</span>
+      <span data-lang="es">Cómo trabajamos</span>
+      <span data-lang="uk">Як ми працюємо</span>
+    </span>
+    <h2 class="section-title reveal">
+      <span data-lang="en" class="active">From your data to results — automatically</span>
+      <span data-lang="ru">От ваших данных к результату — автоматически</span>
+      <span data-lang="es">De sus datos a resultados — automáticamente</span>
+      <span data-lang="uk">Від ваших даних до результату — автоматично</span>
+    </h2>
+    <div class="process-flow">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-icon">📥</div>
+        <div class="process-layer" style="background:#1a6fc4;">
+          <span class="process-layer-label">INTAKE</span>
+        </div>
+        <div class="process-step-title">
+          <span data-lang="en" class="active">Data collection</span>
+          <span data-lang="ru">Сбор данных</span>
+          <span data-lang="es">Recopilación</span>
+          <span data-lang="uk">Збір даних</span>
+        </div>
+        <div class="process-step-desc">
+          <span data-lang="en" class="active">Forms, files, APIs, messages — we capture your data from any source automatically.</span>
+          <span data-lang="ru">Формы, файлы, API — данные из любого источника.</span>
+          <span data-lang="es">Formularios, archivos, APIs — datos de cualquier fuente.</span>
+          <span data-lang="uk">Форми, файли, API — дані з будь-якого джерела.</span>
+        </div>
+      </div>
+      <div class="process-arrow reveal reveal-delay-2">
+        <div class="process-arrow-line"></div>
+        <div class="process-arrow-head">›</div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-icon">🧠</div>
+        <div class="process-layer" style="background:#1a6fc4;opacity:.72;">
+          <span class="process-layer-label">PROCESSING</span>
+        </div>
+        <div class="process-step-title">
+          <span data-lang="en" class="active">AI analysis</span>
+          <span data-lang="ru">ИИ-анализ</span>
+          <span data-lang="es">Análisis IA</span>
+          <span data-lang="uk">ІІ-аналіз</span>
+        </div>
+        <div class="process-step-desc">
+          <span data-lang="en" class="active">LLM agents classify, enrich, score and decide — following your business logic precisely.</span>
+          <span data-lang="ru">ИИ-агенты классифицируют, обогащают и принимают решения по вашей логике.</span>
+          <span data-lang="es">Los agentes clasifican, enriquecen y deciden según su lógica de negocio.</span>
+          <span data-lang="uk">ІІ-агенти класифікують, збагачують і приймають рішення за вашою логікою.</span>
+        </div>
+      </div>
+      <div class="process-arrow reveal reveal-delay-4">
+        <div class="process-arrow-line"></div>
+        <div class="process-arrow-head">›</div>
+      </div>
+      <div class="process-step reveal reveal-delay-5">
+        <div class="process-icon">✅</div>
+        <div class="process-layer" style="background:#0e9e7a;">
+          <span class="process-layer-label">OUTPUT</span>
+        </div>
+        <div class="process-step-title">
+          <span data-lang="en" class="active">Results delivered</span>
+          <span data-lang="ru">Результаты доставлены</span>
+          <span data-lang="es">Resultados entregados</span>
+          <span data-lang="uk">Результати доставлені</span>
+        </div>
+        <div class="process-step-desc">
+          <span data-lang="en" class="active">Reports, notifications, records, emails — the right output in the right place, every time.</span>
+          <span data-lang="ru">Отчёты, уведомления, письма — нужный результат в нужном месте.</span>
+          <span data-lang="es">Informes, notificaciones, registros — el resultado correcto siempre.</span>
+          <span data-lang="uk">Звіти, сповіщення, записи — потрібний результат у потрібному місці.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES PREVIEW -->
+<section id="services-preview" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <span class="section-label reveal">
+      <span data-lang="en" class="active">What we do</span>
+      <span data-lang="ru">Что мы делаем</span>
+      <span data-lang="es">Lo que hacemos</span>
+      <span data-lang="uk">Що ми робимо</span>
+    </span>
+    <h2 class="section-title reveal">
+      <span data-lang="en" class="active">Services</span>
+      <span data-lang="ru">Услуги</span>
+      <span data-lang="es">Servicios</span>
+      <span data-lang="uk">Послуги</span>
+    </h2>
+    <div class="services-grid-preview">
+      <div class="service-card-preview reveal reveal-delay-1">
+        <div class="svc-icon">🧠</div>
+        <div class="svc-title"><span data-lang="en" class="active">AI Agent Design</span><span data-lang="ru">Проектирование ИИ-агентов</span><span data-lang="es">Diseño de agentes IA</span><span data-lang="uk">Проектування ІІ-агентів</span></div>
+        <div class="svc-desc"><span data-lang="en" class="active">Autonomous agents that handle complex multi-step tasks without human intervention.</span><span data-lang="ru">Автономные агенты для сложных многоэтапных задач без участия человека.</span><span data-lang="es">Agentes autónomos para tareas complejas sin intervención humana.</span><span data-lang="uk">Автономні агенти для складних завдань без участі людини.</span></div>
+        <a href="services.html" class="svc-link"><span data-lang="en" class="active">Learn more →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Más info →</span><span data-lang="uk">Докладніше →</span></a>
+      </div>
+      <div class="service-card-preview reveal reveal-delay-2">
+        <div class="svc-icon">⚙️</div>
+        <div class="svc-title"><span data-lang="en" class="active">Workflow Automation</span><span data-lang="ru">Автоматизация воркфлоу</span><span data-lang="es">Automatización de flujos</span><span data-lang="uk">Автоматизація воркфлоу</span></div>
+        <div class="svc-desc"><span data-lang="en" class="active">End-to-end automated pipelines using n8n and custom solutions tailored to your business.</span><span data-lang="ru">Сквозные автоматизированные пайплайны с помощью n8n и кастомных решений.</span><span data-lang="es">Pipelines automatizados de extremo a extremo con n8n.</span><span data-lang="uk">Наскрізні автоматизовані пайплайни за допомогою n8n.</span></div>
+        <a href="services.html" class="svc-link"><span data-lang="en" class="active">Learn more →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Más info →</span><span data-lang="uk">Докладніше →</span></a>
+      </div>
+      <div class="service-card-preview reveal reveal-delay-3">
+        <div class="svc-icon">💬</div>
+        <div class="svc-title"><span data-lang="en" class="active">RAG & Knowledge Bases</span><span data-lang="ru">RAG и базы знаний</span><span data-lang="es">RAG y bases de conocimiento</span><span data-lang="uk">RAG та бази знань</span></div>
+        <div class="svc-desc"><span data-lang="en" class="active">AI that works with your proprietary data — securely and accurately, using vector search.</span><span data-lang="ru">ИИ, работающий с вашими корпоративными данными — безопасно и точно.</span><span data-lang="es">IA que trabaja con sus datos propietarios — de forma segura y precisa.</span><span data-lang="uk">ІІ, що працює з вашими даними — безпечно та точно.</span></div>
+        <a href="services.html" class="svc-link"><span data-lang="en" class="active">Learn more →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Más info →</span><span data-lang="uk">Докладніше →</span></a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <a href="services.html" class="btn-outline"><span data-lang="en" class="active">All services & pricing →</span><span data-lang="ru">Все услуги и цены →</span><span data-lang="es">Todos los servicios →</span><span data-lang="uk">Всі послуги та ціни →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CASES PREVIEW -->
+<section id="cases-preview">
+  <div class="container">
+    <span class="section-label reveal">
+      <span data-lang="en" class="active">Portfolio</span>
+      <span data-lang="ru">Портфолио</span>
+      <span data-lang="es">Portafolio</span>
+      <span data-lang="uk">Портфоліо</span>
+    </span>
+    <h2 class="section-title reveal">
+      <span data-lang="en" class="active">5 production-ready projects</span>
+      <span data-lang="ru">5 production-ready проектов</span>
+      <span data-lang="es">5 proyectos en producción</span>
+      <span data-lang="uk">5 production-ready проектів</span>
+    </h2>
+    <div class="cases-preview-grid">
+      <div class="case-preview-card reveal reveal-delay-1">
+        <div class="case-preview-header">
+          <div class="case-tag">Content / Social Media</div><span class="case-badge">LIVE</span>
+          <div class="case-name">AI Content Master</div>
+        </div>
+        <div class="case-preview-body">
+          <span class="case-num">9×</span>
+          <div class="case-desc-short"><span data-lang="en" class="active">Content units per prompt · 3 languages × 3 formats + AI image</span><span data-lang="ru">Единиц контента за запрос · 3 языка × 3 формата + AI-изображение</span><span data-lang="es">Unidades por prompt · 3 idiomas × 3 formatos + imagen IA</span><span data-lang="uk">Одиниць за запит · 3 мови × 3 формати + AI-зображення</span></div>
+          <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">DALL-E 3</span><span class="stack-tag">Telegram</span></div>
+          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Ver detalles →</span><span data-lang="uk">Детальніше →</span></a>
+        </div>
+      </div>
+      <div class="case-preview-card reveal reveal-delay-2">
+        <div class="case-preview-header">
+          <div class="case-tag">Restaurant / HoReCa</div><span class="case-badge">LIVE</span>
+          <div class="case-name">Restaurant AI Suite</div>
+        </div>
+        <div class="case-preview-body">
+          <span class="case-num">5×</span>
+          <div class="case-desc-short"><span data-lang="en" class="active">AI agents · reviews, reservations, menu, inventory, food photos</span><span data-lang="ru">ИИ-агентов · отзывы, бронирование, меню, склад, фото</span><span data-lang="es">Agentes IA · reseñas, reservas, menú, inventario, fotos</span><span data-lang="uk">ІІ-агентів · відгуки, бронювання, меню, склад, фото</span></div>
+          <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">DALL-E 3</span><span class="stack-tag">Supabase</span></div>
+          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Ver detalles →</span><span data-lang="uk">Детальніше →</span></a>
+        </div>
+      </div>
+      <div class="case-preview-card reveal reveal-delay-3">
+        <div class="case-preview-header">
+          <div class="case-tag">HR / Recruiting</div><span class="case-badge">LIVE</span>
+          <div class="case-name"><span data-lang="en" class="active">CV Screening Agent</span><span data-lang="ru">Агент скрининга резюме</span><span data-lang="es">Agente de selección de CVs</span><span data-lang="uk">Агент скринінгу резюме</span></div>
+        </div>
+        <div class="case-preview-body">
+          <span class="case-num">10×</span>
+          <div class="case-desc-short"><span data-lang="en" class="active">Faster candidate shortlisting · 3-workflow system with AI scoring</span><span data-lang="ru">Быстрее отбор кандидатов · 3 воркфлоу с AI-скорингом</span><span data-lang="es">Preselección más rápida · sistema de 3 flujos con puntuación IA</span><span data-lang="uk">Швидший відбір кандидатів · 3 воркфлоу з AI-скорингом</span></div>
+          <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Telegram</span></div>
+          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Ver detalles →</span><span data-lang="uk">Детальніше →</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="cases-preview-bottom">
+      <div class="case-preview-card reveal reveal-delay-1">
+        <div class="case-preview-header">
+          <div class="case-tag">Customer Support / Multi-Agent</div><span class="case-badge">LIVE</span>
+          <div class="case-name">BFS Suite — Big For Small</div>
+        </div>
+        <div class="case-preview-body">
+          <span class="case-num">3</span><span style="font-size:1rem;font-weight:600;color:var(--text2);margin-left:6px;">agents · 1 platform</span>
+          <div class="case-desc-short"><span data-lang="en" class="active">RAG-powered Legal, HR & Support agents with live analytics dashboard</span><span data-lang="ru">RAG-агенты Legal, HR и Support с живым дашбордом аналитики</span><span data-lang="es">Agentes Legal, HR y Support con RAG y dashboard de analítica</span><span data-lang="uk">RAG-агенти Legal, HR та Support з живим дашбордом</span></div>
+          <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">Claude API</span><span class="stack-tag">Supabase</span><span class="stack-tag">pgvector</span></div>
+          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Ver detalles →</span><span data-lang="uk">Детальніше →</span></a>
+        </div>
+      </div>
+      <div class="case-preview-card reveal reveal-delay-2">
+        <div class="case-preview-header">
+          <div class="case-tag">B2B Sales / Lead Gen</div><span class="case-badge">LIVE</span>
+          <div class="case-name"><span data-lang="en" class="active">AI Lead Generation Agent</span><span data-lang="ru">ИИ-агент генерации лидов</span><span data-lang="es">Agente IA de generación de leads</span><span data-lang="uk">ІІ-агент генерації лідів</span></div>
+        </div>
+        <div class="case-preview-body">
+          <span class="case-num">100%</span>
+          <div class="case-desc-short"><span data-lang="en" class="active">Autonomous B2B outreach · Google Maps → AI scoring → cold email + follow-up</span><span data-lang="ru">Автономный B2B-аутрич · Google Maps → AI-скоринг → холодные письма</span><span data-lang="es">Outreach B2B autónomo · Google Maps → puntuación IA → email frío</span><span data-lang="uk">Автономний B2B-аутрич · Google Maps → AI-скоринг → холодні листи</span></div>
+          <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">Google Maps API</span><span class="stack-tag">Gmail</span></div>
+          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Ver detalles →</span><span data-lang="uk">Детальніше →</span></a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <a href="cases.html" class="btn-outline"><span data-lang="en" class="active">All case studies →</span><span data-lang="ru">Все кейсы →</span><span data-lang="es">Todos los casos →</span><span data-lang="uk">Всі кейси →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT PREVIEW -->
+<section id="about-preview">
+  <div class="container">
+    <div class="about-preview-grid">
+      <div class="reveal">
+        <span class="section-label">
+          <span data-lang="en" class="active">Who we are</span>
+          <span data-lang="ru">О нас</span>
+          <span data-lang="es">Quiénes somos</span>
+          <span data-lang="uk">Про нас</span>
+        </span>
+        <h2 style="margin-bottom:1.5rem;">
+          <span data-lang="en" class="active">From <span class="accent">Archaeology</span> to AI Automation</span>
+          <span data-lang="ru">Из <span class="accent">Археологии</span> в ИИ-автоматизацию</span>
+          <span data-lang="es">De la <span class="accent">Arqueología</span> a la IA</span>
+          <span data-lang="uk">З <span class="accent">Археології</span> до ІІ-автоматизації</span>
+        </h2>
+        <p style="margin-bottom:1rem;">
+          <span data-lang="en" class="active">NeolithAI is led by Yevhenii Nohin — PhD archaeologist turned AI Automation Engineer. 23 years of excavating, classifying, and analysing complex data trained a mind that finds patterns where others see noise.</span>
+          <span data-lang="ru">NeolithAI возглавляет Евгений Нохин — PhD-археолог, ставший инженером по ИИ-автоматизации. 23 года раскопок и анализа данных научили видеть паттерны там, где другие видят хаос.</span>
+          <span data-lang="es">NeolithAI está liderado por Yevhenii Nohin — arqueólogo PhD reconvertido en Ingeniero de IA. 23 años excavando y analizando datos complejos entrenaron una mente que encuentra patrones donde otros ven ruido.</span>
+          <span data-lang="uk">NeolithAI очолює Євгеній Нохін — PhD-археолог, який став інженером з ІІ-автоматизації. 23 роки розкопок і аналізу даних навчили знаходити паттерни там, де інші бачать хаос.</span>
+        </p>
+        <p style="margin-bottom:2rem;">
+          <span data-lang="en" class="active">That same analytical discipline now drives every automation we build — map the process, find the gaps, build the system that runs itself.</span>
+          <span data-lang="ru">Та же аналитическая дисциплина теперь лежит в основе каждой автоматизации — картируй процесс, найди разрывы, выстрой систему, которая работает сама.</span>
+          <span data-lang="es">Esa misma disciplina analítica impulsa cada automatización que construimos — mapear el proceso, encontrar las brechas, construir el sistema que se gestiona solo.</span>
+          <span data-lang="uk">Та ж аналітична дисципліна тепер лежить в основі кожної автоматизації — картуй процес, знайди розриви, побудуй систему, яка працює сама.</span>
+        </p>
+        <a href="about.html" class="btn-outline">
+          <span data-lang="en" class="active">Our story →</span>
+          <span data-lang="ru">Наша история →</span>
+          <span data-lang="es">Nuestra historia →</span>
+          <span data-lang="uk">Наша історія →</span>
+        </a>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="about-quote-block">
+          <p class="about-quote-text">
+            <span data-lang="en" class="active">"An archaeologist doesn't just dig — they reconstruct hidden systems from fragments. <strong>AI automation is the same discipline:</strong> map the process, find the gaps, build the structure that runs itself."</span>
+            <span data-lang="ru">"Археолог не просто копает — он восстанавливает скрытые системы из фрагментов. <strong>ИИ-автоматизация — та же дисциплина:</strong> картируй процесс, найди разрывы, выстрой структуру, которая работает сама."</span>
+            <span data-lang="es">"Un arqueólogo no solo excava — reconstruye sistemas ocultos a partir de fragmentos. <strong>La automatización IA es la misma disciplina:</strong> mapea el proceso, encuentra las brechas, construye la estructura que se gestiona sola."</span>
+            <span data-lang="uk">"Археолог не просто копає — він відновлює приховані системи з фрагментів. <strong>ІІ-автоматизація — та сама дисципліна:</strong> картуй процес, знайди розриви, побудуй структуру, яка працює сама."</span>
+          </p>
+          <div class="about-tags-wrap">
+            <span class="about-tag">n8n</span>
+            <span class="about-tag">Claude API</span>
+            <span class="about-tag">GPT-4o</span>
+            <span class="about-tag">Supabase</span>
+            <span class="about-tag">pgvector</span>
+            <span class="about-tag">Telegram API</span>
+            <span class="about-tag">Netlify</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <span class="section-label reveal">
+      <span data-lang="en" class="active">Social proof</span>
+      <span data-lang="ru">Отзывы</span>
+      <span data-lang="es">Testimonios</span>
+      <span data-lang="uk">Відгуки</span>
+    </span>
+    <h2 class="section-title reveal">
+      <span data-lang="en" class="active">What clients say</span>
+      <span data-lang="ru">Что говорят клиенты</span>
+      <span data-lang="es">Lo que dicen los clientes</span>
+      <span data-lang="uk">Що кажуть клієнти</span>
+    </h2>
+    <div class="t-grid">
+      <div class="t-card reveal reveal-delay-1">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote"><span data-lang="en" class="active">"The automation workflow built for our ops team saved us 3 full working days per month. Exceptional quality and clear communication throughout."</span><span data-lang="ru">«Автоматизация сэкономила нам 3 полных рабочих дня в месяц. Исключительное качество и прозрачная коммуникация.»</span><span data-lang="es">"El flujo automatizado nos ahorró 3 días laborables completos al mes. Calidad excepcional y comunicación clara."</span><span data-lang="uk">«Автоматизація заощадила нам 3 повних робочих дні на місяць. Виняткова якість та прозора комунікація.»</span></div>
+        <div class="t-author"><div class="t-avatar">AR</div><div><div class="t-name">Alex R.</div><div class="t-role">COO, TechStartup · UK</div></div></div>
+      </div>
+      <div class="t-card reveal reveal-delay-2">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote"><span data-lang="en" class="active">"Our support ticket volume is the same but the team workload dropped significantly. The AI assistant is indistinguishable from a real agent for routine questions."</span><span data-lang="ru">«Объём обращений тот же, но нагрузка на команду значительно снизилась. ИИ-ассистент неотличим от живого оператора.»</span><span data-lang="es">"El volumen de tickets es el mismo pero la carga del equipo bajó. El asistente IA es indistinguible de un agente real."</span><span data-lang="uk">«Обсяг звернень той самий, але навантаження на команду знизилося. ІІ-асистент невідрізнений від живого оператора.»</span></div>
+        <div class="t-author"><div class="t-avatar">MK</div><div><div class="t-name">Maria K.</div><div class="t-role">Head of Support, SaaS Co. · Poland</div></div></div>
+      </div>
+      <div class="t-card reveal reveal-delay-3">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote"><span data-lang="en" class="active">"Fast, professional, and truly understood our business needs. Delivered a working prototype in less than a week and iterated quickly on feedback."</span><span data-lang="ru">«Быстро, профессионально и с глубоким пониманием наших потребностей. Рабочий прототип за неделю и быстрая итерация по фидбеку.»</span><span data-lang="es">"Rápido, profesional y con verdadera comprensión de nuestras necesidades. Prototipo funcional en menos de una semana."</span><span data-lang="uk">«Швидко, професійно та з глибоким розумінням наших потреб. Робочий прототип за тиждень та швидка ітерація.»</span></div>
+        <div class="t-author"><div class="t-avatar">DL</div><div><div class="t-name">David L.</div><div class="t-role">Founder, E-commerce · Netherlands</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-strip">
+  <div class="container">
+    <h2 class="reveal">
+      <span data-lang="en" class="active">Stay ahead of AI automation</span>
+      <span data-lang="ru">Будьте в курсе AI-автоматизации</span>
+      <span data-lang="es">Manténgase al día con la IA</span>
+      <span data-lang="uk">Будьте в курсі ІІ-автоматизації</span>
+    </h2>
+    <p class="reveal">
+      <span data-lang="en" class="active">Practical insights, workflow tips, and industry news — once a week, no spam.</span>
+      <span data-lang="ru">Практические инсайты, советы по воркфлоу и новости индустрии — раз в неделю, без спама.</span>
+      <span data-lang="es">Insights prácticos, tips de flujos y noticias del sector — una vez a la semana, sin spam.</span>
+      <span data-lang="uk">Практичні інсайти, поради та новини індустрії — раз на тиждень, без спаму.</span>
+    </p>
+    <form class="newsletter-form reveal" id="newsletterForm" name="newsletter" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="newsletter"/>
+      <input class="newsletter-input" type="email" name="email" placeholder="your@email.com" required/>
+      <button type="submit" class="newsletter-btn">
+        <span data-lang="en" class="active">Subscribe</span>
+        <span data-lang="ru">Подписаться</span>
+        <span data-lang="es">Suscribirse</span>
+        <span data-lang="uk">Підписатись</span>
+      </button>
+    </form>
+    <div class="newsletter-success" id="newsletterSuccess">
+      ✅ <span data-lang="en" class="active">You're in! First issue coming soon.</span>
+      <span data-lang="ru">Вы подписаны! Первый выпуск скоро.</span>
+      <span data-lang="es">¡Suscrito! El primer número llegará pronto.</span>
+      <span data-lang="uk">Ви підписані! Перший випуск незабаром.</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo-wrap" href="index.html" style="margin-bottom:12px;display:inline-flex;">
+          <svg width="32" height="32" viewBox="0 0 38 38" fill="none">
+            <rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/>
+            <rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/>
+            <rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/>
+            <circle cx="37" cy="5" r="4" fill="#0e9e7a"/>
+            <circle cx="37" cy="5" r="2" fill="white"/>
+          </svg>
+          <div class="logo-text" style="margin-left:8px;">
+            <span class="logo-name">Neolith<span class="ai">AI</span></span>
+            <span class="logo-sub">Agency</span>
+          </div>
+        </a>
+        <p class="footer-tagline">
+          <span data-lang="en" class="active">AI automation for small businesses across EU & UK. We automate what's slowing you down.</span>
+          <span data-lang="ru">ИИ-автоматизация для малого бизнеса в ЕС и Великобритании.</span>
+          <span data-lang="es">Automatización IA para pequeñas empresas en UE y Reino Unido.</span>
+          <span data-lang="uk">ІІ-автоматизація для малого бізнесу в ЄС та Великобританії.</span>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Services</span><span data-lang="ru">Услуги</span><span data-lang="es">Servicios</span><span data-lang="uk">Послуги</span></h4>
+        <a href="services.html"><span data-lang="en" class="active">AI Agent Design</span><span data-lang="ru">Проектирование агентов</span><span data-lang="es">Diseño de agentes</span><span data-lang="uk">Проектування агентів</span></a>
+        <a href="services.html"><span data-lang="en" class="active">Workflow Automation</span><span data-lang="ru">Автоматизация воркфлоу</span><span data-lang="es">Automatización</span><span data-lang="uk">Автоматизація</span></a>
+        <a href="services.html"><span data-lang="en" class="active">RAG & Knowledge Bases</span><span data-lang="ru">RAG и базы знаний</span><span data-lang="es">RAG y bases</span><span data-lang="uk">RAG та бази знань</span></a>
+        <a href="services.html#pricing"><span data-lang="en" class="active">Pricing</span><span data-lang="ru">Цены</span><span data-lang="es">Precios</span><span data-lang="uk">Ціни</span></a>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Company</span><span data-lang="ru">Компания</span><span data-lang="es">Empresa</span><span data-lang="uk">Компанія</span></h4>
+        <a href="about.html"><span data-lang="en" class="active">About us</span><span data-lang="ru">О нас</span><span data-lang="es">Sobre nosotros</span><span data-lang="uk">Про нас</span></a>
+        <a href="cases.html"><span data-lang="en" class="active">Case studies</span><span data-lang="ru">Кейсы</span><span data-lang="es">Casos</span><span data-lang="uk">Кейси</span></a>
+        <a href="blog.html"><span data-lang="en" class="active">Blog</span><span data-lang="ru">Блог</span><span data-lang="es">Blog</span><span data-lang="uk">Блог</span></a>
+        <a href="contact.html"><span data-lang="en" class="active">Contact</span><span data-lang="ru">Контакты</span><span data-lang="es">Contacto</span><span data-lang="uk">Контакти</span></a>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Connect</span><span data-lang="ru">Связаться</span><span data-lang="es">Conectar</span><span data-lang="uk">Зв'язатись</span></h4>
+        <a href="mailto:neolith2018ai@gmail.com">neolith2018ai@gmail.com</a>
+        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener">Upwork</a>
+        <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 NeolithAI Agency. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener" aria-label="Upwork">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg>
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- AI CHAT WIDGET -->
+<button class="ai-widget-btn" onclick="toggleChat()" aria-label="Chat with Nео">
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+  <svg viewBox="0 0 24 24" style="display:none"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+  <span class="ai-widget-pulse"></span>
+</button>
+
+<div class="ai-chat-panel" id="aiChatPanel">
+  <div class="ai-chat-header">
+    <div class="ai-chat-avatar">🤖</div>
+    <div class="ai-chat-header-info">
+      <div class="ai-chat-name">Nео · NeolithAI Assistant</div>
+      <div class="ai-chat-status">
+        <span data-lang="en" class="active">Online · replies instantly</span>
+        <span data-lang="ru">Онлайн · отвечает мгновенно</span>
+        <span data-lang="es">En línea · responde al instante</span>
+        <span data-lang="uk">Онлайн · відповідає миттєво</span>
+      </div>
+    </div>
+    <button class="ai-chat-close" onclick="closeChat()">✕</button>
+  </div>
+  <div class="ai-chat-messages" id="aiChatMessages"></div>
+  <div class="ai-chat-suggestions" id="aiSuggestions">
+    <button class="ai-suggestion" onclick="sendSuggestion('What services do you offer?')">Services & pricing</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('Show me your portfolio')">Portfolio</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('I want to book a free consultation')">Book a call</button>
+  </div>
+  <div class="ai-chat-input-row">
+    <textarea class="ai-chat-input" id="aiChatInput" rows="1" placeholder="Ask me anything..." onkeydown="handleChatKey(event)"></textarea>
+    <button class="ai-chat-send" onclick="var i=document.getElementById('aiChatInput');sendMessage(i.value.trim())">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- Hidden Netlify form for chat bookings -->
+<form name="chat-booking" netlify style="display:none">
+  <input name="conversation"/>
+</form>
+
+<script src="neolithai-shared.js"></script>
+<script>
+/* ── HERO CANVAS ANIMATION ── */
+(function() {
+  var canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+    canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  }
+  resize();
+  window.addEventListener('resize', function() { resize(); drawFrame(); });
+
+  var W = function() { return canvas.offsetWidth; };
+  var H = function() { return canvas.offsetHeight; };
+
+  // Nodes: three layers
+  var LAYERS = [
+    { label: 'INTAKE',      color: '#1a6fc4', y: 0.25, nodes: 4 },
+    { label: 'PROCESSING',  color: '#1a6fc4', y: 0.5,  nodes: 3, opacity: 0.72 },
+    { label: 'OUTPUT',      color: '#0e9e7a', y: 0.75, nodes: 2 },
+  ];
+
+  var nodes = [];
+  var particles = [];
+  var t = 0;
+
+  function buildNodes() {
+    nodes = [];
+    LAYERS.forEach(function(layer, li) {
+      var n = layer.nodes;
+      for (var i = 0; i < n; i++) {
+        nodes.push({
+          x: (i + 1) / (n + 1),
+          y: layer.y,
+          layer: li,
+          color: layer.color,
+          opacity: layer.opacity || 1,
+          r: 10,
+          pulse: Math.random() * Math.PI * 2,
+          label: li === 0 ? ['Form','File','API','Msg'][i] :
+                 li === 1 ? ['Classify','Score','Decide'][i] :
+                 ['Report','Notify'][i]
+        });
+      }
+    });
+  }
+  buildNodes();
+
+  function spawnParticle() {
+    // Pick random edge from layer 0→1 or 1→2
+    var fromLayer = Math.random() < 0.5 ? 0 : 1;
+    var toLayer = fromLayer + 1;
+    var fromNodes = nodes.filter(function(n) { return n.layer === fromLayer; });
+    var toNodes = nodes.filter(function(n) { return n.layer === toLayer; });
+    if (!fromNodes.length || !toNodes.length) return;
+    var from = fromNodes[Math.floor(Math.random() * fromNodes.length)];
+    var to = toNodes[Math.floor(Math.random() * toNodes.length)];
+    particles.push({
+      x: from.x, y: from.y,
+      tx: to.x, ty: to.y,
+      progress: 0,
+      speed: 0.008 + Math.random() * 0.006,
+      color: to.color,
+      size: 4
+    });
+  }
+
+  function drawFrame() {
+    var w = W(), h = H();
+    ctx.clearRect(0, 0, w, h);
+    t += 0.012;
+
+    // Background gradient
+    var grad = ctx.createLinearGradient(0, 0, w, h);
+    grad.addColorStop(0, 'rgba(232,241,251,0.6)');
+    grad.addColorStop(1, 'rgba(234,245,240,0.6)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+
+    // Draw connections
+    for (var li = 0; li < LAYERS.length - 1; li++) {
+      var fromLayer = nodes.filter(function(n) { return n.layer === li; });
+      var toLayer = nodes.filter(function(n) { return n.layer === li + 1; });
+      fromLayer.forEach(function(fn) {
+        toLayer.forEach(function(tn) {
+          ctx.beginPath();
+          ctx.moveTo(fn.x * w, fn.y * h);
+          ctx.lineTo(tn.x * w, tn.y * h);
+          ctx.strokeStyle = 'rgba(26,111,196,0.12)';
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+        });
+      });
+    }
+
+    // Draw layer bars
+    LAYERS.forEach(function(layer) {
+      var layerNodes = nodes.filter(function(n) { return n.layer === LAYERS.indexOf(layer); });
+      if (!layerNodes.length) return;
+      var xs = layerNodes.map(function(n) { return n.x * w; });
+      var minX = Math.min.apply(null, xs) - 30;
+      var maxX = Math.max.apply(null, xs) + 30;
+      var yy = layer.y * h;
+      var alpha = layer.opacity || 1;
+      ctx.beginPath();
+      ctx.roundRect(minX, yy - 18, maxX - minX, 36, 8);
+      ctx.fillStyle = hexToRgba(layer.color, 0.1 * alpha);
+      ctx.fill();
+      ctx.strokeStyle = hexToRgba(layer.color, 0.3 * alpha);
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.fillStyle = hexToRgba(layer.color, 0.8 * alpha);
+      ctx.font = 'bold 10px "Segoe UI",system-ui,sans-serif';
+      ctx.letterSpacing = '2px';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(layer.label, (minX + maxX) / 2, yy);
+    });
+
+    // Draw nodes
+    nodes.forEach(function(node) {
+      var nx = node.x * w, ny = node.y * h;
+      var pulse = Math.sin(t * 1.5 + node.pulse) * 2;
+      var r = node.r + pulse;
+
+      // Glow
+      var glow = ctx.createRadialGradient(nx, ny, 0, nx, ny, r * 2.5);
+      glow.addColorStop(0, hexToRgba(node.color, 0.3 * node.opacity));
+      glow.addColorStop(1, hexToRgba(node.color, 0));
+      ctx.beginPath();
+      ctx.arc(nx, ny, r * 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = glow;
+      ctx.fill();
+
+      // Circle
+      ctx.beginPath();
+      ctx.arc(nx, ny, r, 0, Math.PI * 2);
+      ctx.fillStyle = hexToRgba(node.color, node.opacity);
+      ctx.fill();
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Label
+      ctx.fillStyle = hexToRgba(node.color, 0.8 * node.opacity);
+      ctx.font = '11px "Segoe UI",system-ui,sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      ctx.fillText(node.label, nx, ny + r + 4);
+    });
+
+    // Update & draw particles
+    particles = particles.filter(function(p) { return p.progress < 1; });
+    particles.forEach(function(p) {
+      p.progress += p.speed;
+      var ex = p.x + (p.tx - p.x) * p.progress;
+      var ey = p.y + (p.ty - p.y) * p.progress;
+      var nx = ex * w, ny = ey * h;
+      ctx.beginPath();
+      ctx.arc(nx, ny, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = 1 - p.progress * 0.5;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    });
+
+    // Spawn particles
+    if (Math.random() < 0.06) spawnParticle();
+  }
+
+  function hexToRgba(hex, alpha) {
+    var r = parseInt(hex.slice(1,3),16);
+    var g = parseInt(hex.slice(3,5),16);
+    var b = parseInt(hex.slice(5,7),16);
+    return 'rgba('+r+','+g+','+b+','+alpha+')';
+  }
+
+  function loop() { drawFrame(); requestAnimationFrame(loop); }
+  loop();
+})();
+</script>
+</body>
+</html>

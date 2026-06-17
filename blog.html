@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog — NeolithAI Agency</title>
+<meta name="description" content="Practical insights on AI automation, workflow design, and industry trends from NeolithAI Agency."/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#1a6fc4"/>
+<link rel="stylesheet" href="neolithai-shared.css"/>
+<style>
+/* BLOG GRID */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.blog-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+  transition:border-color .2s,transform .25s,box-shadow .25s;
+  display:flex;flex-direction:column;
+}
+.blog-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:var(--shadow);}
+.blog-card-header{
+  padding:1.5rem 1.5rem 1rem;
+  border-bottom:1px solid var(--border);background:var(--bg);
+}
+.blog-tag-pill{
+  display:inline-block;background:var(--accent);color:#fff;
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:3px 10px;border-radius:20px;margin-bottom:.75rem;
+}
+.blog-date{font-size:12px;color:var(--text2);margin-bottom:.5rem;}
+.blog-title{font-size:1rem;font-weight:700;color:var(--text);line-height:1.4;}
+.blog-body{padding:1rem 1.5rem 1.5rem;flex:1;display:flex;flex-direction:column;}
+.blog-excerpt{font-size:14px;color:var(--text2);line-height:1.7;flex:1;}
+.blog-read-more{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;font-weight:600;color:var(--accent);
+  margin-top:1.25rem;cursor:pointer;background:none;border:none;
+  font-family:inherit;padding:0;transition:gap .2s;
+}
+.blog-read-more:hover{gap:10px;}
+.blog-full-text{
+  display:none;margin-top:1rem;padding-top:1rem;
+  border-top:1px solid var(--border);
+  font-size:14px;color:var(--text2);line-height:1.8;
+}
+.blog-full-text p{margin-bottom:.75rem;}
+.blog-full-text p:last-child{margin-bottom:0;}
+.blog-full-text strong{color:var(--text);}
+
+/* FEATURED POST */
+.blog-featured{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);overflow:hidden;margin-bottom:3rem;
+  display:grid;grid-template-columns:1fr 1fr;
+}
+.blog-featured-visual{
+  background:linear-gradient(135deg,#1a2e42 0%,#1a6fc4 100%);
+  display:flex;align-items:center;justify-content:center;
+  padding:3rem;min-height:280px;
+}
+.blog-featured-icon{font-size:5rem;}
+.blog-featured-body{padding:2.5rem;}
+.blog-featured-tag{
+  display:inline-block;background:var(--accent2);color:#fff;
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:3px 10px;border-radius:20px;margin-bottom:1rem;
+}
+.blog-featured-date{font-size:12px;color:var(--text2);margin-bottom:.5rem;}
+.blog-featured-title{font-size:1.4rem;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:1rem;}
+.blog-featured-excerpt{font-size:15px;color:var(--text2);line-height:1.75;margin-bottom:1.5rem;}
+
+@media(max-width:900px){
+  .blog-grid{grid-template-columns:1fr 1fr;}
+  .blog-featured{grid-template-columns:1fr;}
+  .blog-featured-visual{min-height:180px;}
+}
+@media(max-width:600px){
+  .blog-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a class="logo-wrap" href="index.html">
+      <svg width="36" height="36" viewBox="0 0 38 38" fill="none"><rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/><rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/><rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/><circle cx="37" cy="5" r="4" fill="#0e9e7a"/><circle cx="37" cy="5" r="2" fill="white"/></svg>
+      <div class="logo-text"><span class="logo-name">Neolith<span class="ai">AI</span></span><span class="logo-sub">Agency</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="services.html" data-nav="services">Services</a></li>
+      <li><a href="cases.html" data-nav="cases">Cases</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="blog.html" data-nav="blog" class="active">Blog</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+      <li><a href="contact.html#book" class="nav-cta" data-nav="book">Book a Call</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang-btn="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang-btn="ru" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn" data-lang-btn="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang-btn="uk" onclick="setLang('uk')">UA</button>
+      </div>
+      <button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="cases.html" onclick="toggleMenu()">Cases</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <div class="mobile-cta-wrap"><a href="contact.html#book" class="btn-primary" style="display:block;text-align:center;" onclick="toggleMenu()">Book a Free Call</a></div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <span class="section-label"><span data-lang="en" class="active">Insights & practical guides</span><span data-lang="ru">Инсайты и практические руководства</span><span data-lang="es">Insights y guías prácticas</span><span data-lang="uk">Інсайти та практичні посібники</span></span>
+    <h1 class="reveal"><span data-lang="en" class="active">The <span class="accent">NeolithAI</span> Blog</span><span data-lang="ru">Блог <span class="accent">NeolithAI</span></span><span data-lang="es">El Blog de <span class="accent">NeolithAI</span></span><span data-lang="uk">Блог <span class="accent">NeolithAI</span></span></h1>
+    <p class="reveal"><span data-lang="en" class="active">Practical AI automation insights, workflow tips, and honest industry analysis — written by a practitioner, not a marketer.</span><span data-lang="ru">Практические инсайты по ИИ-автоматизации, советы по воркфлоу и честный анализ индустрии — написано практиком, а не маркетологом.</span><span data-lang="es">Insights prácticos de automatización IA, consejos de flujos y análisis honesto del sector — escrito por un profesional, no por un marketero.</span><span data-lang="uk">Практичні інсайти з ІІ-автоматизації, поради з воркфлоу та чесний аналіз індустрії — написано практиком, а не маркетологом.</span></p>
+  </div>
+</div>
+
+<!-- BLOG CONTENT -->
+<section>
+  <div class="container">
+
+    <!-- FEATURED -->
+    <div class="blog-featured reveal">
+      <div class="blog-featured-visual"><div class="blog-featured-icon">🤖</div></div>
+      <div class="blog-featured-body">
+        <div class="blog-featured-tag">Featured · June 2026</div>
+        <div class="blog-featured-title"><span data-lang="en" class="active">Claude 4 and GPT-5 in production: what actually changed for automation builders</span><span data-lang="ru">Claude 4 и GPT-5 в продакшене: что реально изменилось для строителей автоматизаций</span><span data-lang="es">Claude 4 y GPT-5 en producción: qué cambió realmente para los constructores de automatización</span><span data-lang="uk">Claude 4 та GPT-5 у продакшені: що реально змінилось для будівників автоматизацій</span></div>
+        <div class="blog-featured-excerpt"><span data-lang="en" class="active">With Claude Opus 4 and GPT-5 now widely available, we ran both through our real client workflows. Here's an honest comparison — not benchmarks, but actual production results in n8n pipelines.</span><span data-lang="ru">Claude Opus 4 и GPT-5 теперь широко доступны. Мы прогнали оба через реальные клиентские воркфлоу. Вот честное сравнение — не бенчмарки, а реальные результаты в пайплайнах n8n.</span><span data-lang="es">Con Claude Opus 4 y GPT-5 ahora ampliamente disponibles, los ejecutamos en flujos de trabajo reales de clientes. Aquí hay una comparación honesta.</span><span data-lang="uk">З Claude Opus 4 та GPT-5 тепер широко доступними, ми запустили обидва через реальні клієнтські воркфлоу. Ось чесне порівняння.</span></div>
+        <button class="blog-read-more" onclick="toggleBlogFeatured(this)"><span data-lang="en" class="active">Read full article ↓</span><span data-lang="ru">Читать полностью ↓</span><span data-lang="es">Leer artículo completo ↓</span><span data-lang="uk">Читати повністю ↓</span></button>
+        <div class="blog-full-text" id="featuredText">
+          <p><span data-lang="en" class="active">The jump from Claude 3.5 to Claude 4 is most visible in long-context reasoning and instruction following. For multi-step agent workflows with complex prompts, Claude Opus 4 holds context significantly better across 10+ node pipelines — fewer hallucinations on structured output, more reliable JSON.</span><span data-lang="ru">Скачок от Claude 3.5 до Claude 4 наиболее заметен в рассуждении на длинном контексте и следовании инструкциям. Для многошаговых агентских воркфлоу Claude Opus 4 значительно лучше держит контекст в пайплайнах из 10+ нод.</span><span data-lang="es">El salto de Claude 3.5 a Claude 4 es más visible en el razonamiento de contexto largo y el seguimiento de instrucciones.</span><span data-lang="uk">Стрибок від Claude 3.5 до Claude 4 найбільш помітний у міркуванні на довгому контексті та дотриманні інструкцій.</span></p>
+          <p><span data-lang="en" class="active">GPT-5 closes the gap on reasoning but still lags on instruction adherence in agentic contexts. For document processing tasks (our CV screening and BFS workflows), Claude 4 remains our default.</span><span data-lang="ru">GPT-5 сокращает разрыв в рассуждении, но всё ещё отстаёт в следовании инструкциям в агентских контекстах. Для задач обработки документов Claude 4 остаётся нашим выбором по умолчанию.</span><span data-lang="es">GPT-5 cierra la brecha en razonamiento pero aún tiene problemas con el seguimiento de instrucciones en contextos agentivos.</span><span data-lang="uk">GPT-5 скорочує розрив у міркуванні, але все ще відстає у дотриманні інструкцій в агентських контекстах.</span></p>
+          <p><strong><span data-lang="en" class="active">The practical verdict:</span><span data-lang="ru">Практический вердикт:</span><span data-lang="es">El veredicto práctico:</span><span data-lang="uk">Практичний вердикт:</span></strong> <span data-lang="en" class="active">if you're building production automation for clients, upgrade your Claude nodes first. The cost increase is offset by fewer error-handling retries and better output quality.</span><span data-lang="ru">если вы строите production-автоматизацию, сначала обновите ноды Claude. Рост стоимости компенсируется меньшим количеством повторных попыток и лучшим качеством вывода.</span><span data-lang="es">si está construyendo automatización de producción, actualice primero sus nodos Claude.</span><span data-lang="uk">якщо ви будуєте production-автоматизацію, спочатку оновіть ноди Claude.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARTICLES GRID -->
+    <div class="blog-grid">
+
+      <div class="blog-card reveal reveal-delay-1">
+        <div class="blog-card-header">
+          <div class="blog-tag-pill" style="background:var(--accent2);">Market · June 2026</div>
+          <div class="blog-title"><span data-lang="en" class="active">How small businesses in Poland are adopting AI automation in 2026</span><span data-lang="ru">Как малый бизнес в Польше внедряет ИИ-автоматизацию в 2026 году</span><span data-lang="es">Cómo las pequeñas empresas en Polonia adoptan la automatización IA en 2026</span><span data-lang="uk">Як малий бізнес у Польщі впроваджує ІІ-автоматизацію у 2026 році</span></div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-excerpt"><span data-lang="en" class="active">25% of Polish SMBs have already deployed AI tools, and investment hit 1.8 billion PLN in 2024. But most deployments are surface-level. Here's where the real opportunity is for automation builders.</span><span data-lang="ru">25% польских малых предприятий уже внедрили ИИ-инструменты, а инвестиции достигли 1,8 млрд злотых в 2024 году. Но большинство внедрений поверхностны.</span><span data-lang="es">El 25% de las PYME polacas ya han implementado herramientas de IA, con inversiones de 1.800 millones de PLN en 2024.</span><span data-lang="uk">25% польських малих підприємств вже впровадили ІІ-інструменти, а інвестиції досягли 1,8 млрд злотих у 2024 році.</span></div>
+          <button class="blog-read-more" onclick="toggleBlogCard(this)"><span data-lang="en" class="active">Read more ↓</span><span data-lang="ru">Читать далее ↓</span><span data-lang="es">Leer más ↓</span><span data-lang="uk">Читати далі ↓</span></button>
+          <div class="blog-full-text">
+            <p><span data-lang="en" class="active">The Polish SMB market is at an inflection point. Early adopters used ChatGPT for writing and basic Q&A. The next wave — which we're seeing now — is process automation: lead gen, document handling, customer support routing.</span><span data-lang="ru">Польский рынок МСП находится на переломном моменте. Ранние пользователи использовали ChatGPT для написания текстов. Следующая волна — автоматизация процессов.</span><span data-lang="es">El mercado PYME polaco está en un punto de inflexión. Los primeros adoptantes usaron ChatGPT para escribir. La siguiente ola es la automatización de procesos.</span><span data-lang="uk">Польський ринок МСП знаходиться на переломному моменті. Ранні користувачі використовували ChatGPT для написання текстів. Наступна хвиля — автоматизація процесів.</span></p>
+            <p><strong><span data-lang="en" class="active">The highest-demand use cases right now:</span><span data-lang="ru">Наиболее востребованные кейсы сейчас:</span><span data-lang="es">Los casos de uso más demandados ahora:</span><span data-lang="uk">Найбільш затребувані кейси зараз:</span></strong></p>
+            <p><span data-lang="en" class="active">① Customer inquiry handling and routing ② Document processing and compliance checks ③ Automated reporting from existing data sources</span><span data-lang="ru">① Обработка и маршрутизация запросов ② Обработка документов ③ Автоматическая отчётность</span><span data-lang="es">① Manejo de consultas ② Procesamiento de documentos ③ Informes automatizados</span><span data-lang="uk">① Обробка запитів ② Обробка документів ③ Автоматична звітність</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card reveal reveal-delay-2">
+        <div class="blog-card-header">
+          <div class="blog-tag-pill" style="background:#7c3aed;">Strategy · May 2026</div>
+          <div class="blog-title"><span data-lang="en" class="active">Why "automate everything" is the wrong strategy for small business clients</span><span data-lang="ru">Почему "автоматизировать всё" — это неправильная стратегия для малого бизнеса</span><span data-lang="es">Por qué "automatizar todo" es la estrategia incorrecta para clientes de pequeñas empresas</span><span data-lang="uk">Чому "автоматизувати все" — це неправильна стратегія для малого бізнесу</span></div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-excerpt"><span data-lang="en" class="active">The most common mistake in AI automation projects: starting with tools, not problems. Here's the framework we use to identify what actually deserves to be automated — and what doesn't.</span><span data-lang="ru">Самая распространённая ошибка в проектах ИИ-автоматизации: начинать с инструментов, а не с проблем. Вот фреймворк, который мы используем.</span><span data-lang="es">El error más común en proyectos de automatización IA: empezar con herramientas, no con problemas.</span><span data-lang="uk">Найпоширеніша помилка в проектах ІІ-автоматизації: починати з інструментів, а не з проблем.</span></div>
+          <button class="blog-read-more" onclick="toggleBlogCard(this)"><span data-lang="en" class="active">Read more ↓</span><span data-lang="ru">Читать далее ↓</span><span data-lang="es">Leer más ↓</span><span data-lang="uk">Читати далі ↓</span></button>
+          <div class="blog-full-text">
+            <p><span data-lang="en" class="active"><strong>Automate when:</strong> the task is repetitive, rule-based, high-volume, and error-prone when done manually. <strong>Don't automate when:</strong> the task requires genuine human judgment, happens rarely, or the setup cost exceeds 6 months of time savings.</span><span data-lang="ru"><strong>Автоматизируйте когда:</strong> задача повторяется, основана на правилах, высокообъёмная. <strong>Не автоматизируйте когда:</strong> задача требует человеческого суждения или стоимость настройки превышает 6 месяцев экономии.</span><span data-lang="es"><strong>Automatice cuando:</strong> la tarea es repetitiva, basada en reglas y de alto volumen. <strong>No automatice cuando:</strong> requiere juicio humano o el coste supera 6 meses de ahorro.</span><span data-lang="uk"><strong>Автоматизуйте коли:</strong> завдання повторюється, засноване на правилах, велика кількість. <strong>Не автоматизуйте коли:</strong> завдання потребує людського судження або вартість налаштування перевищує 6 місяців економії.</span></p>
+            <p><span data-lang="en" class="active">Our audit process always starts with a workflow map — not a tool list. We look for the three bottlenecks that cost the most time per week, then design backwards from there.</span><span data-lang="ru">Наш процесс аудита всегда начинается с карты воркфлоу — не со списка инструментов. Мы ищем три узких места, которые занимают больше всего времени в неделю.</span><span data-lang="es">Nuestro proceso de auditoría siempre comienza con un mapa de flujo de trabajo, no con una lista de herramientas.</span><span data-lang="uk">Наш процес аудиту завжди починається з карти воркфлоу — не зі списку інструментів.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card reveal reveal-delay-3">
+        <div class="blog-card-header">
+          <div class="blog-tag-pill" style="background:#dc2626;">n8n · April 2026</div>
+          <div class="blog-title"><span data-lang="en" class="active">n8n in 2026: from workflow automation to AI-augmented orchestration</span><span data-lang="ru">n8n в 2026 году: от автоматизации воркфлоу до ИИ-оркестрации</span><span data-lang="es">n8n en 2026: de la automatización de flujos a la orquestación aumentada con IA</span><span data-lang="uk">n8n у 2026 році: від автоматизації воркфлоу до ІІ-оркестрації</span></div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-excerpt"><span data-lang="en" class="active">n8n 2.0 landed with a major overhaul focused on security, scalability and agentic AI. Modular multi-agent architectures, human-in-the-loop controls, and self-hosted AI pipelines are now production-ready.</span><span data-lang="ru">n8n 2.0 вышел с масштабной переработкой, сфокусированной на безопасности, масштабируемости и агентском ИИ.</span><span data-lang="es">n8n 2.0 llegó con una revisión importante centrada en seguridad, escalabilidad e IA agentiva.</span><span data-lang="uk">n8n 2.0 вийшов з масштабною переробкою, зосередженою на безпеці, масштабованості та агентському ІІ.</span></div>
+          <button class="blog-read-more" onclick="toggleBlogCard(this)"><span data-lang="en" class="active">Read more ↓</span><span data-lang="ru">Читать далее ↓</span><span data-lang="es">Leer más ↓</span><span data-lang="uk">Читати далі ↓</span></button>
+          <div class="blog-full-text">
+            <p><span data-lang="en" class="active">Three patterns now production-ready in n8n 2.0: ① Orchestrator-worker patterns — a central agent breaks down tasks and delegates to specialist agents in parallel. ② Human-in-the-loop nodes — workflows pause for human approval at high-stakes decision points. ③ Self-hosted AI — run LLMs on your own infrastructure.</span><span data-lang="ru">Три паттерна теперь готовы к продакшену в n8n 2.0: ① Оркестратор-воркер ② Узлы с подтверждением человека ③ Самостоятельный ИИ на вашей инфраструктуре.</span><span data-lang="es">Tres patrones ya listos para producción en n8n 2.0: ① Patrones orquestador-trabajador ② Nodos de aprobación humana ③ IA auto-alojada.</span><span data-lang="uk">Три паттерни тепер готові до продакшену в n8n 2.0: ① Оркестратор-воркер ② Вузли з підтвердженням людини ③ Самостійний ІІ на вашій інфраструктурі.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card reveal reveal-delay-1">
+        <div class="blog-card-header">
+          <div class="blog-tag-pill" style="background:#0e9e7a;">Industry · April 2026</div>
+          <div class="blog-title"><span data-lang="en" class="active">MCP: the new standard that turns AI chatbots into real business agents</span><span data-lang="ru">MCP: новый стандарт, превращающий ИИ-чатботы в реальных бизнес-агентов</span><span data-lang="es">MCP: el nuevo estándar que convierte los chatbots IA en agentes de negocio reales</span><span data-lang="uk">MCP: новий стандарт, що перетворює ІІ-чатботи на реальних бізнес-агентів</span></div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-excerpt"><span data-lang="en" class="active">The Model Context Protocol has quietly become the infrastructure layer for agentic AI — reaching 97 million monthly SDK downloads and support from every major AI provider.</span><span data-lang="ru">Model Context Protocol тихо стал инфраструктурным слоем для агентского ИИ — 97 млн ежемесячных загрузок SDK и поддержка всех крупных провайдеров.</span><span data-lang="es">El Protocolo de Contexto de Modelo se ha convertido silenciosamente en la capa de infraestructura para la IA agentiva.</span><span data-lang="uk">Model Context Protocol тихо став інфраструктурним шаром для агентського ІІ — 97 млн щомісячних завантажень SDK.</span></div>
+          <button class="blog-read-more" onclick="toggleBlogCard(this)"><span data-lang="en" class="active">Read more ↓</span><span data-lang="ru">Читать далее ↓</span><span data-lang="es">Leer más ↓</span><span data-lang="uk">Читати далі ↓</span></button>
+          <div class="blog-full-text">
+            <p><span data-lang="en" class="active">Before MCP, connecting an AI model to your CRM, database, or calendar required custom code for each integration. MCP solves this by providing a single universal protocol — like USB-C for AI — so any agent can connect to any MCP-compatible tool without bespoke wiring.</span><span data-lang="ru">До MCP подключение ИИ-модели к CRM, базе данных или календарю требовало кастомного кода для каждой интеграции. MCP решает это, предоставляя единый универсальный протокол — как USB-C для ИИ.</span><span data-lang="es">Antes de MCP, conectar un modelo IA a su CRM requería código personalizado para cada integración. MCP soluciona esto con un protocolo universal — como USB-C para IA.</span><span data-lang="uk">До MCP підключення ІІ-моделі до CRM потребувало кастомного коду для кожної інтеграції. MCP вирішує це, надаючи єдиний універсальний протокол.</span></p>
+            <p><span data-lang="en" class="active">The businesses building MCP-connected workflows now will have a meaningful operational advantage over those scrambling to adopt it in 2027.</span><span data-lang="ru">Компании, строящие MCP-связанные воркфлоу сейчас, получат значимое операционное преимущество перед теми, кто будет торопиться внедрять это в 2027 году.</span><span data-lang="es">Las empresas que construyan flujos conectados a MCP ahora tendrán una ventaja operativa significativa.</span><span data-lang="uk">Компанії, що будують MCP-підключені воркфлоу зараз, отримають значну операційну перевагу.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card reveal reveal-delay-2">
+        <div class="blog-card-header">
+          <div class="blog-tag-pill" style="background:#1a6fc4;">Guide · March 2026</div>
+          <div class="blog-title"><span data-lang="en" class="active">RAG in practice: how we built the BFS knowledge base with pgvector</span><span data-lang="ru">RAG на практике: как мы построили базу знаний BFS с pgvector</span><span data-lang="es">RAG en práctica: cómo construimos la base de conocimiento BFS con pgvector</span><span data-lang="uk">RAG на практиці: як ми побудували базу знань BFS з pgvector</span></div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-excerpt"><span data-lang="en" class="active">Building a RAG system that actually works in production is harder than the tutorials make it look. Here's what we learned building BFS Suite — chunking strategies, embedding models, similarity thresholds, and gap detection.</span><span data-lang="ru">Построить RAG-систему, которая реально работает в продакшене, сложнее, чем показывают туториалы. Вот что мы узнали при создании BFS Suite.</span><span data-lang="es">Construir un sistema RAG que funcione en producción es más difícil de lo que muestran los tutoriales.</span><span data-lang="uk">Побудувати RAG-систему, що реально працює в продакшені, складніше, ніж показують туторіали.</span></div>
+          <button class="blog-read-more" onclick="toggleBlogCard(this)"><span data-lang="en" class="active">Read more ↓</span><span data-lang="ru">Читать далее ↓</span><span data-lang="es">Leer más ↓</span><span data-lang="uk">Читати далі ↓</span></button>
+          <div class="blog-full-text">
+            <p><span data-lang="en" class="active">Three lessons from building BFS: ① Chunk size matters more than model choice — we settled on 500 tokens with 50-token overlap after testing 200, 500, and 1000. ② Similarity threshold tuning is critical — too low returns noise, too high misses relevant content. We landed at 0.78 cosine similarity. ③ Gap detection is not optional — users will always ask questions your knowledge base can't answer. Build explicit fallback logic from day one.</span><span data-lang="ru">Три урока из создания BFS: ① Размер чанка важнее выбора модели — остановились на 500 токенах с перекрытием 50. ② Настройка порога сходства критична — 0,78 косинусного сходства. ③ Обнаружение пробелов — обязательно.</span><span data-lang="es">Tres lecciones de BFS: ① El tamaño del chunk importa más que el modelo ② Ajuste del umbral de similitud es crítico ③ La detección de brechas no es opcional.</span><span data-lang="uk">Три уроки з побудови BFS: ① Розмір чанка важливіший за вибір моделі ② Налаштування порогу схожості критично ③ Виявлення прогалин — обов'язково.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card reveal reveal-delay-3">
+        <div class="blog-card-header">
+          <div class="blog-tag-pill" style="background:#f59e0b;color:#1a2e42;">Pricing · March 2026</div>
+          <div class="blog-title"><span data-lang="en" class="active">How to price AI automation projects in 2026 — a practitioner's guide</span><span data-lang="ru">Как оценивать проекты ИИ-автоматизации в 2026 году — руководство практика</span><span data-lang="es">Cómo valorar proyectos de automatización IA en 2026 — guía de un profesional</span><span data-lang="uk">Як оцінювати проекти ІІ-автоматизації у 2026 році — посібник практика</span></div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-excerpt"><span data-lang="en" class="active">The biggest mistake automation builders make: pricing by hours instead of by value. Here's how we think about pricing — and why transparency is a competitive advantage, not a weakness.</span><span data-lang="ru">Самая большая ошибка строителей автоматизаций: оценка по часам вместо ценности. Вот как мы думаем о ценообразовании.</span><span data-lang="es">El mayor error de los constructores de automatización: fijar precios por horas en lugar de por valor.</span><span data-lang="uk">Найбільша помилка будівників автоматизації: оцінка за годинами замість цінності.</span></div>
+          <button class="blog-read-more" onclick="toggleBlogCard(this)"><span data-lang="en" class="active">Read more ↓</span><span data-lang="ru">Читать далее ↓</span><span data-lang="es">Leer más ↓</span><span data-lang="uk">Читати далі ↓</span></button>
+          <div class="blog-full-text">
+            <p><span data-lang="en" class="active">Value-based pricing for automation: if your system saves a client 3 hours per week × €30/hour × 52 weeks = €4,680/year, charging €2,000 for the build is easy to justify. The client gets 2.3× ROI in year one alone.</span><span data-lang="ru">Ценообразование на основе ценности: если система экономит клиенту 3 часа в неделю × €30/час × 52 недели = €4 680 в год, то €2 000 за сборку легко обоснованы.</span><span data-lang="es">Fijación de precios basada en valor: si su sistema ahorra al cliente 3 horas/semana × €30/hora × 52 semanas = €4.680/año, cobrar €2.000 por la construcción es fácil de justificar.</span><span data-lang="uk">Ціноутворення на основі цінності: якщо система заощаджує клієнту 3 години на тиждень × €30/год × 52 тижні = €4 680 на рік, то €2 000 за збірку легко обґрунтовані.</span></p>
+            <p><span data-lang="en" class="active">Publishing your pricing openly filters out wrong-fit clients before they waste your time. The clients who see your rates and reach out anyway are already pre-qualified.</span><span data-lang="ru">Публикация цен открыто отфильтровывает неподходящих клиентов до того, как они потратят ваше время. Клиенты, которые видят ваши расценки и всё равно связываются — уже предварительно квалифицированы.</span><span data-lang="es">Publicar sus precios abiertamente filtra a los clientes incorrectos antes de que pierdan su tiempo.</span><span data-lang="uk">Відкрита публікація цін відфільтровує невідповідних клієнтів до того, як вони витратять ваш час.</span></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-strip" style="margin-top:4rem;">
+  <div class="container">
+    <h2 class="reveal"><span data-lang="en" class="active">Get new articles in your inbox</span><span data-lang="ru">Получайте новые статьи на почту</span><span data-lang="es">Reciba nuevos artículos en su bandeja de entrada</span><span data-lang="uk">Отримуйте нові статті на пошту</span></h2>
+    <p class="reveal"><span data-lang="en" class="active">Practical AI automation insights — once a week, no spam, unsubscribe anytime.</span><span data-lang="ru">Практические инсайты по ИИ-автоматизации — раз в неделю, без спама.</span><span data-lang="es">Insights prácticos de automatización IA — una vez a la semana, sin spam.</span><span data-lang="uk">Практичні інсайти з ІІ-автоматизації — раз на тиждень, без спаму.</span></p>
+    <form class="newsletter-form reveal" id="newsletterForm" name="newsletter" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="newsletter"/>
+      <input class="newsletter-input" type="email" name="email" placeholder="your@email.com" required/>
+      <button type="submit" class="newsletter-btn"><span data-lang="en" class="active">Subscribe</span><span data-lang="ru">Подписаться</span><span data-lang="es">Suscribirse</span><span data-lang="uk">Підписатись</span></button>
+    </form>
+    <div class="newsletter-success" id="newsletterSuccess">✅ <span data-lang="en" class="active">You're in! First issue coming soon.</span><span data-lang="ru">Вы подписаны!</span><span data-lang="es">¡Suscrito!</span><span data-lang="uk">Ви підписані!</span></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo-wrap" href="index.html" style="margin-bottom:12px;display:inline-flex;"><svg width="32" height="32" viewBox="0 0 38 38" fill="none"><rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/><rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/><rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/><circle cx="37" cy="5" r="4" fill="#0e9e7a"/><circle cx="37" cy="5" r="2" fill="white"/></svg><div class="logo-text" style="margin-left:8px;"><span class="logo-name">Neolith<span class="ai">AI</span></span><span class="logo-sub">Agency</span></div></a>
+        <p class="footer-tagline"><span data-lang="en" class="active">AI automation for small businesses across EU & UK.</span><span data-lang="ru">ИИ-автоматизация для малого бизнеса в ЕС и UK.</span><span data-lang="es">Automatización IA para pequeñas empresas en UE y UK.</span><span data-lang="uk">ІІ-автоматизація для малого бізнесу в ЄС та UK.</span></p>
+      </div>
+      <div class="footer-col"><h4><span data-lang="en" class="active">Services</span><span data-lang="ru">Услуги</span><span data-lang="es">Servicios</span><span data-lang="uk">Послуги</span></h4><a href="services.html"><span data-lang="en" class="active">AI Agent Design</span><span data-lang="ru">Проектирование агентов</span><span data-lang="es">Diseño de agentes</span><span data-lang="uk">Проектування агентів</span></a><a href="services.html#pricing"><span data-lang="en" class="active">Pricing</span><span data-lang="ru">Цены</span><span data-lang="es">Precios</span><span data-lang="uk">Ціни</span></a></div>
+      <div class="footer-col"><h4><span data-lang="en" class="active">Company</span><span data-lang="ru">Компания</span><span data-lang="es">Empresa</span><span data-lang="uk">Компанія</span></h4><a href="about.html"><span data-lang="en" class="active">About us</span><span data-lang="ru">О нас</span><span data-lang="es">Sobre nosotros</span><span data-lang="uk">Про нас</span></a><a href="cases.html"><span data-lang="en" class="active">Cases</span><span data-lang="ru">Кейсы</span><span data-lang="es">Casos</span><span data-lang="uk">Кейси</span></a><a href="contact.html"><span data-lang="en" class="active">Contact</span><span data-lang="ru">Контакты</span><span data-lang="es">Contacto</span><span data-lang="uk">Контакти</span></a></div>
+      <div class="footer-col"><h4><span data-lang="en" class="active">Connect</span><span data-lang="ru">Связаться</span><span data-lang="es">Conectar</span><span data-lang="uk">Зв'язатись</span></h4><a href="mailto:neolith2018ai@gmail.com">neolith2018ai@gmail.com</a><a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener">GitHub</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 NeolithAI Agency. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+        <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener" aria-label="Upwork"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- AI CHAT WIDGET -->
+<button class="ai-widget-btn" onclick="toggleChat()" aria-label="Chat with Nео"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span class="ai-widget-pulse"></span></button>
+<div class="ai-chat-panel" id="aiChatPanel">
+  <div class="ai-chat-header"><div class="ai-chat-avatar">🤖</div><div class="ai-chat-header-info"><div class="ai-chat-name">Nео · NeolithAI Assistant</div><div class="ai-chat-status"><span data-lang="en" class="active">Online · replies instantly</span><span data-lang="ru">Онлайн</span><span data-lang="es">En línea</span><span data-lang="uk">Онлайн</span></div></div><button class="ai-chat-close" onclick="closeChat()">✕</button></div>
+  <div class="ai-chat-messages" id="aiChatMessages"></div>
+  <div class="ai-chat-suggestions" id="aiSuggestions">
+    <button class="ai-suggestion" onclick="sendSuggestion('How can I start automating my business?')">Get started</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('What is RAG and do I need it?')">What is RAG?</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('I want to book a free consultation')">Book a call</button>
+  </div>
+  <div class="ai-chat-input-row">
+    <textarea class="ai-chat-input" id="aiChatInput" rows="1" placeholder="Ask me anything..." onkeydown="handleChatKey(event)"></textarea>
+    <button class="ai-chat-send" onclick="var i=document.getElementById('aiChatInput');sendMessage(i.value.trim())"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+  </div>
+</div>
+<form name="chat-booking" netlify style="display:none"><input name="conversation"/></form>
+<script src="neolithai-shared.js"></script>
+<script>
+function toggleBlogCard(btn) {
+  var text = btn.nextElementSibling;
+  var isOpen = text.style.display === 'block';
+  text.style.display = isOpen ? 'none' : 'block';
+  var lang = localStorage.getItem('lang') || 'en';
+  var more = {en:'Read more ↓',ru:'Читать далее ↓',es:'Leer más ↓',uk:'Читати далі ↓'};
+  var less = {en:'Read less ↑',ru:'Свернуть ↑',es:'Leer menos ↑',uk:'Згорнути ↑'};
+  btn.textContent = isOpen ? (more[lang]||more.en) : (less[lang]||less.en);
+}
+function toggleBlogFeatured(btn) {
+  var text = document.getElementById('featuredText');
+  var isOpen = text.style.display === 'block';
+  text.style.display = isOpen ? 'none' : 'block';
+  var lang = localStorage.getItem('lang') || 'en';
+  var more = {en:'Read full article ↓',ru:'Читать полностью ↓',es:'Leer artículo completo ↓',uk:'Читати повністю ↓'};
+  var less = {en:'Read less ↑',ru:'Свернуть ↑',es:'Leer menos ↑',uk:'Згорнути ↑'};
+  btn.textContent = isOpen ? (more[lang]||more.en) : (less[lang]||less.en);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Case Studies — NeolithAI Agency</title>
+<meta name="description" content="5 production-ready AI automation projects — Restaurant AI Suite, BFS, CV Screening Agent, AI Lead Gen, AI Content Master. Real systems, real results."/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#1a6fc4"/>
+<link rel="stylesheet" href="neolithai-shared.css"/>
+<style>
+/* ── CASES PAGE STYLES ── */
+
+/* FILTER BAR */
+.filter-bar{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin-bottom:3rem;
+}
+.filter-btn{
+  background:var(--surface);border:1.5px solid var(--border);
+  color:var(--text2);padding:7px 18px;border-radius:20px;
+  font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;
+}
+.filter-btn:hover,.filter-btn.active{
+  border-color:var(--accent);color:var(--accent);
+  background:rgba(26,111,196,0.06);
+}
+
+/* CASE CARDS — FULL */
+.cases-full-grid{display:flex;flex-direction:column;gap:2.5rem;}
+.case-full-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);overflow:hidden;
+  transition:border-color .2s,box-shadow .3s;
+}
+.case-full-card:hover{
+  border-color:var(--accent2);
+  box-shadow:0 8px 32px rgba(14,158,122,0.1);
+}
+.case-full-inner{display:grid;grid-template-columns:300px 1fr;gap:0;}
+.case-full-sidebar{
+  background:linear-gradient(160deg,#e8f1fb 0%,#eaf5f0 100%);
+  padding:2.5rem 2rem;border-right:1px solid var(--border);
+  display:flex;flex-direction:column;gap:1.5rem;
+}
+.case-num-big{
+  font-size:3.5rem;font-weight:800;color:var(--accent);
+  line-height:1;letter-spacing:-2px;
+}
+.case-num-label{font-size:13px;color:var(--text2);margin-top:4px;}
+.case-sidebar-tag{
+  display:inline-block;font-size:11px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2);
+}
+.case-sidebar-name{font-size:1.25rem;font-weight:700;color:var(--text);line-height:1.3;}
+.case-live-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--accent2);color:#fff;font-size:11px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;width:fit-content;
+}
+.case-live-dot{
+  width:6px;height:6px;border-radius:50%;background:#fff;
+  animation:pulse 1.5s infinite;
+}
+.case-stack-sidebar{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;}
+.stack-pill{
+  font-size:11px;background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:3px 10px;color:var(--text2);font-weight:500;
+}
+
+.case-full-body{padding:2.5rem;}
+.case-full-desc{
+  font-size:15px;color:var(--text2);line-height:1.8;
+  margin-bottom:2rem;
+}
+.case-features-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:.75rem;
+  margin-bottom:2rem;
+}
+.case-feature{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:13px;color:var(--text2);line-height:1.5;
+}
+.case-feature-icon{
+  color:var(--accent2);font-weight:700;flex-shrink:0;
+  margin-top:1px;font-size:14px;
+}
+.case-links-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:1rem;}
+.case-link-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;text-decoration:none;
+  border:1.5px solid var(--accent);color:var(--accent);
+  border-radius:8px;padding:8px 16px;transition:all .2s;
+}
+.case-link-btn:hover{background:var(--accent);color:#fff;}
+.case-link-btn.teal{border-color:var(--accent2);color:var(--accent2);}
+.case-link-btn.teal:hover{background:var(--accent2);color:#fff;}
+.case-link-btn svg{width:15px;height:15px;fill:currentColor;}
+
+/* CTA BLOCK */
+.cases-cta-block{
+  background:linear-gradient(135deg,#1a2e42,#1a6fc4);
+  border-radius:var(--radius-lg);padding:3rem;
+  text-align:center;margin-top:3rem;
+}
+.cases-cta-block h2{color:#fff;margin-bottom:1rem;}
+.cases-cta-block p{color:rgba(255,255,255,0.7);max-width:520px;margin:0 auto 2rem;}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .case-full-inner{grid-template-columns:1fr;}
+  .case-full-sidebar{border-right:none;border-bottom:1px solid var(--border);}
+  .case-features-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .case-num-big{font-size:2.5rem;}
+  .case-full-body{padding:1.5rem;}
+  .case-full-sidebar{padding:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a class="logo-wrap" href="index.html">
+      <svg width="36" height="36" viewBox="0 0 38 38" fill="none">
+        <rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/>
+        <rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/>
+        <rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/>
+        <circle cx="37" cy="5" r="4" fill="#0e9e7a"/>
+        <circle cx="37" cy="5" r="2" fill="white"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-name">Neolith<span class="ai">AI</span></span>
+        <span class="logo-sub">Agency</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="services.html" data-nav="services">Services</a></li>
+      <li><a href="cases.html" data-nav="cases" class="active">Cases</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="blog.html" data-nav="blog">Blog</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+      <li><a href="contact.html#book" class="nav-cta" data-nav="book">Book a Call</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang-btn="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang-btn="ru" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn" data-lang-btn="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang-btn="uk" onclick="setLang('uk')">UA</button>
+      </div>
+      <button class="burger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="cases.html" onclick="toggleMenu()">Cases</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <div class="mobile-cta-wrap">
+    <a href="contact.html#book" class="btn-primary" style="display:block;text-align:center;" onclick="toggleMenu()">Book a Free Call</a>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <span class="section-label">
+      <span data-lang="en" class="active">Production-ready portfolio</span>
+      <span data-lang="ru">Production-ready портфолио</span>
+      <span data-lang="es">Portafolio listo para producción</span>
+      <span data-lang="uk">Production-ready портфоліо</span>
+    </span>
+    <h1 class="reveal">
+      <span data-lang="en" class="active">5 AI Systems.<br><span class="accent">Real Results.</span></span>
+      <span data-lang="ru">5 ИИ-систем.<br><span class="accent">Реальные результаты.</span></span>
+      <span data-lang="es">5 Sistemas IA.<br><span class="accent">Resultados Reales.</span></span>
+      <span data-lang="uk">5 ІІ-систем.<br><span class="accent">Реальні результати.</span></span>
+    </h1>
+    <p class="reveal">
+      <span data-lang="en" class="active">Not demos. Not prototypes. Production systems with error handling, monitoring, documentation — deployed and running.</span>
+      <span data-lang="ru">Не демо. Не прототипы. Production-системы с обработкой ошибок, мониторингом, документацией — развёрнутые и работающие.</span>
+      <span data-lang="es">No demos. No prototipos. Sistemas de producción con manejo de errores, monitoreo, documentación — desplegados y funcionando.</span>
+      <span data-lang="uk">Не демо. Не прототипи. Production-системи з обробкою помилок, моніторингом, документацією — розгорнуті та працюючі.</span>
+    </p>
+  </div>
+</div>
+
+<!-- CASES -->
+<section id="cases">
+  <div class="container">
+
+    <!-- FILTER -->
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" onclick="filterCases('all', this)">
+        <span data-lang="en" class="active">All (5)</span>
+        <span data-lang="ru">Все (5)</span>
+        <span data-lang="es">Todos (5)</span>
+        <span data-lang="uk">Всі (5)</span>
+      </button>
+      <button class="filter-btn" onclick="filterCases('content', this)">Content</button>
+      <button class="filter-btn" onclick="filterCases('restaurant', this)">Restaurant</button>
+      <button class="filter-btn" onclick="filterCases('hr', this)">HR</button>
+      <button class="filter-btn" onclick="filterCases('support', this)">Support</button>
+      <button class="filter-btn" onclick="filterCases('leadgen', this)">Lead Gen</button>
+    </div>
+
+    <div class="cases-full-grid">
+
+      <!-- 1. AI CONTENT MASTER -->
+      <div class="case-full-card reveal" data-category="content">
+        <div class="case-full-inner">
+          <div class="case-full-sidebar">
+            <div>
+              <div class="case-sidebar-tag">Content / Social Media</div>
+              <div class="case-sidebar-name" style="margin-top:8px;">AI Content Master</div>
+            </div>
+            <div class="case-live-badge"><span class="case-live-dot"></span>LIVE</div>
+            <div>
+              <div class="case-num-big">9×</div>
+              <div class="case-num-label">
+                <span data-lang="en" class="active">content units per prompt</span>
+                <span data-lang="ru">единиц контента за запрос</span>
+                <span data-lang="es">unidades de contenido por prompt</span>
+                <span data-lang="uk">одиниць контенту за запит</span>
+              </div>
+            </div>
+            <div class="case-stack-sidebar">
+              <span class="stack-pill">n8n</span>
+              <span class="stack-pill">GPT-4o</span>
+              <span class="stack-pill">DALL-E 3</span>
+              <span class="stack-pill">Telegram</span>
+              <span class="stack-pill">Google Sheets</span>
+            </div>
+          </div>
+          <div class="case-full-body">
+            <p class="case-full-desc">
+              <span data-lang="en" class="active">A fully automated content generation system triggered by a single Telegram message. The agent takes a topic idea and produces a complete multilingual content package in seconds — no manual writing, no switching between tools, no copy-paste between languages.</span>
+              <span data-lang="ru">Полностью автоматизированная система генерации контента, запускаемая одним сообщением в Telegram. Агент берёт идею темы и за секунды создаёт полный многоязычный пакет контента — без ручного написания, без переключения между инструментами.</span>
+              <span data-lang="es">Sistema de generación de contenido totalmente automatizado activado por un único mensaje de Telegram. El agente toma una idea de tema y produce en segundos un paquete de contenido multilingüe completo.</span>
+              <span data-lang="uk">Повністю автоматизована система генерації контенту, що запускається одним повідомленням у Telegram. Агент бере ідею теми та за секунди створює повний багатомовний пакет контенту.</span>
+            </p>
+            <div class="case-features-grid">
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">3 languages simultaneously: EN, PL, ES</span><span data-lang="ru">3 языка одновременно: EN, PL, ES</span><span data-lang="es">3 idiomas simultáneamente: EN, PL, ES</span><span data-lang="uk">3 мови одночасно: EN, PL, ES</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">3 content formats: LinkedIn post, Reels script, engagement post</span><span data-lang="ru">3 формата: пост LinkedIn, скрипт Reels, вовлекающий пост</span><span data-lang="es">3 formatos: post LinkedIn, guión Reels, post engagement</span><span data-lang="uk">3 формати: пост LinkedIn, скрипт Reels, залучаючий пост</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">AI image generation via DALL-E 3 (1024×1024)</span><span data-lang="ru">Генерация изображений через DALL-E 3 (1024×1024)</span><span data-lang="es">Generación de imágenes con DALL-E 3 (1024×1024)</span><span data-lang="uk">Генерація зображень через DALL-E 3 (1024×1024)</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Auto-logging to Google Sheets with timestamp & image URL</span><span data-lang="ru">Авто-логирование в Google Sheets с меткой времени</span><span data-lang="es">Registro automático en Google Sheets con marca de tiempo</span><span data-lang="uk">Авто-логування в Google Sheets з міткою часу</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Whitelist protection — only authorized users trigger workflow</span><span data-lang="ru">Защита по вайтлисту — только авторизованные пользователи</span><span data-lang="es">Protección por lista blanca — solo usuarios autorizados</span><span data-lang="uk">Захист по вайтлісту — лише авторизовані користувачі</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Delivers all content + image directly to Telegram</span><span data-lang="ru">Доставляет весь контент + изображение прямо в Telegram</span><span data-lang="es">Entrega todo el contenido + imagen directamente a Telegram</span><span data-lang="uk">Доставляє весь контент + зображення прямо в Telegram</span></div>
+            </div>
+            <div class="case-links-row">
+              <a href="https://github.com/Evgeniy1970-ai/ai-content-scout" target="_blank" rel="noopener" class="case-link-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. RESTAURANT AI SUITE -->
+      <div class="case-full-card reveal" data-category="restaurant">
+        <div class="case-full-inner">
+          <div class="case-full-sidebar">
+            <div>
+              <div class="case-sidebar-tag">Restaurant / HoReCa</div>
+              <div class="case-sidebar-name" style="margin-top:8px;">Restaurant AI Suite</div>
+            </div>
+            <div class="case-live-badge"><span class="case-live-dot"></span>LIVE</div>
+            <div>
+              <div class="case-num-big">5×</div>
+              <div class="case-num-label">
+                <span data-lang="en" class="active">AI agents in one modular system</span>
+                <span data-lang="ru">ИИ-агентов в одной модульной системе</span>
+                <span data-lang="es">agentes IA en un sistema modular</span>
+                <span data-lang="uk">ІІ-агентів в одній модульній системі</span>
+              </div>
+            </div>
+            <div class="case-stack-sidebar">
+              <span class="stack-pill">n8n</span>
+              <span class="stack-pill">GPT-4o</span>
+              <span class="stack-pill">DALL-E 3</span>
+              <span class="stack-pill">Supabase</span>
+              <span class="stack-pill">Telegram</span>
+              <span class="stack-pill">SerpAPI</span>
+            </div>
+          </div>
+          <div class="case-full-body">
+            <p class="case-full-desc">
+              <span data-lang="en" class="active">A complete AI automation suite for restaurant operations — five independent agents that work together to protect reputation, fill tables, boost sales, control inventory, and create stunning food visuals. Each agent can be deployed individually or as a complete system.</span>
+              <span data-lang="ru">Полный комплекс ИИ-автоматизации для ресторанных операций — пять независимых агентов, работающих вместе для защиты репутации, заполнения столиков, увеличения продаж, контроля склада и создания визуального контента.</span>
+              <span data-lang="es">Suite completa de automatización IA para operaciones de restaurante — cinco agentes independientes que trabajan juntos para proteger la reputación, llenar mesas, impulsar ventas, controlar inventario y crear visuales de comida.</span>
+              <span data-lang="uk">Повний комплекс ІІ-автоматизації для ресторанних операцій — п'ять незалежних агентів, що працюють разом для захисту репутації, заповнення столиків, збільшення продажів, контролю складу та створення візуального контенту.</span>
+            </p>
+            <div class="case-features-grid">
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Agent 1: Reputation & Sentiment Manager — monitors Google Maps, TripAdvisor, Yelp; auto-responds to reviews</span><span data-lang="ru">Агент 1: Мониторинг репутации — Google Maps, TripAdvisor, Yelp; авто-ответы на отзывы</span><span data-lang="es">Agente 1: Gestión de reputación — Google Maps, TripAdvisor, Yelp; respuestas automáticas</span><span data-lang="uk">Агент 1: Управління репутацією — Google Maps, TripAdvisor, Yelp; авто-відповіді</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Agent 2: Reservations & Reminder Bot — Telegram booking system with automated reminders to reduce no-shows</span><span data-lang="ru">Агент 2: Бронирование через Telegram с авто-напоминаниями для снижения no-show</span><span data-lang="es">Agente 2: Reservas vía Telegram con recordatorios automáticos para reducir no-shows</span><span data-lang="uk">Агент 2: Бронювання через Telegram з авто-нагадуваннями для зниження no-show</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Agent 3: Weather Menu Promoter — adjusts menu recommendations based on current weather conditions</span><span data-lang="ru">Агент 3: Рекомендации меню по погоде — адаптирует предложения под текущие условия</span><span data-lang="es">Agente 3: Promotor de menú por clima — ajusta recomendaciones según el tiempo actual</span><span data-lang="uk">Агент 3: Промоутер меню за погодою — адаптує рекомендації під поточні умови</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Agent 4: Inventory Manager — tracks stock levels, alerts on low inventory, suggests reorder quantities</span><span data-lang="ru">Агент 4: Менеджер склада — отслеживает остатки, оповещает о низком запасе</span><span data-lang="es">Agente 4: Gestor de inventario — rastrea niveles, alerta sobre stock bajo</span><span data-lang="uk">Агент 4: Менеджер складу — відстежує залишки, сповіщає про низький запас</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Agent 5: AI Food Photographer — generates professional food photos via DALL-E 3 from text descriptions</span><span data-lang="ru">Агент 5: ИИ-фотограф еды — профессиональные фото блюд через DALL-E 3 из текстовых описаний</span><span data-lang="es">Agente 5: Fotógrafo IA de comida — fotos profesionales con DALL-E 3 desde descripciones de texto</span><span data-lang="uk">Агент 5: ІІ-фотограф їжі — професійні фото страв через DALL-E 3 з текстових описів</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Netlify dashboard for real-time monitoring of all 5 agents</span><span data-lang="ru">Дашборд Netlify для мониторинга всех 5 агентов в реальном времени</span><span data-lang="es">Dashboard Netlify para monitoreo en tiempo real de los 5 agentes</span><span data-lang="uk">Дашборд Netlify для моніторингу всіх 5 агентів у реальному часі</span></div>
+            </div>
+            <div class="case-links-row">
+              <a href="https://github.com/Evgeniy1970-ai/restaurant-ai-suite" target="_blank" rel="noopener" class="case-link-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. CV SCREENING AGENT -->
+      <div class="case-full-card reveal" data-category="hr">
+        <div class="case-full-inner">
+          <div class="case-full-sidebar">
+            <div>
+              <div class="case-sidebar-tag">HR / Recruiting</div>
+              <div class="case-sidebar-name" style="margin-top:8px;">
+                <span data-lang="en" class="active">CV Screening Agent</span>
+                <span data-lang="ru">Агент скрининга резюме</span>
+                <span data-lang="es">Agente de selección de CVs</span>
+                <span data-lang="uk">Агент скринінгу резюме</span>
+              </div>
+            </div>
+            <div class="case-live-badge"><span class="case-live-dot"></span>LIVE</div>
+            <div>
+              <div class="case-num-big">10×</div>
+              <div class="case-num-label">
+                <span data-lang="en" class="active">faster candidate shortlisting</span>
+                <span data-lang="ru">ускорение отбора кандидатов</span>
+                <span data-lang="es">más rápida la preselección</span>
+                <span data-lang="uk">швидший відбір кандидатів</span>
+              </div>
+            </div>
+            <div class="case-stack-sidebar">
+              <span class="stack-pill">n8n</span>
+              <span class="stack-pill">GPT-4o</span>
+              <span class="stack-pill">Google Sheets</span>
+              <span class="stack-pill">Telegram</span>
+              <span class="stack-pill">PDF/DOCX</span>
+            </div>
+          </div>
+          <div class="case-full-body">
+            <p class="case-full-desc">
+              <span data-lang="en" class="active">A 3-workflow automated recruiting system that handles the entire candidate screening process — from CV submission to ranked shortlist delivered to HR. Built for companies that receive high volumes of applications and want consistent, unbiased, AI-powered evaluation.</span>
+              <span data-lang="ru">Автоматизированная система рекрутинга из 3 воркфлоу, охватывающая весь процесс скрининга кандидатов — от подачи резюме до ранжированного списка для HR. Создана для компаний с большим потоком заявок.</span>
+              <span data-lang="es">Sistema automatizado de reclutamiento de 3 flujos que maneja todo el proceso de selección — desde la presentación del CV hasta la lista clasificada entregada a RRHH.</span>
+              <span data-lang="uk">Автоматизована система рекрутингу з 3 воркфлоу, що охоплює весь процес скринінгу кандидатів — від подачі резюме до ранжованого списку для HR.</span>
+            </p>
+            <div class="case-features-grid">
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Workflow 1: Web form intake — accepts PDF and DOCX CVs, stores in Supabase</span><span data-lang="ru">Воркфлоу 1: Веб-форма — принимает PDF и DOCX резюме, сохраняет в Supabase</span><span data-lang="es">Flujo 1: Formulario web — acepta CVs PDF y DOCX, almacena en Supabase</span><span data-lang="uk">Воркфлоу 1: Веб-форма — приймає PDF та DOCX резюме, зберігає в Supabase</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Workflow 2: AI scoring — evaluates candidates against configurable job requirements (0-100 score)</span><span data-lang="ru">Воркфлоу 2: AI-скоринг — оценивает кандидатов по настраиваемым требованиям (0-100)</span><span data-lang="es">Flujo 2: Puntuación IA — evalúa candidatos según requisitos configurables (0-100)</span><span data-lang="uk">Воркфлоу 2: AI-скоринг — оцінює кандидатів за налаштованими вимогами (0-100)</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Workflow 3: Ranked shortlist — generates prioritised candidate report, notifies HR via Telegram</span><span data-lang="ru">Воркфлоу 3: Ранжированный список — отчёт по кандидатам, уведомление HR в Telegram</span><span data-lang="es">Flujo 3: Lista clasificada — informe priorizado, notifica a RRHH vía Telegram</span><span data-lang="uk">Воркфлоу 3: Ранжований список — звіт по кандидатах, сповіщення HR у Telegram</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Full audit trail in Google Sheets — every decision logged with reasoning</span><span data-lang="ru">Полный аудит в Google Sheets — каждое решение с обоснованием</span><span data-lang="es">Auditoría completa en Google Sheets — cada decisión registrada con razonamiento</span><span data-lang="uk">Повний аудит у Google Sheets — кожне рішення з обґрунтуванням</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Configurable job requirements — no code changes needed to adapt for new roles</span><span data-lang="ru">Настраиваемые требования — не нужны изменения кода для новых вакансий</span><span data-lang="es">Requisitos configurables — sin cambios de código para nuevos puestos</span><span data-lang="uk">Налаштовувані вимоги — не потрібні зміни коду для нових вакансій</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Published on n8n Creator Hub as verified template</span><span data-lang="ru">Опубликован на n8n Creator Hub как верифицированный шаблон</span><span data-lang="es">Publicado en n8n Creator Hub como plantilla verificada</span><span data-lang="uk">Опублікований на n8n Creator Hub як верифікований шаблон</span></div>
+            </div>
+            <div class="case-links-row">
+              <a href="https://github.com/Evgeniy1970-ai/CV-Screening-Agent" target="_blank" rel="noopener" class="case-link-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. BFS SUITE -->
+      <div class="case-full-card reveal" data-category="support">
+        <div class="case-full-inner">
+          <div class="case-full-sidebar">
+            <div>
+              <div class="case-sidebar-tag">Customer Support / Multi-Agent</div>
+              <div class="case-sidebar-name" style="margin-top:8px;">BFS Suite — Big For Small</div>
+            </div>
+            <div class="case-live-badge"><span class="case-live-dot"></span>LIVE</div>
+            <div>
+              <div class="case-num-big">3</div>
+              <div class="case-num-label">
+                <span data-lang="en" class="active">RAG-powered agents · 1 platform</span>
+                <span data-lang="ru">RAG-агентов · 1 платформа</span>
+                <span data-lang="es">agentes RAG · 1 plataforma</span>
+                <span data-lang="uk">RAG-агентів · 1 платформа</span>
+              </div>
+            </div>
+            <div class="case-stack-sidebar">
+              <span class="stack-pill">n8n</span>
+              <span class="stack-pill">Claude API</span>
+              <span class="stack-pill">Supabase</span>
+              <span class="stack-pill">pgvector</span>
+              <span class="stack-pill">Netlify</span>
+              <span class="stack-pill">Telegram</span>
+            </div>
+          </div>
+          <div class="case-full-body">
+            <p class="case-full-desc">
+              <span data-lang="en" class="active">An enterprise-grade multi-agent customer support platform scaled for small businesses. Three specialized AI agents — Legal, HR, and Customer Support — powered by Retrieval-Augmented Generation (RAG) with your company's own knowledge base. Includes intelligent routing, gap detection, and a full analytics dashboard.</span>
+              <span data-lang="ru">Мультиагентная платформа поддержки клиентов корпоративного уровня, адаптированная для малого бизнеса. Три специализированных агента — Legal, HR и Customer Support — на базе RAG с вашей корпоративной базой знаний.</span>
+              <span data-lang="es">Plataforma multiagente de soporte al cliente de nivel empresarial adaptada para pequeñas empresas. Tres agentes especializados — Legal, HR y Soporte — con RAG sobre su base de conocimiento propia.</span>
+              <span data-lang="uk">Мультиагентна платформа підтримки клієнтів корпоративного рівня, адаптована для малого бізнесу. Три спеціалізовані агенти — Legal, HR та Customer Support — на базі RAG з вашою корпоративною базою знань.</span>
+            </p>
+            <div class="case-features-grid">
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Intelligent router — classifies incoming queries and routes to the right specialist agent</span><span data-lang="ru">Умный роутер — классифицирует запросы и направляет к нужному агенту</span><span data-lang="es">Router inteligente — clasifica consultas y dirige al agente especialista correcto</span><span data-lang="uk">Розумний роутер — класифікує запити та направляє до потрібного агента</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">RAG with pgvector — answers from your documents, not hallucinations</span><span data-lang="ru">RAG с pgvector — ответы из ваших документов, без галлюцинаций</span><span data-lang="es">RAG con pgvector — respuestas de sus documentos, sin alucinaciones</span><span data-lang="uk">RAG з pgvector — відповіді з ваших документів, без галюцинацій</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Knowledge gap detection — flags when the knowledge base can't answer a query</span><span data-lang="ru">Обнаружение пробелов — сигнализирует когда база знаний не может ответить</span><span data-lang="es">Detección de brechas — señala cuando la base no puede responder</span><span data-lang="uk">Виявлення прогалин — сигналізує коли база знань не може відповісти</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Human escalation via Telegram — complex queries sent to operator with full context</span><span data-lang="ru">Эскалация через Telegram — сложные запросы оператору с полным контекстом</span><span data-lang="es">Escalada vía Telegram — consultas complejas al operador con contexto completo</span><span data-lang="uk">Ескалація через Telegram — складні запити оператору з повним контекстом</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Live analytics dashboard on Netlify — query volume, response quality, gap analysis</span><span data-lang="ru">Живой дашборд на Netlify — объём запросов, качество ответов, анализ пробелов</span><span data-lang="es">Dashboard en vivo en Netlify — volumen, calidad de respuestas, análisis de brechas</span><span data-lang="uk">Живий дашборд на Netlify — обсяг запитів, якість відповідей, аналіз прогалин</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Powered by Claude API for superior reasoning and instruction following</span><span data-lang="ru">На базе Claude API — превосходное рассуждение и следование инструкциям</span><span data-lang="es">Impulsado por Claude API para razonamiento superior y seguimiento de instrucciones</span><span data-lang="uk">На базі Claude API — чудові міркування та дотримання інструкцій</span></div>
+            </div>
+            <div class="case-links-row">
+              <a href="https://github.com/Evgeniy1970-ai/bfs-suite" target="_blank" rel="noopener" class="case-link-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+              </a>
+              <a href="https://charming-sable-0dd4f8.netlify.app" target="_blank" rel="noopener" class="case-link-btn teal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span data-lang="en" class="active">Live Demo</span>
+                <span data-lang="ru">Живое демо</span>
+                <span data-lang="es">Demo en vivo</span>
+                <span data-lang="uk">Живе демо</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. AI LEAD GEN -->
+      <div class="case-full-card reveal" data-category="leadgen">
+        <div class="case-full-inner">
+          <div class="case-full-sidebar">
+            <div>
+              <div class="case-sidebar-tag">B2B Sales / Lead Gen</div>
+              <div class="case-sidebar-name" style="margin-top:8px;">
+                <span data-lang="en" class="active">AI Lead Generation Agent</span>
+                <span data-lang="ru">ИИ-агент генерации лидов</span>
+                <span data-lang="es">Agente IA de generación de leads</span>
+                <span data-lang="uk">ІІ-агент генерації лідів</span>
+              </div>
+            </div>
+            <div class="case-live-badge"><span class="case-live-dot"></span>LIVE</div>
+            <div>
+              <div class="case-num-big">100%</div>
+              <div class="case-num-label">
+                <span data-lang="en" class="active">autonomous B2B outreach pipeline</span>
+                <span data-lang="ru">автономный B2B outreach пайплайн</span>
+                <span data-lang="es">pipeline de outreach B2B autónomo</span>
+                <span data-lang="uk">автономний B2B outreach пайплайн</span>
+              </div>
+            </div>
+            <div class="case-stack-sidebar">
+              <span class="stack-pill">n8n</span>
+              <span class="stack-pill">GPT-4o</span>
+              <span class="stack-pill">Google Maps API</span>
+              <span class="stack-pill">Serper</span>
+              <span class="stack-pill">Gmail</span>
+              <span class="stack-pill">Telegram</span>
+            </div>
+          </div>
+          <div class="case-full-body">
+            <p class="case-full-desc">
+              <span data-lang="en" class="active">A fully autonomous 7-block B2B lead generation and outreach machine. Triggered by a single Telegram message, it discovers businesses, enriches contact data, scores leads with AI, writes personalized cold emails, sends them, and follows up — all without human intervention. A true production-ready sales agent.</span>
+              <span data-lang="ru">Полностью автономная 7-блочная машина для генерации B2B-лидов и аутрича. Запускается одним сообщением в Telegram, находит компании, обогащает контактные данные, скорит лидов с помощью ИИ, пишет персонализированные холодные письма, отправляет их и делает фоллоу-апы.</span>
+              <span data-lang="es">Una máquina de generación de leads B2B y outreach de 7 bloques totalmente autónoma. Activada por un mensaje de Telegram, descubre empresas, enriquece datos de contacto, puntúa leads con IA, escribe emails fríos personalizados, los envía y hace seguimiento.</span>
+              <span data-lang="uk">Повністю автономна 7-блочна машина для генерації B2B-лідів та аутрічу. Запускається одним повідомленням у Telegram, знаходить компанії, збагачує контактні дані, скорить лідів за допомогою ІІ, пише персоналізовані холодні листи, надсилає їх та робить фоллоу-апи.</span>
+            </p>
+            <div class="case-features-grid">
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Block 1-2: Lead discovery via Google Maps + deduplication (never processes the same lead twice)</span><span data-lang="ru">Блоки 1-2: Поиск лидов через Google Maps + дедупликация (никогда не обрабатывает один лид дважды)</span><span data-lang="es">Bloques 1-2: Descubrimiento vía Google Maps + deduplicación (nunca procesa el mismo lead dos veces)</span><span data-lang="uk">Блоки 1-2: Пошук лідів через Google Maps + дедуплікація (ніколи не обробляє один лід двічі)</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Block 3: Data enrichment — finds email & LinkedIn via Serper in parallel branches</span><span data-lang="ru">Блок 3: Обогащение данных — находит email и LinkedIn через Serper параллельно</span><span data-lang="es">Bloque 3: Enriquecimiento — encuentra email y LinkedIn con Serper en paralelo</span><span data-lang="uk">Блок 3: Збагачення даних — знаходить email та LinkedIn через Serper паралельно</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Block 4: AI Research Agent — GPT-4o researches each company, finds automation opportunities</span><span data-lang="ru">Блок 4: ИИ-агент исследования — GPT-4o изучает каждую компанию, находит возможности автоматизации</span><span data-lang="es">Bloque 4: Agente de investigación IA — GPT-4o investiga cada empresa, encuentra oportunidades</span><span data-lang="uk">Блок 4: ІІ-агент дослідження — GPT-4o вивчає кожну компанію, знаходить можливості</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Block 5: Lead scoring 0-100 — HOT (≥75), WARM (≥55), LUKEWARM (≥30), COLD</span><span data-lang="ru">Блок 5: Скоринг 0-100 — HOT (≥75), WARM (≥55), LUKEWARM (≥30), COLD</span><span data-lang="es">Bloque 5: Puntuación 0-100 — HOT (≥75), WARM (≥55), LUKEWARM (≥30), COLD</span><span data-lang="uk">Блок 5: Скоринг 0-100 — HOT (≥75), WARM (≥55), LUKEWARM (≥30), COLD</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Block 6: CRM logging to Google Sheets + GPT-4o personalized cold email generation</span><span data-lang="ru">Блок 6: Логирование в Google Sheets + генерация персонализированных холодных писем GPT-4o</span><span data-lang="es">Bloque 6: Registro en Google Sheets + generación de emails fríos personalizados</span><span data-lang="uk">Блок 6: Логування в Google Sheets + генерація персоналізованих холодних листів</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Block 7: Outreach loop — sends email, waits 3 days, sends follow-up, reports to Telegram</span><span data-lang="ru">Блок 7: Цикл аутрича — отправляет письмо, ждёт 3 дня, фоллоу-ап, отчёт в Telegram</span><span data-lang="es">Bloque 7: Ciclo de outreach — envía email, espera 3 días, seguimiento, informe a Telegram</span><span data-lang="uk">Блок 7: Цикл аутрічу — надсилає лист, чекає 3 дні, фоллоу-ап, звіт у Telegram</span></div>
+            </div>
+            <div class="case-links-row">
+              <a href="https://github.com/Evgeniy1970-ai/AI-Lead-Gen-Production-Full-Workflow_production" target="_blank" rel="noopener" class="case-link-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA BLOCK -->
+    <div class="cases-cta-block reveal">
+      <h2>
+        <span data-lang="en" class="active">Want something like this for your business?</span>
+        <span data-lang="ru">Хотите что-то подобное для вашего бизнеса?</span>
+        <span data-lang="es">¿Quiere algo así para su negocio?</span>
+        <span data-lang="uk">Хочете щось подібне для вашого бізнесу?</span>
+      </h2>
+      <p>
+        <span data-lang="en" class="active">Every project started with a 30-minute conversation about the problem. Let's have yours — it's free.</span>
+        <span data-lang="ru">Каждый проект начинался с 30-минутного разговора о проблеме. Давайте начнём ваш — это бесплатно.</span>
+        <span data-lang="es">Cada proyecto comenzó con una conversación de 30 minutos sobre el problema. Tengamos la suya — es gratuita.</span>
+        <span data-lang="uk">Кожен проект починався з 30-хвилинної розмови про проблему. Давайте почнемо вашу — це безкоштовно.</span>
+      </p>
+      <div class="btn-group" style="justify-content:center;">
+        <a href="contact.html#book" class="btn-primary">
+          <span data-lang="en" class="active">Book a free 30-min call →</span>
+          <span data-lang="ru">Записаться на бесплатный звонок →</span>
+          <span data-lang="es">Reservar llamada gratuita →</span>
+          <span data-lang="uk">Записатись на безкоштовний дзвінок →</span>
+        </a>
+        <a href="services.html#pricing" class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);">
+          <span data-lang="en" class="active">View pricing →</span>
+          <span data-lang="ru">Смотреть цены →</span>
+          <span data-lang="es">Ver precios →</span>
+          <span data-lang="uk">Переглянути ціни →</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-strip">
+  <div class="container">
+    <h2 class="reveal"><span data-lang="en" class="active">Stay ahead of AI automation</span><span data-lang="ru">Будьте в курсе AI-автоматизации</span><span data-lang="es">Manténgase al día</span><span data-lang="uk">Будьте в курсі ІІ-автоматизації</span></h2>
+    <p class="reveal"><span data-lang="en" class="active">Practical insights, workflow tips, and industry news — once a week, no spam.</span><span data-lang="ru">Практические инсайты, советы и новости — раз в неделю, без спама.</span><span data-lang="es">Insights prácticos y noticias — una vez a la semana, sin spam.</span><span data-lang="uk">Практичні інсайти та новини — раз на тиждень, без спаму.</span></p>
+    <form class="newsletter-form reveal" id="newsletterForm" name="newsletter" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="newsletter"/>
+      <input class="newsletter-input" type="email" name="email" placeholder="your@email.com" required/>
+      <button type="submit" class="newsletter-btn"><span data-lang="en" class="active">Subscribe</span><span data-lang="ru">Подписаться</span><span data-lang="es">Suscribirse</span><span data-lang="uk">Підписатись</span></button>
+    </form>
+    <div class="newsletter-success" id="newsletterSuccess">✅ <span data-lang="en" class="active">You're in!</span><span data-lang="ru">Вы подписаны!</span><span data-lang="es">¡Suscrito!</span><span data-lang="uk">Ви підписані!</span></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo-wrap" href="index.html" style="margin-bottom:12px;display:inline-flex;">
+          <svg width="32" height="32" viewBox="0 0 38 38" fill="none">
+            <rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/>
+            <rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/>
+            <rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/>
+            <circle cx="37" cy="5" r="4" fill="#0e9e7a"/>
+            <circle cx="37" cy="5" r="2" fill="white"/>
+          </svg>
+          <div class="logo-text" style="margin-left:8px;">
+            <span class="logo-name">Neolith<span class="ai">AI</span></span>
+            <span class="logo-sub">Agency</span>
+          </div>
+        </a>
+        <p class="footer-tagline"><span data-lang="en" class="active">AI automation for small businesses across EU & UK.</span><span data-lang="ru">ИИ-автоматизация для малого бизнеса в ЕС и UK.</span><span data-lang="es">Automatización IA para pequeñas empresas en UE y UK.</span><span data-lang="uk">ІІ-автоматизація для малого бізнесу в ЄС та UK.</span></p>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Services</span><span data-lang="ru">Услуги</span><span data-lang="es">Servicios</span><span data-lang="uk">Послуги</span></h4>
+        <a href="services.html"><span data-lang="en" class="active">AI Agent Design</span><span data-lang="ru">Проектирование агентов</span><span data-lang="es">Diseño de agentes</span><span data-lang="uk">Проектування агентів</span></a>
+        <a href="services.html"><span data-lang="en" class="active">Workflow Automation</span><span data-lang="ru">Автоматизация</span><span data-lang="es">Automatización</span><span data-lang="uk">Автоматизація</span></a>
+        <a href="services.html#pricing"><span data-lang="en" class="active">Pricing</span><span data-lang="ru">Цены</span><span data-lang="es">Precios</span><span data-lang="uk">Ціни</span></a>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Company</span><span data-lang="ru">Компания</span><span data-lang="es">Empresa</span><span data-lang="uk">Компанія</span></h4>
+        <a href="about.html"><span data-lang="en" class="active">About us</span><span data-lang="ru">О нас</span><span data-lang="es">Sobre nosotros</span><span data-lang="uk">Про нас</span></a>
+        <a href="cases.html"><span data-lang="en" class="active">Case studies</span><span data-lang="ru">Кейсы</span><span data-lang="es">Casos</span><span data-lang="uk">Кейси</span></a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html"><span data-lang="en" class="active">Contact</span><span data-lang="ru">Контакты</span><span data-lang="es">Contacto</span><span data-lang="uk">Контакти</span></a>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Connect</span><span data-lang="ru">Связаться</span><span data-lang="es">Conectar</span><span data-lang="uk">Зв'язатись</span></h4>
+        <a href="mailto:neolith2018ai@gmail.com">neolith2018ai@gmail.com</a>
+        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener">Upwork</a>
+        <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 NeolithAI Agency. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+        <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener" aria-label="Upwork"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- AI CHAT WIDGET -->
+<button class="ai-widget-btn" onclick="toggleChat()" aria-label="Chat with Nео">
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+  <span class="ai-widget-pulse"></span>
+</button>
+<div class="ai-chat-panel" id="aiChatPanel">
+  <div class="ai-chat-header">
+    <div class="ai-chat-avatar">🤖</div>
+    <div class="ai-chat-header-info">
+      <div class="ai-chat-name">Nео · NeolithAI Assistant</div>
+      <div class="ai-chat-status"><span data-lang="en" class="active">Online · replies instantly</span><span data-lang="ru">Онлайн</span><span data-lang="es">En línea</span><span data-lang="uk">Онлайн</span></div>
+    </div>
+    <button class="ai-chat-close" onclick="closeChat()">✕</button>
+  </div>
+  <div class="ai-chat-messages" id="aiChatMessages"></div>
+  <div class="ai-chat-suggestions" id="aiSuggestions">
+    <button class="ai-suggestion" onclick="sendSuggestion('Can you build something like Restaurant AI Suite for my business?')">Build for my business</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('How much does a custom AI agent cost?')">Pricing</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('I want to book a free consultation')">Book a call</button>
+  </div>
+  <div class="ai-chat-input-row">
+    <textarea class="ai-chat-input" id="aiChatInput" rows="1" placeholder="Ask me anything..." onkeydown="handleChatKey(event)"></textarea>
+    <button class="ai-chat-send" onclick="var i=document.getElementById('aiChatInput');sendMessage(i.value.trim())">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+<form name="chat-booking" netlify style="display:none"><input name="conversation"/></form>
+
+<script src="neolithai-shared.js"></script>
+<script>
+function filterCases(category, btn) {
+  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.case-full-card').forEach(function(card) {
+    if (category === 'all' || card.getAttribute('data-category') === category) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
