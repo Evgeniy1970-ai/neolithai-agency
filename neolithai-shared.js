@@ -236,19 +236,14 @@ async function sendMessage(text) {
   var typing = showTyping();
 
   try {
-    var response = await fetch('https://api.anthropic.com/v1/messages', {
+    var response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-6',
-        max_tokens: 1000,
-        system: SYSTEM_PROMPT,
-        messages: chatHistory
-      })
+      body: JSON.stringify({ messages: chatHistory })
     });
     var data = await response.json();
     removeTyping();
-    var reply = data.content && data.content[0] ? data.content[0].text : "I'm sorry, I couldn't process that. Please try again.";
+    var reply = data.reply || "I'm sorry, I couldn't process that. Please try again.";
     chatHistory.push({ role: 'assistant', content: reply });
     addMessage(reply, 'bot');
 
