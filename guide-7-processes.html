@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>What to Automate First — NeolithAI Agency</title>
+<meta name="description" content="A practical 7-process checklist for small businesses: what to automate first, the signs it's time, and how much time an AI agent gives back."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+:root{
+  --ink:#141c28; --ink2:#54606f; --ink3:#8a93a1;
+  --accent:#2f5fe0; --accent2:#0e9e7a; --signal:#dd9b32;
+  --paper:#ffffff; --soft:#f5f6f3; --line:#e5e4dc;
+  --accent-soft:rgba(47,95,224,0.07); --accent2-soft:rgba(14,158,122,0.08);
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif;
+  --display:'Space Grotesk',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#c9ccc4;font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+
+/* Screen toolbar */
+.toolbar{position:fixed;top:0;left:0;right:0;z-index:50;background:#141c28;color:#fff;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:var(--mono);font-size:12px;letter-spacing:.5px;}
+.toolbar a{color:#9db8ff;text-decoration:none;}
+.toolbar .print-btn{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:var(--mono);font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.5px;}
+.doc{padding:64px 0 60px;}
+
+.page{
+  width:210mm;min-height:297mm;background:var(--paper);margin:0 auto 26px;
+  position:relative;overflow:hidden;box-shadow:0 6px 30px rgba(0,0,0,0.16);
+}
+.pad{padding:24mm 22mm;}
+
+/* COVER */
+.cover{background:linear-gradient(165deg,#141c28 0%,#22335a 60%,#1c3a5e 100%);color:#fff;display:flex;flex-direction:column;}
+.cover .pad{padding:26mm 22mm;flex:1;display:flex;flex-direction:column;}
+.cover-top{display:flex;align-items:center;gap:11px;}
+.logo-mark{display:flex;}
+.cover-brand{font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.3px;}
+.cover-brand .ai{color:#3fd2ab;}
+.cover-sub{font-family:var(--mono);font-size:8.5px;letter-spacing:3.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+.cover-tag{font-family:var(--mono);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#7da2ff;margin-top:auto;margin-bottom:18px;}
+.cover h1{font-family:var(--display);font-weight:700;font-size:46px;line-height:1.05;letter-spacing:-1.6px;margin-bottom:20px;}
+.cover h1 .hl{color:#3fd2ab;}
+.cover-lede{font-size:15.5px;line-height:1.65;color:rgba(255,255,255,0.78);max-width:140mm;}
+.cover-meta{margin-top:28px;display:flex;gap:30px;flex-wrap:wrap;}
+.cover-meta-item{display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,0.82);}
+.cover-meta-item svg{width:17px;height:17px;color:#3fd2ab;}
+.cover-foot{margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.14);font-size:12.5px;color:rgba(255,255,255,0.6);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.cover-glow{position:absolute;top:-90px;right:-70px;width:340px;height:340px;background:radial-gradient(circle,rgba(14,158,122,0.4),transparent 70%);pointer-events:none;}
+
+/* INTRO */
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent2);display:flex;align-items:center;gap:9px;margin-bottom:14px;}
+.eyebrow::before{content:'';width:24px;height:1.5px;background:var(--accent2);}
+h2.sec{font-family:var(--display);font-weight:700;font-size:27px;letter-spacing:-.7px;line-height:1.15;margin-bottom:16px;}
+.lead-p{font-size:15px;line-height:1.75;color:var(--ink2);margin-bottom:14px;}
+.lead-p strong{color:var(--ink);}
+.callout{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:14.5px;line-height:1.7;color:var(--ink);font-style:italic;}
+.how-row{display:flex;gap:14px;margin-top:22px;}
+.how-item{flex:1;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:16px;}
+.how-num{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent2);letter-spacing:1px;}
+.how-title{font-family:var(--display);font-weight:600;font-size:14px;margin:7px 0 4px;}
+.how-desc{font-size:12.5px;color:var(--ink2);line-height:1.55;}
+
+/* PROCESS HEADER STRIP */
+.proc-head{display:flex;align-items:center;gap:14px;margin-bottom:24px;}
+.proc-count{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);}
+
+/* PROCESS CARD */
+.proc{border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:16px;page-break-inside:avoid;break-inside:avoid;}
+.proc-top{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--soft);border-bottom:1px solid var(--line);}
+.proc-tile{width:44px;height:44px;border-radius:11px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.proc-tile.teal{background:var(--accent2-soft);color:var(--accent2);}
+.proc-tile svg{width:23px;height:23px;}
+.proc-n{font-family:var(--display);font-weight:700;font-size:19px;color:var(--ink3);width:30px;flex-shrink:0;text-align:center;}
+.proc-title{font-family:var(--display);font-weight:600;font-size:16.5px;flex:1;letter-spacing:-.2px;}
+.proc-save{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent2);background:var(--accent2-soft);border-radius:30px;padding:5px 12px;white-space:nowrap;}
+.proc-body{padding:16px 20px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.proc-block-label{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.proc-block-label svg{width:13px;height:13px;}
+.proc-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.proc-list li{font-size:13px;color:var(--ink2);line-height:1.5;padding-left:16px;position:relative;}
+.proc-list li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--signal);}
+.proc-list.agent li::before{background:var(--accent2);border-radius:2px;}
+
+/* CTA PAGE */
+.cta-page{background:linear-gradient(165deg,#141c28,#22335a);color:#fff;}
+.cta-page .eyebrow{color:#3fd2ab;}
+.cta-page .eyebrow::before{background:#3fd2ab;}
+.cta-page h2.sec{color:#fff;}
+.cta-lead{font-size:15px;line-height:1.7;color:rgba(255,255,255,0.78);margin-bottom:8px;}
+.cta-steps{margin:24px 0;display:flex;flex-direction:column;gap:12px;}
+.cta-step{display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:15px 18px;}
+.cta-step-n{width:28px;height:28px;border-radius:8px;background:#3fd2ab;color:#0d1017;font-family:var(--display);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cta-step-t{font-family:var(--display);font-weight:600;font-size:14.5px;margin-bottom:2px;}
+.cta-step-d{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.55;}
+.cta-box{background:#fff;border-radius:16px;padding:26px;text-align:center;margin-top:8px;color:var(--ink);}
+.cta-box h3{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.5px;margin-bottom:8px;}
+.cta-box p{font-size:13.5px;color:var(--ink2);margin-bottom:18px;}
+.cta-btn{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;text-decoration:none;font-family:var(--display);font-weight:600;font-size:15px;border-radius:11px;padding:13px 28px;}
+.cta-contact{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:16px;font-size:12.5px;color:var(--ink3);}
+.cta-contact a{color:var(--accent);text-decoration:none;font-weight:600;}
+.cta-foot{margin-top:auto;padding-top:22px;font-size:11.5px;color:rgba(255,255,255,0.45);text-align:center;line-height:1.6;}
+.cta-page .pad{display:flex;flex-direction:column;min-height:297mm;}
+
+@media print{
+  body{background:#fff;}
+  .toolbar{display:none;}
+  .doc{padding:0;}
+  .page{margin:0 auto;box-shadow:none;width:auto;min-height:auto;page-break-after:always;}
+  .page:last-child{page-break-after:auto;}
+}
+@page{size:A4;margin:0;}
+
+@media(max-width:760px){
+  .page{width:100%;min-height:auto;}
+  .pad{padding:32px 22px;}
+  .cover h1{font-size:32px;}
+  .proc-body{grid-template-columns:1fr;}
+  .how-row{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span>NeolithAI · Free Guide</span>
+  <button class="print-btn" onclick="window.print()">⇩ Save as PDF</button>
+</div>
+
+<div class="doc">
+
+  <!-- PAGE 1 — COVER -->
+  <section class="page cover">
+    <div class="cover-glow"></div>
+    <div class="pad">
+      <div class="cover-top">
+        <span class="logo-mark">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="0" y="2" width="34" height="9" rx="2.5" fill="#5d86ff"/><rect x="3" y="14" width="28" height="9" rx="2.5" fill="#5d86ff" opacity="0.6"/><rect x="7" y="26" width="20" height="9" rx="2.5" fill="#3fd2ab"/><circle cx="37" cy="5" r="4" fill="#3fd2ab"/><circle cx="37" cy="5" r="2" fill="#141c28"/></svg>
+        </span>
+        <div>
+          <div class="cover-brand">Neolith<span class="ai">AI</span></div>
+          <div class="cover-sub">Agency</div>
+        </div>
+      </div>
+
+      <div class="cover-tag">Free Guide · AI Automation for Small Business</div>
+      <h1>What to Automate<br/><span class="hl">First.</span></h1>
+      <p class="cover-lede">A practical 7-process checklist for small businesses. For each process: the signs it's time to automate, what an AI agent actually does, and how much time you get back. No hype — just where the real wins are.</p>
+
+      <div class="cover-meta">
+        <span class="cover-meta-item"><i data-lucide="list-checks"></i>7 processes, ranked by impact</span>
+        <span class="cover-meta-item"><i data-lucide="clock"></i>8-minute read</span>
+        <span class="cover-meta-item"><i data-lucide="badge-check"></i>From a real practitioner</span>
+      </div>
+
+      <div class="cover-foot">
+        <span>neolithai.netlify.app</span>
+        <span>By Yevhenii Nohin · n8n Verified Creator</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 2 — INTRO -->
+  <section class="page">
+    <div class="pad">
+      <div class="eyebrow">Before the checklist</div>
+      <h2 class="sec">Start with the problem, not the tool</h2>
+      <p class="lead-p">The most common mistake small businesses make with AI is starting from "what can this tool do?" instead of "what is costing us the most time every week?" The result is a shiny demo that nobody uses.</p>
+      <p class="lead-p">This guide flips that around. We've ranked the <strong>7 processes that most often deserve automation first</strong> — based on real production systems we've built for restaurants, recruiters, support teams and B2B sales.</p>
+
+      <div class="callout">"We don't automate for the sake of automation. We automate exactly what's slowing your business down." — and that starts with knowing which process to pick.</div>
+
+      <p class="lead-p" style="margin-top:6px;">For each of the 7 processes below you'll find the same three things, so you can scan and self-diagnose:</p>
+
+      <div class="how-row">
+        <div class="how-item">
+          <div class="how-num">A</div>
+          <div class="how-title">Signs it's time</div>
+          <div class="how-desc">Concrete symptoms that tell you this process is ready to hand over.</div>
+        </div>
+        <div class="how-item">
+          <div class="how-num">B</div>
+          <div class="how-title">What an AI agent does</div>
+          <div class="how-desc">The specific work the automation takes off your team's plate.</div>
+        </div>
+        <div class="how-item">
+          <div class="how-num">C</div>
+          <div class="how-title">Typical time saved</div>
+          <div class="how-desc">A realistic range from comparable small-business projects.</div>
+        </div>
+      </div>
+
+      <p class="lead-p" style="margin-top:24px;font-size:13.5px;color:var(--ink3);">Tip: don't try to automate all seven at once. Pick the one or two with the strongest "signs it's time" and the highest weekly hours — that's where your payback is fastest. The ROI calculator on our site can put a number on it.</p>
+    </div>
+  </section>
+
+  <!-- PAGE 3 — PROCESSES 1-3 -->
+  <section class="page">
+    <div class="pad">
+      <div class="proc-head">
+        <div class="eyebrow" style="margin-bottom:0;">The checklist</div>
+        <span class="proc-count">Processes 1–3 of 7</span>
+      </div>
+
+      <!-- 1 -->
+      <div class="proc">
+        <div class="proc-top">
+          <span class="proc-n">01</span>
+          <span class="proc-tile"><i data-lucide="message-circle"></i></span>
+          <span class="proc-title">Customer inquiries &amp; support routing</span>
+          <span class="proc-save">Saves 40–60%</span>
+        </div>
+        <div class="proc-body">
+          <div>
+            <div class="proc-block-label"><i data-lucide="alert-circle"></i>Signs it's time</div>
+            <ul class="proc-list">
+              <li>The same questions get asked over and over</li>
+              <li>Replies are slow at nights / weekends</li>
+              <li>Tickets sit unrouted until someone triages them</li>
+            </ul>
+          </div>
+          <div>
+            <div class="proc-block-label"><i data-lucide="bot"></i>What an AI agent does</div>
+            <ul class="proc-list agent">
+              <li>Answers FAQs instantly from your own docs (RAG)</li>
+              <li>Routes complex cases to the right person with context</li>
+              <li>Escalates to a human when it's unsure</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="proc">
+        <div class="proc-top">
+          <span class="proc-n">02</span>
+          <span class="proc-tile"><i data-lucide="file-text"></i></span>
+          <span class="proc-title">Document processing &amp; data entry</span>
+          <span class="proc-save">Saves 50–70%</span>
+        </div>
+        <div class="proc-body">
+          <div>
+            <div class="proc-block-label"><i data-lucide="alert-circle"></i>Signs it's time</div>
+            <ul class="proc-list">
+              <li>Staff retype data from PDFs, emails or forms</li>
+              <li>Copy-paste errors slip into your systems</li>
+              <li>Invoices / orders pile up waiting to be logged</li>
+            </ul>
+          </div>
+          <div>
+            <div class="proc-block-label"><i data-lucide="bot"></i>What an AI agent does</div>
+            <ul class="proc-list agent">
+              <li>Reads documents and extracts the key fields</li>
+              <li>Validates and writes them to your sheet / CRM / DB</li>
+              <li>Flags anything that looks wrong for review</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="proc">
+        <div class="proc-top">
+          <span class="proc-n">03</span>
+          <span class="proc-tile teal"><i data-lucide="users"></i></span>
+          <span class="proc-title">CV / candidate screening</span>
+          <span class="proc-save">Up to 10× faster</span>
+        </div>
+        <div class="proc-body">
+          <div>
+            <div class="proc-block-label"><i data-lucide="alert-circle"></i>Signs it's time</div>
+            <ul class="proc-list">
+              <li>You receive high volumes of applications</li>
+              <li>Shortlisting eats hours of a hiring manager's week</li>
+              <li>Screening quality varies by who does it</li>
+            </ul>
+          </div>
+          <div>
+            <div class="proc-block-label"><i data-lucide="bot"></i>What an AI agent does</div>
+            <ul class="proc-list agent">
+              <li>Scores every CV against your role criteria (0–100)</li>
+              <li>Returns a ranked shortlist with reasoning</li>
+              <li>Logs every decision for a fair audit trail</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="lead-p" style="font-size:12.5px;color:var(--ink3);margin-top:8px;">Each pattern above maps to a real system we've shipped — see neolithai.netlify.app/cases.</p>
+    </div>
+  </section>
+
+  <!-- PAGE 4 — PROCESSES 4-7 -->
+  <section class="page">
+    <div class="pad">
+      <div class="proc-head">
+        <div class="eyebrow" style="margin-bottom:0;">The checklist</div>
+        <span class="proc-count">Processes 4–7 of 7</span>
+      </div>
+
+      <!-- 4 -->
+      <div class="proc">
+        <div class="proc-top">
+          <span class="proc-n">04</span>
+          <span class="proc-tile teal"><i data-lucide="star"></i></span>
+          <span class="proc-title">Reviews &amp; reputation management</span>
+          <span class="proc-save">Saves 5–8 h/wk</span>
+        </div>
+        <div class="proc-body">
+          <div>
+            <div class="proc-block-label"><i data-lucide="alert-circle"></i>Signs it's time</div>
+            <ul class="proc-list">
+              <li>Reviews on Google / TripAdvisor go unanswered</li>
+              <li>You hear about a bad review days too late</li>
+              <li>Responses are inconsistent in tone</li>
+            </ul>
+          </div>
+          <div>
+            <div class="proc-block-label"><i data-lucide="bot"></i>What an AI agent does</div>
+            <ul class="proc-list agent">
+              <li>Monitors review platforms in near real-time</li>
+              <li>Drafts on-brand replies for one-click approval</li>
+              <li>Alerts you instantly on negative sentiment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="proc">
+        <div class="proc-top">
+          <span class="proc-n">05</span>
+          <span class="proc-tile"><i data-lucide="target"></i></span>
+          <span class="proc-title">Lead generation &amp; outreach</span>
+          <span class="proc-save">Fully autonomous</span>
+        </div>
+        <div class="proc-body">
+          <div>
+            <div class="proc-block-label"><i data-lucide="alert-circle"></i>Signs it's time</div>
+            <ul class="proc-list">
+              <li>Prospecting is manual and stop-start</li>
+              <li>Follow-ups fall through the cracks</li>
+              <li>Your pipeline depends on one person's effort</li>
+            </ul>
+          </div>
+          <div>
+            <div class="proc-block-label"><i data-lucide="bot"></i>What an AI agent does</div>
+            <ul class="proc-list agent">
+              <li>Finds &amp; enriches leads, scores them with AI</li>
+              <li>Writes personalised cold emails and sends them</li>
+              <li>Waits, follows up, and reports results to you</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="proc">
+        <div class="proc-top">
+          <span class="proc-n">06</span>
+          <span class="proc-tile"><i data-lucide="bar-chart-3"></i></span>
+          <span class="proc-title">Reporting &amp; analytics</span>
+          <span class="proc-save">Saves 3–6 h/wk</span>
+        </div>
+        <div class="proc-body">
+          <div>
+            <div class="proc-block-label"><i data-lucide="alert-circle"></i>Signs it's time</div>
+            <ul class="proc-list">
+              <li>Someone rebuilds the same report every week</li>
+              <li>Data lives in 3+ disconnected tools</li>
+              <li>Decisions wait on "let me pull the numbers"</li>
+            </ul>
+          </div>
+          <div>
+            <div class="proc-block-label"><i data-lucide="bot"></i>What an AI agent does</div>
+            <ul class="proc-list agent">
+              <li>Pulls data from your sources on a schedule</li>
+              <li>Summarises it in plain language with highlights</li>
+              <li>Delivers it to email / Telegram automatically</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="proc">
+        <div class="proc-top">
+          <span class="proc-n">07</span>
+          <span class="proc-tile teal"><i data-lucide="pen-tool"></i></span>
+          <span class="proc-title">Content &amp; social media</span>
+          <span class="proc-save">9× output</span>
+        </div>
+        <div class="proc-body">
+          <div>
+            <div class="proc-block-label"><i data-lucide="alert-circle"></i>Signs it's time</div>
+            <ul class="proc-list">
+              <li>Posting is irregular because it's manual</li>
+              <li>Re-writing for each platform / language is slow</li>
+              <li>Good ideas never become published content</li>
+            </ul>
+          </div>
+          <div>
+            <div class="proc-block-label"><i data-lucide="bot"></i>What an AI agent does</div>
+            <ul class="proc-list agent">
+              <li>Turns one idea into posts for each platform</li>
+              <li>Adapts across languages in one pass</li>
+              <li>Generates matching images and logs everything</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 5 — CTA -->
+  <section class="page cta-page">
+    <div class="pad">
+      <div class="eyebrow">Your next step</div>
+      <h2 class="sec">Found your one or two? Here's how to start</h2>
+      <p class="cta-lead">You don't need a big transformation project. The fastest wins come from picking a single high-friction process and automating it well.</p>
+
+      <div class="cta-steps">
+        <div class="cta-step">
+          <span class="cta-step-n">1</span>
+          <div>
+            <div class="cta-step-t">Pick your process</div>
+            <div class="cta-step-d">The one with the strongest "signs it's time" and the most hours per week.</div>
+          </div>
+        </div>
+        <div class="cta-step">
+          <span class="cta-step-n">2</span>
+          <div>
+            <div class="cta-step-t">Put a number on it</div>
+            <div class="cta-step-d">Use the free ROI calculator on our site to estimate the time and money it gives back.</div>
+          </div>
+        </div>
+        <div class="cta-step">
+          <span class="cta-step-n">3</span>
+          <div>
+            <div class="cta-step-t">Book a free 30-min call</div>
+            <div class="cta-step-d">We'll map it together and tell you honestly if automation is worth it — no pitch.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <h3>Get an exact plan for your business</h3>
+        <p>The first 30 minutes are always free.</p>
+        <a class="cta-btn" href="https://neolithai.netlify.app/contact.html#book">Book a free call →</a>
+        <div class="cta-contact">
+          <span>neolith2018ai@gmail.com</span>
+          <a href="https://neolithai.netlify.app">neolithai.netlify.app</a>
+        </div>
+      </div>
+
+      <div class="cta-foot">
+        © 2026 NeolithAI Agency · AI automation for small businesses across the EU &amp; UK.<br/>
+        This guide provides general estimates; actual results depend on your specific workflow.
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>

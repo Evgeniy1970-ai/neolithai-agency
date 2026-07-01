@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Support Agents for Small Business — NeolithAI Agency</title>
+<meta name="description" content="BFS — Big For Small: enterprise-grade AI support agents (Legal, HR, Customer Support) powered by your own knowledge base. Answers from your documents, not guesses. Book a free call."/>
+<link rel="canonical" href="https://neolithai.netlify.app/bfs.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="AI Support Agents for Small Business — NeolithAI Agency"/>
+<meta property="og:description" content="Enterprise-grade AI support agents powered by your own knowledge base — scaled for small business."/>
+<meta property="og:url" content="https://neolithai.netlify.app/bfs.html"/>
+<meta property="og:image" content="https://neolithai.netlify.app/og-cover.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#2f5fe0"/>
+<link rel="stylesheet" href="neolithai-shared.css"/>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "serviceType":"AI customer support automation for small business",
+  "provider":{"@type":"ProfessionalService","name":"NeolithAI Agency","url":"https://neolithai.netlify.app/"},
+  "areaServed":["EU","GB"],
+  "description":"BFS (Big For Small) is a multi-agent AI support platform with Legal, HR and Customer Support agents powered by Retrieval-Augmented Generation over your own knowledge base."
+}
+</script>
+<style>
+.lp-hero{
+  background:
+    radial-gradient(60% 90% at 88% 5%,var(--accent2-soft),transparent 60%),
+    radial-gradient(70% 100% at 0% 0%,var(--accent-soft),transparent 55%),
+    var(--bg);
+  border-bottom:1px solid var(--border);padding:5rem 2rem 4rem;
+}
+.lp-hero-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;}
+.lp-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:7px 15px;font-size:13px;font-weight:600;color:var(--text2);box-shadow:var(--shadow);margin-bottom:1.5rem;}
+.lp-eyebrow svg{width:15px;height:15px;color:var(--accent2);}
+.lp-hero h1{margin-bottom:1.1rem;}
+.lp-hero-sub{font-size:1.12rem;color:var(--text2);margin-bottom:1.5rem;max-width:520px;}
+.lp-trust-line{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;margin-top:1.75rem;font-size:13px;color:var(--text3);}
+.lp-trust-line span{display:flex;align-items:center;gap:7px;}
+.lp-trust-line svg{width:15px;height:15px;color:var(--accent2);}
+.lp-shot{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-lg);background:#0d1017;}
+.lp-shot-bar{display:flex;align-items:center;gap:7px;padding:9px 14px;background:#11151d;border-bottom:1px solid rgba(255,255,255,0.06);}
+.lp-shot-dot{width:10px;height:10px;border-radius:50%;}
+.lp-shot-cap{margin-left:10px;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.5);}
+.lp-shot img{display:block;width:100%;height:auto;}
+
+.pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2.5rem;}
+.pain{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;}
+.pain-ic{width:42px;height:42px;border-radius:11px;background:rgba(221,155,50,0.12);color:var(--signal);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pain-ic svg{width:21px;height:21px;}
+.pain h3{margin-bottom:5px;}
+.pain p{font-size:14px;}
+
+.agent-list{display:flex;flex-direction:column;gap:1rem;margin-top:1rem;}
+.agent{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1.75rem;transition:border-color .2s,transform .25s;}
+.agent:hover{border-color:var(--accent2);transform:translateX(4px);}
+.agent-num{font-family:var(--display);font-weight:700;font-size:1.4rem;color:var(--accent);width:48px;height:48px;border-radius:12px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.agent-body h3{margin-bottom:4px;display:flex;align-items:center;gap:9px;}
+.agent-body h3 svg{width:18px;height:18px;color:var(--accent2);}
+.agent-body p{font-size:14px;line-height:1.6;}
+.agent-tag{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent2);background:var(--accent2-soft);border-radius:30px;padding:5px 12px;white-space:nowrap;}
+
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1rem;}
+.feat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;}
+.feat-ic{width:46px;height:46px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
+.feat-ic svg{width:23px;height:23px;}
+.feat h3{margin-bottom:6px;}
+.feat p{font-size:14px;line-height:1.6;}
+
+.outcomes{background:#0d1017;}
+.outcomes .container{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+.oc{text-align:center;}
+.oc-num{font-family:var(--display);font-weight:700;font-size:2.6rem;color:#fff;letter-spacing:-1px;line-height:1;}
+.oc-num .u{color:#3fd2ab;}
+.oc-label{font-size:13.5px;color:rgba(255,255,255,0.6);margin-top:8px;}
+
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1rem;}
+.step3{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;}
+.step3-n{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--accent2);letter-spacing:1px;margin-bottom:12px;}
+.step3 h3{margin-bottom:6px;}
+.step3 p{font-size:14px;}
+
+.lp-cta{background:linear-gradient(135deg,#141c28,#22335a);border-radius:var(--radius-lg);padding:3.5rem;text-align:center;}
+.lp-cta h2{color:#fff;margin-bottom:1rem;}
+.lp-cta p{color:rgba(255,255,255,0.75);max-width:540px;margin:0 auto 2rem;}
+
+@media(max-width:900px){
+  .lp-hero-grid{grid-template-columns:1fr;}
+  .pain-grid{grid-template-columns:1fr;}
+  .agent{grid-template-columns:auto 1fr;}
+  .agent-tag{grid-column:2;justify-self:start;}
+  .feat-grid{grid-template-columns:1fr;}
+  .outcomes .container{grid-template-columns:repeat(2,1fr);gap:2.5rem 1rem;}
+  .steps3{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a class="logo-wrap" href="index.html">
+      <svg width="36" height="36" viewBox="0 0 38 38" fill="none"><rect x="0" y="2" width="34" height="9" rx="2.5" fill="#2f5fe0"/><rect x="3" y="14" width="28" height="9" rx="2.5" fill="#2f5fe0" opacity="0.68"/><rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/><circle cx="37" cy="5" r="4" fill="#0e9e7a"/><circle cx="37" cy="5" r="2" fill="white"/></svg>
+      <div class="logo-text"><span class="logo-name">Neolith<span class="ai">AI</span></span><span class="logo-sub">Agency</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="services.html" data-nav="services">Services</a></li>
+      <li><a href="cases.html" data-nav="cases">Cases</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="blog.html" data-nav="blog">Blog</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+      <li><a href="contact.html#book" class="nav-cta" data-nav="book">Book a Call</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang-btn="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang-btn="ru" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn" data-lang-btn="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang-btn="uk" onclick="setLang('uk')">UA</button>
+      </div>
+      <button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="restaurants.html" onclick="toggleMenu()">For Restaurants</a>
+  <a href="bfs.html" onclick="toggleMenu()">For Small Business</a>
+  <a href="cases.html" onclick="toggleMenu()">Cases</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <div class="mobile-cta-wrap"><a href="contact.html#book" class="btn-primary" style="display:block;text-align:center;" onclick="toggleMenu()">Book a Free Call</a></div>
+</div>
+
+<!-- HERO -->
+<section class="lp-hero">
+  <div class="lp-hero-grid">
+    <div class="reveal">
+      <span class="lp-eyebrow"><i data-lucide="building-2"></i>BFS — Big For Small</span>
+      <h1>Enterprise-grade support.<br/><span class="accent">Small-business simple.</span></h1>
+      <p class="lp-hero-sub">Three AI agents — Legal, HR and Customer Support — that answer from <em>your</em> company's documents, not generic guesses. The kind of support desk big companies pay teams for, run by AI for a fraction of the cost.</p>
+      <div class="btn-group">
+        <a href="contact.html#book" class="btn-primary">Book a free 30-min call <i data-lucide="arrow-right" class="ic-sm"></i></a>
+        <a href="https://charming-sable-0dd4f8.netlify.app" target="_blank" rel="noopener" class="btn-outline">See the live demo</a>
+      </div>
+      <div class="lp-trust-line">
+        <span><i data-lucide="badge-check"></i>n8n Verified Creator</span>
+        <span><i data-lucide="circle-check"></i>Live production system</span>
+        <span><i data-lucide="shield-check"></i>Answers from your docs</span>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="lp-shot">
+        <div class="lp-shot-bar"><span class="lp-shot-dot" style="background:#ff5f57"></span><span class="lp-shot-dot" style="background:#febc2e"></span><span class="lp-shot-dot" style="background:#28c840"></span><span class="lp-shot-cap">BFS Suite · live dashboard (n8n connected)</span></div>
+        <img src="images/case-bfs.jpg" alt="BFS Suite dashboard with multi-agent chat for Legal, HR and Support, analytics and knowledge-gap detection"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAINS -->
+<section>
+  <div class="container">
+    <span class="section-label reveal">The small-business squeeze</span>
+    <h2 class="reveal" style="max-width:660px;">You're expected to answer like a big company — with a small team</h2>
+    <div class="pain-grid">
+      <div class="pain reveal reveal-delay-1">
+        <span class="pain-ic"><i data-lucide="repeat"></i></span>
+        <div><h3>The same questions, all day</h3><p>Your team answers the same policy, pricing and "how do I…" questions over and over instead of doing real work.</p></div>
+      </div>
+      <div class="pain reveal reveal-delay-2">
+        <span class="pain-ic"><i data-lucide="moon"></i></span>
+        <div><h3>Nobody's there after hours</h3><p>Customers ask at 9pm and on weekends — and a slow reply often means a lost sale or an angry email.</p></div>
+      </div>
+      <div class="pain reveal reveal-delay-3">
+        <span class="pain-ic"><i data-lucide="folder-search"></i></span>
+        <div><h3>Answers live in scattered docs</h3><p>The right answer exists — in a PDF, a policy, someone's inbox — but finding it takes too long.</p></div>
+      </div>
+      <div class="pain reveal reveal-delay-4">
+        <span class="pain-ic"><i data-lucide="bot-off"></i></span>
+        <div><h3>Generic chatbots make things up</h3><p>Off-the-shelf bots guess — and a confident wrong answer about your policy or contract is worse than none.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section id="agents" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <span class="section-label reveal">The solution</span>
+    <h2 class="reveal" style="margin-bottom:.6rem;">Three specialists. One trusted knowledge base.</h2>
+    <p class="reveal" style="max-width:560px;margin-bottom:2.5rem;">An intelligent router reads each question and sends it to the right agent — every answer grounded in your own documents.</p>
+    <div class="agent-list">
+      <div class="agent reveal reveal-delay-1">
+        <span class="agent-num">1</span>
+        <div class="agent-body">
+          <h3><i data-lucide="scale"></i>Legal Agent</h3>
+          <p>Answers questions about your contracts, terms and policies — citing the actual clause, so nothing is invented.</p>
+        </div>
+        <span class="agent-tag">Contracts &amp; policy</span>
+      </div>
+      <div class="agent reveal reveal-delay-2">
+        <span class="agent-num">2</span>
+        <div class="agent-body">
+          <h3><i data-lucide="users"></i>HR Agent</h3>
+          <p>Handles employee questions about leave, benefits and procedures from your HR handbook — consistently and 24/7.</p>
+        </div>
+        <span class="agent-tag">People &amp; process</span>
+      </div>
+      <div class="agent reveal reveal-delay-3">
+        <span class="agent-num">3</span>
+        <div class="agent-body">
+          <h3><i data-lucide="headset"></i>Customer Support Agent</h3>
+          <p>Resolves customer questions from your product docs and FAQs, and escalates the tricky ones to a human with full context.</p>
+        </div>
+        <span class="agent-tag">Customer-facing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT'S DIFFERENT -->
+<section>
+  <div class="container">
+    <span class="section-label reveal">Why it's different</span>
+    <h2 class="reveal" style="margin-bottom:2.5rem;max-width:600px;">Built to be trusted — not just to talk</h2>
+    <div class="feat-grid">
+      <div class="feat reveal reveal-delay-1">
+        <div class="feat-ic"><i data-lucide="database"></i></div>
+        <h3>Grounded in your data (RAG)</h3>
+        <p>Every answer comes from your documents via retrieval-augmented generation with pgvector — not from the model's imagination.</p>
+      </div>
+      <div class="feat reveal reveal-delay-2">
+        <div class="feat-ic"><i data-lucide="search-x"></i></div>
+        <h3>Knows what it doesn't know</h3>
+        <p>Gap detection flags when your knowledge base can't answer — so you fix the content instead of shipping a wrong reply.</p>
+      </div>
+      <div class="feat reveal reveal-delay-3">
+        <div class="feat-ic"><i data-lucide="user-round-cog"></i></div>
+        <h3>Smooth human handoff</h3>
+        <p>Complex cases escalate to a person via Telegram with the full conversation — no "please repeat your problem".</p>
+      </div>
+      <div class="feat reveal reveal-delay-4">
+        <div class="feat-ic"><i data-lucide="line-chart"></i></div>
+        <h3>Live analytics dashboard</h3>
+        <p>See query volume, response quality and knowledge gaps in real time — on a clean dashboard, not a spreadsheet.</p>
+      </div>
+      <div class="feat reveal reveal-delay-5">
+        <div class="feat-ic"><i data-lucide="sparkles"></i></div>
+        <h3>Powered by Claude</h3>
+        <p>Uses the Claude API for strong reasoning and instruction-following — the difference between a reply and a right reply.</p>
+      </div>
+      <div class="feat reveal reveal-delay-5">
+        <div class="feat-ic"><i data-lucide="git-merge"></i></div>
+        <h3>Intelligent routing</h3>
+        <p>One entry point. The router classifies each question and sends it to Legal, HR or Support automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<div class="outcomes">
+  <div class="container" style="padding-top:3.5rem;padding-bottom:3.5rem;">
+    <div class="oc reveal"><div class="oc-num">3</div><div class="oc-label">Specialist agents on one platform</div></div>
+    <div class="oc reveal reveal-delay-1"><div class="oc-num">24<span class="u">/7</span></div><div class="oc-label">Always-on, consistent answers</div></div>
+    <div class="oc reveal reveal-delay-2"><div class="oc-num">0</div><div class="oc-label">Made-up answers — it cites your docs</div></div>
+    <div class="oc reveal reveal-delay-3"><div class="oc-num">1</div><div class="oc-label">Dashboard for quality &amp; gaps</div></div>
+  </div>
+</div>
+
+<!-- HOW -->
+<section>
+  <div class="container">
+    <span class="section-label reveal">How we start</span>
+    <h2 class="reveal" style="margin-bottom:.6rem;">Live on your knowledge base in weeks</h2>
+    <p class="reveal" style="max-width:540px;margin-bottom:1rem;">You bring the documents. We build the brain around them.</p>
+    <div class="steps3">
+      <div class="step3 reveal reveal-delay-1"><div class="step3-n">STEP 1</div><h3>Free 30-min call</h3><p>We look at the questions eating your team's time and decide which agent — Legal, HR or Support — to start with.</p></div>
+      <div class="step3 reveal reveal-delay-2"><div class="step3-n">STEP 2</div><h3>We ingest your docs</h3><p>We load your policies, FAQs and manuals into a secure knowledge base and connect the agent to your channels.</p></div>
+      <div class="step3 reveal reveal-delay-3"><div class="step3-n">STEP 3</div><h3>It answers for you</h3><p>Customers and staff get instant, grounded answers — and you watch quality and gaps from one dashboard.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="container">
+    <div class="lp-cta reveal">
+      <h2>Give your small team a big support desk</h2>
+      <p>Book a free 30-minute call, or open the live demo and ask it anything. We'll map exactly which agent fits your business first — no pitch.</p>
+      <div class="btn-group" style="justify-content:center;">
+        <a href="contact.html#book" class="btn-teal">Book a free call <i data-lucide="arrow-right" class="ic-sm"></i></a>
+        <a href="https://charming-sable-0dd4f8.netlify.app" target="_blank" rel="noopener" class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);">Open the live demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span class="footer-copy">© 2026 NeolithAI Agency. All rights reserved. · <a href="privacy.html" style="color:rgba(255,255,255,0.5);text-decoration:none;">Privacy Policy</a></span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+        <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener" aria-label="Upwork"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- AI CHAT WIDGET -->
+<button class="ai-widget-btn" onclick="toggleChat()" aria-label="Chat with Neo"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span class="ai-widget-pulse"></span></button>
+<div class="ai-chat-panel" id="aiChatPanel">
+  <div class="ai-chat-header"><div class="ai-chat-avatar"><i data-lucide="bot" class="ic-sm"></i></div><div class="ai-chat-header-info"><div class="ai-chat-name">Neo · NeolithAI Assistant</div><div class="ai-chat-status"><span data-lang="en" class="active">Online · replies instantly</span><span data-lang="ru">Онлайн</span><span data-lang="es">En línea</span><span data-lang="uk">Онлайн</span></div></div><button class="ai-chat-close" onclick="closeChat()">✕</button></div>
+  <div class="ai-chat-messages" id="aiChatMessages"></div>
+  <div class="ai-chat-suggestions" id="aiSuggestions">
+    <button class="ai-suggestion" onclick="sendSuggestion('How would BFS work with my company documents?')">How it works</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('How much does BFS cost?')">Pricing</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('I want to book a free consultation')">Book a call</button>
+  </div>
+  <div class="ai-chat-input-row">
+    <textarea class="ai-chat-input" id="aiChatInput" rows="1" placeholder="Ask me anything..." onkeydown="handleChatKey(event)"></textarea>
+    <button class="ai-chat-send" onclick="var i=document.getElementById('aiChatInput');sendMessage(i.value.trim())"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+  </div>
+</div>
+<form name="chat-booking" netlify style="display:none"><input name="conversation"/></form>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="neolithai-shared.js"></script>
+</body>
+</html>

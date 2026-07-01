@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Automation for Restaurants — NeolithAI Agency</title>
+<meta name="description" content="Five AI agents that protect your restaurant's reputation, fill tables, and cut admin work — so you can focus on the food. Built and live. Book a free call."/>
+<link rel="canonical" href="https://neolithai.netlify.app/restaurants.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="AI Automation for Restaurants — NeolithAI Agency"/>
+<meta property="og:description" content="Five AI agents that protect your reputation, fill tables, and cut admin work — so you can focus on the food."/>
+<meta property="og:url" content="https://neolithai.netlify.app/restaurants.html"/>
+<meta property="og:image" content="https://neolithai.netlify.app/og-cover.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#2f5fe0"/>
+<link rel="stylesheet" href="neolithai-shared.css"/>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "serviceType":"AI automation for restaurants",
+  "provider":{"@type":"ProfessionalService","name":"NeolithAI Agency","url":"https://neolithai.netlify.app/"},
+  "areaServed":["EU","GB"],
+  "description":"A suite of five AI agents for restaurants: reputation monitoring, reservations & reminders, weather-based menu promotion, inventory tracking, and AI food photography."
+}
+</script>
+<style>
+/* niche hero */
+.lp-hero{
+  background:
+    radial-gradient(60% 90% at 88% 5%,var(--accent2-soft),transparent 60%),
+    radial-gradient(70% 100% at 0% 0%,var(--accent-soft),transparent 55%),
+    var(--bg);
+  border-bottom:1px solid var(--border);padding:5rem 2rem 4rem;
+}
+.lp-hero-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;}
+.lp-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:7px 15px;font-size:13px;font-weight:600;color:var(--text2);box-shadow:var(--shadow);margin-bottom:1.5rem;}
+.lp-eyebrow svg{width:15px;height:15px;color:var(--accent2);}
+.lp-hero h1{margin-bottom:1.1rem;}
+.lp-hero-sub{font-size:1.12rem;color:var(--text2);margin-bottom:1.5rem;max-width:520px;}
+.lp-trust-line{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;margin-top:1.75rem;font-size:13px;color:var(--text3);}
+.lp-trust-line span{display:flex;align-items:center;gap:7px;}
+.lp-trust-line svg{width:15px;height:15px;color:var(--accent2);}
+.lp-shot{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-lg);background:#0d1017;}
+.lp-shot-bar{display:flex;align-items:center;gap:7px;padding:9px 14px;background:#11151d;border-bottom:1px solid rgba(255,255,255,0.06);}
+.lp-shot-dot{width:10px;height:10px;border-radius:50%;}
+.lp-shot-cap{margin-left:10px;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.5);}
+.lp-shot img{display:block;width:100%;height:auto;}
+
+/* pains */
+.pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2.5rem;}
+.pain{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;}
+.pain-ic{width:42px;height:42px;border-radius:11px;background:rgba(221,155,50,0.12);color:var(--signal);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pain-ic svg{width:21px;height:21px;}
+.pain h3{margin-bottom:5px;}
+.pain p{font-size:14px;}
+
+/* agents */
+.agent-list{display:flex;flex-direction:column;gap:1rem;margin-top:1rem;}
+.agent{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1.75rem;transition:border-color .2s,transform .25s;}
+.agent:hover{border-color:var(--accent2);transform:translateX(4px);}
+.agent-num{font-family:var(--display);font-weight:700;font-size:1.4rem;color:var(--accent);width:48px;height:48px;border-radius:12px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.agent-body h3{margin-bottom:4px;display:flex;align-items:center;gap:9px;}
+.agent-body h3 svg{width:18px;height:18px;color:var(--accent2);}
+.agent-body p{font-size:14px;line-height:1.6;}
+.agent-tag{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent2);background:var(--accent2-soft);border-radius:30px;padding:5px 12px;white-space:nowrap;}
+
+/* outcomes band */
+.outcomes{background:#0d1017;}
+.outcomes .container{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+.oc{text-align:center;}
+.oc-num{font-family:var(--display);font-weight:700;font-size:2.6rem;color:#fff;letter-spacing:-1px;line-height:1;}
+.oc-num .u{color:#3fd2ab;}
+.oc-label{font-size:13.5px;color:rgba(255,255,255,0.6);margin-top:8px;}
+
+/* steps */
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1rem;}
+.step3{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;}
+.step3-n{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--accent2);letter-spacing:1px;margin-bottom:12px;}
+.step3 h3{margin-bottom:6px;}
+.step3 p{font-size:14px;}
+
+/* cta */
+.lp-cta{background:linear-gradient(135deg,#141c28,#22335a);border-radius:var(--radius-lg);padding:3.5rem;text-align:center;}
+.lp-cta h2{color:#fff;margin-bottom:1rem;}
+.lp-cta p{color:rgba(255,255,255,0.75);max-width:540px;margin:0 auto 2rem;}
+
+@media(max-width:900px){
+  .lp-hero-grid{grid-template-columns:1fr;}
+  .pain-grid{grid-template-columns:1fr;}
+  .agent{grid-template-columns:auto 1fr;}
+  .agent-tag{grid-column:2;justify-self:start;}
+  .outcomes .container{grid-template-columns:repeat(2,1fr);gap:2.5rem 1rem;}
+  .steps3{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a class="logo-wrap" href="index.html">
+      <svg width="36" height="36" viewBox="0 0 38 38" fill="none"><rect x="0" y="2" width="34" height="9" rx="2.5" fill="#2f5fe0"/><rect x="3" y="14" width="28" height="9" rx="2.5" fill="#2f5fe0" opacity="0.68"/><rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/><circle cx="37" cy="5" r="4" fill="#0e9e7a"/><circle cx="37" cy="5" r="2" fill="white"/></svg>
+      <div class="logo-text"><span class="logo-name">Neolith<span class="ai">AI</span></span><span class="logo-sub">Agency</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="services.html" data-nav="services">Services</a></li>
+      <li><a href="cases.html" data-nav="cases">Cases</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="blog.html" data-nav="blog">Blog</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+      <li><a href="contact.html#book" class="nav-cta" data-nav="book">Book a Call</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang-btn="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang-btn="ru" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn" data-lang-btn="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang-btn="uk" onclick="setLang('uk')">UA</button>
+      </div>
+      <button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="restaurants.html" onclick="toggleMenu()">For Restaurants</a>
+  <a href="bfs.html" onclick="toggleMenu()">For Small Business</a>
+  <a href="cases.html" onclick="toggleMenu()">Cases</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <div class="mobile-cta-wrap"><a href="contact.html#book" class="btn-primary" style="display:block;text-align:center;" onclick="toggleMenu()">Book a Free Call</a></div>
+</div>
+
+<!-- HERO -->
+<section class="lp-hero">
+  <div class="lp-hero-grid">
+    <div class="reveal">
+      <span class="lp-eyebrow"><i data-lucide="utensils-crossed"></i>For restaurants &amp; HoReCa</span>
+      <h1>Your kitchen runs the food.<br/><span class="accent">Let AI run the admin.</span></h1>
+      <p class="lp-hero-sub">Five AI agents that protect your reputation, fill your tables, and cut the busywork — so your team can focus on guests, not screens. Built, deployed, and running today.</p>
+      <div class="btn-group">
+        <a href="contact.html#book" class="btn-primary">Book a free 30-min call <i data-lucide="arrow-right" class="ic-sm"></i></a>
+        <a href="#agents" class="btn-outline">See the 5 agents</a>
+      </div>
+      <div class="lp-trust-line">
+        <span><i data-lucide="badge-check"></i>n8n Verified Creator</span>
+        <span><i data-lucide="circle-check"></i>Live production system</span>
+        <span><i data-lucide="globe"></i>EU &amp; UK</span>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="lp-shot">
+        <div class="lp-shot-bar"><span class="lp-shot-dot" style="background:#ff5f57"></span><span class="lp-shot-dot" style="background:#febc2e"></span><span class="lp-shot-dot" style="background:#28c840"></span><span class="lp-shot-cap">Restaurant AI Suite · live dashboard</span></div>
+        <img src="images/case-restaurant.jpg" alt="Restaurant AI Suite dashboard monitoring reputation, reservations, menu, inventory and food photography agents"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAINS -->
+<section>
+  <div class="container">
+    <span class="section-label reveal">Sound familiar?</span>
+    <h2 class="reveal" style="max-width:640px;">The work that quietly eats your evenings — and your margins</h2>
+    <div class="pain-grid">
+      <div class="pain reveal reveal-delay-1">
+        <span class="pain-ic"><i data-lucide="star-off"></i></span>
+        <div><h3>A bad review sits unanswered for days</h3><p>By the time you see it, the damage is done — and future guests are reading it.</p></div>
+      </div>
+      <div class="pain reveal reveal-delay-2">
+        <span class="pain-ic"><i data-lucide="calendar-x"></i></span>
+        <div><h3>No-shows leave empty tables</h3><p>Bookings come in by phone, DM and walk-in, and nobody reminds the guest the night before.</p></div>
+      </div>
+      <div class="pain reveal reveal-delay-3">
+        <span class="pain-ic"><i data-lucide="package-x"></i></span>
+        <div><h3>You find out you're out of stock too late</h3><p>Inventory lives in someone's head — until a key dish comes off the menu mid-service.</p></div>
+      </div>
+      <div class="pain reveal reveal-delay-4">
+        <span class="pain-ic"><i data-lucide="image-off"></i></span>
+        <div><h3>Your social media goes quiet for weeks</h3><p>Great food, no time to photograph and post it — so the feed (and reach) stalls.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section id="agents" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <span class="section-label reveal">The solution</span>
+    <h2 class="reveal" style="margin-bottom:.6rem;">Five agents. One restaurant running itself.</h2>
+    <p class="reveal" style="max-width:560px;margin-bottom:2.5rem;">Deploy the whole suite, or start with the one agent that hurts most. Each is a real, production-grade workflow — not a chatbot demo.</p>
+    <div class="agent-list">
+      <div class="agent reveal reveal-delay-1">
+        <span class="agent-num">1</span>
+        <div class="agent-body">
+          <h3><i data-lucide="message-square-heart"></i>Reputation &amp; Sentiment Manager</h3>
+          <p>Monitors Google Maps, TripAdvisor and Yelp in near real-time, drafts on-brand replies for one-click approval, and alerts you the moment sentiment turns negative.</p>
+        </div>
+        <span class="agent-tag">Protects reputation</span>
+      </div>
+      <div class="agent reveal reveal-delay-2">
+        <span class="agent-num">2</span>
+        <div class="agent-body">
+          <h3><i data-lucide="bell-ring"></i>Reservations &amp; Reminder Bot</h3>
+          <p>Takes bookings through Telegram and sends automated reminders the night before — cutting no-shows and keeping your tables full.</p>
+        </div>
+        <span class="agent-tag">Fills tables</span>
+      </div>
+      <div class="agent reveal reveal-delay-3">
+        <span class="agent-num">3</span>
+        <div class="agent-body">
+          <h3><i data-lucide="cloud-sun"></i>Weather Menu Promoter</h3>
+          <p>Reads the local forecast and pushes the right dishes at the right time — hot soups on cold days, cold drinks on warm ones.</p>
+        </div>
+        <span class="agent-tag">Boosts sales</span>
+      </div>
+      <div class="agent reveal reveal-delay-4">
+        <span class="agent-num">4</span>
+        <div class="agent-body">
+          <h3><i data-lucide="boxes"></i>Inventory Manager</h3>
+          <p>Tracks stock levels, alerts you before you run low, and suggests reorder quantities — so a key dish never disappears mid-service.</p>
+        </div>
+        <span class="agent-tag">Controls cost</span>
+      </div>
+      <div class="agent reveal reveal-delay-5">
+        <span class="agent-num">5</span>
+        <div class="agent-body">
+          <h3><i data-lucide="camera"></i>AI Food Photographer</h3>
+          <p>Generates professional, appetising food visuals from a text description via DALL·E 3 — keeping your social feed alive without a photoshoot.</p>
+        </div>
+        <span class="agent-tag">Feeds social</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<div class="outcomes">
+  <div class="container" style="padding-top:3.5rem;padding-bottom:3.5rem;">
+    <div class="oc reveal"><div class="oc-num">5<span class="u">×</span></div><div class="oc-label">AI agents in one modular system</div></div>
+    <div class="oc reveal reveal-delay-1"><div class="oc-num">24<span class="u">/7</span></div><div class="oc-label">Reputation &amp; booking coverage</div></div>
+    <div class="oc reveal reveal-delay-2"><div class="oc-num">0</div><div class="oc-label">New apps for staff to learn — it's all Telegram</div></div>
+    <div class="oc reveal reveal-delay-3"><div class="oc-num">1</div><div class="oc-label">Dashboard to see everything at a glance</div></div>
+  </div>
+</div>
+
+<!-- HOW -->
+<section>
+  <div class="container">
+    <span class="section-label reveal">How we start</span>
+    <h2 class="reveal" style="margin-bottom:.6rem;">From first call to live in weeks, not months</h2>
+    <p class="reveal" style="max-width:540px;margin-bottom:1rem;">No big IT project, no disruption to service.</p>
+    <div class="steps3">
+      <div class="step3 reveal reveal-delay-1"><div class="step3-n">STEP 1</div><h3>Free 30-min call</h3><p>We map your biggest headache — reviews, no-shows, stock or social — and tell you honestly which agent pays off first.</p></div>
+      <div class="step3 reveal reveal-delay-2"><div class="step3-n">STEP 2</div><h3>We build &amp; connect</h3><p>We set up your chosen agents on your channels, with error handling and a dashboard — you test, we refine.</p></div>
+      <div class="step3 reveal reveal-delay-3"><div class="step3-n">STEP 3</div><h3>It runs for you</h3><p>The agents work in the background. You get your evenings back and watch it all from one screen.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="container">
+    <div class="lp-cta reveal">
+      <h2>See it running on your restaurant's data</h2>
+      <p>Book a free 30-minute call. We'll show you the live dashboard and map exactly which agent would help you most — no pitch, no pressure.</p>
+      <div class="btn-group" style="justify-content:center;">
+        <a href="contact.html#book" class="btn-teal">Book a free call <i data-lucide="arrow-right" class="ic-sm"></i></a>
+        <a href="cases.html" class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);">See the full case study</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span class="footer-copy">© 2026 NeolithAI Agency. All rights reserved. · <a href="privacy.html" style="color:rgba(255,255,255,0.5);text-decoration:none;">Privacy Policy</a></span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+        <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener" aria-label="Upwork"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- AI CHAT WIDGET -->
+<button class="ai-widget-btn" onclick="toggleChat()" aria-label="Chat with Neo"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span class="ai-widget-pulse"></span></button>
+<div class="ai-chat-panel" id="aiChatPanel">
+  <div class="ai-chat-header"><div class="ai-chat-avatar"><i data-lucide="bot" class="ic-sm"></i></div><div class="ai-chat-header-info"><div class="ai-chat-name">Neo · NeolithAI Assistant</div><div class="ai-chat-status"><span data-lang="en" class="active">Online · replies instantly</span><span data-lang="ru">Онлайн</span><span data-lang="es">En línea</span><span data-lang="uk">Онлайн</span></div></div><button class="ai-chat-close" onclick="closeChat()">✕</button></div>
+  <div class="ai-chat-messages" id="aiChatMessages"></div>
+  <div class="ai-chat-suggestions" id="aiSuggestions">
+    <button class="ai-suggestion" onclick="sendSuggestion('How would the Restaurant AI Suite work for my restaurant?')">How it works</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('How much does the Restaurant AI Suite cost?')">Pricing</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('I want to book a free consultation')">Book a call</button>
+  </div>
+  <div class="ai-chat-input-row">
+    <textarea class="ai-chat-input" id="aiChatInput" rows="1" placeholder="Ask me anything..." onkeydown="handleChatKey(event)"></textarea>
+    <button class="ai-chat-send" onclick="var i=document.getElementById('aiChatInput');sendMessage(i.value.trim())"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+  </div>
+</div>
+<form name="chat-booking" netlify style="display:none"><input name="conversation"/></form>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="neolithai-shared.js"></script>
+</body>
+</html>

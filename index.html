@@ -5,201 +5,216 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>NeolithAI Agency — AI Automation for Small Business</title>
 <meta name="description" content="NeolithAI Agency builds AI agents that automate the repetitive work — so you can focus on growing your business. Serving EU & UK small businesses."/>
+<link rel="canonical" href="https://neolithai.netlify.app/"/>
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="NeolithAI Agency"/>
+<meta property="og:title" content="NeolithAI Agency — AI Automation for Small Business"/>
+<meta property="og:description" content="We build AI agents that handle the repetitive work — so you can focus on growing your business. EU & UK small businesses."/>
+<meta property="og:url" content="https://neolithai.netlify.app/"/>
+<meta property="og:image" content="https://neolithai.netlify.app/og-cover.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="NeolithAI Agency — AI Automation for Small Business"/>
+<meta name="twitter:description" content="We build AI agents that handle the repetitive work — so you can focus on growing your business."/>
+<meta name="twitter:image" content="https://neolithai.netlify.app/og-cover.png"/>
+
 <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <link rel="manifest" href="/site.webmanifest"/>
-<meta name="theme-color" content="#1a6fc4"/>
+<meta name="theme-color" content="#2f5fe0"/>
 <link rel="stylesheet" href="neolithai-shared.css"/>
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "NeolithAI Agency",
+  "description": "Boutique AI automation agency building AI agents and workflow automation for small businesses across the EU & UK.",
+  "url": "https://neolithai.netlify.app/",
+  "email": "neolith2018ai@gmail.com",
+  "areaServed": ["EU","GB"],
+  "founder": { "@type": "Person", "name": "Yevhenii Nohin", "jobTitle": "AI Automation Engineer" },
+  "sameAs": [
+    "https://www.linkedin.com/in/yevhenii-nohin-06b403347/",
+    "https://github.com/Evgeniy1970-ai",
+    "https://www.upwork.com/freelancers/~013cd102dcb30a209f",
+    "https://www.facebook.com/NeolithAIAgency"
+  ]
+}
+</script>
+
 <style>
 /* ── INDEX-SPECIFIC STYLES ── */
 
 /* HERO */
 #hero{
-  padding:5rem 2rem 5rem;
-  background:linear-gradient(135deg,#e8f1fb 0%,#f4f7fb 50%,#eaf5f0 100%);
+  padding:5.5rem 2rem 5rem;
+  background:
+    radial-gradient(60% 90% at 88% 10%,var(--accent2-soft),transparent 60%),
+    radial-gradient(70% 100% at 0% 0%,var(--accent-soft),transparent 55%),
+    var(--bg);
   border-bottom:1px solid var(--border);
   overflow:hidden;position:relative;
 }
 .hero-layout{
-  max-width:1100px;margin:0 auto;
+  max-width:1140px;margin:0 auto;
   display:grid;grid-template-columns:1fr 480px;gap:4rem;align-items:center;
 }
 .hero-content{position:relative;z-index:2;}
-.hero-title{margin-bottom:1rem;}
-.hero-sub{font-size:1.05rem;max-width:520px;margin-bottom:1.25rem;}
+.hero-title{margin-bottom:1.25rem;}
+.hero-sub{font-size:1.12rem;max-width:520px;margin-bottom:1.25rem;color:var(--text2);}
 .hero-philosophy{
-  font-size:.95rem;color:var(--text2);max-width:520px;margin-bottom:2rem;
-  padding:12px 18px;border-left:3px solid var(--accent2);
-  background:rgba(14,158,122,0.06);border-radius:0 8px 8px 0;font-style:italic;
+  font-size:.96rem;color:var(--text2);max-width:520px;margin-bottom:2rem;
+  padding:13px 18px;border-left:2.5px solid var(--accent2);
+  background:var(--accent2-soft);border-radius:0 10px 10px 0;font-style:italic;
 }
 .hero-stats{display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;}
-.stat{border-left:3px solid var(--accent);padding-left:1rem;}
-.stat-num{font-size:1.75rem;font-weight:700;color:var(--accent);}
+.stat{border-left:2.5px solid var(--accent);padding-left:1rem;}
+.stat-num{font-family:var(--display);font-size:1.9rem;font-weight:700;color:var(--accent);letter-spacing:-.5px;}
 .stat-label{font-size:13px;color:var(--text2);}
 
 /* HERO ANIMATION */
-.hero-visual{position:relative;width:100%;height:420px;flex-shrink:0;}
+.hero-visual{position:relative;width:100%;height:430px;flex-shrink:0;}
 #heroCanvas{width:100%;height:100%;border-radius:var(--radius-lg);}
 
+/* SECTION HEADS shared spacing */
+.svc-icon-wrap{margin-bottom:1.25rem;}
+
 /* SERVICES PREVIEW */
-.services-grid-preview{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
-}
+.services-grid-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 .service-card-preview{
   background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1.75rem;
+  border-radius:var(--radius);padding:1.85rem;
   transition:border-color .2s,transform .25s,box-shadow .25s;
 }
-.service-card-preview:hover{
-  border-color:var(--accent);transform:translateY(-4px);
-  box-shadow:0 8px 24px rgba(26,111,196,0.1);
-}
-.svc-icon{font-size:2rem;margin-bottom:1rem;}
-.svc-title{font-size:1rem;font-weight:600;margin-bottom:.5rem;}
-.svc-desc{font-size:14px;color:var(--text2);line-height:1.6;}
-.svc-link{
-  display:inline-flex;align-items:center;gap:4px;
-  font-size:13px;color:var(--accent);font-weight:600;
-  text-decoration:none;margin-top:1rem;transition:gap .2s;
-}
-.svc-link:hover{gap:8px;}
+.service-card-preview:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.svc-title{font-family:var(--display);font-size:1.05rem;font-weight:600;margin-bottom:.5rem;}
+.svc-desc{font-size:14px;color:var(--text2);line-height:1.65;}
+.svc-link{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--accent);font-weight:600;text-decoration:none;margin-top:1.1rem;transition:gap .2s;}
+.svc-link:hover{gap:9px;}
+.svc-link svg{width:15px;height:15px;}
 
 /* CASES PREVIEW */
-.cases-preview-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
-}
-.cases-preview-bottom{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:1.5rem;max-width:67%;margin:1.5rem auto 0;
-}
+.cases-preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.cases-preview-bottom{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:67%;margin:1.5rem auto 0;}
 .case-preview-card{
   background:var(--surface);border:1px solid var(--border);
   border-radius:var(--radius);overflow:hidden;
   transition:border-color .2s,transform .25s,box-shadow .25s;
 }
-.case-preview-card:hover{
-  border-color:var(--accent2);transform:translateY(-4px);
-  box-shadow:0 8px 24px rgba(14,158,122,0.1);
-}
-.case-preview-header{
-  padding:1.25rem 1.5rem 1rem;border-bottom:1px solid var(--border);
-  background:var(--bg);
-}
-.case-tag{
-  font-size:11px;font-weight:700;letter-spacing:1px;
-  text-transform:uppercase;color:var(--accent2);margin-bottom:.4rem;
-}
-.case-badge{
-  display:inline-flex;align-items:center;gap:4px;
-  background:var(--accent2);color:#fff;font-size:10px;font-weight:700;
-  letter-spacing:1px;text-transform:uppercase;
-  padding:3px 8px;border-radius:4px;float:right;margin-top:-2px;
-}
-.case-name{font-size:.95rem;font-weight:600;color:var(--text);}
-.case-preview-body{padding:1rem 1.5rem 1.5rem;}
-.case-num{font-size:1.75rem;font-weight:700;color:var(--accent);}
+.case-preview-card:hover{border-color:var(--accent2);transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.case-preview-header{padding:1.3rem 1.5rem 1rem;border-bottom:1px solid var(--border);background:var(--surface2);}
+.case-tag{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--accent2);margin-bottom:.45rem;}
+.case-badge{display:inline-flex;align-items:center;gap:5px;background:var(--accent2);color:#fff;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 9px;border-radius:30px;float:right;margin-top:-2px;}
+.case-badge .live-dot{width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 2s infinite;}
+.case-name{font-family:var(--display);font-size:1rem;font-weight:600;color:var(--text);}
+.case-preview-body{padding:1.1rem 1.5rem 1.5rem;}
+.case-num{font-family:var(--display);font-size:1.85rem;font-weight:700;color:var(--accent);letter-spacing:-1px;}
 .case-desc-short{font-size:13px;color:var(--text2);line-height:1.6;margin-top:.4rem;}
-.case-stack{display:flex;flex-wrap:wrap;gap:5px;margin-top:.75rem;}
-.stack-tag{
-  font-size:11px;background:var(--bg2);border:1px solid var(--border);
-  border-radius:10px;padding:2px 9px;color:var(--text2);
-}
-.case-view-link{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:13px;color:var(--accent);text-decoration:none;
-  border:1px solid var(--accent);border-radius:6px;
-  padding:5px 12px;margin-top:1rem;transition:all .2s;font-weight:500;
-}
-.case-view-link:hover{background:var(--accent);color:#fff;}
+.case-stack{display:flex;flex-wrap:wrap;gap:5px;margin-top:.85rem;}
+.stack-tag{font-family:var(--mono);font-size:10.5px;background:var(--bg2);border:1px solid var(--border);border-radius:30px;padding:2px 9px;color:var(--text2);}
+.case-view-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--accent);text-decoration:none;border:1px solid var(--border2);border-radius:8px;padding:6px 13px;margin-top:1.1rem;transition:all .2s;font-weight:600;}
+.case-view-link:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.case-view-link svg{width:14px;height:14px;}
 
 /* ABOUT PREVIEW */
 #about-preview{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 .about-preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
 .about-quote-block{
-  background:linear-gradient(135deg,#e8f1fb,#eaf5f0);
+  background:linear-gradient(150deg,var(--accent-soft),var(--accent2-soft));
   border:1px solid var(--border);border-radius:var(--radius-lg);
   padding:2.5rem;position:relative;overflow:hidden;
 }
-.about-quote-block::after{
-  content:'"';position:absolute;top:-8px;right:20px;
-  font-size:120px;line-height:1;color:var(--accent);opacity:.06;
-  font-family:Georgia,serif;pointer-events:none;
-}
-.about-quote-text{font-size:1.05rem;line-height:1.75;color:var(--text);font-style:italic;}
+.about-quote-block::after{content:'"';position:absolute;top:-12px;right:24px;font-size:130px;line-height:1;color:var(--accent);opacity:.08;font-family:Georgia,serif;pointer-events:none;}
+.about-quote-text{font-size:1.08rem;line-height:1.75;color:var(--text);font-style:italic;}
 .about-quote-text strong{color:var(--accent);font-style:normal;}
 .about-tags-wrap{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:8px;}
-.about-tag{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:20px;padding:5px 14px;font-size:13px;
-  font-weight:500;color:var(--accent);
-}
+.about-tag{background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:5px 14px;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--accent);}
 
 /* TESTIMONIALS */
 .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.t-card{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1.75rem;
-  transition:transform .25s,box-shadow .25s;
-}
-.t-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
-.t-stars{color:#f59e0b;font-size:14px;margin-bottom:.75rem;letter-spacing:2px;}
-.t-quote{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:1.25rem;font-style:italic;}
+.t-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.85rem;transition:transform .25s,box-shadow .25s;}
+.t-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.t-stars{color:var(--signal);font-size:15px;margin-bottom:.85rem;letter-spacing:2px;}
+.t-quote{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:1.25rem;}
 .t-author{display:flex;align-items:center;gap:12px;}
-.t-avatar{
-  width:42px;height:42px;border-radius:50%;
-  background:linear-gradient(135deg,#e8f1fb,#eaf5f0);
-  display:flex;align-items:center;justify-content:center;
-  font-size:14px;font-weight:700;color:var(--accent);
-  border:1.5px solid var(--border);flex-shrink:0;
-}
+.t-avatar{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--accent-soft),var(--accent2-soft));display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:14px;font-weight:700;color:var(--accent);border:1px solid var(--border);flex-shrink:0;}
 .t-name{font-size:14px;font-weight:600;color:var(--text);}
-.t-role{font-size:12px;color:var(--text2);}
+.t-role{font-size:12px;color:var(--text3);}
 
 /* PROCESS BLOCK */
 #process{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.process-flow{
-  display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
-  gap:0;align-items:center;margin-top:1rem;
-}
-.process-step{
-  display:flex;flex-direction:column;align-items:center;gap:14px;
-  padding:2rem 1.5rem;text-align:center;
-  border:1px solid var(--border);border-radius:var(--radius);
-  background:var(--bg);transition:transform .3s,box-shadow .3s;
-}
+.process-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:center;margin-top:1rem;}
+.process-step{display:flex;flex-direction:column;align-items:center;gap:14px;padding:2.25rem 1.5rem;text-align:center;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);transition:transform .3s,box-shadow .3s;}
 .process-step:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
-.process-icon{font-size:2.2rem;}
-.process-layer{
-  border-radius:6px;padding:7px 22px;
-  display:flex;align-items:center;justify-content:center;min-width:140px;
-}
-.process-layer-label{font-size:10px;font-weight:700;letter-spacing:2px;color:white;}
-.process-step-title{font-size:.95rem;font-weight:600;color:var(--text);}
+.process-layer{border-radius:30px;padding:5px 16px;display:flex;align-items:center;justify-content:center;}
+.process-layer-label{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:1.5px;color:#fff;}
+.process-step-title{font-family:var(--display);font-size:1rem;font-weight:600;color:var(--text);}
 .process-step-desc{font-size:13px;color:var(--text2);line-height:1.6;max-width:200px;}
-.process-arrow{
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:center;padding:0 .5rem;
+.process-arrow{display:flex;align-items:center;justify-content:center;padding:0 .5rem;color:var(--accent2);}
+.process-arrow svg{width:26px;height:26px;}
+
+/* ROI CALCULATOR */
+.guide-card:hover{transform:rotate(0deg) scale(1.02) !important;}
+#roi{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.roi-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+  overflow:hidden;display:grid;grid-template-columns:1fr 0.85fr;box-shadow:var(--shadow);
 }
-.process-arrow-line{
-  width:40px;height:2px;
-  background:linear-gradient(to right,#1a6fc4,#0e9e7a);
-  border-radius:2px;
+.roi-inputs{padding:2.5rem;}
+.roi-input-group{margin-bottom:1.85rem;}
+.roi-input-group:last-child{margin-bottom:0;}
+.roi-input-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.7rem;gap:1rem;}
+.roi-input-label{font-size:14.5px;font-weight:600;color:var(--text);}
+.roi-input-val{font-family:var(--display);font-size:1.05rem;font-weight:700;color:var(--accent);white-space:nowrap;}
+.roi-range{
+  -webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:6px;
+  background:var(--bg2);outline:none;cursor:pointer;
 }
-.process-arrow-head{font-size:1.4rem;color:#0e9e7a;margin-top:-6px;}
+.roi-range::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;
+  background:var(--accent);border:3px solid var(--surface);box-shadow:0 2px 8px rgba(47,95,224,0.4);cursor:pointer;transition:transform .15s;
+}
+.roi-range::-webkit-slider-thumb:hover{transform:scale(1.12);}
+.roi-range::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--accent);border:3px solid var(--surface);box-shadow:0 2px 8px rgba(47,95,224,0.4);cursor:pointer;}
+.roi-range-fill{height:6px;border-radius:6px;background:var(--accent);margin-top:-6px;pointer-events:none;}
+.roi-hint{font-size:12.5px;color:var(--text3);margin-top:.55rem;}
+.roi-results{
+  background:linear-gradient(165deg,#141c28 0%,#22335a 100%);
+  padding:2.5rem;display:flex;flex-direction:column;justify-content:center;gap:1.4rem;color:#fff;position:relative;overflow:hidden;
+}
+.roi-results::before{content:'';position:absolute;top:-50px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(14,158,122,0.32),transparent 70%);pointer-events:none;}
+.roi-result-label{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:.35rem;}
+.roi-result-hero{position:relative;z-index:1;}
+.roi-result-big{font-family:var(--display);font-weight:700;font-size:2.9rem;line-height:1;letter-spacing:-1.5px;color:#fff;}
+.roi-result-big .cur{color:#5fe0bb;}
+.roi-result-row{display:flex;gap:1.5rem;position:relative;z-index:1;}
+.roi-result-sub{flex:1;}
+.roi-result-num{font-family:var(--display);font-weight:700;font-size:1.5rem;color:#fff;letter-spacing:-.5px;}
+.roi-payback{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.12);padding-top:1.3rem;font-size:14px;color:rgba(255,255,255,0.85);line-height:1.55;}
+.roi-payback strong{color:#5fe0bb;}
+.roi-cta{position:relative;z-index:1;margin-top:.3rem;}
+.roi-disclaimer{font-size:12px;color:var(--text3);text-align:center;margin-top:1.25rem;}
 
 /* RESPONSIVE */
+@media(max-width:860px){
+  .roi-card{grid-template-columns:1fr;}
+  #lead-magnet .container > div{grid-template-columns:1fr !important;gap:2.5rem !important;}
+}
 @media(max-width:900px){
   .hero-layout{grid-template-columns:1fr;}
-  .hero-visual{height:300px;}
+  .hero-visual{height:320px;}
   .services-grid-preview{grid-template-columns:repeat(2,1fr);}
   .cases-preview-grid{grid-template-columns:repeat(2,1fr);}
   .cases-preview-bottom{max-width:100%;grid-template-columns:1fr;}
   .about-preview-grid{grid-template-columns:1fr;}
   .t-grid{grid-template-columns:1fr;}
   .process-flow{grid-template-columns:1fr;gap:1rem;}
-  .process-arrow{flex-direction:row;transform:rotate(90deg);margin:-.5rem auto;}
+  .process-arrow{transform:rotate(90deg);margin:-.25rem auto;}
 }
 @media(max-width:600px){
   .services-grid-preview{grid-template-columns:1fr;}
@@ -213,10 +228,10 @@
 <!-- NAV -->
 <nav id="mainNav">
   <div class="nav-inner">
-    <a class="logo-wrap" href="index.html">
-      <svg width="36" height="36" viewBox="0 0 38 38" fill="none">
-        <rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/>
-        <rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/>
+    <a class="logo-wrap" href="index.html" aria-label="NeolithAI Agency — home">
+      <svg width="36" height="36" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+        <rect x="0" y="2" width="34" height="9" rx="2.5" fill="#2f5fe0"/>
+        <rect x="3" y="14" width="28" height="9" rx="2.5" fill="#2f5fe0" opacity="0.6"/>
         <rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/>
         <circle cx="37" cy="5" r="4" fill="#0e9e7a"/>
         <circle cx="37" cy="5" r="2" fill="white"/>
@@ -250,12 +265,14 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="restaurants.html" onclick="toggleMenu()">For Restaurants</a>
+  <a href="bfs.html" onclick="toggleMenu()">For Small Business</a>
   <a href="cases.html" onclick="toggleMenu()">Cases</a>
   <a href="about.html" onclick="toggleMenu()">About</a>
   <a href="blog.html" onclick="toggleMenu()">Blog</a>
   <a href="contact.html" onclick="toggleMenu()">Contact</a>
   <div class="mobile-cta-wrap">
-    <a href="contact.html#book" class="btn-primary" style="display:block;text-align:center;" onclick="toggleMenu()">Book a Free Call</a>
+    <a href="contact.html#book" class="btn-primary" style="display:block;text-align:center;justify-content:center;" onclick="toggleMenu()">Book a Free Call</a>
   </div>
 </div>
 
@@ -265,7 +282,7 @@
     <div class="hero-content reveal">
       <div class="badge">
         <span class="badge-dot"></span>
-        <span data-lang="en" class="active">Open for new projects · EU & UK</span>
+        <span data-lang="en" class="active">Open for new projects · EU &amp; UK</span>
         <span data-lang="ru">Открыты для новых проектов · ЕС и Великобритания</span>
         <span data-lang="es">Abiertos para nuevos proyectos · UE y Reino Unido</span>
         <span data-lang="uk">Відкриті для нових проектів · ЄС та Великобританія</span>
@@ -294,6 +311,7 @@
           <span data-lang="ru">Записаться на консультацию</span>
           <span data-lang="es">Reservar llamada gratuita</span>
           <span data-lang="uk">Записатись на консультацію</span>
+          <i data-lucide="arrow-right" class="ic-sm"></i>
         </a>
         <a href="cases.html" class="btn-outline">
           <span data-lang="en" class="active">View our work</span>
@@ -322,12 +340,12 @@
           </div>
         </div>
         <div class="stat">
-          <div class="stat-num" data-count="3" data-suffix=" langs">3 langs</div>
+          <div class="stat-num" data-count="4" data-suffix=" langs">4 langs</div>
           <div class="stat-label">
-            <span data-lang="en" class="active">EU markets served</span>
-            <span data-lang="ru">Рынка ЕС</span>
-            <span data-lang="es">Mercados UE</span>
-            <span data-lang="uk">Ринки ЄС</span>
+            <span data-lang="en" class="active">Languages served</span>
+            <span data-lang="ru">Языка обслуживания</span>
+            <span data-lang="es">Idiomas atendidos</span>
+            <span data-lang="uk">Мови обслуговування</span>
           </div>
         </div>
       </div>
@@ -339,6 +357,26 @@
     </div>
   </div>
 </section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <span class="trust-label">
+      <span data-lang="en" class="active">Built with a production stack</span>
+      <span data-lang="ru">Построено на production-стеке</span>
+      <span data-lang="es">Construido con stack de producción</span>
+      <span data-lang="uk">Побудовано на production-стеку</span>
+    </span>
+    <div class="trust-items">
+      <span class="trust-item"><i data-lucide="workflow" class="ic-sm"></i>n8n</span>
+      <span class="trust-item"><i data-lucide="sparkles" class="ic-sm"></i>Claude</span>
+      <span class="trust-item"><i data-lucide="bot" class="ic-sm"></i>GPT-4o</span>
+      <span class="trust-item"><i data-lucide="database" class="ic-sm"></i>Supabase</span>
+      <span class="trust-item"><i data-lucide="cloud" class="ic-sm"></i>Netlify</span>
+    </div>
+    <span class="trust-badge"><i data-lucide="badge-check"></i>n8n Verified Creator</span>
+  </div>
+</div>
 
 <!-- PHILOSOPHY STRIP -->
 <div class="philosophy-strip">
@@ -390,10 +428,8 @@
     </h2>
     <div class="process-flow">
       <div class="process-step reveal reveal-delay-1">
-        <div class="process-icon">📥</div>
-        <div class="process-layer" style="background:#1a6fc4;">
-          <span class="process-layer-label">INTAKE</span>
-        </div>
+        <div class="icon-tile"><i data-lucide="inbox" class="ic"></i></div>
+        <div class="process-layer" style="background:var(--accent);"><span class="process-layer-label">INTAKE</span></div>
         <div class="process-step-title">
           <span data-lang="en" class="active">Data collection</span>
           <span data-lang="ru">Сбор данных</span>
@@ -407,15 +443,10 @@
           <span data-lang="uk">Форми, файли, API — дані з будь-якого джерела.</span>
         </div>
       </div>
-      <div class="process-arrow reveal reveal-delay-2">
-        <div class="process-arrow-line"></div>
-        <div class="process-arrow-head">›</div>
-      </div>
+      <div class="process-arrow reveal reveal-delay-2"><i data-lucide="arrow-right" class="ic"></i></div>
       <div class="process-step reveal reveal-delay-3">
-        <div class="process-icon">🧠</div>
-        <div class="process-layer" style="background:#1a6fc4;opacity:.72;">
-          <span class="process-layer-label">PROCESSING</span>
-        </div>
+        <div class="icon-tile"><i data-lucide="cpu" class="ic"></i></div>
+        <div class="process-layer" style="background:var(--accent);opacity:.72;"><span class="process-layer-label">PROCESSING</span></div>
         <div class="process-step-title">
           <span data-lang="en" class="active">AI analysis</span>
           <span data-lang="ru">ИИ-анализ</span>
@@ -429,15 +460,10 @@
           <span data-lang="uk">ІІ-агенти класифікують, збагачують і приймають рішення за вашою логікою.</span>
         </div>
       </div>
-      <div class="process-arrow reveal reveal-delay-4">
-        <div class="process-arrow-line"></div>
-        <div class="process-arrow-head">›</div>
-      </div>
+      <div class="process-arrow reveal reveal-delay-4"><i data-lucide="arrow-right" class="ic"></i></div>
       <div class="process-step reveal reveal-delay-5">
-        <div class="process-icon">✅</div>
-        <div class="process-layer" style="background:#0e9e7a;">
-          <span class="process-layer-label">OUTPUT</span>
-        </div>
+        <div class="icon-tile teal"><i data-lucide="circle-check-big" class="ic"></i></div>
+        <div class="process-layer" style="background:var(--accent2);"><span class="process-layer-label">OUTPUT</span></div>
         <div class="process-step-title">
           <span data-lang="en" class="active">Results delivered</span>
           <span data-lang="ru">Результаты доставлены</span>
@@ -451,6 +477,146 @@
           <span data-lang="uk">Звіти, сповіщення, записи — потрібний результат у потрібному місці.</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section id="roi">
+  <div class="container">
+    <span class="section-label reveal">
+      <span data-lang="en" class="active">Calculator</span>
+      <span data-lang="ru">Калькулятор</span>
+      <span data-lang="es">Calculadora</span>
+      <span data-lang="uk">Калькулятор</span>
+    </span>
+    <h2 class="reveal" style="margin-bottom:.6rem;">
+      <span data-lang="en" class="active">How much could automation <span class="accent">save you?</span></span>
+      <span data-lang="ru">Сколько вам сэкономит <span class="accent">автоматизация?</span></span>
+      <span data-lang="es">¿Cuánto podría <span class="accent">ahorrarte</span> la automatización?</span>
+      <span data-lang="uk">Скільки вам заощадить <span class="accent">автоматизація?</span></span>
+    </h2>
+    <p class="reveal" style="margin-bottom:2.5rem;max-width:560px;">
+      <span data-lang="en" class="active">Move the sliders to estimate the time and money an AI agent could give back to your team — every month.</span>
+      <span data-lang="ru">Подвигайте ползунки, чтобы оценить время и деньги, которые ИИ-агент вернёт вашей команде — каждый месяц.</span>
+      <span data-lang="es">Mueva los controles para estimar el tiempo y dinero que un agente IA podría devolver a su equipo — cada mes.</span>
+      <span data-lang="uk">Посуньте повзунки, щоб оцінити час і гроші, які ІІ-агент поверне вашій команді — щомісяця.</span>
+    </p>
+
+    <div class="roi-card reveal">
+      <div class="roi-inputs">
+        <div class="roi-input-group">
+          <div class="roi-input-head">
+            <span class="roi-input-label">
+              <span data-lang="en" class="active">Hours/week on repetitive tasks</span>
+              <span data-lang="ru">Часов/неделю на рутину</span>
+              <span data-lang="es">Horas/semana en tareas repetitivas</span>
+              <span data-lang="uk">Годин/тиждень на рутину</span>
+            </span>
+            <span class="roi-input-val"><span id="roiHoursV">10</span> <span data-lang="en" class="active">h</span><span data-lang="ru">ч</span><span data-lang="es">h</span><span data-lang="uk">г</span></span>
+          </div>
+          <input type="range" class="roi-range" id="roiHours" min="1" max="40" value="10" oninput="updateROI()"/>
+        </div>
+
+        <div class="roi-input-group">
+          <div class="roi-input-head">
+            <span class="roi-input-label">
+              <span data-lang="en" class="active">People doing this work</span>
+              <span data-lang="ru">Сотрудников на этой задаче</span>
+              <span data-lang="es">Personas en esta tarea</span>
+              <span data-lang="uk">Співробітників на цьому завданні</span>
+            </span>
+            <span class="roi-input-val" id="roiPeopleV">2</span>
+          </div>
+          <input type="range" class="roi-range" id="roiPeople" min="1" max="20" value="2" oninput="updateROI()"/>
+        </div>
+
+        <div class="roi-input-group">
+          <div class="roi-input-head">
+            <span class="roi-input-label">
+              <span data-lang="en" class="active">Average hourly cost</span>
+              <span data-lang="ru">Средняя стоимость часа</span>
+              <span data-lang="es">Coste medio por hora</span>
+              <span data-lang="uk">Середня вартість години</span>
+            </span>
+            <span class="roi-input-val">€<span id="roiRateV">30</span></span>
+          </div>
+          <input type="range" class="roi-range" id="roiRate" min="10" max="120" value="30" step="5" oninput="updateROI()"/>
+        </div>
+
+        <div class="roi-input-group">
+          <div class="roi-input-head">
+            <span class="roi-input-label">
+              <span data-lang="en" class="active">Share that can be automated</span>
+              <span data-lang="ru">Доля, что можно автоматизировать</span>
+              <span data-lang="es">Parte que se puede automatizar</span>
+              <span data-lang="uk">Частка, що можна автоматизувати</span>
+            </span>
+            <span class="roi-input-val" id="roiAutoV">60%</span>
+          </div>
+          <input type="range" class="roi-range" id="roiAuto" min="20" max="90" value="60" step="5" oninput="updateROI()"/>
+          <div class="roi-hint">
+            <span data-lang="en" class="active">Our projects typically automate 50–70% of a repetitive workflow.</span>
+            <span data-lang="ru">Наши проекты обычно автоматизируют 50–70% рутинного процесса.</span>
+            <span data-lang="es">Nuestros proyectos suelen automatizar 50–70% de un flujo repetitivo.</span>
+            <span data-lang="uk">Наші проекти зазвичай автоматизують 50–70% рутинного процесу.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="roi-results">
+        <div class="roi-result-hero">
+          <div class="roi-result-label">
+            <span data-lang="en" class="active">Estimated savings / year</span>
+            <span data-lang="ru">Экономия в год (оценка)</span>
+            <span data-lang="es">Ahorro estimado / año</span>
+            <span data-lang="uk">Економія на рік (оцінка)</span>
+          </div>
+          <div class="roi-result-big"><span class="cur">€</span><span id="roiYear">11,232</span></div>
+        </div>
+        <div class="roi-result-row">
+          <div class="roi-result-sub">
+            <div class="roi-result-label">
+              <span data-lang="en" class="active">Hours saved / mo</span>
+              <span data-lang="ru">Часов/мес</span>
+              <span data-lang="es">Horas/mes</span>
+              <span data-lang="uk">Годин/міс</span>
+            </div>
+            <div class="roi-result-num" id="roiHoursMo">52 h</div>
+          </div>
+          <div class="roi-result-sub">
+            <div class="roi-result-label">
+              <span data-lang="en" class="active">Saved / month</span>
+              <span data-lang="ru">Экономия/мес</span>
+              <span data-lang="es">Ahorro/mes</span>
+              <span data-lang="uk">Економія/міс</span>
+            </div>
+            <div class="roi-result-num">€<span id="roiMonth">936</span></div>
+          </div>
+        </div>
+        <div class="roi-payback">
+          <span data-lang="en" class="active">A typical Professional build (≈€2,000) would pay for itself in </span>
+          <span data-lang="ru">Типовой пакет Professional (≈€2 000) окупится за </span>
+          <span data-lang="es">Un proyecto Professional típico (≈€2.000) se amortizaría en </span>
+          <span data-lang="uk">Типовий пакет Professional (≈€2 000) окупиться за </span>
+          <strong><span id="roiPayback">2.1</span> <span data-lang="en" class="active">months</span><span data-lang="ru">мес.</span><span data-lang="es">meses</span><span data-lang="uk">міс.</span></strong>.
+        </div>
+        <div class="roi-cta">
+          <a href="contact.html#book" class="btn-teal" style="width:100%;justify-content:center;">
+            <span data-lang="en" class="active">Get an exact quote — free call</span>
+            <span data-lang="ru">Точный расчёт — бесплатный звонок</span>
+            <span data-lang="es">Presupuesto exacto — llamada gratis</span>
+            <span data-lang="uk">Точний розрахунок — безкоштовний дзвінок</span>
+            <i data-lucide="arrow-right" class="ic-sm"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="roi-disclaimer">
+      <span data-lang="en" class="active">Estimates only, based on your inputs. Actual results depend on your specific workflow.</span>
+      <span data-lang="ru">Только оценка на основе ваших данных. Реальный результат зависит от вашего процесса.</span>
+      <span data-lang="es">Solo estimaciones según sus datos. Los resultados reales dependen de su flujo específico.</span>
+      <span data-lang="uk">Лише оцінка на основі ваших даних. Реальний результат залежить від вашого процесу.</span>
     </div>
   </div>
 </section>
@@ -472,26 +638,26 @@
     </h2>
     <div class="services-grid-preview">
       <div class="service-card-preview reveal reveal-delay-1">
-        <div class="svc-icon">🧠</div>
+        <div class="svc-icon-wrap"><div class="icon-tile"><i data-lucide="bot" class="ic"></i></div></div>
         <div class="svc-title"><span data-lang="en" class="active">AI Agent Design</span><span data-lang="ru">Проектирование ИИ-агентов</span><span data-lang="es">Diseño de agentes IA</span><span data-lang="uk">Проектування ІІ-агентів</span></div>
         <div class="svc-desc"><span data-lang="en" class="active">Autonomous agents that handle complex multi-step tasks without human intervention.</span><span data-lang="ru">Автономные агенты для сложных многоэтапных задач без участия человека.</span><span data-lang="es">Agentes autónomos para tareas complejas sin intervención humana.</span><span data-lang="uk">Автономні агенти для складних завдань без участі людини.</span></div>
-        <a href="services.html" class="svc-link"><span data-lang="en" class="active">Learn more →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Más info →</span><span data-lang="uk">Докладніше →</span></a>
+        <a href="services.html" class="svc-link"><span data-lang="en" class="active">Learn more</span><span data-lang="ru">Подробнее</span><span data-lang="es">Más info</span><span data-lang="uk">Докладніше</span><i data-lucide="arrow-right"></i></a>
       </div>
       <div class="service-card-preview reveal reveal-delay-2">
-        <div class="svc-icon">⚙️</div>
+        <div class="svc-icon-wrap"><div class="icon-tile"><i data-lucide="workflow" class="ic"></i></div></div>
         <div class="svc-title"><span data-lang="en" class="active">Workflow Automation</span><span data-lang="ru">Автоматизация воркфлоу</span><span data-lang="es">Automatización de flujos</span><span data-lang="uk">Автоматизація воркфлоу</span></div>
         <div class="svc-desc"><span data-lang="en" class="active">End-to-end automated pipelines using n8n and custom solutions tailored to your business.</span><span data-lang="ru">Сквозные автоматизированные пайплайны с помощью n8n и кастомных решений.</span><span data-lang="es">Pipelines automatizados de extremo a extremo con n8n.</span><span data-lang="uk">Наскрізні автоматизовані пайплайни за допомогою n8n.</span></div>
-        <a href="services.html" class="svc-link"><span data-lang="en" class="active">Learn more →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Más info →</span><span data-lang="uk">Докладніше →</span></a>
+        <a href="services.html" class="svc-link"><span data-lang="en" class="active">Learn more</span><span data-lang="ru">Подробнее</span><span data-lang="es">Más info</span><span data-lang="uk">Докладніше</span><i data-lucide="arrow-right"></i></a>
       </div>
       <div class="service-card-preview reveal reveal-delay-3">
-        <div class="svc-icon">💬</div>
-        <div class="svc-title"><span data-lang="en" class="active">RAG & Knowledge Bases</span><span data-lang="ru">RAG и базы знаний</span><span data-lang="es">RAG y bases de conocimiento</span><span data-lang="uk">RAG та бази знань</span></div>
+        <div class="svc-icon-wrap"><div class="icon-tile"><i data-lucide="database" class="ic"></i></div></div>
+        <div class="svc-title"><span data-lang="en" class="active">RAG &amp; Knowledge Bases</span><span data-lang="ru">RAG и базы знаний</span><span data-lang="es">RAG y bases de conocimiento</span><span data-lang="uk">RAG та бази знань</span></div>
         <div class="svc-desc"><span data-lang="en" class="active">AI that works with your proprietary data — securely and accurately, using vector search.</span><span data-lang="ru">ИИ, работающий с вашими корпоративными данными — безопасно и точно.</span><span data-lang="es">IA que trabaja con sus datos propietarios — de forma segura y precisa.</span><span data-lang="uk">ІІ, що працює з вашими даними — безпечно та точно.</span></div>
-        <a href="services.html" class="svc-link"><span data-lang="en" class="active">Learn more →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Más info →</span><span data-lang="uk">Докладніше →</span></a>
+        <a href="services.html" class="svc-link"><span data-lang="en" class="active">Learn more</span><span data-lang="ru">Подробнее</span><span data-lang="es">Más info</span><span data-lang="uk">Докладніше</span><i data-lucide="arrow-right"></i></a>
       </div>
     </div>
     <div style="text-align:center;margin-top:2.5rem;" class="reveal">
-      <a href="services.html" class="btn-outline"><span data-lang="en" class="active">All services & pricing →</span><span data-lang="ru">Все услуги и цены →</span><span data-lang="es">Todos los servicios →</span><span data-lang="uk">Всі послуги та ціни →</span></a>
+      <a href="services.html" class="btn-outline"><span data-lang="en" class="active">All services &amp; pricing</span><span data-lang="ru">Все услуги и цены</span><span data-lang="es">Todos los servicios</span><span data-lang="uk">Всі послуги та ціни</span><i data-lucide="arrow-right" class="ic-sm"></i></a>
     </div>
   </div>
 </section>
@@ -514,69 +680,69 @@
     <div class="cases-preview-grid">
       <div class="case-preview-card reveal reveal-delay-1">
         <div class="case-preview-header">
-          <div class="case-tag">Content / Social Media</div><span class="case-badge">LIVE</span>
+          <div class="case-tag">Content / Social Media</div><span class="case-badge"><span class="live-dot"></span>LIVE</span>
           <div class="case-name">AI Content Master</div>
         </div>
         <div class="case-preview-body">
           <span class="case-num">9×</span>
           <div class="case-desc-short"><span data-lang="en" class="active">Content units per prompt · 3 languages × 3 formats + AI image</span><span data-lang="ru">Единиц контента за запрос · 3 языка × 3 формата + AI-изображение</span><span data-lang="es">Unidades por prompt · 3 idiomas × 3 formatos + imagen IA</span><span data-lang="uk">Одиниць за запит · 3 мови × 3 формати + AI-зображення</span></div>
           <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">DALL-E 3</span><span class="stack-tag">Telegram</span></div>
-          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Ver detalles →</span><span data-lang="uk">Детальніше →</span></a>
+          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
       <div class="case-preview-card reveal reveal-delay-2">
         <div class="case-preview-header">
-          <div class="case-tag">Restaurant / HoReCa</div><span class="case-badge">LIVE</span>
+          <div class="case-tag">Restaurant / HoReCa</div><span class="case-badge"><span class="live-dot"></span>LIVE</span>
           <div class="case-name">Restaurant AI Suite</div>
         </div>
         <div class="case-preview-body">
           <span class="case-num">5×</span>
           <div class="case-desc-short"><span data-lang="en" class="active">AI agents · reviews, reservations, menu, inventory, food photos</span><span data-lang="ru">ИИ-агентов · отзывы, бронирование, меню, склад, фото</span><span data-lang="es">Agentes IA · reseñas, reservas, menú, inventario, fotos</span><span data-lang="uk">ІІ-агентів · відгуки, бронювання, меню, склад, фото</span></div>
           <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">DALL-E 3</span><span class="stack-tag">Supabase</span></div>
-          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Ver detalles →</span><span data-lang="uk">Детальніше →</span></a>
+          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
       <div class="case-preview-card reveal reveal-delay-3">
         <div class="case-preview-header">
-          <div class="case-tag">HR / Recruiting</div><span class="case-badge">LIVE</span>
+          <div class="case-tag">HR / Recruiting</div><span class="case-badge"><span class="live-dot"></span>LIVE</span>
           <div class="case-name"><span data-lang="en" class="active">CV Screening Agent</span><span data-lang="ru">Агент скрининга резюме</span><span data-lang="es">Agente de selección de CVs</span><span data-lang="uk">Агент скринінгу резюме</span></div>
         </div>
         <div class="case-preview-body">
           <span class="case-num">10×</span>
           <div class="case-desc-short"><span data-lang="en" class="active">Faster candidate shortlisting · 3-workflow system with AI scoring</span><span data-lang="ru">Быстрее отбор кандидатов · 3 воркфлоу с AI-скорингом</span><span data-lang="es">Preselección más rápida · sistema de 3 flujos con puntuación IA</span><span data-lang="uk">Швидший відбір кандидатів · 3 воркфлоу з AI-скорингом</span></div>
           <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Telegram</span></div>
-          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Ver detalles →</span><span data-lang="uk">Детальніше →</span></a>
+          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
     </div>
     <div class="cases-preview-bottom">
       <div class="case-preview-card reveal reveal-delay-1">
         <div class="case-preview-header">
-          <div class="case-tag">Customer Support / Multi-Agent</div><span class="case-badge">LIVE</span>
+          <div class="case-tag">Customer Support / Multi-Agent</div><span class="case-badge"><span class="live-dot"></span>LIVE</span>
           <div class="case-name">BFS Suite — Big For Small</div>
         </div>
         <div class="case-preview-body">
-          <span class="case-num">3</span><span style="font-size:1rem;font-weight:600;color:var(--text2);margin-left:6px;">agents · 1 platform</span>
-          <div class="case-desc-short"><span data-lang="en" class="active">RAG-powered Legal, HR & Support agents with live analytics dashboard</span><span data-lang="ru">RAG-агенты Legal, HR и Support с живым дашбордом аналитики</span><span data-lang="es">Agentes Legal, HR y Support con RAG y dashboard de analítica</span><span data-lang="uk">RAG-агенти Legal, HR та Support з живим дашбордом</span></div>
+          <span class="case-num">3</span><span style="font-family:var(--display);font-size:1rem;font-weight:600;color:var(--text2);margin-left:6px;">agents · 1 platform</span>
+          <div class="case-desc-short"><span data-lang="en" class="active">RAG-powered Legal, HR &amp; Support agents with live analytics dashboard</span><span data-lang="ru">RAG-агенты Legal, HR и Support с живым дашбордом аналитики</span><span data-lang="es">Agentes Legal, HR y Support con RAG y dashboard de analítica</span><span data-lang="uk">RAG-агенти Legal, HR та Support з живим дашбордом</span></div>
           <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">Claude API</span><span class="stack-tag">Supabase</span><span class="stack-tag">pgvector</span></div>
-          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Ver detalles →</span><span data-lang="uk">Детальніше →</span></a>
+          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
       <div class="case-preview-card reveal reveal-delay-2">
         <div class="case-preview-header">
-          <div class="case-tag">B2B Sales / Lead Gen</div><span class="case-badge">LIVE</span>
+          <div class="case-tag">B2B Sales / Lead Gen</div><span class="case-badge"><span class="live-dot"></span>LIVE</span>
           <div class="case-name"><span data-lang="en" class="active">AI Lead Generation Agent</span><span data-lang="ru">ИИ-агент генерации лидов</span><span data-lang="es">Agente IA de generación de leads</span><span data-lang="uk">ІІ-агент генерації лідів</span></div>
         </div>
         <div class="case-preview-body">
           <span class="case-num">100%</span>
           <div class="case-desc-short"><span data-lang="en" class="active">Autonomous B2B outreach · Google Maps → AI scoring → cold email + follow-up</span><span data-lang="ru">Автономный B2B-аутрич · Google Maps → AI-скоринг → холодные письма</span><span data-lang="es">Outreach B2B autónomo · Google Maps → puntuación IA → email frío</span><span data-lang="uk">Автономний B2B-аутрич · Google Maps → AI-скоринг → холодні листи</span></div>
           <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">Google Maps API</span><span class="stack-tag">Gmail</span></div>
-          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details →</span><span data-lang="ru">Подробнее →</span><span data-lang="es">Ver detalles →</span><span data-lang="uk">Детальніше →</span></a>
+          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
     </div>
     <div style="text-align:center;margin-top:2.5rem;" class="reveal">
-      <a href="cases.html" class="btn-outline"><span data-lang="en" class="active">All case studies →</span><span data-lang="ru">Все кейсы →</span><span data-lang="es">Todos los casos →</span><span data-lang="uk">Всі кейси →</span></a>
+      <a href="cases.html" class="btn-outline"><span data-lang="en" class="active">All case studies</span><span data-lang="ru">Все кейсы</span><span data-lang="es">Todos los casos</span><span data-lang="uk">Всі кейси</span><i data-lucide="arrow-right" class="ic-sm"></i></a>
     </div>
   </div>
 </section>
@@ -611,10 +777,11 @@
           <span data-lang="uk">Та ж аналітична дисципліна тепер лежить в основі кожної автоматизації — картуй процес, знайди розриви, побудуй систему, яка працює сама.</span>
         </p>
         <a href="about.html" class="btn-outline">
-          <span data-lang="en" class="active">Our story →</span>
-          <span data-lang="ru">Наша история →</span>
-          <span data-lang="es">Nuestra historia →</span>
-          <span data-lang="uk">Наша історія →</span>
+          <span data-lang="en" class="active">Our story</span>
+          <span data-lang="ru">Наша история</span>
+          <span data-lang="es">Nuestra historia</span>
+          <span data-lang="uk">Наша історія</span>
+          <i data-lucide="arrow-right" class="ic-sm"></i>
         </a>
       </div>
       <div class="reveal reveal-delay-2">
@@ -633,6 +800,13 @@
             <span class="about-tag">pgvector</span>
             <span class="about-tag">Telegram API</span>
             <span class="about-tag">Netlify</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:13px;margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+            <img src="images/founder.jpg" alt="Yevhenii Nohin" style="width:52px;height:52px;border-radius:14px;object-fit:cover;flex-shrink:0;"/>
+            <div>
+              <div style="font-family:var(--display);font-weight:600;font-size:15px;color:var(--text);">Yevhenii Nohin</div>
+              <div style="font-size:13px;color:var(--text3);display:flex;align-items:center;gap:6px;"><i data-lucide="badge-check" style="width:14px;height:14px;color:var(--accent2);"></i>Founder · n8n Verified Creator</div>
+            </div>
           </div>
         </div>
       </div>
@@ -670,6 +844,87 @@
         <div class="t-stars">★★★★★</div>
         <div class="t-quote"><span data-lang="en" class="active">"Fast, professional, and truly understood our business needs. Delivered a working prototype in less than a week and iterated quickly on feedback."</span><span data-lang="ru">«Быстро, профессионально и с глубоким пониманием наших потребностей. Рабочий прототип за неделю и быстрая итерация по фидбеку.»</span><span data-lang="es">"Rápido, profesional y con verdadera comprensión de nuestras necesidades. Prototipo funcional en menos de una semana."</span><span data-lang="uk">«Швидко, професійно та з глибоким розумінням наших потреб. Робочий прототип за тиждень та швидка ітерація.»</span></div>
         <div class="t-author"><div class="t-avatar">DL</div><div><div class="t-name">David L.</div><div class="t-role">Founder, E-commerce · Netherlands</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD MAGNET -->
+<section id="lead-magnet" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:0.8fr 1fr;gap:3.5rem;align-items:center;">
+      <!-- GUIDE PREVIEW -->
+      <div class="reveal" style="display:flex;justify-content:center;">
+        <a class="guide-card" href="guide-7-processes.html" target="_blank" rel="noopener" style="text-decoration:none;display:block;width:260px;height:368px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:linear-gradient(165deg,#141c28 0%,#22335a 60%,#1c3a5e 100%);position:relative;transform:rotate(-3deg);transition:transform .3s;">
+          <div style="position:absolute;top:-40px;right:-30px;width:160px;height:160px;background:radial-gradient(circle,rgba(14,158,122,0.4),transparent 70%);"></div>
+          <div style="padding:26px 24px;display:flex;flex-direction:column;height:100%;position:relative;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <svg width="26" height="26" viewBox="0 0 38 38" fill="none"><rect x="0" y="2" width="34" height="9" rx="2.5" fill="#5d86ff"/><rect x="3" y="14" width="28" height="9" rx="2.5" fill="#5d86ff" opacity="0.6"/><rect x="7" y="26" width="20" height="9" rx="2.5" fill="#3fd2ab"/><circle cx="37" cy="5" r="4" fill="#3fd2ab"/></svg>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;color:#fff;">Neolith<span style="color:#3fd2ab;">AI</span></span>
+            </div>
+            <div style="margin-top:auto;">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#7da2ff;margin-bottom:10px;">Free Guide</div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:27px;line-height:1.05;letter-spacing:-1px;color:#fff;">What to Automate <span style="color:#3fd2ab;">First.</span></div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.65);margin-top:12px;line-height:1.5;">A 7-process checklist for small business.</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- FORM -->
+      <div class="reveal reveal-delay-1">
+        <span class="section-label">
+          <span data-lang="en" class="active">Free guide</span>
+          <span data-lang="ru">Бесплатный гайд</span>
+          <span data-lang="es">Guía gratuita</span>
+          <span data-lang="uk">Безкоштовний гайд</span>
+        </span>
+        <h2 style="margin-bottom:1rem;">
+          <span data-lang="en" class="active">What should you <span class="accent">automate first?</span></span>
+          <span data-lang="ru">Что автоматизировать <span class="accent">в первую очередь?</span></span>
+          <span data-lang="es">¿Qué deberías <span class="accent">automatizar primero?</span></span>
+          <span data-lang="uk">Що автоматизувати <span class="accent">в першу чергу?</span></span>
+        </h2>
+        <p style="margin-bottom:1.5rem;max-width:480px;">
+          <span data-lang="en" class="active">Get our practical 7-process checklist. For each one: the signs it's time, what an AI agent does, and how much time you get back. Straight to your inbox.</span>
+          <span data-lang="ru">Получите практический чек-лист из 7 процессов. По каждому: признаки «пора», что делает ИИ-агент и сколько времени вы вернёте. Сразу на почту.</span>
+          <span data-lang="es">Reciba nuestro checklist de 7 procesos. Para cada uno: las señales, qué hace un agente IA y cuánto tiempo recupera. A su correo.</span>
+          <span data-lang="uk">Отримайте практичний чек-лист із 7 процесів. По кожному: ознаки «пора», що робить ІІ-агент і скільки часу ви повернете. Одразу на пошту.</span>
+        </p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:1.75rem;">
+          <li style="display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--text2);"><i data-lucide="check" style="width:17px;height:17px;color:var(--accent2);"></i><span data-lang="en" class="active">7 processes ranked by impact</span><span data-lang="ru">7 процессов по приоритету</span><span data-lang="es">7 procesos por impacto</span><span data-lang="uk">7 процесів за пріоритетом</span></li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--text2);"><i data-lucide="check" style="width:17px;height:17px;color:var(--accent2);"></i><span data-lang="en" class="active">Self-diagnose with simple checklists</span><span data-lang="ru">Самодиагностика по простым чек-листам</span><span data-lang="es">Autodiagnóstico con checklists simples</span><span data-lang="uk">Самодіагностика за простими чек-листами</span></li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--text2);"><i data-lucide="check" style="width:17px;height:17px;color:var(--accent2);"></i><span data-lang="en" class="active">8-minute read · no fluff</span><span data-lang="ru">8 минут чтения · без воды</span><span data-lang="es">8 minutos · sin relleno</span><span data-lang="uk">8 хвилин · без води</span></li>
+        </ul>
+
+        <form id="guideForm" name="guide-download" method="POST" data-netlify="true" style="display:flex;gap:10px;flex-wrap:wrap;max-width:480px;">
+          <input type="hidden" name="form-name" value="guide-download"/>
+          <input class="newsletter-input" style="flex:1;min-width:220px;background:var(--bg);border:1.5px solid var(--border2);color:var(--text);" type="email" name="email" placeholder="your@email.com" required/>
+          <button type="submit" class="btn-primary">
+            <span data-lang="en" class="active">Send me the guide</span>
+            <span data-lang="ru">Получить гайд</span>
+            <span data-lang="es">Enviarme la guía</span>
+            <span data-lang="uk">Отримати гайд</span>
+            <i data-lucide="download" class="ic-sm"></i>
+          </button>
+        </form>
+        <div id="guideSuccess" style="display:none;margin-top:1.25rem;background:var(--accent2-soft);border:1px solid var(--accent2);border-radius:12px;padding:1.1rem 1.4rem;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--accent2);margin-bottom:6px;display:flex;align-items:center;gap:8px;"><i data-lucide="circle-check-big" class="ic-sm"></i><span data-lang="en" class="active">You're in! Here's your guide.</span><span data-lang="ru">Готово! Вот ваш гайд.</span><span data-lang="es">¡Listo! Aquí está su guía.</span><span data-lang="uk">Готово! Ось ваш гайд.</span></div>
+          <a href="guide-7-processes.html" target="_blank" rel="noopener" class="btn-teal" style="margin-top:6px;">
+            <i data-lucide="file-text" class="ic-sm"></i>
+            <span data-lang="en" class="active">Open the guide →</span>
+            <span data-lang="ru">Открыть гайд →</span>
+            <span data-lang="es">Abrir la guía →</span>
+            <span data-lang="uk">Відкрити гайд →</span>
+          </a>
+        </div>
+        <p style="font-size:12px;color:var(--text3);margin-top:1rem;">
+          <span data-lang="en" class="active">No spam. Unsubscribe anytime. See our </span>
+          <span data-lang="ru">Без спама. Отписка в любой момент. См. </span>
+          <span data-lang="es">Sin spam. Cancele cuando quiera. Vea nuestra </span>
+          <span data-lang="uk">Без спаму. Відписка будь-коли. Див. </span>
+          <a href="privacy.html" style="color:var(--accent);text-decoration:none;font-weight:600;">Privacy Policy</a>.
+        </p>
       </div>
     </div>
   </div>
@@ -715,9 +970,9 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="logo-wrap" href="index.html" style="margin-bottom:12px;display:inline-flex;">
-          <svg width="32" height="32" viewBox="0 0 38 38" fill="none">
-            <rect x="0" y="2" width="34" height="9" rx="2.5" fill="#1a6fc4"/>
-            <rect x="3" y="14" width="28" height="9" rx="2.5" fill="#1a6fc4" opacity="0.68"/>
+          <svg width="32" height="32" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+            <rect x="0" y="2" width="34" height="9" rx="2.5" fill="#2f5fe0"/>
+            <rect x="3" y="14" width="28" height="9" rx="2.5" fill="#2f5fe0" opacity="0.6"/>
             <rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/>
             <circle cx="37" cy="5" r="4" fill="#0e9e7a"/>
             <circle cx="37" cy="5" r="2" fill="white"/>
@@ -728,7 +983,7 @@
           </div>
         </a>
         <p class="footer-tagline">
-          <span data-lang="en" class="active">AI automation for small businesses across EU & UK. We automate what's slowing you down.</span>
+          <span data-lang="en" class="active">AI automation for small businesses across EU &amp; UK. We automate what's slowing you down.</span>
           <span data-lang="ru">ИИ-автоматизация для малого бизнеса в ЕС и Великобритании.</span>
           <span data-lang="es">Automatización IA para pequeñas empresas en UE y Reino Unido.</span>
           <span data-lang="uk">ІІ-автоматизація для малого бізнесу в ЄС та Великобританії.</span>
@@ -738,8 +993,10 @@
         <h4><span data-lang="en" class="active">Services</span><span data-lang="ru">Услуги</span><span data-lang="es">Servicios</span><span data-lang="uk">Послуги</span></h4>
         <a href="services.html"><span data-lang="en" class="active">AI Agent Design</span><span data-lang="ru">Проектирование агентов</span><span data-lang="es">Diseño de agentes</span><span data-lang="uk">Проектування агентів</span></a>
         <a href="services.html"><span data-lang="en" class="active">Workflow Automation</span><span data-lang="ru">Автоматизация воркфлоу</span><span data-lang="es">Automatización</span><span data-lang="uk">Автоматизація</span></a>
-        <a href="services.html"><span data-lang="en" class="active">RAG & Knowledge Bases</span><span data-lang="ru">RAG и базы знаний</span><span data-lang="es">RAG y bases</span><span data-lang="uk">RAG та бази знань</span></a>
+        <a href="services.html"><span data-lang="en" class="active">RAG &amp; Knowledge Bases</span><span data-lang="ru">RAG и базы знаний</span><span data-lang="es">RAG y bases</span><span data-lang="uk">RAG та бази знань</span></a>
         <a href="services.html#pricing"><span data-lang="en" class="active">Pricing</span><span data-lang="ru">Цены</span><span data-lang="es">Precios</span><span data-lang="uk">Ціни</span></a>
+        <a href="restaurants.html"><span data-lang="en" class="active">For Restaurants</span><span data-lang="ru">Для ресторанов</span><span data-lang="es">Para restaurantes</span><span data-lang="uk">Для ресторанів</span></a>
+        <a href="bfs.html"><span data-lang="en" class="active">For Small Business</span><span data-lang="ru">Для малого бизнеса</span><span data-lang="es">Para pequeñas empresas</span><span data-lang="uk">Для малого бізнесу</span></a>
       </div>
       <div class="footer-col">
         <h4><span data-lang="en" class="active">Company</span><span data-lang="ru">Компания</span><span data-lang="es">Empresa</span><span data-lang="uk">Компанія</span></h4>
@@ -758,7 +1015,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 NeolithAI Agency. All rights reserved.</span>
+      <span class="footer-copy">© 2026 NeolithAI Agency. All rights reserved. · <a href="privacy.html" style="color:rgba(255,255,255,0.5);text-decoration:none;">Privacy Policy</a></span>
       <div class="footer-social">
         <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -778,17 +1035,16 @@
 </footer>
 
 <!-- AI CHAT WIDGET -->
-<button class="ai-widget-btn" onclick="toggleChat()" aria-label="Chat with Nео">
-  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-  <svg viewBox="0 0 24 24" style="display:none"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+<button class="ai-widget-btn" onclick="toggleChat()" aria-label="Chat with Neo">
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
   <span class="ai-widget-pulse"></span>
 </button>
 
 <div class="ai-chat-panel" id="aiChatPanel">
   <div class="ai-chat-header">
-    <div class="ai-chat-avatar">🤖</div>
+    <div class="ai-chat-avatar"><i data-lucide="bot" class="ic-sm"></i></div>
     <div class="ai-chat-header-info">
-      <div class="ai-chat-name">Nео · NeolithAI Assistant</div>
+      <div class="ai-chat-name">Neo · NeolithAI Assistant</div>
       <div class="ai-chat-status">
         <span data-lang="en" class="active">Online · replies instantly</span>
         <span data-lang="ru">Онлайн · отвечает мгновенно</span>
@@ -796,210 +1052,192 @@
         <span data-lang="uk">Онлайн · відповідає миттєво</span>
       </div>
     </div>
-    <button class="ai-chat-close" onclick="closeChat()">✕</button>
+    <button class="ai-chat-close" onclick="closeChat()" aria-label="Close chat">✕</button>
   </div>
   <div class="ai-chat-messages" id="aiChatMessages"></div>
   <div class="ai-chat-suggestions" id="aiSuggestions">
-    <button class="ai-suggestion" onclick="sendSuggestion('What services do you offer?')">Services & pricing</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('What services do you offer?')">Services &amp; pricing</button>
     <button class="ai-suggestion" onclick="sendSuggestion('Show me your portfolio')">Portfolio</button>
     <button class="ai-suggestion" onclick="sendSuggestion('I want to book a free consultation')">Book a call</button>
   </div>
   <div class="ai-chat-input-row">
-    <textarea class="ai-chat-input" id="aiChatInput" rows="1" placeholder="Ask me anything..." onkeydown="handleChatKey(event)"></textarea>
-    <button class="ai-chat-send" onclick="var i=document.getElementById('aiChatInput');sendMessage(i.value.trim())">
+    <textarea class="ai-chat-input" id="aiChatInput" rows="1" placeholder="Ask me anything…" onkeydown="handleChatKey(event)"></textarea>
+    <button class="ai-chat-send" onclick="var i=document.getElementById('aiChatInput');sendMessage(i.value.trim())" aria-label="Send">
       <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
     </button>
   </div>
 </div>
 
 <!-- Hidden Netlify form for chat bookings -->
-<form name="chat-booking" netlify style="display:none">
-  <input name="conversation"/>
-</form>
+<form name="chat-booking" netlify hidden><input name="conversation"/></form>
 
+<script src="https://unpkg.com/lucide@latest"></script>
 <script src="neolithai-shared.js"></script>
+<script>
+/* ── ROI CALCULATOR ── */
+function fmtNum(n, lang){
+  try { return new Intl.NumberFormat(lang === 'en' ? 'en-US' : (lang === 'es' ? 'es-ES' : 'ru-RU')).format(Math.round(n)); }
+  catch(e){ return String(Math.round(n)); }
+}
+function updateROI(){
+  var hours = +document.getElementById('roiHours').value;
+  var people = +document.getElementById('roiPeople').value;
+  var rate = +document.getElementById('roiRate').value;
+  var auto = +document.getElementById('roiAuto').value / 100;
+  var lang = (window.currentLang ? currentLang() : 'en');
+
+  var hoursSavedMo = hours * people * auto * 4.33;
+  var monthSave = hoursSavedMo * rate;
+  var yearSave = monthSave * 12;
+  var buildCost = 2000;
+  var payback = monthSave > 0 ? (buildCost / monthSave) : 0;
+
+  document.getElementById('roiHoursV').textContent = hours;
+  document.getElementById('roiPeopleV').textContent = people;
+  document.getElementById('roiRateV').textContent = rate;
+  document.getElementById('roiAutoV').textContent = (auto*100) + '%';
+
+  var hUnit = {en:' h',ru:' ч',es:' h',uk:' г'}[lang] || ' h';
+  document.getElementById('roiHoursMo').textContent = fmtNum(hoursSavedMo, lang) + hUnit;
+  document.getElementById('roiMonth').textContent = fmtNum(monthSave, lang);
+  document.getElementById('roiYear').textContent = fmtNum(yearSave, lang);
+  var pb = payback < 1 ? payback.toFixed(1) : payback.toFixed(1);
+  document.getElementById('roiPayback').textContent = (lang==='en'? payback.toFixed(1) : payback.toFixed(1).replace('.', ','));
+
+  // fill track
+  document.querySelectorAll('.roi-range').forEach(function(r){
+    var pct = (r.value - r.min) / (r.max - r.min) * 100;
+    r.style.background = 'linear-gradient(90deg,var(--accent) ' + pct + '%,var(--bg2) ' + pct + '%)';
+  });
+}
+document.addEventListener('DOMContentLoaded', function(){ updateROI(); });
+// Recompute number formatting/units when language switches
+(function(){
+  var orig = window.setLang;
+  if (typeof orig === 'function'){
+    window.setLang = function(l){ orig(l); try { updateROI(); } catch(e){} };
+  }
+})();
+</script>
+
 <script>
 /* ── HERO CANVAS ANIMATION ── */
 (function() {
   var canvas = document.getElementById('heroCanvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function themeColors(){
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    return {
+      c1: '#2f5fe0', c2: '#0e9e7a',
+      line: dark ? 'rgba(124,160,255,0.16)' : 'rgba(47,95,224,0.13)',
+      g1: dark ? 'rgba(30,42,70,0.0)' : 'rgba(232,238,252,0.0)'
+    };
+  }
 
   function resize() {
-    canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-    canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    var dpr = window.devicePixelRatio || 1;
+    canvas.width = canvas.offsetWidth * dpr;
+    canvas.height = canvas.offsetHeight * dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
   }
   resize();
   window.addEventListener('resize', function() { resize(); drawFrame(); });
 
-  var W = function() { return canvas.offsetWidth; };
-  var H = function() { return canvas.offsetHeight; };
+  var W = function(){ return canvas.offsetWidth; };
+  var H = function(){ return canvas.offsetHeight; };
 
-  // Nodes: three layers
   var LAYERS = [
-    { label: 'INTAKE',      color: '#1a6fc4', y: 0.25, nodes: 4 },
-    { label: 'PROCESSING',  color: '#1a6fc4', y: 0.5,  nodes: 3, opacity: 0.72 },
-    { label: 'OUTPUT',      color: '#0e9e7a', y: 0.75, nodes: 2 },
+    { label:'INTAKE', color:'#2f5fe0', y:0.25, nodes:4 },
+    { label:'PROCESSING', color:'#2f5fe0', y:0.5, nodes:3, opacity:0.72 },
+    { label:'OUTPUT', color:'#0e9e7a', y:0.75, nodes:2 }
   ];
+  var nodes = [], particles = [], t = 0;
 
-  var nodes = [];
-  var particles = [];
-  var t = 0;
-
-  function buildNodes() {
+  function buildNodes(){
     nodes = [];
-    LAYERS.forEach(function(layer, li) {
-      var n = layer.nodes;
-      for (var i = 0; i < n; i++) {
+    LAYERS.forEach(function(layer, li){
+      for (var i=0;i<layer.nodes;i++){
         nodes.push({
-          x: (i + 1) / (n + 1),
-          y: layer.y,
-          layer: li,
-          color: layer.color,
-          opacity: layer.opacity || 1,
-          r: 10,
-          pulse: Math.random() * Math.PI * 2,
-          label: li === 0 ? ['Form','File','API','Msg'][i] :
-                 li === 1 ? ['Classify','Score','Decide'][i] :
-                 ['Report','Notify'][i]
+          x:(i+1)/(layer.nodes+1), y:layer.y, layer:li, color:layer.color,
+          opacity:layer.opacity||1, r:10, pulse:Math.random()*Math.PI*2,
+          label: li===0?['Form','File','API','Msg'][i]:li===1?['Classify','Score','Decide'][i]:['Report','Notify'][i]
         });
       }
     });
   }
   buildNodes();
 
-  function spawnParticle() {
-    // Pick random edge from layer 0→1 or 1→2
-    var fromLayer = Math.random() < 0.5 ? 0 : 1;
-    var toLayer = fromLayer + 1;
-    var fromNodes = nodes.filter(function(n) { return n.layer === fromLayer; });
-    var toNodes = nodes.filter(function(n) { return n.layer === toLayer; });
-    if (!fromNodes.length || !toNodes.length) return;
-    var from = fromNodes[Math.floor(Math.random() * fromNodes.length)];
-    var to = toNodes[Math.floor(Math.random() * toNodes.length)];
-    particles.push({
-      x: from.x, y: from.y,
-      tx: to.x, ty: to.y,
-      progress: 0,
-      speed: 0.008 + Math.random() * 0.006,
-      color: to.color,
-      size: 4
-    });
+  function spawnParticle(){
+    var fromLayer = Math.random()<0.5?0:1, toLayer = fromLayer+1;
+    var fn = nodes.filter(function(n){return n.layer===fromLayer;});
+    var tn = nodes.filter(function(n){return n.layer===toLayer;});
+    if(!fn.length||!tn.length) return;
+    var a=fn[Math.floor(Math.random()*fn.length)], b=tn[Math.floor(Math.random()*tn.length)];
+    particles.push({x:a.x,y:a.y,tx:b.x,ty:b.y,progress:0,speed:0.008+Math.random()*0.006,color:b.color,size:4});
   }
 
-  function drawFrame() {
-    var w = W(), h = H();
-    ctx.clearRect(0, 0, w, h);
-    t += 0.012;
+  function hexToRgba(hex,a){var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),bl=parseInt(hex.slice(5,7),16);return 'rgba('+r+','+g+','+bl+','+a+')';}
 
-    // Background gradient
-    var grad = ctx.createLinearGradient(0, 0, w, h);
-    grad.addColorStop(0, 'rgba(232,241,251,0.6)');
-    grad.addColorStop(1, 'rgba(234,245,240,0.6)');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, w, h);
-
-    // Draw connections
-    for (var li = 0; li < LAYERS.length - 1; li++) {
-      var fromLayer = nodes.filter(function(n) { return n.layer === li; });
-      var toLayer = nodes.filter(function(n) { return n.layer === li + 1; });
-      fromLayer.forEach(function(fn) {
-        toLayer.forEach(function(tn) {
-          ctx.beginPath();
-          ctx.moveTo(fn.x * w, fn.y * h);
-          ctx.lineTo(tn.x * w, tn.y * h);
-          ctx.strokeStyle = 'rgba(26,111,196,0.12)';
-          ctx.lineWidth = 1.5;
-          ctx.stroke();
-        });
-      });
+  function drawFrame(){
+    var w=W(), h=H(), col=themeColors();
+    ctx.clearRect(0,0,w,h);
+    t+=0.012;
+    for (var li=0; li<LAYERS.length-1; li++){
+      var fl=nodes.filter(function(n){return n.layer===li;});
+      var tl=nodes.filter(function(n){return n.layer===li+1;});
+      fl.forEach(function(fnn){ tl.forEach(function(tnn){
+        ctx.beginPath();ctx.moveTo(fnn.x*w,fnn.y*h);ctx.lineTo(tnn.x*w,tnn.y*h);
+        ctx.strokeStyle=col.line;ctx.lineWidth=1.5;ctx.stroke();
+      });});
     }
-
-    // Draw layer bars
-    LAYERS.forEach(function(layer) {
-      var layerNodes = nodes.filter(function(n) { return n.layer === LAYERS.indexOf(layer); });
-      if (!layerNodes.length) return;
-      var xs = layerNodes.map(function(n) { return n.x * w; });
-      var minX = Math.min.apply(null, xs) - 30;
-      var maxX = Math.max.apply(null, xs) + 30;
-      var yy = layer.y * h;
-      var alpha = layer.opacity || 1;
-      ctx.beginPath();
-      ctx.roundRect(minX, yy - 18, maxX - minX, 36, 8);
-      ctx.fillStyle = hexToRgba(layer.color, 0.1 * alpha);
-      ctx.fill();
-      ctx.strokeStyle = hexToRgba(layer.color, 0.3 * alpha);
-      ctx.lineWidth = 1;
-      ctx.stroke();
-      ctx.fillStyle = hexToRgba(layer.color, 0.8 * alpha);
-      ctx.font = 'bold 10px "Segoe UI",system-ui,sans-serif';
-      ctx.letterSpacing = '2px';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(layer.label, (minX + maxX) / 2, yy);
+    LAYERS.forEach(function(layer){
+      var ln=nodes.filter(function(n){return n.layer===LAYERS.indexOf(layer);});
+      if(!ln.length) return;
+      var xs=ln.map(function(n){return n.x*w;});
+      var minX=Math.min.apply(null,xs)-30, maxX=Math.max.apply(null,xs)+30, yy=layer.y*h, alpha=layer.opacity||1;
+      ctx.beginPath();ctx.roundRect(minX,yy-18,maxX-minX,36,10);
+      ctx.fillStyle=hexToRgba(layer.color,0.1*alpha);ctx.fill();
+      ctx.strokeStyle=hexToRgba(layer.color,0.28*alpha);ctx.lineWidth=1;ctx.stroke();
+      ctx.fillStyle=hexToRgba(layer.color,0.85*alpha);
+      ctx.font='600 10px "JetBrains Mono",monospace';ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillText(layer.label,(minX+maxX)/2,yy);
     });
-
-    // Draw nodes
-    nodes.forEach(function(node) {
-      var nx = node.x * w, ny = node.y * h;
-      var pulse = Math.sin(t * 1.5 + node.pulse) * 2;
-      var r = node.r + pulse;
-
-      // Glow
-      var glow = ctx.createRadialGradient(nx, ny, 0, nx, ny, r * 2.5);
-      glow.addColorStop(0, hexToRgba(node.color, 0.3 * node.opacity));
-      glow.addColorStop(1, hexToRgba(node.color, 0));
-      ctx.beginPath();
-      ctx.arc(nx, ny, r * 2.5, 0, Math.PI * 2);
-      ctx.fillStyle = glow;
-      ctx.fill();
-
-      // Circle
-      ctx.beginPath();
-      ctx.arc(nx, ny, r, 0, Math.PI * 2);
-      ctx.fillStyle = hexToRgba(node.color, node.opacity);
-      ctx.fill();
-      ctx.strokeStyle = 'white';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      // Label
-      ctx.fillStyle = hexToRgba(node.color, 0.8 * node.opacity);
-      ctx.font = '11px "Segoe UI",system-ui,sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'top';
-      ctx.fillText(node.label, nx, ny + r + 4);
+    nodes.forEach(function(node){
+      var nx=node.x*w, ny=node.y*h, pulse=reduced?0:Math.sin(t*1.5+node.pulse)*2, r=node.r+pulse;
+      var glow=ctx.createRadialGradient(nx,ny,0,nx,ny,r*2.5);
+      glow.addColorStop(0,hexToRgba(node.color,0.28*node.opacity));glow.addColorStop(1,hexToRgba(node.color,0));
+      ctx.beginPath();ctx.arc(nx,ny,r*2.5,0,Math.PI*2);ctx.fillStyle=glow;ctx.fill();
+      ctx.beginPath();ctx.arc(nx,ny,r,0,Math.PI*2);ctx.fillStyle=hexToRgba(node.color,node.opacity);ctx.fill();
+      ctx.strokeStyle='rgba(255,255,255,0.85)';ctx.lineWidth=2;ctx.stroke();
+      ctx.fillStyle=hexToRgba(node.color,0.85*node.opacity);
+      ctx.font='11px "Plus Jakarta Sans",sans-serif';ctx.textAlign='center';ctx.textBaseline='top';
+      ctx.fillText(node.label,nx,ny+r+5);
     });
-
-    // Update & draw particles
-    particles = particles.filter(function(p) { return p.progress < 1; });
-    particles.forEach(function(p) {
-      p.progress += p.speed;
-      var ex = p.x + (p.tx - p.x) * p.progress;
-      var ey = p.y + (p.ty - p.y) * p.progress;
-      var nx = ex * w, ny = ey * h;
-      ctx.beginPath();
-      ctx.arc(nx, ny, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = p.color;
-      ctx.globalAlpha = 1 - p.progress * 0.5;
-      ctx.fill();
-      ctx.globalAlpha = 1;
+    particles=particles.filter(function(p){return p.progress<1;});
+    particles.forEach(function(p){
+      p.progress+=p.speed;
+      var ex=p.x+(p.tx-p.x)*p.progress, ey=p.y+(p.ty-p.y)*p.progress;
+      ctx.beginPath();ctx.arc(ex*w,ey*h,p.size,0,Math.PI*2);
+      ctx.fillStyle=p.color;ctx.globalAlpha=1-p.progress*0.5;ctx.fill();ctx.globalAlpha=1;
     });
-
-    // Spawn particles
-    if (Math.random() < 0.06) spawnParticle();
+    if(!reduced && Math.random()<0.06) spawnParticle();
   }
 
-  function hexToRgba(hex, alpha) {
-    var r = parseInt(hex.slice(1,3),16);
-    var g = parseInt(hex.slice(3,5),16);
-    var b = parseInt(hex.slice(5,7),16);
-    return 'rgba('+r+','+g+','+b+','+alpha+')';
-  }
+  var running=false, rafId=null;
+  function loop(){ drawFrame(); rafId=requestAnimationFrame(loop); }
+  function start(){ if(running) return; running=true; loop(); }
+  function stop(){ running=false; if(rafId) cancelAnimationFrame(rafId); }
 
-  function loop() { drawFrame(); requestAnimationFrame(loop); }
-  loop();
+  if (reduced){ drawFrame(); }
+  else {
+    if ('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?start():stop();});},{threshold:0.05});
+      io.observe(canvas);
+    } else { start(); }
+  }
 })();
 </script>
 </body>
