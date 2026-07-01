@@ -2,7 +2,7 @@
 
 > *We don't automate for the sake of automation. We automate what's slowing you down.*
 
-**[neolithai.netlify.app](https://neolithai.netlify.app)** · [LinkedIn](https://www.linkedin.com/in/yevhenii-nohin-06b403347/) · [Upwork](https://www.upwork.com/freelancers/~013cd102dcb30a209f)
+**[https://neolithai.netlify.app](https://neolithai.agency/)** · [LinkedIn](https://www.linkedin.com/in/yevhenii-nohin-06b403347/) · [Upwork](https://www.upwork.com/freelancers/~013cd102dcb30a209f)
 
 ---
 
