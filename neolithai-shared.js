@@ -195,6 +195,7 @@ function initContactForm() {
 ══════════════════════════════════════════════ */
 var chatHistory = [];
 var chatState = 'idle';
+var chatSessionId = null;
 
 function toggleChat() {
   var panel = document.getElementById('aiChatPanel');
@@ -253,7 +254,7 @@ async function sendMessage(text) {
     var response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: chatHistory })
+      body: JSON.stringify({ messages: chatHistory, sessionId: chatSessionId })
     });
     var data = await response.json();
     removeTyping();
@@ -289,6 +290,17 @@ function initChat() {
   var messages = document.getElementById('aiChatMessages');
   if (!messages) return;
   var lang = currentLang();
+  // Restore or create a stable session id so server-side logging groups
+  // messages from the same browser tab into a single conversation record
+  try {
+    chatSessionId = sessionStorage.getItem('neo_session_id');
+  } catch(e) {}
+  if (!chatSessionId) {
+    chatSessionId = (window.crypto && window.crypto.randomUUID)
+      ? window.crypto.randomUUID()
+      : 'sess-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+    try { sessionStorage.setItem('neo_session_id', chatSessionId); } catch(e) {}
+  }
   // Restore prior conversation from this browser session
   var saved = null;
   try { saved = JSON.parse(sessionStorage.getItem('neo_chat') || 'null'); } catch(e) {}

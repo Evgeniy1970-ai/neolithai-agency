@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Neo Conversations — Admin</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:#0f1720;color:#e8edf4;padding:2rem 1.25rem;line-height:1.6;
+  }
+  .wrap{max-width:820px;margin:0 auto;}
+  h1{font-size:1.4rem;margin-bottom:1.5rem;}
+  .login-box{
+    background:#182430;border:1px solid #2a3a4a;border-radius:10px;
+    padding:1.5rem;max-width:360px;margin:3rem auto;text-align:center;
+  }
+  .login-box input{
+    width:100%;padding:10px 12px;border-radius:6px;border:1px solid #2a3a4a;
+    background:#0f1720;color:#e8edf4;font-size:14px;margin:12px 0;outline:none;
+  }
+  .login-box button, .refresh-btn{
+    background:#1a6fc4;color:#fff;border:none;padding:10px 20px;
+    border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;width:100%;
+  }
+  .login-box button:hover, .refresh-btn:hover{background:#155da0;}
+  .error{color:#e06a6a;font-size:13px;margin-top:8px;display:none;}
+  #dashboard{display:none;}
+  .toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;}
+  .refresh-btn{width:auto;padding:8px 16px;font-size:13px;}
+  .stat-row{display:flex;gap:12px;margin-bottom:1.5rem;flex-wrap:wrap;}
+  .stat{background:#182430;border:1px solid #2a3a4a;border-radius:8px;padding:10px 16px;font-size:13px;color:#9fb3c8;}
+  .stat b{color:#fff;font-size:16px;display:block;}
+  .convo{
+    background:#182430;border:1px solid #2a3a4a;border-radius:10px;
+    padding:14px 18px;margin-bottom:14px;
+  }
+  .convo-head{display:flex;justify-content:space-between;font-size:12px;color:#9fb3c8;margin-bottom:10px;flex-wrap:wrap;gap:6px;}
+  .badge{background:#0e9e7a;color:#fff;padding:2px 9px;border-radius:12px;font-size:11px;font-weight:600;}
+  .msg{padding:8px 12px;border-radius:8px;margin-bottom:6px;font-size:13.5px;max-width:90%;}
+  .msg-user{background:#1a6fc4;color:#fff;margin-left:auto;}
+  .msg-assistant{background:#22303c;color:#e8edf4;}
+  .empty{color:#9fb3c8;text-align:center;padding:3rem 0;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>💬 Neo — Conversation Log</h1>
+
+  <div class="login-box" id="loginBox">
+    <p style="margin-bottom:8px;color:#9fb3c8;font-size:13px">Enter admin password to view conversations</p>
+    <input type="password" id="pwInput" placeholder="Password" />
+    <button onclick="login()">View Conversations</button>
+    <div class="error" id="loginError">Incorrect password.</div>
+  </div>
+
+  <div id="dashboard">
+    <div class="toolbar">
+      <div class="stat-row" id="statRow"></div>
+      <button class="refresh-btn" onclick="loadChats()">↻ Refresh</button>
+    </div>
+    <div id="convoList"></div>
+  </div>
+</div>
+
+<script>
+let adminPassword = '';
+
+function login() {
+  const input = document.getElementById('pwInput');
+  adminPassword = input.value;
+  loadChats();
+}
+
+async function loadChats() {
+  try {
+    const res = await fetch('/.netlify/functions/admin-chats', {
+      headers: { 'x-admin-password': adminPassword }
+    });
+    if (res.status === 401) {
+      document.getElementById('loginError').style.display = 'block';
+      return;
+    }
+    const data = await res.json();
+    document.getElementById('loginBox').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    renderConversations(data.conversations || []);
+    try { sessionStorage.setItem('neoAdminPw', adminPassword); } catch(e) {}
+  } catch (e) {
+    alert('Failed to load conversations. Check console for details.');
+    console.error(e);
+  }
+}
+
+function renderConversations(conversations) {
+  const statRow = document.getElementById('statRow');
+  const total = conversations.length;
+  const bookings = conversations.filter(c => c.bookingConfirmed).length;
+  statRow.innerHTML =
+    '<div class="stat"><b>' + total + '</b>Total conversations</div>' +
+    '<div class="stat"><b>' + bookings + '</b>Bookings confirmed</div>';
+
+  const list = document.getElementById('convoList');
+  if (total === 0) {
+    list.innerHTML = '<div class="empty">No conversations yet.</div>';
+    return;
+  }
+
+  list.innerHTML = conversations.map(function(c) {
+    const date = new Date(c.updatedAt).toLocaleString();
+    const msgs = (c.messages || []).map(function(m) {
+      const cls = m.role === 'user' ? 'msg-user' : 'msg-assistant';
+      return '<div class="msg ' + cls + '">' + escapeHtml(m.content) + '</div>';
+    }).join('');
+    return '<div class="convo">' +
+      '<div class="convo-head"><span>' + date + '</span>' +
+      (c.bookingConfirmed ? '<span class="badge">Booking confirmed</span>' : '') +
+      '</div>' + msgs + '</div>';
+  }).join('');
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str || '';
+  return div.innerHTML;
+}
+
+// Auto-login if password was already entered this session
+(function() {
+  try {
+    const saved = sessionStorage.getItem('neoAdminPw');
+    if (saved) { adminPassword = saved; loadChats(); }
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>
