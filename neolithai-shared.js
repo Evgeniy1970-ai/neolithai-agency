@@ -12,10 +12,10 @@ var NAV_LABELS = {
 var NAV_KEYS = ['services','cases','about','blog','contact','book'];
 
 var CHAT_TXT = {
-  en: { welcome: "Hi! I'm Neo, NeolithAI's assistant 👋 I can tell you about our services, pricing, or book you a free 30-min consultation. How can I help?", placeholder: "Ask me anything…", error: "Sorry, I'm having trouble connecting right now. Please email us at neolith2018ai@gmail.com" },
-  ru: { welcome: "Привет! Я Neo, ассистент NeolithAI 👋 Расскажу об услугах и ценах или запишу вас на бесплатную 30-минутную консультацию. Чем помочь?", placeholder: "Спросите что угодно…", error: "Извините, не получается подключиться. Напишите нам на neolith2018ai@gmail.com" },
-  es: { welcome: "¡Hola! Soy Neo, el asistente de NeolithAI 👋 Puedo contarte sobre servicios, precios o reservarte una consulta gratuita de 30 min. ¿En qué ayudo?", placeholder: "Pregúntame lo que sea…", error: "Lo siento, no puedo conectar ahora. Escríbenos a neolith2018ai@gmail.com" },
-  uk: { welcome: "Привіт! Я Neo, асистент NeolithAI 👋 Розкажу про послуги й ціни або запишу вас на безкоштовну 30-хвилинну консультацію. Чим допомогти?", placeholder: "Запитайте будь-що…", error: "Вибачте, не вдається підключитися. Напишіть нам на neolith2018ai@gmail.com" }
+  en: { welcome: "Hi, I'm Neo — an AI assistant, not a human. I can answer questions about NeolithAI's services and automation in general. For anything specific to your business, I'll pass you to Yevhenii.", placeholder: "Ask me anything…", error: "Sorry, I'm having trouble connecting right now. Please email us at neolith2018ai@gmail.com" },
+  ru: { welcome: "Здравствуйте, я Neo — AI-ассистент, а не человек. Отвечу на вопросы об услугах NeolithAI и об автоматизации в целом. По конкретике вашего бизнеса передам Евгению.", placeholder: "Спросите что угодно…", error: "Извините, не получается подключиться. Напишите нам на neolith2018ai@gmail.com" },
+  es: { welcome: "Hola, soy Neo — un asistente de IA, no una persona. Puedo responder preguntas sobre los servicios de NeolithAI y sobre automatización en general. Para algo específico de su empresa, le pasaré con Yevhenii.", placeholder: "Pregúntame lo que sea…", error: "Lo siento, no puedo conectar ahora. Escríbenos a neolith2018ai@gmail.com" },
+  uk: { welcome: "Вітаю, я Neo — AI-асистент, а не людина. Відповім на питання про послуги NeolithAI та про автоматизацію загалом. Щодо конкретики вашого бізнесу передам Євгенію.", placeholder: "Запитайте будь-що…", error: "Вибачте, не вдається підключитися. Напишіть нам на neolith2018ai@gmail.com" }
 };
 
 function currentLang() {
@@ -195,7 +195,6 @@ function initContactForm() {
 ══════════════════════════════════════════════ */
 var chatHistory = [];
 var chatState = 'idle';
-var chatSessionId = null;
 
 function toggleChat() {
   var panel = document.getElementById('aiChatPanel');
@@ -254,7 +253,7 @@ async function sendMessage(text) {
     var response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: chatHistory, sessionId: chatSessionId })
+      body: JSON.stringify({ messages: chatHistory })
     });
     var data = await response.json();
     removeTyping();
@@ -290,17 +289,6 @@ function initChat() {
   var messages = document.getElementById('aiChatMessages');
   if (!messages) return;
   var lang = currentLang();
-  // Restore or create a stable session id so server-side logging groups
-  // messages from the same browser tab into a single conversation record
-  try {
-    chatSessionId = sessionStorage.getItem('neo_session_id');
-  } catch(e) {}
-  if (!chatSessionId) {
-    chatSessionId = (window.crypto && window.crypto.randomUUID)
-      ? window.crypto.randomUUID()
-      : 'sess-' + Date.now() + '-' + Math.random().toString(36).slice(2);
-    try { sessionStorage.setItem('neo_session_id', chatSessionId); } catch(e) {}
-  }
   // Restore prior conversation from this browser session
   var saved = null;
   try { saved = JSON.parse(sessionStorage.getItem('neo_chat') || 'null'); } catch(e) {}

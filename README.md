@@ -2,7 +2,7 @@
 
 > *We don't automate for the sake of automation. We automate what's slowing you down.*
 
-**[https://neolithai.netlify.app](https://neolithai.agency/)** · [LinkedIn](https://www.linkedin.com/in/yevhenii-nohin-06b403347/) · [Upwork](https://www.upwork.com/freelancers/~013cd102dcb30a209f)
+**[neolithai.netlify.app](https://neolithai.netlify.app)** · [LinkedIn](https://www.linkedin.com/in/yevhenii-nohin-06b403347/) · [Upwork](https://www.upwork.com/freelancers/~013cd102dcb30a209f)
 
 ---
 
@@ -46,7 +46,7 @@ This is the source code for the **NeolithAI Agency website** — a fully static,
 |---------|----------|-------|------|
 | AI Content Master | Content / Social Media | n8n · GPT-4o · DALL-E 3 · Telegram | [GitHub](https://github.com/Evgeniy1970-ai/ai-content-scout) |
 | Restaurant AI Suite | Restaurant / HoReCa | n8n · GPT-4o · DALL-E 3 · Supabase | [GitHub](https://github.com/Evgeniy1970-ai/restaurant-ai-suite) |
-| CV Screening Agent | HR / Recruiting | n8n · GPT-4o · Google Sheets · Telegram | [GitHub](https://github.com/Evgeniy1970-ai/CV-Screening-Agent) |
+| CV Parsing & Structuring | HR / Recruiting | n8n · GPT-4o · Google Sheets · Telegram | [GitHub](https://github.com/Evgeniy1970-ai/CV-Screening-Agent) |
 | BFS Suite — Big For Small | Customer Support / RAG | n8n · Claude API · Supabase · pgvector | [GitHub](https://github.com/Evgeniy1970-ai/bfs-suite) |
 | AI Lead Generation Agent | B2B Sales / Lead Gen | n8n · GPT-4o · Google Maps API · Gmail | [GitHub](https://github.com/Evgeniy1970-ai/AI-Lead-Gen-Production-Full-Workflow_production) |
 
@@ -54,14 +54,9 @@ This is the source code for the **NeolithAI Agency website** — a fully static,
 
 ## Services & Pricing
 
-**Project Packages (one-time)**
-- **Starter** — from €800 · Ready-made solution, setup & configuration
-- **Professional** — from €2,000 · Custom AI agent, 1-2 workflows, full docs
-- **Advanced** — from €5,000 · Multi-agent system, dashboard, SOPs
-
-**Monthly Care (retainer)**
-- **Basic Care** — from €200/month · Monitoring, bug fixes, 2h support
-- **Pro Care** — from €500/month · Development, new agents, priority support
+**How we start**
+- **Process diagnostics** — €200 · 2-4 hour review of one process, process map + 3 automation candidates
+- **Implementation** — from €400 · Priced per scope after the diagnostics call
 
 🎯 **Free 30-min consultation** — [Book here](mailto:neolith2018ai@gmail.com?subject=Free%20Consultation%20Request)
 

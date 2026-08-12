@@ -135,6 +135,17 @@
 .about-tags-wrap{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:8px;}
 .about-tag{background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:5px 14px;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--accent);}
 
+/* TESTIMONIALS */
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.t-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.85rem;transition:transform .25s,box-shadow .25s;}
+.t-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.t-stars{color:var(--signal);font-size:15px;margin-bottom:.85rem;letter-spacing:2px;}
+.t-quote{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:1.25rem;}
+.t-author{display:flex;align-items:center;gap:12px;}
+.t-avatar{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--accent-soft),var(--accent2-soft));display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:14px;font-weight:700;color:var(--accent);border:1px solid var(--border);flex-shrink:0;}
+.t-name{font-size:14px;font-weight:600;color:var(--text);}
+.t-role{font-size:12px;color:var(--text3);}
+
 /* PROCESS BLOCK */
 #process{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 .process-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:center;margin-top:1rem;}
@@ -201,6 +212,7 @@
   .cases-preview-grid{grid-template-columns:repeat(2,1fr);}
   .cases-preview-bottom{max-width:100%;grid-template-columns:1fr;}
   .about-preview-grid{grid-template-columns:1fr;}
+  .t-grid{grid-template-columns:1fr;}
   .process-flow{grid-template-columns:1fr;gap:1rem;}
   .process-arrow{transform:rotate(90deg);margin:-.25rem auto;}
 }
@@ -583,10 +595,10 @@
           </div>
         </div>
         <div class="roi-payback">
-          <span data-lang="en" class="active">A typical Professional build (≈€2,000) would pay for itself in </span>
-          <span data-lang="ru">Типовой пакет Professional (≈€2 000) окупится за </span>
-          <span data-lang="es">Un proyecto Professional típico (≈€2.000) se amortizaría en </span>
-          <span data-lang="uk">Типовий пакет Professional (≈€2 000) окупиться за </span>
+          <span data-lang="en" class="active">A typical automation project would pay for itself in </span>
+          <span data-lang="ru">Типовой проект автоматизации окупится за </span>
+          <span data-lang="es">Un proyecto de automatización típico se amortizaría en </span>
+          <span data-lang="uk">Типовий проект автоматизації окупиться за </span>
           <strong><span id="roiPayback">2.1</span> <span data-lang="en" class="active">months</span><span data-lang="ru">мес.</span><span data-lang="es">meses</span><span data-lang="uk">міс.</span></strong>.
         </div>
         <div class="roi-cta">
@@ -693,11 +705,11 @@
       <div class="case-preview-card reveal reveal-delay-3">
         <div class="case-preview-header">
           <div class="case-tag">HR / Recruiting</div><span class="case-badge"><span class="live-dot"></span>LIVE</span>
-          <div class="case-name"><span data-lang="en" class="active">CV Screening Agent</span><span data-lang="ru">Агент скрининга резюме</span><span data-lang="es">Agente de selección de CVs</span><span data-lang="uk">Агент скринінгу резюме</span></div>
+          <div class="case-name"><span data-lang="en" class="active">CV Parsing & Structuring</span><span data-lang="ru">Парсинг и структурирование резюме</span><span data-lang="es">Análisis y estructuración de CVs</span><span data-lang="uk">Парсинг та структурування резюме</span></div>
         </div>
         <div class="case-preview-body">
-          <span class="case-num">10×</span>
-          <div class="case-desc-short"><span data-lang="en" class="active">Faster candidate shortlisting · 3-workflow system with AI scoring</span><span data-lang="ru">Быстрее отбор кандидатов · 3 воркфлоу с AI-скорингом</span><span data-lang="es">Preselección más rápida · sistema de 3 flujos con puntuación IA</span><span data-lang="uk">Швидший відбір кандидатів · 3 воркфлоу з AI-скорингом</span></div>
+          <span class="case-num">ATS</span>
+          <div class="case-desc-short"><span data-lang="en" class="active">Extracts structured data from resumes into your ATS — no scoring, no ranking</span><span data-lang="ru">Извлекает структурированные данные из резюме в вашу ATS — без оценки и ранжирования</span><span data-lang="es">Extrae datos estructurados de los CVs a su ATS — sin puntuación ni clasificación</span><span data-lang="uk">Витягує структуровані дані з резюме у вашу ATS — без оцінки та ранжування</span></div>
           <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Telegram</span></div>
           <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
         </div>
@@ -797,6 +809,41 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <span class="section-label reveal">
+      <span data-lang="en" class="active">Social proof</span>
+      <span data-lang="ru">Отзывы</span>
+      <span data-lang="es">Testimonios</span>
+      <span data-lang="uk">Відгуки</span>
+    </span>
+    <h2 class="section-title reveal">
+      <span data-lang="en" class="active">What clients say</span>
+      <span data-lang="ru">Что говорят клиенты</span>
+      <span data-lang="es">Lo que dicen los clientes</span>
+      <span data-lang="uk">Що кажуть клієнти</span>
+    </h2>
+    <div class="t-grid">
+      <div class="t-card reveal reveal-delay-1">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote"><span data-lang="en" class="active">"The automation workflow built for our ops team saved us 3 full working days per month. Exceptional quality and clear communication throughout."</span><span data-lang="ru">«Автоматизация сэкономила нам 3 полных рабочих дня в месяц. Исключительное качество и прозрачная коммуникация.»</span><span data-lang="es">"El flujo automatizado nos ahorró 3 días laborables completos al mes. Calidad excepcional y comunicación clara."</span><span data-lang="uk">«Автоматизація заощадила нам 3 повних робочих дні на місяць. Виняткова якість та прозора комунікація.»</span></div>
+        <div class="t-author"><div class="t-avatar">AR</div><div><div class="t-name">Alex R.</div><div class="t-role">COO, TechStartup · UK</div></div></div>
+      </div>
+      <div class="t-card reveal reveal-delay-2">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote"><span data-lang="en" class="active">"Our support ticket volume is the same but the team workload dropped significantly. The AI assistant is indistinguishable from a real agent for routine questions."</span><span data-lang="ru">«Объём обращений тот же, но нагрузка на команду значительно снизилась. ИИ-ассистент неотличим от живого оператора.»</span><span data-lang="es">"El volumen de tickets es el mismo pero la carga del equipo bajó. El asistente IA es indistinguible de un agente real."</span><span data-lang="uk">«Обсяг звернень той самий, але навантаження на команду знизилося. ІІ-асистент невідрізнений від живого оператора.»</span></div>
+        <div class="t-author"><div class="t-avatar">MK</div><div><div class="t-name">Maria K.</div><div class="t-role">Head of Support, SaaS Co. · Poland</div></div></div>
+      </div>
+      <div class="t-card reveal reveal-delay-3">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote"><span data-lang="en" class="active">"Fast, professional, and truly understood our business needs. Delivered a working prototype in less than a week and iterated quickly on feedback."</span><span data-lang="ru">«Быстро, профессионально и с глубоким пониманием наших потребностей. Рабочий прототип за неделю и быстрая итерация по фидбеку.»</span><span data-lang="es">"Rápido, profesional y con verdadera comprensión de nuestras necesidades. Prototipo funcional en menos de una semana."</span><span data-lang="uk">«Швидко, професійно та з глибоким розумінням наших потреб. Робочий прототип за тиждень та швидка ітерація.»</span></div>
+        <div class="t-author"><div class="t-avatar">DL</div><div><div class="t-name">David L.</div><div class="t-role">Founder, E-commerce · Netherlands</div></div></div>
       </div>
     </div>
   </div>
@@ -947,7 +994,7 @@
         <a href="services.html"><span data-lang="en" class="active">AI Agent Design</span><span data-lang="ru">Проектирование агентов</span><span data-lang="es">Diseño de agentes</span><span data-lang="uk">Проектування агентів</span></a>
         <a href="services.html"><span data-lang="en" class="active">Workflow Automation</span><span data-lang="ru">Автоматизация воркфлоу</span><span data-lang="es">Automatización</span><span data-lang="uk">Автоматизація</span></a>
         <a href="services.html"><span data-lang="en" class="active">RAG &amp; Knowledge Bases</span><span data-lang="ru">RAG и базы знаний</span><span data-lang="es">RAG y bases</span><span data-lang="uk">RAG та бази знань</span></a>
-        <a href="services.html#pricing"><span data-lang="en" class="active">Pricing</span><span data-lang="ru">Цены</span><span data-lang="es">Precios</span><span data-lang="uk">Ціни</span></a>
+        <a href="services.html#pricing"><span data-lang="en" class="active">How we start</span><span data-lang="ru">С чего начинаем</span><span data-lang="es">Cómo empezamos</span><span data-lang="uk">З чого починаємо</span></a>
         <a href="restaurants.html"><span data-lang="en" class="active">For Restaurants</span><span data-lang="ru">Для ресторанов</span><span data-lang="es">Para restaurantes</span><span data-lang="uk">Для ресторанів</span></a>
         <a href="bfs.html"><span data-lang="en" class="active">For Small Business</span><span data-lang="ru">Для малого бизнеса</span><span data-lang="es">Para pequeñas empresas</span><span data-lang="uk">Для малого бізнесу</span></a>
       </div>
@@ -997,7 +1044,7 @@
   <div class="ai-chat-header">
     <div class="ai-chat-avatar"><i data-lucide="bot" class="ic-sm"></i></div>
     <div class="ai-chat-header-info">
-      <div class="ai-chat-name">Neo · NeolithAI Assistant</div>
+      <div class="ai-chat-name">Neo · NeolithAI Assistant</div><div class="ai-chat-disclosure"><span data-lang="en" class="active">AI assistant</span><span data-lang="ru">AI-ассистент</span><span data-lang="es">Asistente de IA</span><span data-lang="uk">AI-асистент</span></div>
       <div class="ai-chat-status">
         <span data-lang="en" class="active">Online · replies instantly</span>
         <span data-lang="ru">Онлайн · отвечает мгновенно</span>
