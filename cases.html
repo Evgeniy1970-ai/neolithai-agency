@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Case Studies — NeolithAI Agency</title>
-<meta name="description" content="5 production-ready AI automation projects — Restaurant AI Suite, BFS, CV Parsing & Structuring, AI Lead Gen, AI Content Master. Real systems, real results."/>
+<meta name="description" content="6 AI automation projects — Kestrel Invoice Bench, Restaurant AI Suite, BFS, CV Parsing &amp; Structuring, AI Lead Gen, AI Content Master. Real systems, measured results."/>
 <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
@@ -72,6 +72,17 @@
   background:var(--accent2);color:#fff;font-size:11px;font-weight:700;
   letter-spacing:1px;text-transform:uppercase;
   padding:4px 12px;border-radius:20px;width:fit-content;
+}
+.case-measured-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#2f5fe0;color:#fff;font-size:11px;font-weight:700;
+  letter-spacing:1px;font-family:var(--mono);
+  padding:4px 12px;border-radius:20px;width:fit-content;
+}
+.case-measured-dot{width:6px;height:6px;border-radius:50%;background:#fff;}
+.case-note{
+  font-size:13px;line-height:1.7;color:var(--text2);opacity:.8;
+  border-left:2px solid var(--border);padding-left:14px;margin:1.25rem 0 0;text-wrap:pretty;
 }
 .case-live-dot{
   width:6px;height:6px;border-radius:50%;background:#fff;
@@ -197,16 +208,16 @@
       <span data-lang="uk">Production-ready портфоліо</span>
     </span>
     <h1 class="reveal">
-      <span data-lang="en" class="active">5 AI Systems.<br><span class="accent">Real Results.</span></span>
-      <span data-lang="ru">5 ИИ-систем.<br><span class="accent">Реальные результаты.</span></span>
-      <span data-lang="es">5 Sistemas IA.<br><span class="accent">Resultados Reales.</span></span>
-      <span data-lang="uk">5 ІІ-систем.<br><span class="accent">Реальні результати.</span></span>
+      <span data-lang="en" class="active">6 AI Systems.<br><span class="accent">Real Results.</span></span>
+      <span data-lang="ru">6 ИИ-систем.<br><span class="accent">Реальные результаты.</span></span>
+      <span data-lang="es">6 Sistemas IA.<br><span class="accent">Resultados Reales.</span></span>
+      <span data-lang="uk">6 ІІ-систем.<br><span class="accent">Реальні результати.</span></span>
     </h1>
     <p class="reveal">
-      <span data-lang="en" class="active">Not demos. Not prototypes. Production systems with error handling, monitoring, documentation — deployed and running.</span>
-      <span data-lang="ru">Не демо. Не прототипы. Production-системы с обработкой ошибок, мониторингом, документацией — развёрнутые и работающие.</span>
-      <span data-lang="es">No demos. No prototipos. Sistemas de producción con manejo de errores, monitoreo, documentación — desplegados y funcionando.</span>
-      <span data-lang="uk">Не демо. Не прототипи. Production-системи з обробкою помилок, моніторингом, документацією — розгорнуті та працюючі.</span>
+      <span data-lang="en" class="active">Not demos. Production systems with error handling, monitoring and documentation — plus one built to be measured rather than shipped.</span>
+      <span data-lang="ru">Не демо. Production-системы с обработкой ошибок, мониторингом и документацией — и одна, построенная чтобы её измерили, а не сдали.</span>
+      <span data-lang="es">No demos. Sistemas de producción con manejo de errores, monitoreo y documentación — y uno construido para ser medido, no entregado.</span>
+      <span data-lang="uk">Не демо. Production-системи з обробкою помилок, моніторингом та документацією — і одна, побудована щоб її виміряли, а не здали.</span>
     </p>
   </div>
 </div>
@@ -218,10 +229,16 @@
     <!-- FILTER -->
     <div class="filter-bar reveal">
       <button class="filter-btn active" onclick="filterCases('all', this)">
-        <span data-lang="en" class="active">All (5)</span>
-        <span data-lang="ru">Все (5)</span>
-        <span data-lang="es">Todos (5)</span>
-        <span data-lang="uk">Всі (5)</span>
+        <span data-lang="en" class="active">All (6)</span>
+        <span data-lang="ru">Все (6)</span>
+        <span data-lang="es">Todos (6)</span>
+        <span data-lang="uk">Всі (6)</span>
+      </button>
+      <button class="filter-btn" onclick="filterCases('finance', this)">
+        <span data-lang="en" class="active">Finance</span>
+        <span data-lang="ru">Финансы</span>
+        <span data-lang="es">Finanzas</span>
+        <span data-lang="uk">Фінанси</span>
       </button>
       <button class="filter-btn" onclick="filterCases('content', this)">Content</button>
       <button class="filter-btn" onclick="filterCases('restaurant', this)">Restaurant</button>
@@ -232,7 +249,72 @@
 
     <div class="cases-full-grid">
 
-      <!-- 1. AI CONTENT MASTER -->
+      <!-- 1. KESTREL INVOICE BENCH -->
+      <div class="case-full-card reveal" data-category="finance">
+        <div class="case-shot">
+          <div class="case-shot-bar"><span class="case-shot-dot" style="background:#ff5f57"></span><span class="case-shot-dot" style="background:#febc2e"></span><span class="case-shot-dot" style="background:#28c840"></span><span class="case-shot-caption"><i data-lucide="file-search"></i><span data-lang="en" class="active">Review screen · measured against a known answer</span><span data-lang="ru">Экран разбора · измерено против известного ответа</span><span data-lang="es">Pantalla de revisión · medido contra una respuesta conocida</span><span data-lang="uk">Екран розбору · виміряно проти відомої відповіді</span></span></div>
+          <img class="case-shot-img" src="images/case-kestrel.jpg" alt="Kestrel Invoice Bench review screen — the supplier invoice on the left, the system's finding and its reasoning on the right" loading="lazy"/>
+        </div>
+        <div class="case-full-inner">
+          <div class="case-full-sidebar">
+            <div>
+              <div class="case-sidebar-tag"><span data-lang="en" class="active">Finance / Accounts Payable</span><span data-lang="ru">Финансы / Кредиторская задолженность</span><span data-lang="es">Finanzas / Cuentas por pagar</span><span data-lang="uk">Фінанси / Кредиторська заборгованість</span></div>
+              <div class="case-sidebar-name" style="margin-top:8px;">Kestrel Invoice Bench</div>
+            </div>
+            <div class="case-measured-badge"><span class="case-measured-dot"></span>MEASURED</div>
+            <div>
+              <div class="case-num-big">94/98</div>
+              <div class="case-num-label">
+                <span data-lang="en" class="active">planted errors found and named correctly</span>
+                <span data-lang="ru">заложенных ошибок найдено и названо верно</span>
+                <span data-lang="es">errores planificados encontrados y nombrados correctamente</span>
+                <span data-lang="uk">закладених помилок знайдено та названо вірно</span>
+              </div>
+            </div>
+            <div class="case-stack-sidebar">
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">PostgreSQL</span>
+              <span class="stack-pill">Claude API</span>
+              <span class="stack-pill">n8n</span>
+              <span class="stack-pill">Supabase</span>
+              <span class="stack-pill">FastAPI</span>
+            </div>
+          </div>
+          <div class="case-full-body">
+            <p class="case-full-desc">
+              <span data-lang="en" class="active">Most invoice checking systems tell you how many discrepancies they found. None tell you how many they missed — and a missed invoice leaves no trace. So this one was built backwards: first a batch of 260 invoices with 98 errors planted and recorded on purpose, then the pipeline that gets measured against that record. Extraction, arithmetic, contract pricing, reconciliation and a human review screen — with a number attached to every claim.</span>
+              <span data-lang="ru">Большинство систем проверки счетов говорят, сколько расхождений они нашли. Ни одна не говорит, сколько пропустила, — а пропущенный счёт не оставляет следов. Поэтому эта построена наоборот: сначала партия из 260 счетов с намеренно заложенными и записанными 98 ошибками, потом конвейер, который по этой записи измеряется. Извлечение, арифметика, цены по договору, сверка и экран разбора для человека — и цифра за каждым утверждением.</span>
+              <span data-lang="es">La mayoría de los sistemas de verificación de facturas dicen cuántas discrepancias encontraron. Ninguno dice cuántas pasó por alto — y una factura omitida no deja rastro. Por eso este se construyó al revés: primero un lote de 260 facturas con 98 errores plantados y registrados a propósito, luego el pipeline que se mide contra ese registro. Extracción, aritmética, precios de contrato, conciliación y una pantalla de revisión humana — con una cifra detrás de cada afirmación.</span>
+              <span data-lang="uk">Більшість систем перевірки рахунків кажуть, скільки розбіжностей вони знайшли. Жодна не каже, скільки пропустила, — а пропущений рахунок не залишає слідів. Тому ця побудована навпаки: спершу партія з 260 рахунків із навмисно закладеними та записаними 98 помилками, потім конвеєр, який за цим записом вимірюється. Витягування, арифметика, ціни за договором, звірка та екран розбору для людини — і цифра за кожним твердженням.</span>
+            </p>
+            <div class="case-features-grid">
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Ground truth isolated by database roles — the pipeline cannot read the answer key, and that is enforced by Postgres, not by good intentions</span><span data-lang="ru">Эталон изолирован правами базы — конвейер не может прочитать правильные ответы, и это обеспечено Postgres, а не добрыми намерениями</span><span data-lang="es">Ground truth aislado por roles de base de datos — el pipeline no puede leer las respuestas correctas, y eso lo garantiza Postgres, no las buenas intenciones</span><span data-lang="uk">Еталон ізольований правами бази — конвеєр не може прочитати правильні відповіді, і це забезпечує Postgres, а не добрі наміри</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">The model reads, the code counts — not one arithmetic operation or price comparison is delegated to the LLM, so a run repeats identically</span><span data-lang="ru">Модель читает, код считает — ни одна арифметическая операция и ни одно сравнение с прайсом не поручены модели, поэтому прогон повторяется в точности</span><span data-lang="es">El modelo lee, el código calcula — ninguna operación aritmética ni comparación de precios se delega al LLM, por lo que una ejecución se repite de forma idéntica</span><span data-lang="uk">Модель читає, код рахує — жодна арифметична операція та жодне порівняння з прайсом не доручені моделі, тому прогін повторюється точно</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Prices looked up by delivery date, not invoice date — an April invoice for a March delivery is checked against March’s contract</span><span data-lang="ru">Цена ищется по дате поставки, а не по дате счёта — апрельский счёт за мартовскую поставку проверяется по мартовскому договору</span><span data-lang="es">Precios buscados por fecha de entrega, no de factura — una factura de abril por una entrega de marzo se verifica contra el contrato de marzo</span><span data-lang="uk">Ціна шукається за датою постачання, а не за датою рахунку — квітневий рахунок за березневе постачання перевіряється за березневим договором</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">Eight kinds of discrepancy: price above contract, stale price list, missing contract discount, wrong VAT rate, duplicate invoice, and more</span><span data-lang="ru">Восемь видов расхождений: цена выше договора, устаревший прайс, неприменённая скидка, неверная ставка НДС, повторный счёт и другие</span><span data-lang="es">Ocho tipos de discrepancia: precio por encima del contrato, lista de precios obsoleta, descuento no aplicado, IVA incorrecto, factura duplicada y más</span><span data-lang="uk">Вісім видів розбіжностей: ціна вище договору, застарілий прайс, незастосована знижка, невірна ставка ПДВ, повторний рахунок та інші</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">A review screen, not an alert list — the invoice beside its findings, one decision per finding, every decision logged and reversible</span><span data-lang="ru">Экран разбора, а не список тревог — счёт рядом с находками, одно решение на каждую, каждое записано и обратимо</span><span data-lang="es">Una pantalla de revisión, no una lista de alertas — la factura junto a sus hallazgos, una decisión por hallazgo, cada decisión registrada y reversible</span><span data-lang="uk">Екран розбору, а не список тривог — рахунок поруч зі знахідками, одне рішення на кожну, кожне записано та оборотне</span></div>
+              <div class="case-feature"><span class="case-feature-icon">→</span><span data-lang="en" class="active">The system never rewrites a supplier’s invoice — it raises a correction request, because rewriting someone else’s document destroys the audit trail</span><span data-lang="ru">Система не переписывает чужой счёт — она формирует запрос на корректировку, потому что правка чужого документа уничтожает аудиторский след</span><span data-lang="es">El sistema nunca reescribe la factura de un proveedor — emite una solicitud de corrección, porque reescribir el documento ajeno destruye la pista de auditoría</span><span data-lang="uk">Система не переписує чужий рахунок — вона формує запит на коригування, бо правка чужого документа знищує аудиторський слід</span></div>
+            </div>
+            <p class="case-note">
+              <span data-lang="en" class="active">The invoices are synthetic. That is what makes the number possible: with real documents nobody knows the right answer in advance — if they did, the checking would be unnecessary.</span>
+              <span data-lang="ru">Счета синтетические. Именно это и делает цифру возможной: у настоящих документов правильного ответа заранее не знает никто — если бы знал, проверка была бы не нужна.</span>
+              <span data-lang="es">Las facturas son sintéticas. Eso es lo que hace posible la cifra: con documentos reales nadie conoce la respuesta correcta de antemano — si la conociera, la verificación sobraría.</span>
+              <span data-lang="uk">Рахунки синтетичні. Саме це й робить цифру можливою: у справжніх документів правильної відповіді заздалегідь не знає ніхто — якби знав, перевірка була б непотрібна.</span>
+            </p>
+            <div class="case-links-row">
+              <a href="https://github.com/Evgeniy1970-ai/kestrel-invoice-bench" target="_blank" rel="noopener" class="case-link-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                <span data-lang="en" class="active">View on GitHub</span>
+                <span data-lang="ru">Смотреть на GitHub</span>
+                <span data-lang="es">Ver en GitHub</span>
+                <span data-lang="uk">Дивитись на GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. AI CONTENT MASTER -->
       <div class="case-full-card reveal" data-category="content">
         <div class="case-shot">
           <div class="case-shot-bar"><span class="case-shot-dot" style="background:#ff5f57"></span><span class="case-shot-dot" style="background:#febc2e"></span><span class="case-shot-dot" style="background:#28c840"></span><span class="case-shot-caption"><i data-lucide="workflow"></i>n8n workflow · live production system</span></div>
