@@ -404,6 +404,20 @@
       <span data-lang="uk">З чого починаємо</span>
     </h2>
     <div style="max-width:640px;margin:0 auto;">
+      <div class="reveal" style="margin-bottom:2.5rem;">
+        <h3 style="font-family:var(--display);font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:.6rem;">
+          <span data-lang="en" class="active">Supplier invoice check: free pilot, 3 places</span>
+          <span data-lang="ru">Проверка счетов поставщиков: бесплатный пилот, 3 места</span>
+          <span data-lang="es">Revisión de facturas de proveedores: piloto gratuito, 3 plazas</span>
+          <span data-lang="uk">Перевірка рахунків постачальників: безкоштовний пілот, 3 місця</span>
+        </h3>
+        <p style="font-size:15px;color:var(--text2);line-height:1.75;margin:0;">
+          <span data-lang="en" class="active">Send one month of supplier invoices (up to about 300 PDFs) and the price list for the same period. Within 5 working days you get a summary by supplier and a list of every discrepancy found, with invoice number, line and amount. Free for the first three companies, in return for honest feedback. <a href="cases.html" style="color:var(--accent);">How it was tested</a></span>
+          <span data-lang="ru">Пришлите счета поставщиков за один месяц (примерно до 300 PDF) и прайс-лист за тот же период. Через 5 рабочих дней вы получите сводку по поставщикам и список всех найденных расхождений с номером счёта, строкой и суммой. Бесплатно для первых трёх компаний, взамен на честный отзыв. <a href="cases.html" style="color:var(--accent);">Как это проверяли</a></span>
+          <span data-lang="es">Envíe un mes de facturas de proveedores (hasta unos 300 PDF) y la lista de precios del mismo periodo. En 5 días laborables recibirá un resumen por proveedor y una lista de cada discrepancia encontrada, con número de factura, línea e importe. Gratis para las tres primeras empresas, a cambio de una opinión sincera. <a href="cases.html" style="color:var(--accent);">Cómo se probó</a></span>
+          <span data-lang="uk">Надішліть рахунки постачальників за один місяць (приблизно до 300 PDF) і прайс-лист за той самий період. За 5 робочих днів ви отримаєте зведення за постачальниками та список усіх знайдених розбіжностей із номером рахунку, рядком і сумою. Безкоштовно для перших трьох компаній, в обмін на чесний відгук. <a href="cases.html" style="color:var(--accent);">Як це перевіряли</a></span>
+        </p>
+      </div>
       <div class="reveal reveal-delay-1" style="margin-bottom:2.5rem;">
         <h3 style="font-family:var(--display);font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:.6rem;">
           <span data-lang="en" class="active">Process diagnostics — €200</span>
@@ -530,10 +544,10 @@
           <span class="faq-chevron">▾</span>
         </button>
         <div class="faq-answer">
-          <span data-lang="en" class="active">Yes. We use self-hosted n8n where possible, keeping your data within your own infrastructure. For cloud deployments, we use Supabase (EU-hosted) and follow GDPR best practices. We never store client data on our own systems and sign NDAs for all projects.</span>
-          <span data-lang="ru">Да. Мы используем self-hosted n8n где возможно, сохраняя данные в вашей инфраструктуре. Для облачных деплоев используем Supabase (хостинг в ЕС) и следуем лучшим практикам GDPR. Мы никогда не храним данные клиентов в своих системах и подписываем NDA для всех проектов.</span>
-          <span data-lang="es">Sí. Usamos n8n auto-alojado donde es posible, manteniendo sus datos en su propia infraestructura. Para despliegues en la nube, usamos Supabase (alojado en UE) y seguimos las mejores prácticas GDPR. Nunca almacenamos datos de clientes en nuestros sistemas y firmamos NDAs para todos los proyectos.</span>
-          <span data-lang="uk">Так. Ми використовуємо self-hosted n8n де можливо, зберігаючи дані у вашій інфраструктурі. Для хмарних деплоїв використовуємо Supabase (хостинг в ЄС) та дотримуємось кращих практик GDPR. Ми ніколи не зберігаємо дані клієнтів у своїх системах та підписуємо NDA для всіх проектів.</span>
+          <span data-lang="en" class="active">Where possible, automations run on your own infrastructure (self-hosted n8n). For document projects such as invoice checking, files and extracted data are stored in a Supabase database hosted in London, and documents are read by an OpenAI model through the API; OpenAI does not use API data to train its models. Only Yevhenii has access, data is deleted within 30 days of the end of the project, and we sign an NDA or a data processing agreement when needed. Before you send anything, you get in writing where your data will go.</span>
+          <span data-lang="ru">Где возможно, автоматизации работают в вашей собственной инфраструктуре (self-hosted n8n). В проектах с документами, например при проверке счетов, файлы и извлечённые данные хранятся в базе Supabase с сервером в Лондоне, а документы читает модель OpenAI через API; OpenAI не обучает модели на данных из API. Доступ есть только у Евгения, данные удаляются в течение 30 дней после окончания проекта, при необходимости подписываем NDA или соглашение об обработке данных. До того как вы что-то пришлёте, вы получите письменно, куда пойдут ваши данные.</span>
+          <span data-lang="es">Cuando es posible, las automatizaciones funcionan en su propia infraestructura (n8n auto-alojado). En proyectos con documentos, como la revisión de facturas, los archivos y los datos extraídos se guardan en una base de datos Supabase alojada en Londres, y los documentos los lee un modelo de OpenAI a través de la API; OpenAI no usa los datos de la API para entrenar sus modelos. Solo Yevhenii tiene acceso, los datos se eliminan en los 30 días siguientes al final del proyecto y firmamos un NDA o un acuerdo de tratamiento de datos si hace falta. Antes de que envíe nada, recibirá por escrito adónde irán sus datos.</span>
+          <span data-lang="uk">Де можливо, автоматизації працюють у вашій власній інфраструктурі (self-hosted n8n). У проєктах із документами, наприклад під час перевірки рахунків, файли та витягнуті дані зберігаються в базі Supabase із сервером у Лондоні, а документи читає модель OpenAI через API; OpenAI не навчає моделі на даних з API. Доступ має лише Євгеній, дані видаляються протягом 30 днів після завершення проєкту, за потреби підписуємо NDA або угоду про обробку даних. Перш ніж ви щось надішлете, ви отримаєте письмово, куди підуть ваші дані.</span>
         </div>
       </div>
 
