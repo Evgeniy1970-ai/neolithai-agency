@@ -176,6 +176,20 @@
             <span style="font-family:var(--display);font-weight:600;font-size:1.05rem;color:var(--text);"><span data-lang="en" class="active">Pick a time that works for you</span><span data-lang="ru">Выберите удобное время</span><span data-lang="es">Elija un horario que le convenga</span><span data-lang="uk">Оберіть зручний час</span></span>
           </div>
           <div class="calendly-inline-widget" id="calendlyEmbed"></div>
+          <script>
+          /* Set the Calendly URL before widget.js loads, so Calendly builds the calendar once by itself */
+          (function(){
+            var t; try { t = localStorage.getItem('theme'); } catch(e) {}
+            if (!t) t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+            window.__calendlyUrl = function(theme){
+              return 'https://calendly.com/neolith2018ai/30min?hide_gdpr_banner=1'
+                + (theme === 'dark' ? '&background_color=161d2b&text_color=eef1f6&primary_color=5d86ff'
+                                    : '&background_color=ffffff&text_color=141c28&primary_color=2f5fe0');
+            };
+            window.__calendlyTheme = (t === 'dark') ? 'dark' : 'light';
+            document.getElementById('calendlyEmbed').setAttribute('data-url', window.__calendlyUrl(window.__calendlyTheme));
+          })();
+          </script>
           <div style="text-align:center;margin-top:.85rem;"><a href="https://calendly.com/neolith2018ai/30min" target="_blank" rel="noopener" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:600;"><span data-lang="en" class="active">Calendar not loading? Open the scheduling page →</span><span data-lang="ru">Календарь не загрузился? Открыть страницу записи →</span><span data-lang="es">¿No carga? Abrir la página de reservas →</span><span data-lang="uk">Календар не завантажився? Відкрити сторінку запису →</span></a></div>
           <div class="book-divider"><span data-lang="en" class="active">or send a message</span><span data-lang="ru">или напишите нам</span><span data-lang="es">o envíe un mensaje</span><span data-lang="uk">або напишіть нам</span></div>
         </div>
@@ -322,44 +336,39 @@
 </div>
 <form name="chat-booking" netlify style="display:none"><input name="conversation"/></form>
 <script src="https://unpkg.com/lucide@latest"></script>
-<script src="https://assets.calendly.com/assets/external/widget.js" async onload="window.__onCalendlyLoad && window.__onCalendlyLoad()"></script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script src="neolithai-shared.js"></script>
 <script>
-/* Calendly inline embed — init once, rebuild only on a REAL theme change */
+/* Calendly: widget.js builds the calendar once from data-url.
+   This script only (1) rebuilds it when the user switches the theme and
+   (2) retries once if the calendar still hasn't appeared a few seconds after page load. */
 (function(){
-  var lastTheme = null;
+  var el = document.getElementById('calendlyEmbed');
+  if (!el) return;
+  var lastTheme = window.__calendlyTheme || 'light';
   var rebuildTimer = null;
   function currentTheme(){
     return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
-  function buildCalendly(){
-    var el = document.getElementById('calendlyEmbed');
-    if (!el || !window.Calendly) return;
-    var theme = currentTheme();
+  function hasCalendar(){ return !!el.querySelector('iframe'); }
+  function build(theme){
+    if (!window.Calendly) return;
     lastTheme = theme;
-    var dark = theme === 'dark';
     el.innerHTML = '';
-    Calendly.initInlineWidget({
-      url: 'https://calendly.com/neolith2018ai/30min?hide_gdpr_banner=1'
-        + (dark ? '&background_color=161d2b&text_color=eef1f6&primary_color=5d86ff'
-                : '&background_color=ffffff&text_color=141c28&primary_color=2f5fe0'),
-      parentElement: el
-    });
+    Calendly.initInlineWidget({ url: window.__calendlyUrl(theme), parentElement: el });
   }
-  function waitCalendly(n){
-    if (window.Calendly){ buildCalendly(); }
-    else if (n < 60){ setTimeout(function(){ waitCalendly(n+1); }, 200); }
+  // Safety net: if nothing has appeared 4 s after full page load, build it once.
+  function watchdog(){
+    setTimeout(function(){ if (!hasCalendar()) build(currentTheme()); }, 4000);
   }
-  window.__onCalendlyLoad = function(){ buildCalendly(); };
-  // Wait until the page has fully loaded (theme already applied) before the first init,
-  // so we don't init during load and get torn down by an early theme change.
-  if (document.readyState === 'complete'){ waitCalendly(0); }
-  else { window.addEventListener('load', function(){ waitCalendly(0); }); }
-  // Rebuild ONLY when the theme actually changes (debounced), not on every attribute write.
+  if (document.readyState === 'complete') watchdog();
+  else window.addEventListener('load', watchdog);
+  // Rebuild ONLY when the theme actually changes (debounced).
   var obs = new MutationObserver(function(){
-    if (currentTheme() === lastTheme) return;
+    var t = currentTheme();
+    if (t === lastTheme) return;
     clearTimeout(rebuildTimer);
-    rebuildTimer = setTimeout(buildCalendly, 250);
+    rebuildTimer = setTimeout(function(){ build(t); }, 250);
   });
   obs.observe(document.documentElement, { attributes:true, attributeFilter:['data-theme'] });
 })();

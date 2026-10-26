@@ -240,6 +240,17 @@ function persistChat() {
   try { sessionStorage.setItem('neo_chat', JSON.stringify(chatHistory)); } catch(e) {}
 }
 
+/* One id per browser tab, so the whole conversation is saved as one record */
+function getChatSessionId() {
+  var id = null;
+  try { id = sessionStorage.getItem('neo_session'); } catch(e) {}
+  if (!id) {
+    id = 'neo-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+    try { sessionStorage.setItem('neo_session', id); } catch(e) {}
+  }
+  return id;
+}
+
 async function sendMessage(text) {
   if (!text || !text.trim()) return;
   hideSuggestions();
@@ -253,7 +264,7 @@ async function sendMessage(text) {
     var response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: chatHistory })
+      body: JSON.stringify({ messages: chatHistory, sessionId: getChatSessionId() })
     });
     var data = await response.json();
     removeTyping();
