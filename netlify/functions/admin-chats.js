@@ -6,7 +6,7 @@
    tool — not enterprise-grade auth. Don't share the password.
 ══════════════════════════════════════════════ */
 
-const { getStore } = require('@netlify/blobs');
+const { getStore, connectLambda } = require('@netlify/blobs');
 
 exports.handler = async function (event) {
   const headers = {
@@ -26,6 +26,8 @@ exports.handler = async function (event) {
   }
 
   try {
+    // Lambda-style functions must connect Blobs to the request first, or getStore() fails
+    connectLambda(event);
     const store = getStore('chat-logs');
     const { blobs } = await store.list();
 
