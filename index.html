@@ -100,7 +100,7 @@
 
 /* CASES PREVIEW */
 .cases-preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.cases-preview-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:1.5rem auto 0;}
+.cases-preview-grid > .case-preview-card:last-child:nth-child(3n+1){grid-column:2;}
 .case-badge.case-badge-measured{background:#2f5fe0;}
 .case-preview-card{
   background:var(--surface);border:1px solid var(--border);
@@ -217,7 +217,8 @@
   .hero-visual{height:320px;}
   .services-grid-preview{grid-template-columns:repeat(2,1fr);}
   .cases-preview-grid{grid-template-columns:repeat(2,1fr);}
-  .cases-preview-bottom{grid-template-columns:repeat(2,1fr);}
+  .cases-preview-grid > .case-preview-card:last-child:nth-child(3n+1){grid-column:auto;}
+  .cases-preview-grid > .case-preview-card:last-child:nth-child(odd){grid-column:1 / -1;justify-self:center;width:calc(50% - .75rem);}
   .about-preview-grid{grid-template-columns:1fr;}
   .t-grid{grid-template-columns:1fr;}
   .proof-grid{grid-template-columns:1fr;}
@@ -227,6 +228,7 @@
 @media(max-width:600px){
   .services-grid-preview{grid-template-columns:1fr;}
   .cases-preview-grid{grid-template-columns:1fr;}
+  .cases-preview-grid > .case-preview-card:last-child:nth-child(odd){grid-column:auto;width:auto;}
   .hero-stats{gap:1.5rem;}
 }
 </style>
@@ -680,13 +682,25 @@
       <span data-lang="uk">Портфоліо</span>
     </span>
     <h2 class="section-title reveal">
-      <span data-lang="en" class="active">6 production-ready projects</span>
-      <span data-lang="ru">6 production-ready проектов</span>
-      <span data-lang="es">6 proyectos en producción</span>
-      <span data-lang="uk">6 production-ready проектів</span>
+      <span data-lang="en" class="active">Measured systems and live projects</span>
+      <span data-lang="ru">Измеренные системы и живые проекты</span>
+      <span data-lang="es">Sistemas medidos y proyectos en funcionamiento</span>
+      <span data-lang="uk">Виміряні системи та живі проєкти</span>
     </h2>
     <div class="cases-preview-grid">
       <div class="case-preview-card reveal reveal-delay-1">
+        <div class="case-preview-header">
+          <div class="case-tag"><span data-lang="en" class="active">Operations / Document compliance</span><span data-lang="ru">Операции / Комплаенс документов</span><span data-lang="es">Operaciones / Cumplimiento documental</span><span data-lang="uk">Операції / Комплаєнс документів</span></div><span class="case-badge case-badge-measured">MEASURED</span>
+          <div class="case-name">Osprey Document Bench</div>
+        </div>
+        <div class="case-preview-body">
+          <span class="case-num">219/220</span>
+          <div class="case-desc-short"><span data-lang="en" class="active">planted problems found · two batches of 393 files, a known answer</span><span data-lang="ru">заложенных проблем найдено · два батча по 393 файла, известный ответ</span><span data-lang="es">problemas plantados encontrados · dos lotes de 393 archivos, respuesta conocida</span><span data-lang="uk">закладених проблем знайдено · два батчі по 393 файли, відома відповідь</span></div>
+          <div class="case-stack"><span class="stack-tag">Python</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">OpenAI API</span><span class="stack-tag">n8n</span></div>
+          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="case-preview-card reveal reveal-delay-2">
         <div class="case-preview-header">
           <div class="case-tag"><span data-lang="en" class="active">Finance / Accounts Payable</span><span data-lang="ru">Финансы / Кредиторская задолженность</span><span data-lang="es">Finanzas / Cuentas por pagar</span><span data-lang="uk">Фінанси / Кредиторська заборгованість</span></div><span class="case-badge case-badge-measured">MEASURED</span>
           <div class="case-name">Kestrel Invoice Bench</div>
@@ -694,11 +708,11 @@
         <div class="case-preview-body">
           <span class="case-num">94/98</span>
           <div class="case-desc-short"><span data-lang="en" class="active">planted errors found · 260 invoices, 98 errors, a known answer</span><span data-lang="ru">заложенных ошибок найдено · 260 счетов, 98 ошибок, известный ответ</span><span data-lang="es">errores plantados encontrados · 260 facturas, 98 errores, respuesta conocida</span><span data-lang="uk">закладених помилок знайдено · 260 рахунків, 98 помилок, відома відповідь</span></div>
-          <div class="case-stack"><span class="stack-tag">Python</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Claude API</span><span class="stack-tag">n8n</span></div>
+          <div class="case-stack"><span class="stack-tag">Python</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">OpenAI API</span><span class="stack-tag">n8n</span></div>
           <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
-      <div class="case-preview-card reveal reveal-delay-2">
+      <div class="case-preview-card reveal reveal-delay-3">
         <div class="case-preview-header">
           <div class="case-tag">Content / Social Media</div><span class="case-badge"><span class="live-dot"></span>LIVE</span>
           <div class="case-name">AI Content Master</div>
@@ -710,20 +724,6 @@
           <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
-      <div class="case-preview-card reveal reveal-delay-3">
-        <div class="case-preview-header">
-          <div class="case-tag">Restaurant / HoReCa</div><span class="case-badge"><span class="live-dot"></span>LIVE</span>
-          <div class="case-name">Restaurant AI Suite</div>
-        </div>
-        <div class="case-preview-body">
-          <span class="case-num">5×</span>
-          <div class="case-desc-short"><span data-lang="en" class="active">AI agents · reviews, reservations, menu, inventory, food photos</span><span data-lang="ru">ИИ-агентов · отзывы, бронирование, меню, склад, фото</span><span data-lang="es">Agentes IA · reseñas, reservas, menú, inventario, fotos</span><span data-lang="uk">ІІ-агентів · відгуки, бронювання, меню, склад, фото</span></div>
-          <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">DALL-E 3</span><span class="stack-tag">Supabase</span></div>
-          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="cases-preview-bottom">
       <div class="case-preview-card reveal reveal-delay-1">
         <div class="case-preview-header">
           <div class="case-tag">HR / Recruiting</div><span class="case-badge"><span class="live-dot"></span>LIVE</span>
@@ -757,6 +757,18 @@
           <span class="case-num">100%</span>
           <div class="case-desc-short"><span data-lang="en" class="active">Autonomous B2B outreach · Google Maps → AI scoring → cold email + follow-up</span><span data-lang="ru">Автономный B2B-аутрич · Google Maps → AI-скоринг → холодные письма</span><span data-lang="es">Outreach B2B autónomo · Google Maps → puntuación IA → email frío</span><span data-lang="uk">Автономний B2B-аутрич · Google Maps → AI-скоринг → холодні листи</span></div>
           <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">Google Maps API</span><span class="stack-tag">Gmail</span></div>
+          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="case-preview-card reveal reveal-delay-1">
+        <div class="case-preview-header">
+          <div class="case-tag">Restaurant / HoReCa</div><span class="case-badge"><span class="live-dot"></span>LIVE</span>
+          <div class="case-name">Restaurant AI Suite</div>
+        </div>
+        <div class="case-preview-body">
+          <span class="case-num">5×</span>
+          <div class="case-desc-short"><span data-lang="en" class="active">AI agents · reviews, reservations, menu, inventory, food photos</span><span data-lang="ru">ИИ-агентов · отзывы, бронирование, меню, склад, фото</span><span data-lang="es">Agentes IA · reseñas, reservas, menú, inventario, fotos</span><span data-lang="uk">ІІ-агентів · відгуки, бронювання, меню, склад, фото</span></div>
+          <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">DALL-E 3</span><span class="stack-tag">Supabase</span></div>
           <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
