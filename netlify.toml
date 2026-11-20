@@ -6,3 +6,10 @@
   from = "/api/chat"
   to = "/.netlify/functions/chat"
   status = 200
+
+# Old Netlify subdomain → main domain (permanent, keeps the path)
+[[redirects]]
+  from = "https://neolithai.netlify.app/*"
+  to = "https://neolithai.agency/:splat"
+  status = 301
+  force = true

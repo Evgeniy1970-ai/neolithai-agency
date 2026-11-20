@@ -170,14 +170,6 @@ nav.scrolled{box-shadow:0 4px 30px rgba(20,28,40,0.07);}
 .nav-cta:hover{background:var(--accent-ink) !important;transform:translateY(-1px);box-shadow:0 6px 16px rgba(47,95,224,0.3);}
 
 .nav-right{display:flex;align-items:center;gap:10px;}
-.lang-switcher{display:flex;gap:3px;background:var(--bg2);padding:3px;border-radius:9px;border:1px solid var(--border);}
-.lang-btn{
-  background:none;border:none;color:var(--text2);
-  padding:4px 8px;border-radius:6px;font-size:11px;font-weight:600;
-  font-family:var(--mono);cursor:pointer;transition:all .15s;letter-spacing:.5px;
-}
-.lang-btn.active{color:#fff;background:var(--accent);}
-.lang-btn:hover:not(.active){color:var(--accent);}
 
 /* theme toggle */
 .theme-toggle{
@@ -209,8 +201,6 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:none;}
 .mobile-menu a:hover{color:var(--accent);}
 .mobile-menu.open{display:block;}
 .mobile-cta-wrap{margin-top:1rem;}
-.mobile-lang{display:flex;gap:6px;margin-top:1rem;}
-.mobile-lang .lang-btn{flex:1;text-align:center;border:1px solid var(--border);padding:8px;}
 
 /* ── FOOTER ── */
 footer{
@@ -385,11 +375,6 @@ html[data-theme="dark"] .philosophy-strip{background:#080a0f;border-top:1px soli
 .ai-suggestion{background:var(--bg2);border:1px solid var(--border);border-radius:30px;padding:6px 12px;font-size:12px;color:var(--accent);cursor:pointer;transition:all .2s;white-space:nowrap;font-family:inherit;}
 .ai-suggestion:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
 
-/* ── LANG VISIBILITY ── */
-[data-lang]{display:none;}
-[data-lang].active{display:block;}
-span[data-lang]{display:none;}
-span[data-lang].active{display:inline;}
 
 /* ── ACCESSIBILITY ── */
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
@@ -409,7 +394,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 @media(max-width:760px){
   .nav-links{display:none;}
   .burger{display:flex;}
-  .lang-switcher{display:none;}
   section{padding:4rem 1.5rem;}
   .ai-chat-panel{width:calc(100vw - 32px);right:16px;}
   .footer-grid{grid-template-columns:1fr;}

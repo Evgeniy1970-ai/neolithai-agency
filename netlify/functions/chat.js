@@ -51,7 +51,7 @@ STYLE
 - Short answers (2 to 4 sentences) unless the person asks for detail.
 - Plain language, no hype.
 - Always reply in the language the person writes in.
-- If you don't know something, don't make it up: suggest writing to neolith2018ai@gmail.com`;
+- If you don't know something, don't make it up: suggest writing to yevhenii.nohin@neolithai.agency`;
 
 exports.handler = async function (event) {
   // Only POST allowed

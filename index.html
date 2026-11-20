@@ -32,14 +32,46 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://neolithai.agency/#organization",
   "name": "NeolithAI Agency",
   "description": "Boutique AI automation agency building AI agents and workflow automation for small businesses across the EU & UK.",
   "url": "https://neolithai.agency/",
-  "email": "neolith2018ai@gmail.com",
-  "areaServed": ["EU","GB"],
-  "founder": { "@type": "Person", "name": "Yevhenii Nohin", "jobTitle": "AI Automation Engineer" },
+  "logo": "https://neolithai.agency/apple-touch-icon.png",
+  "image": "https://neolithai.agency/og-cover.png",
+  "email": "yevhenii.nohin@neolithai.agency",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kraków",
+    "addressCountry": "PL"
+  },
+  "areaServed": [
+    "EU",
+    "GB"
+  ],
+  "knowsAbout": [
+    "AI automation",
+    "AI agents",
+    "Workflow automation",
+    "n8n",
+    "Retrieval-augmented generation (RAG)",
+    "Document processing",
+    "Invoice validation"
+  ],
+  "founder": {
+    "@type": "Person",
+    "@id": "https://neolithai.agency/about.html#founder",
+    "name": "Yevhenii Nohin",
+    "jobTitle": "AI Automation Engineer",
+    "url": "https://neolithai.agency/about.html",
+    "image": "https://neolithai.agency/images/founder.jpg",
+    "sameAs": [
+      "https://www.linkedin.com/in/yevhenii-n-06b403347/",
+      "https://github.com/Evgeniy1970-ai",
+      "https://n8n.io/creators/neolith2018/"
+    ]
+  },
   "sameAs": [
-    "https://www.linkedin.com/in/yevhenii-nohin-06b403347/",
+    "https://www.linkedin.com/company/neolithai-agency/",
     "https://github.com/Evgeniy1970-ai",
     "https://www.upwork.com/freelancers/~013cd102dcb30a209f",
     "https://www.facebook.com/NeolithAIAgency"
@@ -260,12 +292,7 @@
       <li><a href="contact.html#book" class="nav-cta" data-nav="book">Book a Call</a></li>
     </ul>
     <div class="nav-right">
-      <div class="lang-switcher">
-        <button class="lang-btn" data-lang-btn="en" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" data-lang-btn="ru" onclick="setLang('ru')">RU</button>
-        <button class="lang-btn" data-lang-btn="es" onclick="setLang('es')">ES</button>
-        <button class="lang-btn" data-lang-btn="uk" onclick="setLang('uk')">UA</button>
-      </div>
+
       <button class="burger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -292,70 +319,45 @@
     <div class="hero-content reveal">
       <div class="badge">
         <span class="badge-dot"></span>
-        <span data-lang="en" class="active">Open for new projects · EU &amp; UK</span>
-        <span data-lang="ru">Открыты для новых проектов · ЕС и Великобритания</span>
-        <span data-lang="es">Abiertos para nuevos proyectos · UE y Reino Unido</span>
-        <span data-lang="uk">Відкриті для нових проектів · ЄС та Великобританія</span>
+        <span class="active">Open for new projects · EU &amp; UK</span>
+
       </div>
       <h1 class="hero-title">
-        <span data-lang="en" class="active">We automate what's<br><span class="accent">slowing you down.</span></span>
-        <span data-lang="ru">Автоматизируем то,<br><span class="accent">что тормозит ваш бизнес.</span></span>
-        <span data-lang="es">Automatizamos lo que<br><span class="accent">frena tu negocio.</span></span>
-        <span data-lang="uk">Автоматизуємо те,<br><span class="accent">що гальмує ваш бізнес.</span></span>
+        <span class="active">We automate what's<br><span class="accent">slowing you down.</span></span>
+
       </h1>
       <p class="hero-sub">
-        <span data-lang="en" class="active">We build AI agents that handle the repetitive work — so you can focus on growing your business.</span>
-        <span data-lang="ru">Мы создаём ИИ-агентов, которые берут на себя рутину — чтобы вы могли сосредоточиться на росте бизнеса.</span>
-        <span data-lang="es">Construimos agentes IA que manejan el trabajo repetitivo — para que puedas enfocarte en hacer crecer tu negocio.</span>
-        <span data-lang="uk">Ми створюємо ІІ-агентів, які беруть на себе рутину — щоб ви могли зосередитися на зростанні бізнесу.</span>
+        <span class="active">We build AI agents that handle the repetitive work — so you can focus on growing your business.</span>
+
       </p>
       <p class="hero-philosophy">
-        <span data-lang="en" class="active">We don't automate for the sake of automation. We automate exactly what's holding your business back.</span>
-        <span data-lang="ru">Мы не автоматизируем ради автоматизации. Мы автоматизируем именно то, что тормозит ваш бизнес.</span>
-        <span data-lang="es">No automatizamos por automatizar. Automatizamos exactamente lo que está frenando tu negocio.</span>
-        <span data-lang="uk">Ми не автоматизуємо заради автоматизації. Ми автоматизуємо саме те, що гальмує ваш бізнес.</span>
+        <span class="active">We don't automate for the sake of automation. We automate exactly what's holding your business back.</span>
+
       </p>
       <div class="btn-group">
         <a href="contact.html#book" class="btn-primary">
-          <span data-lang="en" class="active">Book a free call</span>
-          <span data-lang="ru">Записаться на консультацию</span>
-          <span data-lang="es">Reservar llamada gratuita</span>
-          <span data-lang="uk">Записатись на консультацію</span>
+          <span class="active">Book a free call</span>
+
           <i data-lucide="arrow-right" class="ic-sm"></i>
         </a>
         <a href="cases.html" class="btn-outline">
-          <span data-lang="en" class="active">View our work</span>
-          <span data-lang="ru">Наши работы</span>
-          <span data-lang="es">Ver nuestro trabajo</span>
-          <span data-lang="uk">Наші роботи</span>
+          <span class="active">View our work</span>
+
         </a>
       </div>
       <div class="hero-stats">
         <div class="stat">
           <div class="stat-num" data-count="5" data-suffix="+">5+</div>
           <div class="stat-label">
-            <span data-lang="en" class="active">AI projects live</span>
-            <span data-lang="ru">Живых проектов</span>
-            <span data-lang="es">Proyectos activos</span>
-            <span data-lang="uk">Живих проектів</span>
+            <span class="active">AI projects live</span>
+
           </div>
         </div>
         <div class="stat">
           <div class="stat-num" data-count="60" data-suffix="%">60%</div>
           <div class="stat-label">
-            <span data-lang="en" class="active">Avg. time saved</span>
-            <span data-lang="ru">Экономия времени</span>
-            <span data-lang="es">Tiempo ahorrado</span>
-            <span data-lang="uk">Економія часу</span>
-          </div>
-        </div>
-        <div class="stat">
-          <div class="stat-num" data-count="4" data-suffix=" langs">4 langs</div>
-          <div class="stat-label">
-            <span data-lang="en" class="active">Languages served</span>
-            <span data-lang="ru">Языка обслуживания</span>
-            <span data-lang="es">Idiomas atendidos</span>
-            <span data-lang="uk">Мови обслуговування</span>
+            <span class="active">Avg. time saved</span>
+
           </div>
         </div>
       </div>
@@ -372,10 +374,8 @@
 <div class="trust-bar">
   <div class="trust-inner">
     <span class="trust-label">
-      <span data-lang="en" class="active">Built with a production stack</span>
-      <span data-lang="ru">Построено на production-стеке</span>
-      <span data-lang="es">Construido con stack de producción</span>
-      <span data-lang="uk">Побудовано на production-стеку</span>
+      <span class="active">Built with a production stack</span>
+
     </span>
     <div class="trust-items">
       <span class="trust-item"><i data-lucide="workflow" class="ic-sm"></i>n8n</span>
@@ -394,28 +394,22 @@
     <div class="phil-item reveal">
       <span class="phil-num">01</span>
       <span class="phil-text">
-        <span data-lang="en" class="active">We build AI agents that handle the repetitive work — so you can focus on growing your business.</span>
-        <span data-lang="ru">Мы создаём ИИ-агентов, которые берут рутину на себя — чтобы вы росли.</span>
-        <span data-lang="es">Construimos agentes IA que manejan el trabajo repetitivo — para que crezcas.</span>
-        <span data-lang="uk">Будуємо ІІ-агентів, які беруть рутину на себе — щоб ви росли.</span>
+        <span class="active">We build AI agents that handle the repetitive work — so you can focus on growing your business.</span>
+
       </span>
     </div>
     <div class="phil-item reveal reveal-delay-1">
       <span class="phil-num">02</span>
       <span class="phil-text">
-        <span data-lang="en" class="active">We don't automate for the sake of automation. We automate what's slowing you down.</span>
-        <span data-lang="ru">Мы не автоматизируем ради автоматизации. Устраняем именно то, что тормозит вас.</span>
-        <span data-lang="es">No automatizamos por automatizar. Eliminamos exactamente lo que te frena.</span>
-        <span data-lang="uk">Ми не автоматизуємо заради автоматизації. Усуваємо саме те, що вас гальмує.</span>
+        <span class="active">We don't automate for the sake of automation. We automate what's slowing you down.</span>
+
       </span>
     </div>
     <div class="phil-item reveal reveal-delay-2">
       <span class="phil-num">03</span>
       <span class="phil-text">
-        <span data-lang="en" class="active">Custom AI automation for small businesses — from customer service to internal operations.</span>
-        <span data-lang="ru">Кастомная ИИ-автоматизация для малого бизнеса — от клиентского сервиса до внутренних процессов.</span>
-        <span data-lang="es">Automatización IA para pequeñas empresas — del servicio al cliente a las operaciones internas.</span>
-        <span data-lang="uk">Кастомна ІІ-автоматизація для малого бізнесу — від клієнтського сервісу до внутрішніх процесів.</span>
+        <span class="active">Custom AI automation for small businesses — from customer service to internal operations.</span>
+
       </span>
     </div>
   </div>
@@ -425,32 +419,24 @@
 <section id="process">
   <div class="container">
     <span class="section-label reveal">
-      <span data-lang="en" class="active">How it works</span>
-      <span data-lang="ru">Как мы работаем</span>
-      <span data-lang="es">Cómo trabajamos</span>
-      <span data-lang="uk">Як ми працюємо</span>
+      <span class="active">How it works</span>
+
     </span>
     <h2 class="section-title reveal">
-      <span data-lang="en" class="active">From your data to results — automatically</span>
-      <span data-lang="ru">От ваших данных к результату — автоматически</span>
-      <span data-lang="es">De sus datos a resultados — automáticamente</span>
-      <span data-lang="uk">Від ваших даних до результату — автоматично</span>
+      <span class="active">From your data to results — automatically</span>
+
     </h2>
     <div class="process-flow">
       <div class="process-step reveal reveal-delay-1">
         <div class="icon-tile"><i data-lucide="inbox" class="ic"></i></div>
         <div class="process-layer" style="background:var(--accent);"><span class="process-layer-label">INTAKE</span></div>
         <div class="process-step-title">
-          <span data-lang="en" class="active">Data collection</span>
-          <span data-lang="ru">Сбор данных</span>
-          <span data-lang="es">Recopilación</span>
-          <span data-lang="uk">Збір даних</span>
+          <span class="active">Data collection</span>
+
         </div>
         <div class="process-step-desc">
-          <span data-lang="en" class="active">Forms, files, APIs, messages — we capture your data from any source automatically.</span>
-          <span data-lang="ru">Формы, файлы, API — данные из любого источника.</span>
-          <span data-lang="es">Formularios, archivos, APIs — datos de cualquier fuente.</span>
-          <span data-lang="uk">Форми, файли, API — дані з будь-якого джерела.</span>
+          <span class="active">Forms, files, APIs, messages — we capture your data from any source automatically.</span>
+
         </div>
       </div>
       <div class="process-arrow reveal reveal-delay-2"><i data-lucide="arrow-right" class="ic"></i></div>
@@ -458,16 +444,12 @@
         <div class="icon-tile"><i data-lucide="cpu" class="ic"></i></div>
         <div class="process-layer" style="background:var(--accent);opacity:.72;"><span class="process-layer-label">PROCESSING</span></div>
         <div class="process-step-title">
-          <span data-lang="en" class="active">AI analysis</span>
-          <span data-lang="ru">ИИ-анализ</span>
-          <span data-lang="es">Análisis IA</span>
-          <span data-lang="uk">ІІ-аналіз</span>
+          <span class="active">AI analysis</span>
+
         </div>
         <div class="process-step-desc">
-          <span data-lang="en" class="active">LLM agents classify, enrich, score and decide — following your business logic precisely.</span>
-          <span data-lang="ru">ИИ-агенты классифицируют, обогащают и принимают решения по вашей логике.</span>
-          <span data-lang="es">Los agentes clasifican, enriquecen y deciden según su lógica de negocio.</span>
-          <span data-lang="uk">ІІ-агенти класифікують, збагачують і приймають рішення за вашою логікою.</span>
+          <span class="active">LLM agents classify, enrich, score and decide — following your business logic precisely.</span>
+
         </div>
       </div>
       <div class="process-arrow reveal reveal-delay-4"><i data-lucide="arrow-right" class="ic"></i></div>
@@ -475,16 +457,12 @@
         <div class="icon-tile teal"><i data-lucide="circle-check-big" class="ic"></i></div>
         <div class="process-layer" style="background:var(--accent2);"><span class="process-layer-label">OUTPUT</span></div>
         <div class="process-step-title">
-          <span data-lang="en" class="active">Results delivered</span>
-          <span data-lang="ru">Результаты доставлены</span>
-          <span data-lang="es">Resultados entregados</span>
-          <span data-lang="uk">Результати доставлені</span>
+          <span class="active">Results delivered</span>
+
         </div>
         <div class="process-step-desc">
-          <span data-lang="en" class="active">Reports, notifications, records, emails — the right output in the right place, every time.</span>
-          <span data-lang="ru">Отчёты, уведомления, письма — нужный результат в нужном месте.</span>
-          <span data-lang="es">Informes, notificaciones, registros — el resultado correcto siempre.</span>
-          <span data-lang="uk">Звіти, сповіщення, записи — потрібний результат у потрібному місці.</span>
+          <span class="active">Reports, notifications, records, emails — the right output in the right place, every time.</span>
+
         </div>
       </div>
     </div>
@@ -495,22 +473,16 @@
 <section id="roi">
   <div class="container">
     <span class="section-label reveal">
-      <span data-lang="en" class="active">Calculator</span>
-      <span data-lang="ru">Калькулятор</span>
-      <span data-lang="es">Calculadora</span>
-      <span data-lang="uk">Калькулятор</span>
+      <span class="active">Calculator</span>
+
     </span>
     <h2 class="reveal" style="margin-bottom:.6rem;">
-      <span data-lang="en" class="active">How much could automation <span class="accent">save you?</span></span>
-      <span data-lang="ru">Сколько вам сэкономит <span class="accent">автоматизация?</span></span>
-      <span data-lang="es">¿Cuánto podría <span class="accent">ahorrarte</span> la automatización?</span>
-      <span data-lang="uk">Скільки вам заощадить <span class="accent">автоматизація?</span></span>
+      <span class="active">How much could automation <span class="accent">save you?</span></span>
+
     </h2>
     <p class="reveal" style="margin-bottom:2.5rem;max-width:560px;">
-      <span data-lang="en" class="active">Move the sliders to estimate the time and money an AI agent could give back to your team — every month.</span>
-      <span data-lang="ru">Подвигайте ползунки, чтобы оценить время и деньги, которые ИИ-агент вернёт вашей команде — каждый месяц.</span>
-      <span data-lang="es">Mueva los controles para estimar el tiempo y dinero que un agente IA podría devolver a su equipo — cada mes.</span>
-      <span data-lang="uk">Посуньте повзунки, щоб оцінити час і гроші, які ІІ-агент поверне вашій команді — щомісяця.</span>
+      <span class="active">Move the sliders to estimate the time and money an AI agent could give back to your team — every month.</span>
+
     </p>
 
     <div class="roi-card reveal">
@@ -518,12 +490,10 @@
         <div class="roi-input-group">
           <div class="roi-input-head">
             <span class="roi-input-label">
-              <span data-lang="en" class="active">Hours/week on repetitive tasks</span>
-              <span data-lang="ru">Часов/неделю на рутину</span>
-              <span data-lang="es">Horas/semana en tareas repetitivas</span>
-              <span data-lang="uk">Годин/тиждень на рутину</span>
+              <span class="active">Hours/week on repetitive tasks</span>
+
             </span>
-            <span class="roi-input-val"><span id="roiHoursV">10</span> <span data-lang="en" class="active">h</span><span data-lang="ru">ч</span><span data-lang="es">h</span><span data-lang="uk">г</span></span>
+            <span class="roi-input-val"><span id="roiHoursV">10</span> <span class="active">h</span></span>
           </div>
           <input type="range" class="roi-range" id="roiHours" min="1" max="40" value="10" oninput="updateROI()"/>
         </div>
@@ -531,10 +501,8 @@
         <div class="roi-input-group">
           <div class="roi-input-head">
             <span class="roi-input-label">
-              <span data-lang="en" class="active">People doing this work</span>
-              <span data-lang="ru">Сотрудников на этой задаче</span>
-              <span data-lang="es">Personas en esta tarea</span>
-              <span data-lang="uk">Співробітників на цьому завданні</span>
+              <span class="active">People doing this work</span>
+
             </span>
             <span class="roi-input-val" id="roiPeopleV">2</span>
           </div>
@@ -544,10 +512,8 @@
         <div class="roi-input-group">
           <div class="roi-input-head">
             <span class="roi-input-label">
-              <span data-lang="en" class="active">Average hourly cost</span>
-              <span data-lang="ru">Средняя стоимость часа</span>
-              <span data-lang="es">Coste medio por hora</span>
-              <span data-lang="uk">Середня вартість години</span>
+              <span class="active">Average hourly cost</span>
+
             </span>
             <span class="roi-input-val">€<span id="roiRateV">30</span></span>
           </div>
@@ -557,19 +523,15 @@
         <div class="roi-input-group">
           <div class="roi-input-head">
             <span class="roi-input-label">
-              <span data-lang="en" class="active">Share that can be automated</span>
-              <span data-lang="ru">Доля, что можно автоматизировать</span>
-              <span data-lang="es">Parte que se puede automatizar</span>
-              <span data-lang="uk">Частка, що можна автоматизувати</span>
+              <span class="active">Share that can be automated</span>
+
             </span>
             <span class="roi-input-val" id="roiAutoV">60%</span>
           </div>
           <input type="range" class="roi-range" id="roiAuto" min="20" max="90" value="60" step="5" oninput="updateROI()"/>
           <div class="roi-hint">
-            <span data-lang="en" class="active">Our projects typically automate 50–70% of a repetitive workflow.</span>
-            <span data-lang="ru">Наши проекты обычно автоматизируют 50–70% рутинного процесса.</span>
-            <span data-lang="es">Nuestros proyectos suelen automatizar 50–70% de un flujo repetitivo.</span>
-            <span data-lang="uk">Наші проекти зазвичай автоматизують 50–70% рутинного процесу.</span>
+            <span class="active">Our projects typically automate 50–70% of a repetitive workflow.</span>
+
           </div>
         </div>
       </div>
@@ -577,56 +539,44 @@
       <div class="roi-results">
         <div class="roi-result-hero">
           <div class="roi-result-label">
-            <span data-lang="en" class="active">Estimated savings / year</span>
-            <span data-lang="ru">Экономия в год (оценка)</span>
-            <span data-lang="es">Ahorro estimado / año</span>
-            <span data-lang="uk">Економія на рік (оцінка)</span>
+            <span class="active">Estimated savings / year</span>
+
           </div>
           <div class="roi-result-big"><span class="cur">€</span><span id="roiYear">11,232</span></div>
         </div>
         <div class="roi-result-row">
           <div class="roi-result-sub">
             <div class="roi-result-label">
-              <span data-lang="en" class="active">Hours saved / mo</span>
-              <span data-lang="ru">Часов/мес</span>
-              <span data-lang="es">Horas/mes</span>
-              <span data-lang="uk">Годин/міс</span>
+              <span class="active">Hours saved / mo</span>
+
             </div>
             <div class="roi-result-num" id="roiHoursMo">52 h</div>
           </div>
           <div class="roi-result-sub">
             <div class="roi-result-label">
-              <span data-lang="en" class="active">Saved / month</span>
-              <span data-lang="ru">Экономия/мес</span>
-              <span data-lang="es">Ahorro/mes</span>
-              <span data-lang="uk">Економія/міс</span>
+              <span class="active">Saved / month</span>
+
             </div>
             <div class="roi-result-num">€<span id="roiMonth">936</span></div>
           </div>
         </div>
         <div class="roi-payback">
-          <span data-lang="en" class="active">A typical automation project would pay for itself in </span>
-          <span data-lang="ru">Типовой проект автоматизации окупится за </span>
-          <span data-lang="es">Un proyecto de automatización típico se amortizaría en </span>
-          <span data-lang="uk">Типовий проект автоматизації окупиться за </span>
-          <strong><span id="roiPayback">2.1</span> <span data-lang="en" class="active">months</span><span data-lang="ru">мес.</span><span data-lang="es">meses</span><span data-lang="uk">міс.</span></strong>.
+          <span class="active">A typical automation project would pay for itself in </span>
+
+          <strong><span id="roiPayback">2.1</span> <span class="active">months</span></strong>.
         </div>
         <div class="roi-cta">
           <a href="contact.html#book" class="btn-teal" style="width:100%;justify-content:center;">
-            <span data-lang="en" class="active">Get an exact quote — free call</span>
-            <span data-lang="ru">Точный расчёт — бесплатный звонок</span>
-            <span data-lang="es">Presupuesto exacto — llamada gratis</span>
-            <span data-lang="uk">Точний розрахунок — безкоштовний дзвінок</span>
+            <span class="active">Get an exact quote — free call</span>
+
             <i data-lucide="arrow-right" class="ic-sm"></i>
           </a>
         </div>
       </div>
     </div>
     <div class="roi-disclaimer">
-      <span data-lang="en" class="active">Estimates only, based on your inputs. Actual results depend on your specific workflow.</span>
-      <span data-lang="ru">Только оценка на основе ваших данных. Реальный результат зависит от вашего процесса.</span>
-      <span data-lang="es">Solo estimaciones según sus datos. Los resultados reales dependen de su flujo específico.</span>
-      <span data-lang="uk">Лише оцінка на основі ваших даних. Реальний результат залежить від вашого процесу.</span>
+      <span class="active">Estimates only, based on your inputs. Actual results depend on your specific workflow.</span>
+
     </div>
   </div>
 </section>
@@ -635,39 +585,35 @@
 <section id="services-preview" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="container">
     <span class="section-label reveal">
-      <span data-lang="en" class="active">What we do</span>
-      <span data-lang="ru">Что мы делаем</span>
-      <span data-lang="es">Lo que hacemos</span>
-      <span data-lang="uk">Що ми робимо</span>
+      <span class="active">What we do</span>
+
     </span>
     <h2 class="section-title reveal">
-      <span data-lang="en" class="active">Services</span>
-      <span data-lang="ru">Услуги</span>
-      <span data-lang="es">Servicios</span>
-      <span data-lang="uk">Послуги</span>
+      <span class="active">Services</span>
+
     </h2>
     <div class="services-grid-preview">
       <div class="service-card-preview reveal reveal-delay-1">
         <div class="svc-icon-wrap"><div class="icon-tile"><i data-lucide="bot" class="ic"></i></div></div>
-        <div class="svc-title"><span data-lang="en" class="active">AI Agent Design</span><span data-lang="ru">Проектирование ИИ-агентов</span><span data-lang="es">Diseño de agentes IA</span><span data-lang="uk">Проектування ІІ-агентів</span></div>
-        <div class="svc-desc"><span data-lang="en" class="active">Autonomous agents that handle complex multi-step tasks without human intervention.</span><span data-lang="ru">Автономные агенты для сложных многоэтапных задач без участия человека.</span><span data-lang="es">Agentes autónomos para tareas complejas sin intervención humana.</span><span data-lang="uk">Автономні агенти для складних завдань без участі людини.</span></div>
-        <a href="services.html" class="svc-link"><span data-lang="en" class="active">Learn more</span><span data-lang="ru">Подробнее</span><span data-lang="es">Más info</span><span data-lang="uk">Докладніше</span><i data-lucide="arrow-right"></i></a>
+        <div class="svc-title"><span class="active">AI Agent Design</span></div>
+        <div class="svc-desc"><span class="active">Autonomous agents that handle complex multi-step tasks without human intervention.</span></div>
+        <a href="services.html" class="svc-link"><span class="active">Learn more</span><i data-lucide="arrow-right"></i></a>
       </div>
       <div class="service-card-preview reveal reveal-delay-2">
         <div class="svc-icon-wrap"><div class="icon-tile"><i data-lucide="workflow" class="ic"></i></div></div>
-        <div class="svc-title"><span data-lang="en" class="active">Workflow Automation</span><span data-lang="ru">Автоматизация воркфлоу</span><span data-lang="es">Automatización de flujos</span><span data-lang="uk">Автоматизація воркфлоу</span></div>
-        <div class="svc-desc"><span data-lang="en" class="active">End-to-end automated pipelines using n8n and custom solutions tailored to your business.</span><span data-lang="ru">Сквозные автоматизированные пайплайны с помощью n8n и кастомных решений.</span><span data-lang="es">Pipelines automatizados de extremo a extremo con n8n.</span><span data-lang="uk">Наскрізні автоматизовані пайплайни за допомогою n8n.</span></div>
-        <a href="services.html" class="svc-link"><span data-lang="en" class="active">Learn more</span><span data-lang="ru">Подробнее</span><span data-lang="es">Más info</span><span data-lang="uk">Докладніше</span><i data-lucide="arrow-right"></i></a>
+        <div class="svc-title"><span class="active">Workflow Automation</span></div>
+        <div class="svc-desc"><span class="active">End-to-end automated pipelines using n8n and custom solutions tailored to your business.</span></div>
+        <a href="services.html" class="svc-link"><span class="active">Learn more</span><i data-lucide="arrow-right"></i></a>
       </div>
       <div class="service-card-preview reveal reveal-delay-3">
         <div class="svc-icon-wrap"><div class="icon-tile"><i data-lucide="database" class="ic"></i></div></div>
-        <div class="svc-title"><span data-lang="en" class="active">RAG &amp; Knowledge Bases</span><span data-lang="ru">RAG и базы знаний</span><span data-lang="es">RAG y bases de conocimiento</span><span data-lang="uk">RAG та бази знань</span></div>
-        <div class="svc-desc"><span data-lang="en" class="active">AI that works with your proprietary data — securely and accurately, using vector search.</span><span data-lang="ru">ИИ, работающий с вашими корпоративными данными — безопасно и точно.</span><span data-lang="es">IA que trabaja con sus datos propietarios — de forma segura y precisa.</span><span data-lang="uk">ІІ, що працює з вашими даними — безпечно та точно.</span></div>
-        <a href="services.html" class="svc-link"><span data-lang="en" class="active">Learn more</span><span data-lang="ru">Подробнее</span><span data-lang="es">Más info</span><span data-lang="uk">Докладніше</span><i data-lucide="arrow-right"></i></a>
+        <div class="svc-title"><span class="active">RAG &amp; Knowledge Bases</span></div>
+        <div class="svc-desc"><span class="active">AI that works with your proprietary data — securely and accurately, using vector search.</span></div>
+        <a href="services.html" class="svc-link"><span class="active">Learn more</span><i data-lucide="arrow-right"></i></a>
       </div>
     </div>
     <div style="text-align:center;margin-top:2.5rem;" class="reveal">
-      <a href="services.html" class="btn-outline"><span data-lang="en" class="active">All services &amp; pricing</span><span data-lang="ru">Все услуги и цены</span><span data-lang="es">Todos los servicios</span><span data-lang="uk">Всі послуги та ціни</span><i data-lucide="arrow-right" class="ic-sm"></i></a>
+      <a href="services.html" class="btn-outline"><span class="active">All services &amp; pricing</span><i data-lucide="arrow-right" class="ic-sm"></i></a>
     </div>
   </div>
 </section>
@@ -676,40 +622,36 @@
 <section id="cases-preview">
   <div class="container">
     <span class="section-label reveal">
-      <span data-lang="en" class="active">Portfolio</span>
-      <span data-lang="ru">Портфолио</span>
-      <span data-lang="es">Portafolio</span>
-      <span data-lang="uk">Портфоліо</span>
+      <span class="active">Portfolio</span>
+
     </span>
     <h2 class="section-title reveal">
-      <span data-lang="en" class="active">Measured systems and live projects</span>
-      <span data-lang="ru">Измеренные системы и живые проекты</span>
-      <span data-lang="es">Sistemas medidos y proyectos en funcionamiento</span>
-      <span data-lang="uk">Виміряні системи та живі проєкти</span>
+      <span class="active">Measured systems and live projects</span>
+
     </h2>
     <div class="cases-preview-grid">
       <div class="case-preview-card reveal reveal-delay-1">
         <div class="case-preview-header">
-          <div class="case-tag"><span data-lang="en" class="active">Operations / Document compliance</span><span data-lang="ru">Операции / Комплаенс документов</span><span data-lang="es">Operaciones / Cumplimiento documental</span><span data-lang="uk">Операції / Комплаєнс документів</span></div><span class="case-badge case-badge-measured">MEASURED</span>
+          <div class="case-tag"><span class="active">Operations / Document compliance</span></div><span class="case-badge case-badge-measured">MEASURED</span>
           <div class="case-name">Osprey Document Bench</div>
         </div>
         <div class="case-preview-body">
           <span class="case-num">219/220</span>
-          <div class="case-desc-short"><span data-lang="en" class="active">planted problems found · two batches of 393 files, a known answer</span><span data-lang="ru">заложенных проблем найдено · два батча по 393 файла, известный ответ</span><span data-lang="es">problemas plantados encontrados · dos lotes de 393 archivos, respuesta conocida</span><span data-lang="uk">закладених проблем знайдено · два батчі по 393 файли, відома відповідь</span></div>
+          <div class="case-desc-short"><span class="active">planted problems found · two batches of 393 files, a known answer</span></div>
           <div class="case-stack"><span class="stack-tag">Python</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">OpenAI API</span><span class="stack-tag">n8n</span></div>
-          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
+          <a href="cases.html" class="case-view-link"><span class="active">View details</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
       <div class="case-preview-card reveal reveal-delay-2">
         <div class="case-preview-header">
-          <div class="case-tag"><span data-lang="en" class="active">Finance / Accounts Payable</span><span data-lang="ru">Финансы / Кредиторская задолженность</span><span data-lang="es">Finanzas / Cuentas por pagar</span><span data-lang="uk">Фінанси / Кредиторська заборгованість</span></div><span class="case-badge case-badge-measured">MEASURED</span>
+          <div class="case-tag"><span class="active">Finance / Accounts Payable</span></div><span class="case-badge case-badge-measured">MEASURED</span>
           <div class="case-name">Kestrel Invoice Bench</div>
         </div>
         <div class="case-preview-body">
           <span class="case-num">94/98</span>
-          <div class="case-desc-short"><span data-lang="en" class="active">planted errors found · 260 invoices, 98 errors, a known answer</span><span data-lang="ru">заложенных ошибок найдено · 260 счетов, 98 ошибок, известный ответ</span><span data-lang="es">errores plantados encontrados · 260 facturas, 98 errores, respuesta conocida</span><span data-lang="uk">закладених помилок знайдено · 260 рахунків, 98 помилок, відома відповідь</span></div>
+          <div class="case-desc-short"><span class="active">planted errors found · 260 invoices, 98 errors, a known answer</span></div>
           <div class="case-stack"><span class="stack-tag">Python</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">OpenAI API</span><span class="stack-tag">n8n</span></div>
-          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
+          <a href="cases.html" class="case-view-link"><span class="active">View details</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
       <div class="case-preview-card reveal reveal-delay-3">
@@ -719,21 +661,21 @@
         </div>
         <div class="case-preview-body">
           <span class="case-num">9×</span>
-          <div class="case-desc-short"><span data-lang="en" class="active">Content units per prompt · 3 languages × 3 formats + AI image</span><span data-lang="ru">Единиц контента за запрос · 3 языка × 3 формата + AI-изображение</span><span data-lang="es">Unidades por prompt · 3 idiomas × 3 formatos + imagen IA</span><span data-lang="uk">Одиниць за запит · 3 мови × 3 формати + AI-зображення</span></div>
+          <div class="case-desc-short"><span class="active">Content units per prompt · 3 languages × 3 formats + AI image</span></div>
           <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">DALL-E 3</span><span class="stack-tag">Telegram</span></div>
-          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
+          <a href="cases.html" class="case-view-link"><span class="active">View details</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
       <div class="case-preview-card reveal reveal-delay-1">
         <div class="case-preview-header">
           <div class="case-tag">HR / Recruiting</div><span class="case-badge"><span class="live-dot"></span>LIVE</span>
-          <div class="case-name"><span data-lang="en" class="active">CV Parsing & Structuring</span><span data-lang="ru">Парсинг и структурирование резюме</span><span data-lang="es">Análisis y estructuración de CVs</span><span data-lang="uk">Парсинг та структурування резюме</span></div>
+          <div class="case-name"><span class="active">CV Parsing & Structuring</span></div>
         </div>
         <div class="case-preview-body">
           <span class="case-num">ATS</span>
-          <div class="case-desc-short"><span data-lang="en" class="active">Extracts structured data from resumes into your ATS — no scoring, no ranking</span><span data-lang="ru">Извлекает структурированные данные из резюме в вашу ATS — без оценки и ранжирования</span><span data-lang="es">Extrae datos estructurados de los CVs a su ATS — sin puntuación ni clasificación</span><span data-lang="uk">Витягує структуровані дані з резюме у вашу ATS — без оцінки та ранжування</span></div>
+          <div class="case-desc-short"><span class="active">Extracts structured data from resumes into your ATS — no scoring, no ranking</span></div>
           <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">Google Sheets</span><span class="stack-tag">Telegram</span></div>
-          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
+          <a href="cases.html" class="case-view-link"><span class="active">View details</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
       <div class="case-preview-card reveal reveal-delay-2">
@@ -743,21 +685,21 @@
         </div>
         <div class="case-preview-body">
           <span class="case-num">3</span><span style="font-family:var(--display);font-size:1rem;font-weight:600;color:var(--text2);margin-left:6px;">agents · 1 platform</span>
-          <div class="case-desc-short"><span data-lang="en" class="active">RAG-powered Legal, HR &amp; Support agents with live analytics dashboard</span><span data-lang="ru">RAG-агенты Legal, HR и Support с живым дашбордом аналитики</span><span data-lang="es">Agentes Legal, HR y Support con RAG y dashboard de analítica</span><span data-lang="uk">RAG-агенти Legal, HR та Support з живим дашбордом</span></div>
+          <div class="case-desc-short"><span class="active">RAG-powered Legal, HR &amp; Support agents with live analytics dashboard</span></div>
           <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">Claude API</span><span class="stack-tag">Supabase</span><span class="stack-tag">pgvector</span></div>
-          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
+          <a href="cases.html" class="case-view-link"><span class="active">View details</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
       <div class="case-preview-card reveal reveal-delay-3">
         <div class="case-preview-header">
           <div class="case-tag">B2B Sales / Lead Gen</div><span class="case-badge"><span class="live-dot"></span>LIVE</span>
-          <div class="case-name"><span data-lang="en" class="active">AI Lead Generation Agent</span><span data-lang="ru">ИИ-агент генерации лидов</span><span data-lang="es">Agente IA de generación de leads</span><span data-lang="uk">ІІ-агент генерації лідів</span></div>
+          <div class="case-name"><span class="active">AI Lead Generation Agent</span></div>
         </div>
         <div class="case-preview-body">
           <span class="case-num">100%</span>
-          <div class="case-desc-short"><span data-lang="en" class="active">Autonomous B2B outreach · Google Maps → AI scoring → cold email + follow-up</span><span data-lang="ru">Автономный B2B-аутрич · Google Maps → AI-скоринг → холодные письма</span><span data-lang="es">Outreach B2B autónomo · Google Maps → puntuación IA → email frío</span><span data-lang="uk">Автономний B2B-аутрич · Google Maps → AI-скоринг → холодні листи</span></div>
+          <div class="case-desc-short"><span class="active">Autonomous B2B outreach · Google Maps → AI scoring → cold email + follow-up</span></div>
           <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">Google Maps API</span><span class="stack-tag">Gmail</span></div>
-          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
+          <a href="cases.html" class="case-view-link"><span class="active">View details</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
       <div class="case-preview-card reveal reveal-delay-1">
@@ -767,14 +709,14 @@
         </div>
         <div class="case-preview-body">
           <span class="case-num">5×</span>
-          <div class="case-desc-short"><span data-lang="en" class="active">AI agents · reviews, reservations, menu, inventory, food photos</span><span data-lang="ru">ИИ-агентов · отзывы, бронирование, меню, склад, фото</span><span data-lang="es">Agentes IA · reseñas, reservas, menú, inventario, fotos</span><span data-lang="uk">ІІ-агентів · відгуки, бронювання, меню, склад, фото</span></div>
+          <div class="case-desc-short"><span class="active">AI agents · reviews, reservations, menu, inventory, food photos</span></div>
           <div class="case-stack"><span class="stack-tag">n8n</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">DALL-E 3</span><span class="stack-tag">Supabase</span></div>
-          <a href="cases.html" class="case-view-link"><span data-lang="en" class="active">View details</span><span data-lang="ru">Подробнее</span><span data-lang="es">Ver detalles</span><span data-lang="uk">Детальніше</span><i data-lucide="arrow-right"></i></a>
+          <a href="cases.html" class="case-view-link"><span class="active">View details</span><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
     </div>
     <div style="text-align:center;margin-top:2.5rem;" class="reveal">
-      <a href="cases.html" class="btn-outline"><span data-lang="en" class="active">All case studies</span><span data-lang="ru">Все кейсы</span><span data-lang="es">Todos los casos</span><span data-lang="uk">Всі кейси</span><i data-lucide="arrow-right" class="ic-sm"></i></a>
+      <a href="cases.html" class="btn-outline"><span class="active">All case studies</span><i data-lucide="arrow-right" class="ic-sm"></i></a>
     </div>
   </div>
 </section>
@@ -785,44 +727,32 @@
     <div class="about-preview-grid">
       <div class="reveal">
         <span class="section-label">
-          <span data-lang="en" class="active">Who we are</span>
-          <span data-lang="ru">О нас</span>
-          <span data-lang="es">Quiénes somos</span>
-          <span data-lang="uk">Про нас</span>
+          <span class="active">Who we are</span>
+
         </span>
         <h2 style="margin-bottom:1.5rem;">
-          <span data-lang="en" class="active">From <span class="accent">Archaeology</span> to AI Automation</span>
-          <span data-lang="ru">Из <span class="accent">Археологии</span> в ИИ-автоматизацию</span>
-          <span data-lang="es">De la <span class="accent">Arqueología</span> a la IA</span>
-          <span data-lang="uk">З <span class="accent">Археології</span> до ІІ-автоматизації</span>
+          <span class="active">From <span class="accent">Archaeology</span> to AI Automation</span>
+
         </h2>
         <p style="margin-bottom:1rem;">
-          <span data-lang="en" class="active">NeolithAI is led by Yevhenii Nohin — PhD archaeologist turned AI Automation Engineer. 23 years of excavating, classifying, and analysing complex data trained a mind that finds patterns where others see noise.</span>
-          <span data-lang="ru">NeolithAI возглавляет Евгений Нохин — PhD-археолог, ставший инженером по ИИ-автоматизации. 23 года раскопок и анализа данных научили видеть паттерны там, где другие видят хаос.</span>
-          <span data-lang="es">NeolithAI está liderado por Yevhenii Nohin — arqueólogo PhD reconvertido en Ingeniero de IA. 23 años excavando y analizando datos complejos entrenaron una mente que encuentra patrones donde otros ven ruido.</span>
-          <span data-lang="uk">NeolithAI очолює Євгеній Нохін — PhD-археолог, який став інженером з ІІ-автоматизації. 23 роки розкопок і аналізу даних навчили знаходити паттерни там, де інші бачать хаос.</span>
+          <span class="active">NeolithAI is led by Yevhenii Nohin — PhD archaeologist turned AI Automation Engineer. 23 years of excavating, classifying, and analysing complex data trained a mind that finds patterns where others see noise.</span>
+
         </p>
         <p style="margin-bottom:2rem;">
-          <span data-lang="en" class="active">That same analytical discipline now drives every automation we build — map the process, find the gaps, build the system that runs itself.</span>
-          <span data-lang="ru">Та же аналитическая дисциплина теперь лежит в основе каждой автоматизации — картируй процесс, найди разрывы, выстрой систему, которая работает сама.</span>
-          <span data-lang="es">Esa misma disciplina analítica impulsa cada automatización que construimos — mapear el proceso, encontrar las brechas, construir el sistema que se gestiona solo.</span>
-          <span data-lang="uk">Та ж аналітична дисципліна тепер лежить в основі кожної автоматизації — картуй процес, знайди розриви, побудуй систему, яка працює сама.</span>
+          <span class="active">That same analytical discipline now drives every automation we build — map the process, find the gaps, build the system that runs itself.</span>
+
         </p>
         <a href="about.html" class="btn-outline">
-          <span data-lang="en" class="active">Our story</span>
-          <span data-lang="ru">Наша история</span>
-          <span data-lang="es">Nuestra historia</span>
-          <span data-lang="uk">Наша історія</span>
+          <span class="active">Our story</span>
+
           <i data-lucide="arrow-right" class="ic-sm"></i>
         </a>
       </div>
       <div class="reveal reveal-delay-2">
         <div class="about-quote-block">
           <p class="about-quote-text">
-            <span data-lang="en" class="active">"An archaeologist doesn't just dig — they reconstruct hidden systems from fragments. <strong>AI automation is the same discipline:</strong> map the process, find the gaps, build the structure that runs itself."</span>
-            <span data-lang="ru">"Археолог не просто копает — он восстанавливает скрытые системы из фрагментов. <strong>ИИ-автоматизация — та же дисциплина:</strong> картируй процесс, найди разрывы, выстрой структуру, которая работает сама."</span>
-            <span data-lang="es">"Un arqueólogo no solo excava — reconstruye sistemas ocultos a partir de fragmentos. <strong>La automatización IA es la misma disciplina:</strong> mapea el proceso, encuentra las brechas, construye la estructura que se gestiona sola."</span>
-            <span data-lang="uk">"Археолог не просто копає — він відновлює приховані системи з фрагментів. <strong>ІІ-автоматизація — та сама дисципліна:</strong> картуй процес, знайди розриви, побудуй структуру, яка працює сама."</span>
+            <span class="active">"An archaeologist doesn't just dig — they reconstruct hidden systems from fragments. <strong>AI automation is the same discipline:</strong> map the process, find the gaps, build the structure that runs itself."</span>
+
           </p>
           <div class="about-tags-wrap">
             <span class="about-tag">n8n</span>
@@ -850,45 +780,33 @@
 <section id="proof" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="container">
     <span class="section-label reveal">
-      <span data-lang="en" class="active">Proof</span>
-      <span data-lang="ru">Подтверждения</span>
-      <span data-lang="es">Pruebas</span>
-      <span data-lang="uk">Підтвердження</span>
+      <span class="active">Proof</span>
+
     </span>
     <h2 class="section-title reveal" style="margin-bottom:1rem;">
-      <span data-lang="en" class="active">Everything here is public. Check it yourself.</span>
-      <span data-lang="ru">Всё это открыто. Проверьте сами.</span>
-      <span data-lang="es">Todo esto es público. Compruébelo usted mismo.</span>
-      <span data-lang="uk">Усе це відкрито. Перевірте самі.</span>
+      <span class="active">Everything here is public. Check it yourself.</span>
+
     </h2>
     <p class="proof-lede reveal">
-      <span data-lang="en" class="active">Published templates, open code, and a running account of how the work is done — open any of it and judge for yourself.</span>
-      <span data-lang="ru">Опубликованные шаблоны, открытый код и рассказ о том, как делается работа, — откройте любое и оцените сами.</span>
-      <span data-lang="es">Plantillas publicadas, código abierto y un relato continuo de cómo se hace el trabajo — abra cualquiera y juzgue usted mismo.</span>
-      <span data-lang="uk">Опубліковані шаблони, відкритий код і розповідь про те, як робиться робота, — відкрийте будь-що та оцініть самі.</span>
+      <span class="active">Published templates, open code, and a running account of how the work is done — open any of it and judge for yourself.</span>
+
     </p>
     <div class="proof-grid">
       <div class="t-card reveal reveal-delay-1">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:.9rem;">
           <div class="t-avatar" style="width:36px;height:36px;border-radius:10px;"><i data-lucide="badge-check" class="ic-sm"></i></div>
           <div class="proof-name" style="margin-bottom:0;">
-            <span data-lang="en" class="active">n8n Verified Creator</span>
-            <span data-lang="ru">n8n Verified Creator</span>
-            <span data-lang="es">n8n Verified Creator</span>
-            <span data-lang="uk">n8n Verified Creator</span>
+            <span class="active">n8n Verified Creator</span>
+
           </div>
         </div>
         <div class="t-quote">
-          <span data-lang="en" class="active">Five workflow templates published and reviewed by n8n.</span>
-          <span data-lang="ru">Пять шаблонов опубликованы и проверены командой n8n.</span>
-          <span data-lang="es">Cinco plantillas publicadas y revisadas por n8n.</span>
-          <span data-lang="uk">П’ять шаблонів опубліковані та перевірені командою n8n.</span>
+          <span class="active">Five workflow templates published and reviewed by n8n.</span>
+
         </div>
         <a class="proof-link" href="https://n8n.io/creators/neolith2018/" target="_blank" rel="noopener">
-          <span data-lang="en" class="active">View profile</span>
-          <span data-lang="ru">Открыть профиль</span>
-          <span data-lang="es">Ver perfil</span>
-          <span data-lang="uk">Відкрити профіль</span>
+          <span class="active">View profile</span>
+
           <i data-lucide="arrow-up-right" class="ic-sm"></i>
         </a>
       </div>
@@ -896,23 +814,17 @@
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:.9rem;">
           <div class="t-avatar" style="width:36px;height:36px;border-radius:10px;"><i data-lucide="code-2" class="ic-sm"></i></div>
           <div class="proof-name" style="margin-bottom:0;">
-            <span data-lang="en" class="active">Code in the open</span>
-            <span data-lang="ru">Открытый код</span>
-            <span data-lang="es">Código abierto</span>
-            <span data-lang="uk">Відкритий код</span>
+            <span class="active">Code in the open</span>
+
           </div>
         </div>
         <div class="t-quote">
-          <span data-lang="en" class="active">Workflows, scripts and database schemas on GitHub.</span>
-          <span data-lang="ru">Воркфлоу, скрипты и схемы базы данных на GitHub.</span>
-          <span data-lang="es">Flujos, scripts y esquemas de base de datos en GitHub.</span>
-          <span data-lang="uk">Воркфлоу, скрипти та схеми бази даних на GitHub.</span>
+          <span class="active">Workflows, scripts and database schemas on GitHub.</span>
+
         </div>
         <a class="proof-link" href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener">
-          <span data-lang="en" class="active">View GitHub</span>
-          <span data-lang="ru">Открыть GitHub</span>
-          <span data-lang="es">Ver GitHub</span>
-          <span data-lang="uk">Відкрити GitHub</span>
+          <span class="active">View GitHub</span>
+
           <i data-lucide="arrow-up-right" class="ic-sm"></i>
         </a>
       </div>
@@ -920,23 +832,17 @@
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:.9rem;">
           <div class="t-avatar" style="width:36px;height:36px;border-radius:10px;"><i data-lucide="newspaper" class="ic-sm"></i></div>
           <div class="proof-name" style="margin-bottom:0;">
-            <span data-lang="en" class="active">Built in public</span>
-            <span data-lang="ru">Строится на виду</span>
-            <span data-lang="es">Construido a la vista</span>
-            <span data-lang="uk">Будується на видноті</span>
+            <span class="active">Built in public</span>
+
           </div>
         </div>
         <div class="t-quote">
-          <span data-lang="en" class="active">A running series on how an invoice checking system was designed, built and measured — mistakes included.</span>
-          <span data-lang="ru">Серия постов о том, как система проверки счетов задумывалась, строилась и измерялась, — вместе с ошибками.</span>
-          <span data-lang="es">Una serie sobre cómo se diseñó, construyó y midió un sistema de verificación de facturas — errores incluidos.</span>
-          <span data-lang="uk">Серія дописів про те, як система перевірки рахунків задумувалася, будувалася та вимірювалася, — разом із помилками.</span>
+          <span class="active">A running series on how an invoice checking system was designed, built and measured — mistakes included.</span>
+
         </div>
-        <a class="proof-link" href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener">
-          <span data-lang="en" class="active">Read on LinkedIn</span>
-          <span data-lang="ru">Читать в LinkedIn</span>
-          <span data-lang="es">Leer en LinkedIn</span>
-          <span data-lang="uk">Читати в LinkedIn</span>
+        <a class="proof-link" href="https://www.linkedin.com/in/yevhenii-n-06b403347/" target="_blank" rel="noopener">
+          <span class="active">Read on LinkedIn</span>
+
           <i data-lucide="arrow-up-right" class="ic-sm"></i>
         </a>
       </div>
@@ -944,23 +850,17 @@
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:.9rem;">
           <div class="t-avatar" style="width:36px;height:36px;border-radius:10px;"><i data-lucide="folder-open" class="ic-sm"></i></div>
           <div class="proof-name" style="margin-bottom:0;">
-            <span data-lang="en" class="active">Five projects running</span>
-            <span data-lang="ru">Пять работающих проектов</span>
-            <span data-lang="es">Cinco proyectos en marcha</span>
-            <span data-lang="uk">П’ять працюючих проєктів</span>
+            <span class="active">Five projects running</span>
+
           </div>
         </div>
         <div class="t-quote">
-          <span data-lang="en" class="active">Content, restaurant operations, CV parsing, multi-agent RAG, B2B lead generation.</span>
-          <span data-lang="ru">Контент, операции ресторана, разбор резюме, многоагентный RAG, генерация B2B-лидов.</span>
-          <span data-lang="es">Contenido, operaciones de restaurante, análisis de CVs, RAG multiagente, generación de leads B2B.</span>
-          <span data-lang="uk">Контент, операції ресторану, розбір резюме, багатоагентний RAG, генерація B2B-лідів.</span>
+          <span class="active">Content, restaurant operations, CV parsing, multi-agent RAG, B2B lead generation.</span>
+
         </div>
         <a class="proof-link" href="cases.html">
-          <span data-lang="en" class="active">See case studies</span>
-          <span data-lang="ru">Смотреть кейсы</span>
-          <span data-lang="es">Ver casos</span>
-          <span data-lang="uk">Дивитись кейси</span>
+          <span class="active">See case studies</span>
+
           <i data-lucide="arrow-up-right" class="ic-sm"></i>
         </a>
       </div>
@@ -993,55 +893,43 @@
       <!-- FORM -->
       <div class="reveal reveal-delay-1">
         <span class="section-label">
-          <span data-lang="en" class="active">Free guide</span>
-          <span data-lang="ru">Бесплатный гайд</span>
-          <span data-lang="es">Guía gratuita</span>
-          <span data-lang="uk">Безкоштовний гайд</span>
+          <span class="active">Free guide</span>
+
         </span>
         <h2 style="margin-bottom:1rem;">
-          <span data-lang="en" class="active">What should you <span class="accent">automate first?</span></span>
-          <span data-lang="ru">Что автоматизировать <span class="accent">в первую очередь?</span></span>
-          <span data-lang="es">¿Qué deberías <span class="accent">automatizar primero?</span></span>
-          <span data-lang="uk">Що автоматизувати <span class="accent">в першу чергу?</span></span>
+          <span class="active">What should you <span class="accent">automate first?</span></span>
+
         </h2>
         <p style="margin-bottom:1.5rem;max-width:480px;">
-          <span data-lang="en" class="active">Get our practical 7-process checklist. For each one: the signs it's time, what an AI agent does, and how much time you get back. Straight to your inbox.</span>
-          <span data-lang="ru">Получите практический чек-лист из 7 процессов. По каждому: признаки «пора», что делает ИИ-агент и сколько времени вы вернёте. Сразу на почту.</span>
-          <span data-lang="es">Reciba nuestro checklist de 7 procesos. Para cada uno: las señales, qué hace un agente IA y cuánto tiempo recupera. A su correo.</span>
-          <span data-lang="uk">Отримайте практичний чек-лист із 7 процесів. По кожному: ознаки «пора», що робить ІІ-агент і скільки часу ви повернете. Одразу на пошту.</span>
+          <span class="active">Get our practical 7-process checklist. For each one: the signs it's time, what an AI agent does, and how much time you get back. Straight to your inbox.</span>
+
         </p>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:1.75rem;">
-          <li style="display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--text2);"><i data-lucide="check" style="width:17px;height:17px;color:var(--accent2);"></i><span data-lang="en" class="active">7 processes ranked by impact</span><span data-lang="ru">7 процессов по приоритету</span><span data-lang="es">7 procesos por impacto</span><span data-lang="uk">7 процесів за пріоритетом</span></li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--text2);"><i data-lucide="check" style="width:17px;height:17px;color:var(--accent2);"></i><span data-lang="en" class="active">Self-diagnose with simple checklists</span><span data-lang="ru">Самодиагностика по простым чек-листам</span><span data-lang="es">Autodiagnóstico con checklists simples</span><span data-lang="uk">Самодіагностика за простими чек-листами</span></li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--text2);"><i data-lucide="check" style="width:17px;height:17px;color:var(--accent2);"></i><span data-lang="en" class="active">8-minute read · no fluff</span><span data-lang="ru">8 минут чтения · без воды</span><span data-lang="es">8 minutos · sin relleno</span><span data-lang="uk">8 хвилин · без води</span></li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--text2);"><i data-lucide="check" style="width:17px;height:17px;color:var(--accent2);"></i><span class="active">7 processes ranked by impact</span></li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--text2);"><i data-lucide="check" style="width:17px;height:17px;color:var(--accent2);"></i><span class="active">Self-diagnose with simple checklists</span></li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--text2);"><i data-lucide="check" style="width:17px;height:17px;color:var(--accent2);"></i><span class="active">8-minute read · no fluff</span></li>
         </ul>
 
         <form id="guideForm" name="guide-download" method="POST" data-netlify="true" style="display:flex;gap:10px;flex-wrap:wrap;max-width:480px;">
           <input type="hidden" name="form-name" value="guide-download"/>
           <input class="newsletter-input" style="flex:1;min-width:220px;background:var(--bg);border:1.5px solid var(--border2);color:var(--text);" type="email" name="email" placeholder="your@email.com" required/>
           <button type="submit" class="btn-primary">
-            <span data-lang="en" class="active">Send me the guide</span>
-            <span data-lang="ru">Получить гайд</span>
-            <span data-lang="es">Enviarme la guía</span>
-            <span data-lang="uk">Отримати гайд</span>
+            <span class="active">Send me the guide</span>
+
             <i data-lucide="download" class="ic-sm"></i>
           </button>
         </form>
         <div id="guideSuccess" style="display:none;margin-top:1.25rem;background:var(--accent2-soft);border:1px solid var(--accent2);border-radius:12px;padding:1.1rem 1.4rem;">
-          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--accent2);margin-bottom:6px;display:flex;align-items:center;gap:8px;"><i data-lucide="circle-check-big" class="ic-sm"></i><span data-lang="en" class="active">You're in! Here's your guide.</span><span data-lang="ru">Готово! Вот ваш гайд.</span><span data-lang="es">¡Listo! Aquí está su guía.</span><span data-lang="uk">Готово! Ось ваш гайд.</span></div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--accent2);margin-bottom:6px;display:flex;align-items:center;gap:8px;"><i data-lucide="circle-check-big" class="ic-sm"></i><span class="active">You're in! Here's your guide.</span></div>
           <a href="guide-7-processes.html" target="_blank" rel="noopener" class="btn-teal" style="margin-top:6px;">
             <i data-lucide="file-text" class="ic-sm"></i>
-            <span data-lang="en" class="active">Open the guide →</span>
-            <span data-lang="ru">Открыть гайд →</span>
-            <span data-lang="es">Abrir la guía →</span>
-            <span data-lang="uk">Відкрити гайд →</span>
+            <span class="active">Open the guide →</span>
+
           </a>
         </div>
         <p style="font-size:12px;color:var(--text3);margin-top:1rem;">
-          <span data-lang="en" class="active">No spam. Unsubscribe anytime. See our </span>
-          <span data-lang="ru">Без спама. Отписка в любой момент. См. </span>
-          <span data-lang="es">Sin spam. Cancele cuando quiera. Vea nuestra </span>
-          <span data-lang="uk">Без спаму. Відписка будь-коли. Див. </span>
+          <span class="active">No spam. Unsubscribe anytime. See our </span>
+
           <a href="privacy.html" style="color:var(--accent);text-decoration:none;font-weight:600;">Privacy Policy</a>.
         </p>
       </div>
@@ -1053,32 +941,24 @@
 <div class="newsletter-strip">
   <div class="container">
     <h2 class="reveal">
-      <span data-lang="en" class="active">Stay ahead of AI automation</span>
-      <span data-lang="ru">Будьте в курсе AI-автоматизации</span>
-      <span data-lang="es">Manténgase al día con la IA</span>
-      <span data-lang="uk">Будьте в курсі ІІ-автоматизації</span>
+      <span class="active">Stay ahead of AI automation</span>
+
     </h2>
     <p class="reveal">
-      <span data-lang="en" class="active">Practical insights, workflow tips, and industry news — once a week, no spam.</span>
-      <span data-lang="ru">Практические инсайты, советы по воркфлоу и новости индустрии — раз в неделю, без спама.</span>
-      <span data-lang="es">Insights prácticos, tips de flujos y noticias del sector — una vez a la semana, sin spam.</span>
-      <span data-lang="uk">Практичні інсайти, поради та новини індустрії — раз на тиждень, без спаму.</span>
+      <span class="active">Practical insights, workflow tips, and industry news — once a week, no spam.</span>
+
     </p>
     <form class="newsletter-form reveal" id="newsletterForm" name="newsletter" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="newsletter"/>
       <input class="newsletter-input" type="email" name="email" placeholder="your@email.com" required/>
       <button type="submit" class="newsletter-btn">
-        <span data-lang="en" class="active">Subscribe</span>
-        <span data-lang="ru">Подписаться</span>
-        <span data-lang="es">Suscribirse</span>
-        <span data-lang="uk">Підписатись</span>
+        <span class="active">Subscribe</span>
+
       </button>
     </form>
     <div class="newsletter-success" id="newsletterSuccess">
-      ✅ <span data-lang="en" class="active">You're in! First issue coming soon.</span>
-      <span data-lang="ru">Вы подписаны! Первый выпуск скоро.</span>
-      <span data-lang="es">¡Suscrito! El primer número llegará pronto.</span>
-      <span data-lang="uk">Ви підписані! Перший випуск незабаром.</span>
+      ✅ <span class="active">You're in! First issue coming soon.</span>
+
     </div>
   </div>
 </div>
@@ -1102,32 +982,30 @@
           </div>
         </a>
         <p class="footer-tagline">
-          <span data-lang="en" class="active">AI automation for small businesses across EU &amp; UK. We automate what's slowing you down.</span>
-          <span data-lang="ru">ИИ-автоматизация для малого бизнеса в ЕС и Великобритании.</span>
-          <span data-lang="es">Automatización IA para pequeñas empresas en UE y Reino Unido.</span>
-          <span data-lang="uk">ІІ-автоматизація для малого бізнесу в ЄС та Великобританії.</span>
+          <span class="active">AI automation for small businesses across EU &amp; UK. We automate what's slowing you down.</span>
+
         </p>
       </div>
       <div class="footer-col">
-        <h4><span data-lang="en" class="active">Services</span><span data-lang="ru">Услуги</span><span data-lang="es">Servicios</span><span data-lang="uk">Послуги</span></h4>
-        <a href="services.html"><span data-lang="en" class="active">AI Agent Design</span><span data-lang="ru">Проектирование агентов</span><span data-lang="es">Diseño de agentes</span><span data-lang="uk">Проектування агентів</span></a>
-        <a href="services.html"><span data-lang="en" class="active">Workflow Automation</span><span data-lang="ru">Автоматизация воркфлоу</span><span data-lang="es">Automatización</span><span data-lang="uk">Автоматизація</span></a>
-        <a href="services.html"><span data-lang="en" class="active">RAG &amp; Knowledge Bases</span><span data-lang="ru">RAG и базы знаний</span><span data-lang="es">RAG y bases</span><span data-lang="uk">RAG та бази знань</span></a>
-        <a href="services.html#pricing"><span data-lang="en" class="active">How we start</span><span data-lang="ru">С чего начинаем</span><span data-lang="es">Cómo empezamos</span><span data-lang="uk">З чого починаємо</span></a>
-        <a href="restaurants.html"><span data-lang="en" class="active">For Restaurants</span><span data-lang="ru">Для ресторанов</span><span data-lang="es">Para restaurantes</span><span data-lang="uk">Для ресторанів</span></a>
-        <a href="bfs.html"><span data-lang="en" class="active">For Small Business</span><span data-lang="ru">Для малого бизнеса</span><span data-lang="es">Para pequeñas empresas</span><span data-lang="uk">Для малого бізнесу</span></a>
+        <h4><span class="active">Services</span></h4>
+        <a href="services.html"><span class="active">AI Agent Design</span></a>
+        <a href="services.html"><span class="active">Workflow Automation</span></a>
+        <a href="services.html"><span class="active">RAG &amp; Knowledge Bases</span></a>
+        <a href="services.html#pricing"><span class="active">How we start</span></a>
+        <a href="restaurants.html"><span class="active">For Restaurants</span></a>
+        <a href="bfs.html"><span class="active">For Small Business</span></a>
       </div>
       <div class="footer-col">
-        <h4><span data-lang="en" class="active">Company</span><span data-lang="ru">Компания</span><span data-lang="es">Empresa</span><span data-lang="uk">Компанія</span></h4>
-        <a href="about.html"><span data-lang="en" class="active">About us</span><span data-lang="ru">О нас</span><span data-lang="es">Sobre nosotros</span><span data-lang="uk">Про нас</span></a>
-        <a href="cases.html"><span data-lang="en" class="active">Case studies</span><span data-lang="ru">Кейсы</span><span data-lang="es">Casos</span><span data-lang="uk">Кейси</span></a>
-        <a href="blog.html"><span data-lang="en" class="active">Blog</span><span data-lang="ru">Блог</span><span data-lang="es">Blog</span><span data-lang="uk">Блог</span></a>
-        <a href="contact.html"><span data-lang="en" class="active">Contact</span><span data-lang="ru">Контакты</span><span data-lang="es">Contacto</span><span data-lang="uk">Контакти</span></a>
+        <h4><span class="active">Company</span></h4>
+        <a href="about.html"><span class="active">About us</span></a>
+        <a href="cases.html"><span class="active">Case studies</span></a>
+        <a href="blog.html"><span class="active">Blog</span></a>
+        <a href="contact.html"><span class="active">Contact</span></a>
       </div>
       <div class="footer-col">
-        <h4><span data-lang="en" class="active">Connect</span><span data-lang="ru">Связаться</span><span data-lang="es">Conectar</span><span data-lang="uk">Зв'язатись</span></h4>
-        <a href="mailto:neolith2018ai@gmail.com">neolith2018ai@gmail.com</a>
-        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener">LinkedIn</a>
+        <h4><span class="active">Connect</span></h4>
+        <a href="mailto:yevhenii.nohin@neolithai.agency">yevhenii.nohin@neolithai.agency</a>
+        <a href="https://www.linkedin.com/in/yevhenii-n-06b403347/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener">Upwork</a>
         <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.facebook.com/NeolithAIAgency" target="_blank" rel="noopener">Facebook</a>
@@ -1136,7 +1014,7 @@
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 NeolithAI Agency. All rights reserved. · <a href="privacy.html" style="color:rgba(255,255,255,0.5);text-decoration:none;">Privacy Policy</a></span>
       <div class="footer-social">
-        <a href="https://www.linkedin.com/in/yevhenii-nohin-06b403347/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/yevhenii-n-06b403347/" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
         <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener" aria-label="GitHub">
@@ -1163,12 +1041,10 @@
   <div class="ai-chat-header">
     <div class="ai-chat-avatar"><i data-lucide="bot" class="ic-sm"></i></div>
     <div class="ai-chat-header-info">
-      <div class="ai-chat-name">Neo · NeolithAI Assistant</div><div class="ai-chat-disclosure"><span data-lang="en" class="active">AI assistant</span><span data-lang="ru">AI-ассистент</span><span data-lang="es">Asistente de IA</span><span data-lang="uk">AI-асистент</span></div>
+      <div class="ai-chat-name">Neo · NeolithAI Assistant</div><div class="ai-chat-disclosure"><span class="active">AI assistant</span></div>
       <div class="ai-chat-status">
-        <span data-lang="en" class="active">Online · replies instantly</span>
-        <span data-lang="ru">Онлайн · отвечает мгновенно</span>
-        <span data-lang="es">En línea · responde al instante</span>
-        <span data-lang="uk">Онлайн · відповідає миттєво</span>
+        <span class="active">Online · replies instantly</span>
+
       </div>
     </div>
     <button class="ai-chat-close" onclick="closeChat()" aria-label="Close chat">✕</button>
@@ -1216,7 +1092,7 @@ function updateROI(){
   document.getElementById('roiRateV').textContent = rate;
   document.getElementById('roiAutoV').textContent = (auto*100) + '%';
 
-  var hUnit = {en:' h',ru:' ч',es:' h',uk:' г'}[lang] || ' h';
+  var hUnit = ' h';
   document.getElementById('roiHoursMo').textContent = fmtNum(hoursSavedMo, lang) + hUnit;
   document.getElementById('roiMonth').textContent = fmtNum(monthSave, lang);
   document.getElementById('roiYear').textContent = fmtNum(yearSave, lang);

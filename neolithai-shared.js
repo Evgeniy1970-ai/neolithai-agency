@@ -2,48 +2,28 @@
    NeolithAI Agency — Shared JS v3.0
 ══════════════════════════════════════════════ */
 
-/* ── LANG ── */
+/* ── TEXT (English only) ── */
 var NAV_LABELS = {
   en: ['Services','Cases','About','Blog','Contact','Book a Call'],
-  ru: ['Услуги','Кейсы','О нас','Блог','Контакты','Записаться'],
-  es: ['Servicios','Casos','Sobre nosotros','Blog','Contacto','Reservar llamada'],
-  uk: ['Послуги','Кейси','Про нас','Блог','Контакти','Записатись']
 };
 var NAV_KEYS = ['services','cases','about','blog','contact','book'];
 
 var CHAT_TXT = {
-  en: { welcome: "Hi, I'm Neo — an AI assistant, not a human. I can answer questions about NeolithAI's services and automation in general. For anything specific to your business, I'll pass you to Yevhenii.", placeholder: "Ask me anything…", error: "Sorry, I'm having trouble connecting right now. Please email us at neolith2018ai@gmail.com" },
-  ru: { welcome: "Здравствуйте, я Neo — AI-ассистент, а не человек. Отвечу на вопросы об услугах NeolithAI и об автоматизации в целом. По конкретике вашего бизнеса передам Евгению.", placeholder: "Спросите что угодно…", error: "Извините, не получается подключиться. Напишите нам на neolith2018ai@gmail.com" },
-  es: { welcome: "Hola, soy Neo — un asistente de IA, no una persona. Puedo responder preguntas sobre los servicios de NeolithAI y sobre automatización en general. Para algo específico de su empresa, le pasaré con Yevhenii.", placeholder: "Pregúntame lo que sea…", error: "Lo siento, no puedo conectar ahora. Escríbenos a neolith2018ai@gmail.com" },
-  uk: { welcome: "Вітаю, я Neo — AI-асистент, а не людина. Відповім на питання про послуги NeolithAI та про автоматизацію загалом. Щодо конкретики вашого бізнесу передам Євгенію.", placeholder: "Запитайте будь-що…", error: "Вибачте, не вдається підключитися. Напишіть нам на neolith2018ai@gmail.com" }
+  en: { welcome: "Hi, I'm Neo — an AI assistant, not a human. I can answer questions about NeolithAI's services and automation in general. For anything specific to your business, I'll pass you to Yevhenii.", placeholder: "Ask me anything…", error: "Sorry, I'm having trouble connecting right now. Please email us at yevhenii.nohin@neolithai.agency" },
 };
 
-function currentLang() {
-  try { var l = localStorage.getItem('lang'); if (l && ['en','ru','es','uk'].indexOf(l) !== -1) return l; } catch(e) {}
-  return 'en';
-}
+function currentLang() { return 'en'; }
 
 function setLang(l) {
-  document.querySelectorAll('.lang-btn').forEach(function(b) {
-    b.classList.toggle('active', b.getAttribute('data-lang-btn') === l);
-  });
-  document.querySelectorAll('[data-lang]').forEach(function(el) {
-    el.classList.toggle('active', el.getAttribute('data-lang') === l);
-  });
+  // Site is English-only; kept so nav labels and the chat placeholder are set consistently.
+  l = 'en';
   document.querySelectorAll('[data-nav]').forEach(function(link) {
-    var key = link.getAttribute('data-nav');
-    var idx = NAV_KEYS.indexOf(key);
-    if (idx !== -1 && NAV_LABELS[l]) link.textContent = NAV_LABELS[l][idx];
+    var idx = NAV_KEYS.indexOf(link.getAttribute('data-nav'));
+    if (idx !== -1) link.textContent = NAV_LABELS.en[idx];
   });
-  document.documentElement.setAttribute('lang', l);
   var input = document.getElementById('aiChatInput');
-  if (input && CHAT_TXT[l]) input.setAttribute('placeholder', CHAT_TXT[l].placeholder);
-  // Re-localize the welcome bubble if chat not yet engaged
-  if (chatHistory.length === 0) {
-    var w = document.querySelector('#aiChatMessages .msg-bot[data-welcome]');
-    if (w && CHAT_TXT[l]) w.textContent = CHAT_TXT[l].welcome;
-  }
-  try { localStorage.setItem('lang', l); } catch(e) {}
+  if (input) input.setAttribute('placeholder', CHAT_TXT.en.placeholder);
+  try { localStorage.removeItem('lang'); } catch(e) {}
 }
 
 /* ── THEME ── */
@@ -62,7 +42,7 @@ function initTheme() {
   applyTheme(saved);
 }
 
-/* Inject theme toggle + mobile language switcher into every page */
+/* Inject theme toggle into every page */
 function injectChrome() {
   var navRight = document.querySelector('.nav-right');
   if (navRight && !navRight.querySelector('.theme-toggle')) {
@@ -73,20 +53,6 @@ function injectChrome() {
     btn.innerHTML = '<i data-lucide="moon" class="ic-sm ic-moon"></i><i data-lucide="sun" class="ic-sm ic-sun"></i>';
     var burger = navRight.querySelector('.burger');
     navRight.insertBefore(btn, burger || null);
-  }
-  var menu = document.getElementById('mobileMenu');
-  if (menu && !menu.querySelector('.mobile-lang')) {
-    var wrap = document.createElement('div');
-    wrap.className = 'mobile-lang';
-    ['en','ru','es','uk'].forEach(function(code) {
-      var b = document.createElement('button');
-      b.className = 'lang-btn';
-      b.setAttribute('data-lang-btn', code);
-      b.setAttribute('onclick', "setLang('" + code + "')");
-      b.textContent = code === 'uk' ? 'UA' : code.toUpperCase();
-      wrap.appendChild(b);
-    });
-    menu.appendChild(wrap);
   }
 }
 
@@ -326,9 +292,6 @@ function toggleBlog(id, btn) {
 /* ── COOKIE CONSENT ── */
 var COOKIE_TXT = {
   en: { text: 'We use minimal cookies to make the site work and understand traffic. By continuing you agree to our ', link: 'Privacy Policy', accept: 'Accept', decline: 'Decline' },
-  ru: { text: 'Мы используем минимум cookie, чтобы сайт работал и для аналитики. Продолжая, вы соглашаетесь с ', link: 'Политикой конфиденциальности', accept: 'Принять', decline: 'Отклонить' },
-  es: { text: 'Usamos cookies mínimas para que el sitio funcione y entender el tráfico. Al continuar acepta nuestra ', link: 'Política de Privacidad', accept: 'Aceptar', decline: 'Rechazar' },
-  uk: { text: 'Ми використовуємо мінімум cookie, щоб сайт працював та для аналітики. Продовжуючи, ви погоджуєтесь з ', link: 'Політикою конфіденційності', accept: 'Прийняти', decline: 'Відхилити' }
 };
 function initCookieConsent() {
   var choice;
