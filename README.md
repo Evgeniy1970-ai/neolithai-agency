@@ -2,7 +2,7 @@
 
 > *We don't automate for the sake of automation. We automate what's slowing you down.*
 
-**[neolithai.netlify.app](https://neolithai.netlify.app)** · [LinkedIn](https://www.linkedin.com/in/yevhenii-nohin-06b403347/) · [Upwork](https://www.upwork.com/freelancers/~013cd102dcb30a209f)
+**[neolithai.agency](https://neolithai.agency)** · [LinkedIn](https://www.linkedin.com/in/yevhenii-n-06b403347/) · [Upwork](https://www.upwork.com/freelancers/~013cd102dcb30a209f)
 
 ---
 
@@ -71,7 +71,7 @@ This is the source code for the **NeolithAI Agency website** — a fully static,
 ## Contact
 
 📧 [neolith2018ai@gmail.com](mailto:neolith2018ai@gmail.com)  
-💼 [LinkedIn](https://www.linkedin.com/in/yevhenii-nohin-06b403347/)  
+💼 [LinkedIn](https://www.linkedin.com/in/yevhenii-n-06b403347/)  
 🔧 [Upwork](https://www.upwork.com/freelancers/~013cd102dcb30a209f)  
 🐙 [GitHub](https://github.com/Evgeniy1970-ai)
 
