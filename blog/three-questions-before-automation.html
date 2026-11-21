@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Three Questions to Ask Before Building an Automation — NeolithAI</title>
+<meta name="description" content="Who notices when it breaks, how you'll know it worked, and what happens when it's switched off: three questions to answer before any automation is built."/>
+<link rel="canonical" href="https://neolithai.agency/blog/three-questions-before-automation.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="NeolithAI Agency"/>
+<meta property="og:title" content="Three questions we ask before writing a single node"/>
+<meta property="og:description" content="Who notices when it breaks, how you'll know it worked, and what happens when it's switched off: three questions to answer before any automation is built."/>
+<meta property="og:url" content="https://neolithai.agency/blog/three-questions-before-automation.html"/>
+<meta property="og:image" content="https://neolithai.agency/og-cover.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Three questions we ask before writing a single node"/>
+<meta name="twitter:description" content="Who notices when it breaks, how you'll know it worked, and what happens when it's switched off: three questions to answer before any automation is built."/>
+<meta name="twitter:image" content="https://neolithai.agency/og-cover.png"/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#2f5fe0"/>
+<link rel="stylesheet" href="/neolithai-shared.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Three questions we ask before writing a single node",
+  "description": "Who notices when it breaks, how you'll know it worked, and what happens when it's switched off: three questions to answer before any automation is built.",
+  "datePublished": "2026-11-20",
+  "dateModified": "2026-11-20",
+  "inLanguage": "en",
+  "mainEntityOfPage": "https://neolithai.agency/blog/three-questions-before-automation.html",
+  "image": "https://neolithai.agency/og-cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://neolithai.agency/about.html#founder",
+    "name": "Yevhenii Nohin",
+    "url": "https://neolithai.agency/about.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://neolithai.agency/#organization",
+    "name": "NeolithAI Agency",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://neolithai.agency/apple-touch-icon.png"
+    }
+  },
+  "about": [
+    "Automation planning",
+    "Workflow reliability",
+    "n8n"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://neolithai.agency/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://neolithai.agency/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Three questions before writing a single node",
+      "item": "https://neolithai.agency/blog/three-questions-before-automation.html"
+    }
+  ]
+}
+</script>
+<style>
+.article{padding:8.5rem 1.5rem 4rem;}
+.article-inner{max-width:740px;margin:0 auto;}
+.article-crumbs{font-size:13px;color:var(--text2);margin-bottom:1rem;}
+.article-crumbs a{color:var(--accent);text-decoration:none;}
+.article-crumbs span{margin:0 .35rem;opacity:.5;}
+.article-meta{font-size:13px;color:var(--text2);margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;}
+.article-tag{background:#0e9e7a;color:#fff;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 9px;border-radius:999px;}
+.article h1{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15;letter-spacing:-.5px;color:var(--text);margin-bottom:1.5rem;}
+.article h2{font-family:var(--display);font-size:1.45rem;line-height:1.25;color:var(--text);margin:2.6rem 0 .9rem;}
+.article p,.article li{font-size:17px;line-height:1.75;color:var(--text);}
+.article p{margin-bottom:1.1rem;}
+.article ul,.article ol{margin:0 0 1.2rem 1.3rem;}
+.article li{margin-bottom:.45rem;}
+.article a{color:var(--accent);}
+.article-lead{font-size:19px !important;line-height:1.7 !important;border-left:3px solid var(--accent);padding-left:1.1rem;margin-bottom:1.6rem !important;}
+.article-table-wrap{overflow-x:auto;margin:0 0 1.2rem;}
+.article-table{width:100%;border-collapse:collapse;font-size:15px;}
+.article-table th,.article-table td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text);}
+.article-table th{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);}
+.article-table td:first-child{white-space:nowrap;font-weight:600;}
+.article-table tr.hl td{background:var(--bg2);}
+.article-checklist li::marker{color:var(--accent);font-weight:700;}
+.article-note{font-size:14px !important;color:var(--text2) !important;background:var(--bg2);border-radius:10px;padding:.9rem 1.1rem;margin-top:2rem;}
+.article-author{display:flex;gap:1rem;align-items:center;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:14px;color:var(--text2);line-height:1.6;}
+.article-author img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+.article-author strong{color:var(--text);}
+.article-cta{display:flex;gap:1.2rem;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding:1.4rem 1.5rem;border:1px solid var(--border);border-radius:14px;background:var(--surface);font-size:15px;color:var(--text2);line-height:1.6;}
+.article-cta strong{color:var(--text);}
+.article-cta .btn-primary{color:#fff;text-decoration:none;white-space:nowrap;}
+.article-back{margin-top:2rem;font-size:15px !important;}
+.article-back a{text-decoration:none;font-weight:600;}
+@media(max-width:760px){.article{padding:7rem 1.2rem 3rem;}.article p,.article li{font-size:16px;}.article-lead{font-size:17px !important;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a class="logo-wrap" href="/index.html">
+      <svg width="36" height="36" viewBox="0 0 38 38" fill="none"><rect x="0" y="2" width="34" height="9" rx="2.5" fill="#2f5fe0"/><rect x="3" y="14" width="28" height="9" rx="2.5" fill="#2f5fe0" opacity="0.68"/><rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/><circle cx="37" cy="5" r="4" fill="#0e9e7a"/><circle cx="37" cy="5" r="2" fill="white"/></svg>
+      <div class="logo-text"><span class="logo-name">Neolith<span class="ai">AI</span></span><span class="logo-sub">Agency</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/services.html" data-nav="services">Services</a></li>
+      <li><a href="/cases.html" data-nav="cases">Cases</a></li>
+      <li><a href="/about.html" data-nav="about">About</a></li>
+      <li><a href="/blog.html" data-nav="blog" class="active">Blog</a></li>
+      <li><a href="/contact.html" data-nav="contact">Contact</a></li>
+      <li><a href="/contact.html#book" class="nav-cta" data-nav="book">Book a Call</a></li>
+    </ul>
+    <div class="nav-right">
+
+      <button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/services.html" onclick="toggleMenu()">Services</a>
+  <a href="/restaurants.html" onclick="toggleMenu()">For Restaurants</a>
+  <a href="/bfs.html" onclick="toggleMenu()">For Small Business</a>
+  <a href="/cases.html" onclick="toggleMenu()">Cases</a>
+  <a href="/about.html" onclick="toggleMenu()">About</a>
+  <a href="/blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="/contact.html" onclick="toggleMenu()">Contact</a>
+  <div class="mobile-cta-wrap"><a href="/contact.html#book" class="btn-primary" style="display:block;text-align:center;" onclick="toggleMenu()">Book a Free Call</a></div>
+</div>
+
+<!-- PAGE HERO -->
+
+<!-- ARTICLE -->
+<article class="article">
+  <div class="article-inner">
+    <div class="article-crumbs" aria-label="Breadcrumb"><a href="/blog.html">Blog</a> <span>/</span> Method</div>
+    <div class="article-meta"><span class="article-tag" style="background:#2f5fe0;">Method</span> <time datetime="2026-11-21">21 November 2026</time> · Yevhenii Nohin · 5 min read</div>
+    <h1>Three questions we ask before writing a single node</h1>
+
+    <p class="article-lead">Who notices when this breaks? How will we know it worked? What does the business do on the day it's switched off? If any of the three has no answer, it's too early to build. Here's what the questions mean in practice, and how we answer them in our own systems — including one place where our first answer was weak.</p>
+
+    <h2>1. Who notices when this breaks?</h2>
+    <p>Automation rarely fails loudly. A supplier changes their email format, an access token expires, Google returns an empty file list. The worst case isn't an error. It's "nothing happened," which looks exactly like "everything's fine."</p>
+    <p><strong>Our first answer was weak.</strong> In Kestrel, our invoice checking system, n8n errors go to a separate workflow that writes them to the database. The error is on record, but nobody hears about it until someone goes looking. That's half an answer.</p>
+    <p><strong>In Osprey, we fixed it.</strong> Every workflow reports failures to an error-handling workflow, which marks the run as failed and <strong>emails the operator what stopped, where, and what to do</strong>. A run counts as finished only when every stage has succeeded, and the database itself enforces that, not good intentions. An empty response from Google Drive is treated as an error, not as "no documents." A file in an unexpected place becomes a finding for a person, never a silent skip.</p>
+    <p>The rule we took away: <strong>"found nothing" and "couldn't look" must never look the same.</strong></p>
+
+    <h2>2. How will we know it worked?</h2>
+    <p>Usually "it works" means "it doesn't crash." But a system that never crashes and misses half the errors is worse than none, because people trust it.</p>
+    <p>Our answer is measurement against a known answer. We plant errors in a test batch, record them in a ledger, and measure the system against it: 94 out of 98 for <a href="/blog/supplier-invoice-checking-accuracy.html">Kestrel</a>, 219 out of 220 for Osprey. With a client, that's the pilot: a first run on their own documents, with a result they can check.</p>
+    <p>This question also decides <strong>how to price the work</strong>. If success can be measured, paying for results is a real option. If it can't, value-based pricing is guesswork, and hourly billing is the honest choice.</p>
+
+    <h2>3. What does the business do on the day it's switched off?</h2>
+    <p>This is the question people dislike. But an automation nobody can live without and nobody can operate is a liability dressed as an asset.</p>
+    <p>Our systems are built so that switching them off breaks nothing:</p>
+    <ul>
+      <li><strong>Read-only access.</strong> Osprey never renames, moves or edits anything in Google Drive. Kestrel never alters a supplier's invoice.</li>
+      <li><strong>Originals stay where they were.</strong> Documents live exactly where they lived before the system arrived.</li>
+      <li><strong>Reports are ordinary Google Sheets.</strong> They stay readable after the system stops.</li>
+    </ul>
+    <p>And a rule for client work: <strong>the manual fallback is written down before we build, in the client's own words, and tested once.</strong> If the system stops tomorrow, someone has to know what to do on Monday morning.</p>
+
+    <h2>If there's no answer</h2>
+    <p>That doesn't mean the automation isn't worth doing. It means you start somewhere else:</p>
+    <div class="article-table-wrap">
+    <table class="article-table">
+      <thead><tr><th>Question</th><th>Bad answer</th><th>Where to start</th></tr></thead>
+      <tbody>
+        <tr><td>Who notices when it breaks?</td><td>"We'll see"</td><td>Name a person and a channel: who gets the error message, and where</td></tr>
+        <tr><td>How will we know it worked?</td><td>"Well, it runs"</td><td>Pick one measurable number and record it before launch</td></tr>
+        <tr><td>What happens when it's switched off?</td><td>"It won't be"</td><td>Write the manual procedure and walk through it once</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>The three questions take half an hour of conversation. Skipping them costs months.</p>
+
+    <p class="article-note">Kestrel and Osprey were tested on synthetic data; every name and document is fictional. More on how review works inside them: <a href="/blog/human-in-the-loop-review-design.html">Human-in-the-loop is a deliverable</a>.</p>
+
+    <div class="article-author">
+      <img src="/images/founder.jpg" alt="Yevhenii Nohin" width="56" height="56" loading="lazy"/>
+      <div><strong>Yevhenii Nohin</strong><br/>Founder of NeolithAI Agency, AI Automation Engineer and n8n Verified Creator. Builds measured AI automation for small businesses from Kraków.</div>
+    </div>
+
+    <div class="article-cta">
+      <div><strong>Have an automation in mind?</strong><br/>Bring the three answers — or bring the questions, and we'll work through them on a free 30-minute call.</div>
+      <a href="/contact.html#book" class="btn-primary">Book a free call</a>
+    </div>
+
+    <p class="article-back"><a href="/blog.html">← All articles</a></p>
+  </div>
+</article>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo-wrap" href="/index.html" style="margin-bottom:12px;display:inline-flex;"><svg width="32" height="32" viewBox="0 0 38 38" fill="none"><rect x="0" y="2" width="34" height="9" rx="2.5" fill="#2f5fe0"/><rect x="3" y="14" width="28" height="9" rx="2.5" fill="#2f5fe0" opacity="0.68"/><rect x="7" y="26" width="20" height="9" rx="2.5" fill="#0e9e7a"/><circle cx="37" cy="5" r="4" fill="#0e9e7a"/><circle cx="37" cy="5" r="2" fill="white"/></svg><div class="logo-text" style="margin-left:8px;"><span class="logo-name">Neolith<span class="ai">AI</span></span><span class="logo-sub">Agency</span></div></a>
+        <p class="footer-tagline"><span class="active">AI automation for small businesses across EU & UK.</span></p>
+      </div>
+      <div class="footer-col"><h4><span class="active">Services</span></h4><a href="/services.html"><span class="active">AI Agent Design</span></a><a href="/services.html#pricing"><span class="active">Pricing</span></a><a href="/restaurants.html"><span class="active">For Restaurants</span></a><a href="/bfs.html"><span class="active">For Small Business</span></a></div>
+      <div class="footer-col"><h4><span class="active">Company</span></h4><a href="/about.html"><span class="active">About us</span></a><a href="/cases.html"><span class="active">Cases</span></a><a href="/contact.html"><span class="active">Contact</span></a></div>
+      <div class="footer-col"><h4><span class="active">Connect</span></h4><a href="mailto:yevhenii.nohin@neolithai.agency">yevhenii.nohin@neolithai.agency</a><a href="https://www.linkedin.com/in/yevhenii-n-06b403347/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.facebook.com/NeolithAIAgency" target="_blank" rel="noopener">Facebook</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 NeolithAI Agency. All rights reserved. · <a href="/privacy.html" style="color:rgba(255,255,255,0.5);text-decoration:none;">Privacy Policy</a></span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/yevhenii-n-06b403347/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://github.com/Evgeniy1970-ai" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+        <a href="https://www.upwork.com/freelancers/~013cd102dcb30a209f" target="_blank" rel="noopener" aria-label="Upwork"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+        <a href="https://www.facebook.com/NeolithAIAgency" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- AI CHAT WIDGET -->
+<button class="ai-widget-btn" onclick="toggleChat()" aria-label="Chat with Neo"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span class="ai-widget-pulse"></span></button>
+<div class="ai-chat-panel" id="aiChatPanel">
+  <div class="ai-chat-header"><div class="ai-chat-avatar"><i data-lucide="bot" class="ic-sm"></i></div><div class="ai-chat-header-info"><div class="ai-chat-name">Neo · NeolithAI Assistant</div><div class="ai-chat-disclosure"><span class="active">AI assistant</span></div><div class="ai-chat-status"><span class="active">Online · replies instantly</span></div></div><button class="ai-chat-close" onclick="closeChat()">✕</button></div>
+  <div class="ai-chat-messages" id="aiChatMessages"></div>
+  <div class="ai-chat-suggestions" id="aiSuggestions">
+    <button class="ai-suggestion" onclick="sendSuggestion('How can I start automating my business?')">Get started</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('What is RAG and do I need it?')">What is RAG?</button>
+    <button class="ai-suggestion" onclick="sendSuggestion('I want to book a free consultation')">Book a call</button>
+  </div>
+  <div class="ai-chat-input-row">
+    <textarea class="ai-chat-input" id="aiChatInput" rows="1" placeholder="Ask me anything..." onkeydown="handleChatKey(event)"></textarea>
+    <button class="ai-chat-send" onclick="var i=document.getElementById('aiChatInput');sendMessage(i.value.trim())"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+  </div>
+</div>
+<form name="chat-booking" netlify style="display:none"><input name="conversation"/></form>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="/neolithai-shared.js"></script>
+</body>
+</html>
